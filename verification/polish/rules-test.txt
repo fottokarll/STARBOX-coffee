@@ -1,0 +1,8 @@
+espresso results 17.27 23 { bean: 6, milk: 0 } PERFECT COFFEE
+latte results 23.25 31 { bean: 8, milk: 5 } PERFECT COFFEE
+low fps 30 PERFECT COFFEE 23.73
+low fps 15 PERFECT COFFEE 24.73
+low fps 10 PERFECT COFFEE 27.73
+incomplete GREAT COFFEE { bean: 6, milk: 5 } 23.27
+weak WEAK COFFEE { bean: 3, milk: 0 }
+Polish rules passed: original switchbacks, recipes, recovery, permanent timber routes and input fairness.

@@ -1,0 +1,41 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "findings": [],
+    "manifest": {
+      "entry": "main.js",
+      "name": "STARBOX COFFEE: Coffee Rising",
+      "description": "CLIMB. COLLECT. BREW. Circle a giant cup as a pixel barista, leap up spiral steps and outrun rising coffee. Order Espresso or Latte; collect every recipe ingredient for Perfect Coffee. Free arcade play, instant retries and collectible drink cards.",
+      "maxPlayers": 8,
+      "credits": [
+        {
+          "work": "STARBOX architecture, pixel barista, cards and arcade sound effects",
+          "by": "Original procedural artwork and synthesis created for this experience"
+        },
+        {
+          "work": "DejaVu Sans lettering in original card artwork",
+          "by": "DejaVu font team; Bitstream Vera licence included in assets/font-license.txt"
+        }
+      ],
+      "loading": {
+        "background": "#1e3932",
+        "accent": "#c8a66a",
+        "text": "#f2f0e8",
+        "cover": "assets/cover.png",
+        "fit": "contain"
+      },
+      "ui": "minimized",
+      "stick": false
+    },
+    "stats": {
+      "files": 20,
+      "bytes": 230287,
+      "sourceBytes": 37612,
+      "bundleBytes": 48194
+    },
+    "hash": "60d9ece485b8022b"
+  }
+}

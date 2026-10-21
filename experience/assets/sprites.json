@@ -1,0 +1,35 @@
+{
+  "image": "barista.png",
+  "frameWidth": 32,
+  "frameHeight": 40,
+  "frames": 10,
+  "animations": {
+    "idle": [
+      0,
+      1
+    ],
+    "run": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "jump": [
+      6
+    ],
+    "fall": [
+      7
+    ],
+    "celebrate": [
+      8,
+      9
+    ]
+  },
+  "fps": {
+    "idle": 3,
+    "run": 10,
+    "celebrate": 6
+  },
+  "filter": "nearest",
+  "mipmaps": false
+}

@@ -1,0 +1,1357 @@
+{
+  "view": "review",
+  "mode": "recovery",
+  "result": {
+    "menu": {
+      "recipe": "espresso",
+      "character": "boy",
+      "start": 5,
+      "screenshots": [
+        "/workspace/work/polish/reports/polish-recovery-proof-review-title.png",
+        "/workspace/work/polish/reports/polish-recovery-proof-review-order.png",
+        "/workspace/work/polish/reports/polish-recovery-proof-review-character-boy.png",
+        "/workspace/work/polish/reports/polish-recovery-proof-review-go.png"
+      ]
+    },
+    "recovery": {
+      "biscuit": 6,
+      "fallback": 5,
+      "refuge": 28,
+      "retreated": true,
+      "reformed": {
+        "platform": 6,
+        "type": "reform"
+      },
+      "recoveryVerified": true,
+      "finished": false,
+      "result": null,
+      "approach": {
+        "recipe": "espresso",
+        "perfectRoute": false,
+        "result": null,
+        "stoppedAt": 6,
+        "wallSeconds": 13.468,
+        "trace": [
+          {
+            "wallTime": 0.004,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 0,
+            "target": 1,
+            "theta": 0,
+            "y": 0.008333333333333526,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 0.182,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 0,
+            "target": 1,
+            "theta": 0.0005902777777777778,
+            "y": 0,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 1.428,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 0,
+            "target": 1,
+            "theta": 0.47,
+            "y": 1.7583333333333335,
+            "velocity": 1.0999999999999999,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 1.773,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 1,
+            "target": 2,
+            "theta": 0.46968750000000004,
+            "y": 1.15,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0,
+              1
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 1.829,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 1,
+            "target": 2,
+            "theta": 0.46968750000000004,
+            "y": 1.15,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0,
+              1
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 2.022,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 1,
+            "target": 2,
+            "theta": 0.4702777777777778,
+            "y": 1.15,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [],
+            "landed": [
+              0,
+              1
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 3.224,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 1,
+            "target": 2,
+            "theta": 1.06,
+            "y": 2.966666666666667,
+            "velocity": 1.55,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 3.715,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 2,
+            "target": 3,
+            "theta": 1.1718750000000004,
+            "y": 2.3,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 3.771,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 2,
+            "target": 3,
+            "theta": 1.1718750000000004,
+            "y": 2.3,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 4.038,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 2,
+            "target": 3,
+            "theta": 1.1724652777777782,
+            "y": 2.3,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 5.27,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 2,
+            "target": 3,
+            "theta": 1.58,
+            "y": 4.050000000000001,
+            "velocity": 1.55,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 5.823,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 3,
+            "target": 4,
+            "theta": 1.6932291666666675,
+            "y": 3.4499999999999997,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 7.769,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 3,
+            "target": 4,
+            "theta": 1.69,
+            "y": 3.466666666666667,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 7.93,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 3,
+            "target": 4,
+            "theta": 1.6938194444444452,
+            "y": 3.4499999999999997,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 9.143,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 3,
+            "target": 4,
+            "theta": 2.26,
+            "y": 5.3,
+            "velocity": 1.55,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 9.579,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 4,
+            "target": 5,
+            "theta": 2.3695833333333307,
+            "y": 4.6,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 9.631,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 4,
+            "target": 5,
+            "theta": 2.3695833333333307,
+            "y": 4.6,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 9.833,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 4,
+            "target": 5,
+            "theta": 2.3701736111111087,
+            "y": 4.6,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 11.071,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 4,
+            "target": 5,
+            "theta": 2.96,
+            "y": 6.425,
+            "velocity": 1.55,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 11.473,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 5,
+            "target": 6,
+            "theta": 3.071770833333324,
+            "y": 5.75,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 11.524,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 5,
+            "target": 6,
+            "theta": 3.071770833333324,
+            "y": 5.75,
+            "velocity": 0,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 11.723,
+            "move": 1,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 5,
+            "target": 6,
+            "theta": 3.072361111111102,
+            "y": 5.75,
+            "velocity": 0.07083333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 12.97,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 5,
+            "target": 6,
+            "theta": 3.59,
+            "y": 7.508333333333332,
+            "velocity": 1.0999999999999988,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 13.429,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "stopped",
+            "current": 6,
+            "target": 7,
+            "theta": 3.599027777777765,
+            "y": 6.8999999999999995,
+            "velocity": 0.2833333333333333,
+            "scale": 0.24,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "result": null
+          }
+        ],
+        "events": [
+          {
+            "type": "jump",
+            "elapsed": 0.7749999999999997,
+            "theta": 0.0005902777777777778,
+            "y": 0,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 1,
+            "elapsed": 1.4999999999999971,
+            "theta": 0.46968750000000004,
+            "y": 1.15,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 1.5416666666666636,
+            "theta": 0.4702777777777778,
+            "y": 1.15,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "id": "bean-2",
+            "kind": "bean",
+            "type": "collect"
+          },
+          {
+            "type": "land",
+            "platform": 2,
+            "elapsed": 2.2666666666666613,
+            "theta": 1.1718750000000004,
+            "y": 2.3,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 2.341666666666661,
+            "theta": 1.1724652777777782,
+            "y": 2.3,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 3,
+            "elapsed": 3.0666666666666584,
+            "theta": 1.6932291666666675,
+            "y": 3.4499999999999997,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 3.9249999999999887,
+            "theta": 1.6938194444444452,
+            "y": 3.4499999999999997,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 4,
+            "elapsed": 4.650000000000021,
+            "theta": 2.3695833333333307,
+            "y": 4.6,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 4.708333333333357,
+            "theta": 2.3701736111111087,
+            "y": 4.6,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 5,
+            "elapsed": 5.433333333333393,
+            "theta": 3.071770833333324,
+            "y": 5.75,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 5.541666666666732,
+            "theta": 3.072361111111102,
+            "y": 5.75,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 6,
+            "elapsed": 6.266666666666768,
+            "theta": 3.599027777777765,
+            "y": 6.8999999999999995,
+            "vTheta": 0.2833333333333333,
+            "vY": 0
+          },
+          {
+            "platform": 6,
+            "type": "crumbleStart"
+          }
+        ],
+        "collected": [
+          "bean-2"
+        ],
+        "landed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "timedOut": false
+      },
+      "continued": {
+        "recipe": "espresso",
+        "perfectRoute": false,
+        "result": null,
+        "stoppedAt": 7,
+        "wallSeconds": 3.484,
+        "trace": [
+          {
+            "wallTime": 1.653,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "ground",
+            "current": 6,
+            "target": 7,
+            "theta": 4.1418402777777565,
+            "y": 6.8999999999999995,
+            "velocity": 1.55,
+            "scale": 0.24066574330386117,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              28,
+              6
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 1.705,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": true,
+            "phase": "launch",
+            "current": 6,
+            "target": 7,
+            "theta": 4.1,
+            "y": 6.987010102074295,
+            "velocity": 1.55,
+            "scale": 0.24066574330386117,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              28,
+              6
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 1.829,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 6,
+            "target": 7,
+            "theta": 4.270312499999977,
+            "y": 6.864999999999999,
+            "velocity": 1.4666666666666668,
+            "scale": 0.24066574330386117,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              28,
+              6
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 3.091,
+            "move": 0,
+            "jump": true,
+            "jumpPressed": false,
+            "phase": "air",
+            "current": 6,
+            "target": 7,
+            "theta": 4.37,
+            "y": 8.60751493440347,
+            "velocity": 0,
+            "scale": 0.24066574330386117,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              28,
+              6
+            ],
+            "result": null
+          },
+          {
+            "wallTime": 3.475,
+            "move": 0,
+            "jump": false,
+            "jumpPressed": false,
+            "phase": "stopped",
+            "current": 7,
+            "target": 8,
+            "theta": 4.371840277777754,
+            "y": 8.049999999999999,
+            "velocity": 0,
+            "scale": 0.24066574330386117,
+            "requiredRemaining": [],
+            "collected": [
+              "bean-2"
+            ],
+            "landed": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              28,
+              6,
+              7
+            ],
+            "result": null
+          }
+        ],
+        "events": [
+          {
+            "type": "jump",
+            "elapsed": 0.7749999999999997,
+            "theta": 0.0005902777777777778,
+            "y": 0,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 1,
+            "elapsed": 1.4999999999999971,
+            "theta": 0.46968750000000004,
+            "y": 1.15,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 1.5416666666666636,
+            "theta": 0.4702777777777778,
+            "y": 1.15,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "id": "bean-2",
+            "kind": "bean",
+            "type": "collect"
+          },
+          {
+            "type": "land",
+            "platform": 2,
+            "elapsed": 2.2666666666666613,
+            "theta": 1.1718750000000004,
+            "y": 2.3,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 2.341666666666661,
+            "theta": 1.1724652777777782,
+            "y": 2.3,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 3,
+            "elapsed": 3.0666666666666584,
+            "theta": 1.6932291666666675,
+            "y": 3.4499999999999997,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 3.9249999999999887,
+            "theta": 1.6938194444444452,
+            "y": 3.4499999999999997,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 4,
+            "elapsed": 4.650000000000021,
+            "theta": 2.3695833333333307,
+            "y": 4.6,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 4.708333333333357,
+            "theta": 2.3701736111111087,
+            "y": 4.6,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 5,
+            "elapsed": 5.433333333333393,
+            "theta": 3.071770833333324,
+            "y": 5.75,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "type": "jump",
+            "elapsed": 5.541666666666732,
+            "theta": 3.072361111111102,
+            "y": 5.75,
+            "vTheta": 0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 6,
+            "elapsed": 6.266666666666768,
+            "theta": 3.599027777777765,
+            "y": 6.8999999999999995,
+            "vTheta": 0.2833333333333333,
+            "vY": 0
+          },
+          {
+            "platform": 6,
+            "type": "crumbleStart"
+          },
+          {
+            "platform": 6,
+            "type": "crumble"
+          },
+          {
+            "platform": 6,
+            "type": "collapse"
+          },
+          {
+            "type": "jump",
+            "elapsed": 7.325000000000154,
+            "theta": 3.6995833333333206,
+            "y": 6.8999999999999995,
+            "vTheta": -0.07083333333333333,
+            "vY": 8.2
+          },
+          {
+            "type": "land",
+            "platform": 28,
+            "elapsed": 8.116666666666847,
+            "theta": 3.411319444444432,
+            "y": 7.6899999999999995,
+            "vTheta": 0,
+            "vY": 0
+          },
+          {
+            "platform": 6,
+            "type": "reform"
+          },
+          {
+            "type": "land",
+            "platform": 6,
+            "elapsed": 10.491666666666712,
+            "theta": 4.1418402777777565,
+            "y": 6.8999999999999995,
+            "vTheta": 1.55,
+            "vY": 0
+          },
+          {
+            "platform": 6,
+            "type": "crumbleStart"
+          },
+          {
+            "type": "jump",
+            "elapsed": 10.57500000000004,
+            "theta": 4.270312499999977,
+            "y": 6.864999999999999,
+            "vTheta": 1.4666666666666668,
+            "vY": 8.2
+          },
+          {
+            "platform": 6,
+            "type": "crumble"
+          },
+          {
+            "type": "land",
+            "platform": 7,
+            "elapsed": 11.291666666666666,
+            "theta": 4.371840277777754,
+            "y": 8.049999999999999,
+            "vTheta": 0,
+            "vY": 0
+          }
+        ],
+        "collected": [
+          "bean-2"
+        ],
+        "landed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          28,
+          6,
+          7
+        ],
+        "timedOut": false
+      },
+      "screenshots": [
+        "/workspace/work/polish/reports/polish-recovery-proof-review-biscuit-cracking.png",
+        "/workspace/work/polish/reports/polish-recovery-proof-review-biscuit-missing.png",
+        "/workspace/work/polish/reports/polish-recovery-proof-review-biscuit-restored.png"
+      ]
+    }
+  },
+  "status": "started",
+  "reason": null,
+  "summary": "started \"STARBOX COFFEE: Coffee Rising\" in 43.3 s (17 files, 2.5 MB); 1 player; first frame 17 ms; 3 fps",
+  "frames": {
+    "fps": 3,
+    "avg": 185.1,
+    "p95": 402.3,
+    "worst": 1460.3,
+    "first": 16.9,
+    "count": 270,
+    "over50": 158,
+    "over250": 106,
+    "recent": [
+      196.4,
+      314.6,
+      6.4,
+      186.1,
+      0.6,
+      291.9,
+      5.9,
+      299.4,
+      14.2,
+      344.7,
+      251.8,
+      4.1,
+      254.9,
+      14.7,
+      272.6,
+      265.3,
+      37.5,
+      208.6,
+      12.6,
+      282.3,
+      1.1,
+      289.7,
+      2.6,
+      248.3,
+      8.1,
+      274.6,
+      11.8,
+      272.5,
+      8.5,
+      284.7,
+      252.6,
+      36.3,
+      230.7,
+      12.4,
+      279,
+      7.3,
+      323.3,
+      7.3,
+      346.8,
+      325.4,
+      0.2,
+      198.5,
+      15.3,
+      258.6,
+      7.5,
+      60.5,
+      29.2,
+      433.5,
+      10.5,
+      213.6,
+      304,
+      2.4,
+      158.3,
+      226.3,
+      278.9,
+      0.2,
+      176.9,
+      2.6,
+      314.7,
+      3.6,
+      389.8,
+      232,
+      12.8,
+      277,
+      2.7,
+      376.1,
+      7.1,
+      322.2,
+      319.3,
+      33.7,
+      188.1,
+      4.4,
+      1211.4,
+      33,
+      7.2,
+      183.6,
+      2.4,
+      420.7,
+      0.2,
+      272.9,
+      297.3,
+      7.3,
+      279.1,
+      4,
+      300.1,
+      29.8,
+      512.8,
+      9.5,
+      314.3,
+      4.5,
+      232.9,
+      0.1,
+      204.5,
+      242.1,
+      294.9,
+      165.9,
+      1.1,
+      309.8,
+      8.1,
+      379.2,
+      204.1,
+      185.5,
+      0.1,
+      295.8,
+      260.1,
+      278.3,
+      1.8,
+      291.3,
+      4.9,
+      315.6,
+      2.4,
+      353.4,
+      357.8,
+      33.8,
+      402.3,
+      42.5,
+      6.8,
+      784.9,
+      0.3,
+      5.2
+    ]
+  },
+  "console": [
+    "devkit: 7 modules, 114 KB from http://localhost:5500/",
+    "log: Coffee Rising: course {\"recipe\":\"latte\",\"top\":35.65,\"platforms\":43,\"scale\":0.24,\"base\":0.85,\"finish\":31,\"switchbacks\":3}",
+    "log: STARBOX COFFEE: Coffee Rising ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "log: Coffee Rising: screen title",
+    "devkit: Started in 43.3 s (17 files, 2.5 MB loaded)",
+    "log: Coffee Rising: screen order",
+    "log: Coffee Rising: course {\"recipe\":\"espresso\",\"top\":26.45,\"platforms\":33,\"scale\":0.24,\"base\":0.85,\"finish\":23,\"switchbacks\":3}",
+    "log: Coffee Rising: screen character",
+    "log: Coffee Rising: screen game",
+    "log: Coffee Rising: round started espresso boy 1",
+    "log: Coffee Rising: screen countdown",
+    "log: Coffee Rising: GO",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.7749999999999997,\"theta\":0.0005902777777777778,\"y\":0,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":1.4999999999999971,\"theta\":0.46968750000000004,\"y\":1.15,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":1.5416666666666636,\"theta\":0.4702777777777778,\"y\":1.15,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: collect {\"id\":\"bean-2\",\"kind\":\"bean\"}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":2,\"elapsed\":2.2666666666666613,\"theta\":1.1718750000000004,\"y\":2.3,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":2.341666666666661,\"theta\":1.1724652777777782,\"y\":2.3,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":3,\"elapsed\":3.0666666666666584,\"theta\":1.6932291666666675,\"y\":3.4499999999999997,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":3.9249999999999887,\"theta\":1.6938194444444452,\"y\":3.4499999999999997,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":4,\"elapsed\":4.650000000000021,\"theta\":2.3695833333333307,\"y\":4.6,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":4.708333333333357,\"theta\":2.3701736111111087,\"y\":4.6,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":5,\"elapsed\":5.433333333333393,\"theta\":3.071770833333324,\"y\":5.75,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":5.541666666666732,\"theta\":3.072361111111102,\"y\":5.75,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":6,\"elapsed\":6.266666666666768,\"theta\":3.599027777777765,\"y\":6.8999999999999995,\"vTheta\":0.2833333333333333,\"vY\":0}",
+    "log: Coffee Rising: crumbleStart {\"platform\":6}",
+    "log: Coffee Rising: crumble {\"platform\":6}",
+    "log: Coffee Rising: collapse {\"platform\":6}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":7.325000000000154,\"theta\":3.6995833333333206,\"y\":6.8999999999999995,\"vTheta\":-0.07083333333333333,\"vY\":8.2}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":28,\"elapsed\":8.116666666666847,\"theta\":3.411319444444432,\"y\":7.6899999999999995,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: reform {\"platform\":6}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":6,\"elapsed\":10.491666666666712,\"theta\":4.1418402777777565,\"y\":6.8999999999999995,\"vTheta\":1.55,\"vY\":0}",
+    "log: Coffee Rising: crumbleStart {\"platform\":6}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":10.57500000000004,\"theta\":4.270312499999977,\"y\":6.864999999999999,\"vTheta\":1.4666666666666668,\"vY\":8.2}",
+    "log: Coffee Rising: crumble {\"platform\":6}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":7,\"elapsed\":11.291666666666666,\"theta\":4.371840277777754,\"y\":8.049999999999999,\"vTheta\":0,\"vY\":0}",
+    "log: Coffee Rising: collapse {\"platform\":6}"
+  ],
+  "errors": [],
+  "hud": "STARBOX COFFEE: Coffee Rising. CLIMB. COLLECT. BREW. Space: choose coffee and barista. A/D or arrows: circle the cup. Hold Space/W/Up: jump. Biscuits crack, collapse and return in 1.8 seconds; permanent green timber detours offer safer extra jumps. White ceramic has a gentle glide. Follow lanterns in both directions; golden forks hold recipe ingredients. R retry / P pause / M mute. Touch supported",
+  "room": {
+    "online": true,
+    "id": 1,
+    "me": 1,
+    "host": 1,
+    "tick": 0,
+    "players": [
+      {
+        "id": 1,
+        "name": "Dev",
+        "color": "#7fd4ff",
+        "bot": false
+      }
+    ],
+    "keys": 0,
+    "bytes": 0,
+    "state": {},
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    },
+    "dropped": 0,
+    "heard": 0,
+    "position": {
+      "x": -1.13,
+      "y": 2.95,
+      "z": -0.4,
+      "yaw": 4.37
+    }
+  },
+  "screenshot": "/workspace/work/polish/reports/polish-recovery-proof-review-final.png",
+  "browserLogs": [
+    "info: [lot 0 experience] [dev kit] 7 modules, 114 KB from http://localhost:5500/",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":35.65,\"platforms\":43,\"scale\":0.24,\"base\":0.85,\"finish\":31,\"switchbacks\":3}",
+    "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+    "info: [lot 0 experience] STARBOX COFFEE: Coffee Rising ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "info: [lot 0 experience] Coffee Rising: screen title",
+    "info: [devkit] started \"STARBOX COFFEE: Coffee Rising\" in 43.3 s (17 files, 2.5 MB); 1 player; first frame 17 ms; 1 fps",
+    "info: [lot 0 experience] Coffee Rising: screen order",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"espresso\",\"top\":26.45,\"platforms\":33,\"scale\":0.24,\"base\":0.85,\"finish\":23,\"switchbacks\":3}",
+    "info: [lot 0 experience] Coffee Rising: screen character",
+    "info: [lot 0 experience] Coffee Rising: screen game",
+    "info: [lot 0 experience] Coffee Rising: round started espresso boy 1",
+    "info: [lot 0 experience] Coffee Rising: screen countdown",
+    "info: [lot 0 experience] Coffee Rising: GO",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.7749999999999997,\"theta\":0.0005902777777777778,\"y\":0,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":1.4999999999999971,\"theta\":0.46968750000000004,\"y\":1.15,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":1.5416666666666636,\"theta\":0.4702777777777778,\"y\":1.15,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: collect {\"id\":\"bean-2\",\"kind\":\"bean\"}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":2,\"elapsed\":2.2666666666666613,\"theta\":1.1718750000000004,\"y\":2.3,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":2.341666666666661,\"theta\":1.1724652777777782,\"y\":2.3,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":3,\"elapsed\":3.0666666666666584,\"theta\":1.6932291666666675,\"y\":3.4499999999999997,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":3.9249999999999887,\"theta\":1.6938194444444452,\"y\":3.4499999999999997,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":4,\"elapsed\":4.650000000000021,\"theta\":2.3695833333333307,\"y\":4.6,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":4.708333333333357,\"theta\":2.3701736111111087,\"y\":4.6,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":5,\"elapsed\":5.433333333333393,\"theta\":3.071770833333324,\"y\":5.75,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":5.541666666666732,\"theta\":3.072361111111102,\"y\":5.75,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":6,\"elapsed\":6.266666666666768,\"theta\":3.599027777777765,\"y\":6.8999999999999995,\"vTheta\":0.2833333333333333,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: crumbleStart {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: crumble {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: collapse {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":7.325000000000154,\"theta\":3.6995833333333206,\"y\":6.8999999999999995,\"vTheta\":-0.07083333333333333,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":28,\"elapsed\":8.116666666666847,\"theta\":3.411319444444432,\"y\":7.6899999999999995,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: reform {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":6,\"elapsed\":10.491666666666712,\"theta\":4.1418402777777565,\"y\":6.8999999999999995,\"vTheta\":1.55,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: crumbleStart {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":10.57500000000004,\"theta\":4.270312499999977,\"y\":6.864999999999999,\"vTheta\":1.4666666666666668,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: crumble {\"platform\":6}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":7,\"elapsed\":11.291666666666666,\"theta\":4.371840277777754,\"y\":8.049999999999999,\"vTheta\":0,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: collapse {\"platform\":6}"
+  ],
+  "networkFailures": [
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}

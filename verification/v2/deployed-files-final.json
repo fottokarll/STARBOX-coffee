@@ -1,0 +1,34 @@
+{
+  "status": 200,
+  "response": {
+    "version": "c9fd6462a51c560f",
+    "files": [
+      "https://files.project0.city/x/696/c9fd6462a51c560f/bundle.js",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/CREDITS.txt",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/barista-preview.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/barista.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/card-espresso.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/card-latte.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/collect.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/cover.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/fail.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/font-license.txt",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/jump.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/land.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/perfect.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/sprites.json",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/start.wav",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/ART-CREDITS.txt",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/baristas.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/baristas.webp",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/cafe-atlas.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/card-espresso.jpg",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/card-latte.jpg",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/characters.json",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/cover-v2.jpg",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/lettering.json",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/v2/lettering.png",
+      "https://files.project0.city/x/696/c9fd6462a51c560f/assets/warning.wav"
+    ]
+  }
+}

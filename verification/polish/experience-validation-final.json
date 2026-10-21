@@ -1,0 +1,49 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "findings": [],
+    "manifest": {
+      "entry": "main.js",
+      "name": "STARBOX COFFEE: Coffee Rising",
+      "description": "CLIMB. COLLECT. BREW. Climb the same spiralling glass-mug cafe with Milo or Mira. Biscuits crack, crumble and reform; permanent timber detours offer a safer route. Collect Espresso or Latte recipes, outrun living coffee and earn Perfect Coffee cards. Free arcade play.",
+      "maxPlayers": 8,
+      "credits": [
+        {
+          "work": "STARBOX V2 baristas and glass-mug cafe cover",
+          "by": "Original artwork created with OpenAI image generation for STARBOX COFFEE"
+        },
+        {
+          "work": "Milo explorer animation polish",
+          "by": "Original OpenAI-generated sprite art from the supplied character direction; source and frame data preserved"
+        },
+        {
+          "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
+          "by": "Created for STARBOX COFFEE: Coffee Rising"
+        },
+        {
+          "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",
+          "by": "DejaVu font team; Bitstream Vera licence in assets/font-license.txt"
+        }
+      ],
+      "loading": {
+        "background": "#1e3932",
+        "accent": "#c8a66a",
+        "text": "#f2f0e8",
+        "cover": "assets/v2/cover-v2.jpg",
+        "fit": "cover"
+      },
+      "ui": "minimized",
+      "stick": false
+    },
+    "stats": {
+      "files": 37,
+      "bytes": 4818532,
+      "sourceBytes": 117175,
+      "bundleBytes": 130125
+    },
+    "hash": "3a19877ce5677aaa"
+  }
+}

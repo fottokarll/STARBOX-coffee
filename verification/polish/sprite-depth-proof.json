@@ -1,0 +1,85 @@
+{
+  "view": "review",
+  "mode": "smoke",
+  "status": "started",
+  "reason": null,
+  "summary": "started \"STARBOX sprite depth proof\" in 5.4 s (2 files, 9 KB); 1 player; first frame 601 ms; 8 fps",
+  "frames": {
+    "fps": 8,
+    "avg": 42.4,
+    "p95": 92.1,
+    "worst": 92.1,
+    "first": 600.6,
+    "count": 8,
+    "over50": 3,
+    "over250": 0,
+    "recent": [
+      58.1,
+      11.3,
+      92.1,
+      2.7,
+      77.3,
+      43.4,
+      11.8
+    ]
+  },
+  "console": [
+    "devkit: 2 modules, 9 KB from http://localhost:5504/",
+    "log: DEPTH PROOF {\"passed\":true,\"counts\":{\"clear\":4210,\"behind\":7740,\"inFront\":0},\"nativeSize\":[640,360],\"worldDepthSize\":[320,180]}",
+    "devkit: Started in 5.4 s (2 files, 9 KB loaded)"
+  ],
+  "errors": [],
+  "hud": "Sprite depth proof: PASS. Clear 4210; behind 7740; in front 0.",
+  "room": {
+    "online": true,
+    "id": 1,
+    "me": 1,
+    "host": 1,
+    "tick": 0,
+    "players": [
+      {
+        "id": 1,
+        "name": "Dev",
+        "color": "#7fd4ff",
+        "bot": false
+      }
+    ],
+    "keys": 0,
+    "bytes": 0,
+    "state": {},
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    },
+    "dropped": 0,
+    "heard": 0,
+    "position": {
+      "x": 0,
+      "y": 3,
+      "z": 8.9,
+      "yaw": 0
+    }
+  },
+  "screenshot": "/workspace/work/polish/reports/polish-occlusion-review-final.png",
+  "browserLogs": [
+    "info: [lot 0 experience] [dev kit] 2 modules, 9 KB from http://localhost:5504/",
+    "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+    "info: [lot 0 experience] DEPTH PROOF {\"passed\":true,\"counts\":{\"clear\":4210,\"behind\":7740,\"inFront\":0},\"nativeSize\":[640,360],\"worldDepthSize\":[320,180]}",
+    "info: [devkit] started \"STARBOX sprite depth proof\" in 5.4 s (2 files, 9 KB); 1 player; first frame 601 ms; 3 fps"
+  ],
+  "networkFailures": [
+    {
+      "url": "http://localhost:5504/barista.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5504/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5504/assets/polish/milo.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}

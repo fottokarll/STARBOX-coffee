@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 8277,
+    "check": "https://project0.city/api/agent/submissions/8277",
+    "item": {
+      "id": 718,
+      "kind": "card",
+      "name": "Perfect Latte",
+      "description": "STARBOX COFFEE / Coffee Rising. Earned by escaping Latte Rise with all six coffee beans and four milk droplets. SC-696-L. Original collectible card; free gameplay reward.",
+      "image": "https://files.project0.city/items/1228/a984bee47d48302ebc26b70edfd358a2.png",
+      "supply": null,
+      "issued": 0,
+      "gold": 0,
+      "creator": "Karll",
+      "lot": 696,
+      "byCode": false,
+      "status": "live"
+    }
+  }
+}

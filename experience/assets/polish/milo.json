@@ -1,0 +1,375 @@
+{
+  "image": "assets/polish/milo.webp",
+  "imageSize": [
+    512,
+    512
+  ],
+  "gameplayAtlasSize": 512,
+  "nominalBodyHeight": 76,
+  "animations": {
+    "idle": {
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fps": 2
+    },
+    "run": {
+      "frames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fps": 12
+    },
+    "jump": {
+      "frames": [
+        10
+      ],
+      "fps": 1
+    },
+    "apex": {
+      "frames": [
+        11
+      ],
+      "fps": 1
+    },
+    "fall": {
+      "frames": [
+        12
+      ],
+      "fps": 1
+    },
+    "land": {
+      "frames": [
+        13,
+        14
+      ],
+      "fps": 11
+    },
+    "victory": {
+      "frames": [
+        15
+      ],
+      "fps": 1
+    }
+  },
+  "characters": {
+    "boy": {
+      "name": "Milo",
+      "description": "The original star-cup explorer",
+      "frames": [
+        {
+          "pose": "idle0",
+          "rect": [
+            0,
+            0,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            54,
+            12,
+            276,
+            322
+          ]
+        },
+        {
+          "pose": "idle1",
+          "rect": [
+            128,
+            0,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            368,
+            12,
+            589,
+            322
+          ]
+        },
+        {
+          "pose": "idle2",
+          "rect": [
+            256,
+            0,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            684,
+            12,
+            900,
+            322
+          ]
+        },
+        {
+          "pose": "idle3",
+          "rect": [
+            384,
+            0,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            1005,
+            12,
+            1218,
+            322
+          ]
+        },
+        {
+          "pose": "run0",
+          "rect": [
+            0,
+            128,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            33,
+            331,
+            301,
+            625
+          ]
+        },
+        {
+          "pose": "run1",
+          "rect": [
+            128,
+            128,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            343,
+            330,
+            612,
+            628
+          ]
+        },
+        {
+          "pose": "run2",
+          "rect": [
+            256,
+            128,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            666,
+            340,
+            929,
+            628
+          ]
+        },
+        {
+          "pose": "run3",
+          "rect": [
+            384,
+            128,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            973,
+            331,
+            1241,
+            621
+          ]
+        },
+        {
+          "pose": "run4",
+          "rect": [
+            0,
+            256,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            13,
+            642,
+            272,
+            933
+          ]
+        },
+        {
+          "pose": "run5",
+          "rect": [
+            128,
+            256,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            342,
+            644,
+            605,
+            926
+          ]
+        },
+        {
+          "pose": "jump",
+          "rect": [
+            256,
+            256,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            657,
+            632,
+            923,
+            939
+          ]
+        },
+        {
+          "pose": "apex",
+          "rect": [
+            384,
+            256,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            974,
+            628,
+            1245,
+            894
+          ]
+        },
+        {
+          "pose": "fall",
+          "rect": [
+            0,
+            384,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            23,
+            934,
+            319,
+            1220
+          ]
+        },
+        {
+          "pose": "land0",
+          "rect": [
+            128,
+            384,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            358,
+            975,
+            632,
+            1219
+          ]
+        },
+        {
+          "pose": "land1",
+          "rect": [
+            256,
+            384,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            671,
+            950,
+            903,
+            1233
+          ]
+        },
+        {
+          "pose": "victory",
+          "rect": [
+            384,
+            384,
+            128,
+            128
+          ],
+          "anchor": [
+            0.5,
+            0.875
+          ],
+          "sourceRect": [
+            996,
+            930,
+            1234,
+            1235
+          ]
+        }
+      ]
+    }
+  },
+  "credits": "Original OpenAI-generated Milo explorer animation art; technical nearest frame extraction only. Source in tools/art-source/milo-polish-original.png."
+}

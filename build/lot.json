@@ -1,0 +1,9 @@
+{
+  "script": "build.js",
+  "materials": {
+    "Coffee": {"surface": "coffee.glsl", "glow": 0},
+    "Glass": {"surface": "glass.glsl", "glow": 0},
+    "WarmSigns": {"glow": 0.65},
+    "Architecture": {"glow": 0}
+  }
+}

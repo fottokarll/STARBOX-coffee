@@ -1,0 +1,78 @@
+{
+  "browserFullFinish": {
+    "report": "v2-climb-eventpose-espresso-review.json",
+    "recipe": "espresso",
+    "route": "main",
+    "ordinaryInputs": "official devkit key controls",
+    "result": {
+      "recipe": "espresso",
+      "time": 20.15833333333283,
+      "success": true,
+      "perfect": false,
+      "quality": "GREAT COFFEE",
+      "collected": {
+        "bean": 4,
+        "milk": 0
+      },
+      "required": {
+        "bean": 6,
+        "milk": 0
+      },
+      "bonusStars": 0,
+      "bonusScore": 0,
+      "score": 2119842
+    },
+    "wallSeconds": 52.256,
+    "runtimeErrors": [],
+    "switchbacks": 3,
+    "finalPlatformLogged": 23,
+    "heroScreenshot": "v2-climb-eventpose-espresso-review-playing.png"
+  },
+  "nativePhone": {
+    "report": "v2-phone-native-audited-phone.json",
+    "viewport": "390x844",
+    "recipe": "latte",
+    "character": "girl",
+    "menusByNativeTouch": true,
+    "jumped": true,
+    "steeringRetainedAfterJumpRelease": true,
+    "initial": {
+      "x": 0,
+      "y": 1.02,
+      "z": 1.2,
+      "yaw": 0
+    },
+    "bothHeld": {
+      "x": 0.67,
+      "y": 1.38,
+      "z": 1,
+      "yaw": 0.59
+    },
+    "afterJumpRelease": {
+      "x": 0.98,
+      "y": 1.45,
+      "z": 0.7,
+      "yaw": 0.95
+    },
+    "runtimeErrors": [],
+    "framingScreenshot": "v2-phone-native-audited-phone-touch-countdown.png",
+    "limitation": "Two-finger control test only; no full phone finish. Released off-route and spilled at1.625s. Gameplay capture is the result screen."
+  },
+  "officialReview": {
+    "report": "v2-deployed-official-review.json",
+    "source": "byte-verified API-returned deployed source with identical packaged assets, replayed through official devkit at localhost5503",
+    "started": true,
+    "crash": null,
+    "errors": [],
+    "violations": [],
+    "fps": 6.5,
+    "firstFrameMs": 21.2,
+    "durationSeconds": 14,
+    "ordinaryInputs": "official devkit review keys; actual countdown/jump/failure observed"
+  },
+  "environmentLimitations": [
+    "Headless SwiftShader browser reports approximately6fps; simulation uses a100ms capped dt, so wall time exceeds game time.",
+    "Prior uninstrumented native menu attempts timed out; instrumented pass records correct CANVAS coordinates and fresh touch pointer IDs.",
+    "No game state mutation, cheats, TLS bypass, blocked-host proxy, or direct blocked file-host access used."
+  ]
+}

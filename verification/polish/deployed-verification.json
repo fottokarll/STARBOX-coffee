@@ -1,0 +1,55 @@
+{
+  "version": "3a19877ce5677aaa",
+  "submission": 8883,
+  "allSourcesMatch": true,
+  "checks": [
+    {
+      "path": "experience.json",
+      "matches": true,
+      "sha256": "830d010086224960db846e8603505cf9744ed2c6d9e9957becb324e5e6504d19"
+    },
+    {
+      "path": "barista.js",
+      "matches": true,
+      "sha256": "37b801ebb8cda14a863ea405fc08b599e91a3db1f3bd5f425f83907ac37ec619"
+    },
+    {
+      "path": "collectibles.js",
+      "matches": true,
+      "sha256": "88a3e26e45f39b90c65400efb9153c246c5a8deca5c8bf3d992c48897cb6a923"
+    },
+    {
+      "path": "environment.js",
+      "matches": true,
+      "sha256": "c81e7ed9eaf89f446889d6d4ef08e593aab07546b7931394ace60d9cd8fcaade"
+    },
+    {
+      "path": "main.js",
+      "matches": true,
+      "sha256": "14ada17a6bffbe95724d9102337c3ca3c16a84fdcdd68c9636ef17b671c001b9"
+    },
+    {
+      "path": "rewards.js",
+      "matches": true,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "rules.js",
+      "matches": true,
+      "sha256": "83255caca862bdfac7bf2e8170a29cd4dc581680f12ec816ecf5fcf421318d1d"
+    },
+    {
+      "path": "ui.js",
+      "matches": true,
+      "sha256": "149b42c2b757311774d7c55c3144b01d1c693846374b959fa82f1e58cf1fd5c9"
+    }
+  ],
+  "assets": 29,
+  "publicFiles": 30,
+  "freePlay": {
+    "price": 0,
+    "prize": 0,
+    "minSeconds": 10
+  },
+  "exteriorUnchanged": "fab90cf1e6f03779-dfdeecc369ddd596"
+}

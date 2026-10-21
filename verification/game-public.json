@@ -1,0 +1,31 @@
+{
+  "status": 200,
+  "response": {
+    "game": {
+      "price": 0,
+      "prize": 0,
+      "mode": "win",
+      "perPlayer": "once",
+      "winners": null,
+      "places": 3,
+      "lowWins": false,
+      "minSeconds": 10,
+      "paused": false,
+      "scoreUnit": "points",
+      "pool": 0,
+      "funded": true,
+      "city": 0,
+      "plays": 0,
+      "wins": 0,
+      "prizes": 0,
+      "paidOut": 0,
+      "winRate": null,
+      "top": [],
+      "weekEnds": 1792972800000,
+      "recent": [],
+      "ticketUntil": null,
+      "contest": null,
+      "fee": 0.1
+    }
+  }
+}

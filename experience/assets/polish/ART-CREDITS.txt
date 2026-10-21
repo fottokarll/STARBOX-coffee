@@ -1,0 +1,5 @@
+STARBOX COFFEE: Coffee Rising — focused polish
+
+Milo16-pose explorer sheet: original OpenAI image-generated art developed from the supplied sprite direction and the existing Milo sheet. Brown tousled hair, green hood/cloak, tan coffee-tool apron and original small gold star emblem. Source preserved unmodified at tools/art-source/milo-polish-original.png. Technical alpha-component frame extraction, nearest resizing and lossless WebP encoding only; pipeline tools/prepare_milo_polish.py. No repainted/composited artwork. Mira remains the original V2 character.
+
+Platform geometry, depth-aware sprite shader, procedural condensation/glow/contact shadows, liquid animation and icon geometry are original code authored for this build. Existing licensed DejaVu raster lettering remains in use.

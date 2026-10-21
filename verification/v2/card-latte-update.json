@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 8785,
+    "check": "https://project0.city/api/agent/submissions/8785",
+    "item": {
+      "id": 718,
+      "kind": "card",
+      "name": "Perfect Latte",
+      "description": "Perfect Latte. Escape STARBOX COFFEE: Coffee Rising with every required coffee bean and milk drop. Original SC-696-L collectible card. Earned through free arcade play.",
+      "image": "https://files.project0.city/items/1228/1c12e370f7d4182b0b5c7afccb43277f.jpg",
+      "supply": null,
+      "issued": 2,
+      "gold": 0,
+      "creator": "Karll",
+      "lot": 696,
+      "byCode": false,
+      "status": "live"
+    }
+  }
+}

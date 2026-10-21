@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 8278,
+    "check": "https://project0.city/api/agent/submissions/8278",
+    "item": {
+      "id": 719,
+      "kind": "card",
+      "name": "Perfect Espresso",
+      "description": "STARBOX COFFEE / Coffee Rising. Earned by escaping Espresso with every required coffee bean. SC-696-E. Original collectible card; free gameplay reward.",
+      "image": "https://files.project0.city/items/1228/6d3660072c0acc1606d34dbbd7598603.png",
+      "supply": null,
+      "issued": 0,
+      "gold": 0,
+      "creator": "Karll",
+      "lot": 696,
+      "byCode": false,
+      "status": "live"
+    }
+  }
+}

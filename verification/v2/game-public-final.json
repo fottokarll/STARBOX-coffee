@@ -1,0 +1,88 @@
+{
+  "status": 200,
+  "response": {
+    "game": {
+      "price": 0,
+      "prize": 0,
+      "mode": "win",
+      "perPlayer": "once",
+      "winners": null,
+      "places": 3,
+      "lowWins": false,
+      "minSeconds": 10,
+      "paused": false,
+      "scoreUnit": "points",
+      "pool": 0,
+      "funded": true,
+      "city": 0,
+      "plays": 8,
+      "wins": 4,
+      "prizes": 0,
+      "paidOut": 0,
+      "winRate": 50,
+      "top": [
+        {
+          "id": 1228,
+          "name": "Karll",
+          "score": 3174883,
+          "owner": true
+        },
+        {
+          "id": 1247,
+          "name": "Mr.Mood",
+          "score": 3173783
+        },
+        {
+          "id": 211,
+          "name": "Tiberiu",
+          "score": 3118867
+        },
+        {
+          "id": 1351,
+          "name": "S7cret",
+          "score": 3113342
+        },
+        {
+          "id": 1202,
+          "name": "timbas",
+          "score": 3103508
+        }
+      ],
+      "weekEnds": 1792972800000,
+      "recent": [
+        {
+          "id": 1202,
+          "name": "timbas",
+          "prize": 0,
+          "seconds": 88,
+          "at": 1792522459773
+        },
+        {
+          "id": 211,
+          "name": "Tiberiu",
+          "prize": 0,
+          "seconds": 56,
+          "at": 1792521869944
+        },
+        {
+          "id": 1247,
+          "name": "Mr.Mood",
+          "prize": 0,
+          "seconds": 28,
+          "at": 1792517739413
+        },
+        {
+          "id": 1351,
+          "name": "S7cret",
+          "prize": 0,
+          "seconds": 34,
+          "at": 1792507793924
+        }
+      ],
+      "ticketUntil": null,
+      "contest": null,
+      "namedPrizes": [],
+      "fee": 0.1
+    }
+  }
+}

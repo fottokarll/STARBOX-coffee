@@ -1,0 +1,244 @@
+CODEX PROMPT — STARBOX COFFEE V2 IMPROVEMENT
+Read the existing project and improve my published Project 0 game on lot #696.
+
+Project: STARBOX COFFEE: Coffee Rising
+Goal: upgrade the current prototype into a more polished, visually stronger, more readable, and more adventurous version while keeping the game lightweight, playable, and easy to review/publish.
+Core vision
+This game should feel like:
+- a stylized HD-2.5D arcade climbing game
+- set inside a large transparent coffee cup / glass mug
+- with a warm premium coffeehouse atmosphere
+- using deep green, cream, warm gold, and coffee brown as the main palette
+- with a small pixel-art playable character, but a 3D world
+- with 3D platforms using stylized textures, not flat purely 2D platforms
+The current version works, but it feels too prototype-like. Improve the visual quality, UI quality, platform variation, and climbing flow.
+Main improvement goals
+1) Improve the overall visual direction
+Use the attached reference images as the visual target.
+
+Target mood:
+- warm, welcoming, premium coffeehouse vibe
+- more lively, more polished, more magical
+- stronger depth, lighting, and atmosphere
+- clearer brand feel for STARBOX COFFEE
+Environment improvements:
+- keep the large transparent cup / glass mug
+- improve its appeal with better shape readability and reflections
+- keep visible rising coffee inside
+- improve atmosphere with:
+  - steam
+  - bubbles
+  - glow / warm lights
+  - richer background mood
+- keep the game readable above all else
+Important:
+- the world should remain 3D because the cup rotates and the player climbs around it
+- the game should look like HD-2.5D, meaning:
+  - 3D geometry
+  - stylized surfaces
+  - pixel-art-inspired character/UI language
+  - readable gameplay-first composition
+2) Improve the player character
+The current character looks too weak and low quality.
+
+Replace it with a much more appealing sprite-based playable character.
+Character direction
+Create 2 selectable barista characters:
+- Character A: boy / young male barista
+- Character B: girl / young female barista
+Style:
+- much better designed than the current one
+- cute, readable, expressive, arcade-friendly
+- more polished proportions
+- more personality
+- inspired by charming modern pixel-art characters
+- target sprite size can be around 64x64 or similar if it improves readability and quality
+Outfit:
+- STARBOX-inspired barista uniform
+- green cap
+- green apron or green café uniform
+- cream/white shirt accents
+- warm gold details if suitable
+Animations needed:
+- idle
+- run
+- jump
+- fall
+- land
+Important:
+- characters must be clearly readable in-game at gameplay scale
+- animations should feel snappy and arcade-like
+- movement should feel more alive
+Also add a simple character selection screen before starting the run.
+3) Improve the platform system
+Right now, platforms feel too repetitive and too one-directional.
+Make the ascent more adventurous and less linear.
+Platform rules
+Platforms should be actual 3D forms, because the player is climbing inside a rotating 3D cup.
+However, their styling can use pixel-art-inspired textures or simple stylized materials.
+
+Use these platform families:
+A. Solid Café Platforms
+- sturdy
+- safe
+- can be wood, ceramic, café-tray, or countertop-inspired
+- do not break
+B. Biscuit Platforms
+- cookie / biscuit / wafer style
+- collapse after the player stands on them for a short time
+- give visual feedback:
+  - shake
+  - cracks
+  - crumbs
+  - then fall / disappear
+- these are an important new mechanic
+C. Mini Precision Platforms
+- smaller landing areas
+- used for skill sections
+D. Wide Rest Platforms
+- larger safe areas
+- used between harder segments
+E. Optional Hidden / Bonus Platforms
+- support exploration
+- can hold an extra ingredient or secret
+Layout improvement
+Very important: the route must change directions.
+Do not make the climb always flow the same way.
+
+Add:
+- left-flow sections
+- right-flow sections
+- switchbacks
+- curved wrapping climbs around the cup
+- occasional more adventurous jumps
+The cup should feel like a vertical spiral playground, not a simple staircase.
+4) Improve collectibles and game tension
+The game needs more excitement.
+Collectibles
+Increase collectible presence and make them more satisfying:
+- more coffee beans
+- milk drops
+- maybe sugar cubes in later recipes if suitable
+Place collectibles so that:
+- some are on the main route
+- some require riskier jumps
+- getting Perfect Coffee is rewarding and intentional
+Rising coffee
+Make the rising coffee more threatening and dramatic:
+- it should rise faster than now
+- danger should feel more real
+- the player should feel pressure
+- visually it should look more alive and appealing
+Possible feedback:
+- stronger bubbling
+- foam movement
+- coffee surface motion
+- more visible danger state near the player
+5) Redesign the UI / HUD
+The current HUD is too large and too prototype-like.
+
+Replace it with a more elegant and smaller interface.
+UI direction
+Use a compact premium arcade HUD.
+Layout recommendation
+Top-center compact HUD bar:
+- ORDER
+- COLLECT
+- CLIMB
+- COFFEE RISING
+Example:
+- Order: Latte
+- Collect: Beans 2/6, Milk 1/4
+- Climb: 35%
+- Coffee Rising: danger bar
+Top-left:
+- small STARBOX logo / title only
+Top-right:
+- smaller sound and pause buttons
+Bottom:
+- subtle controls for mobile / touch
+- not too bulky
+UI style
+- sharper lettering
+- better typography quality
+- more polished frames/panels
+- smaller and more elegant than current UI
+- coffeehouse-premium + pixel-arcade hybrid look
+- use brand palette: dark green, cream, gold, coffee brown
+6) Typography improvement
+Improve all text rendering quality:
+- title screen
+- HUD labels
+- buttons
+- end screen
+- character select
+- order screen
+The typography should look:
+- clean
+- sharp
+- consistent
+- retro-inspired but refined
+- less crude than current block text
+7) Improve screens and presentation
+Upgrade these screens:
+- title / loading screen
+- coffee selection screen
+- character select screen
+- pause screen
+- victory screen
+- perfect coffee reward screen
+The presentation should feel more intentional and branded.
+
+For reward / victory:
+- keep the “Perfect Coffee” idea
+- improve the reward card visual quality
+- make it feel collectible and attractive
+8) Preserve and improve the existing gameplay loop
+Keep the core loop:
+- choose coffee
+- climb
+- collect ingredients
+- escape rising coffee
+- reach the top
+- get better result if all ingredients are collected
+But improve:
+- readability
+- pacing
+- satisfaction
+- visual polish
+9) Keep scope realistic
+Do not bloat the game too much for this pass.
+
+Prioritize:
+1. much better character art
+2. better UI
+3. improved platform variety
+4. biscuit collapsing mechanic
+5. stronger cup visuals
+6. faster/more exciting coffee rise
+7. better screen presentation
+Do not spend time on advanced multiplayer or big boss systems yet unless it is very easy.
+Focus on making the single-player experience feel polished and impressive.
+10) Technical / implementation preferences
+- keep performance reasonable
+- keep controls responsive
+- preserve touch support
+- keep Project 0 compatibility and publishability
+- keep the experience easy to review and stable
+If needed, simplify visual complexity to maintain clarity and performance, but do not lose the warmer premium vibe.
+Summary of required changes
+Please deliver a new improved version of STARBOX COFFEE with:
+- 2 selectable barista characters
+- significantly improved sprite quality
+- improved warm HD-2.5D visual style
+- smaller, cleaner, premium HUD
+- better typography
+- more lively brand colors
+- 3D platforms with stylized textures
+- direction-changing climb layout
+- collapsing biscuit platforms
+- more satisfying collectibles
+- faster and more dangerous rising coffee
+- more polished menus and reward presentation
+Use the provided reference images closely for visual direction.
+If useful, first create a short implementation plan, then make the changes, test locally, and publish the updated version.

@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "response": {
+    "version": "60d9ece485b8022b",
+    "files": [
+      "https://files.project0.city/x/696/60d9ece485b8022b/bundle.js",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/CREDITS.txt",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/perfect.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/sprites.json",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/land.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/barista-preview.png",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/warning.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/card-latte.png",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/fail.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/collect.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/barista.png",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/font-license.txt",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/card-espresso.png",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/cover.png",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/jump.wav",
+      "https://files.project0.city/x/696/60d9ece485b8022b/assets/start.wav"
+    ]
+  }
+}

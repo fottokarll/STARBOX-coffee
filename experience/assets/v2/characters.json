@@ -1,0 +1,276 @@
+{
+  "image": "assets/v2/baristas.webp",
+  "imageSize": [
+    1254,
+    1254
+  ],
+  "nominalBodyHeight": 300,
+  "pixelCoordinates": "top-left origin; rect is x,y,width,height",
+  "anchorConvention": "anchor is normalized within rect, top-left origin; [0.5,1] is bottom-center. THREE.Sprite center is [0.5,0].",
+  "rendering": "NearestFilter for minification and magnification; no mipmaps. Runtime nearest resampling of the full atlas to about 320x320 preserves the intended crisp game-scale pixel clusters. Keep the original image for large UI portraits. Scale each quad by rect width/300 and rect height/300 times desired nominal hero height, and keep its bottom-center on the player feet.",
+  "animations": {
+    "idle": {
+      "frames": [
+        0,
+        1
+      ],
+      "fps": 2
+    },
+    "run": {
+      "frames": [
+        2,
+        3
+      ],
+      "fps": 10
+    },
+    "jump": {
+      "frames": [
+        4
+      ],
+      "fps": 1
+    },
+    "fall": {
+      "frames": [
+        5
+      ],
+      "fps": 1
+    },
+    "land": {
+      "frames": [
+        6
+      ],
+      "fps": 1,
+      "duration": 0.11
+    },
+    "victory": {
+      "frames": [
+        7
+      ],
+      "fps": 1
+    }
+  },
+  "characters": {
+    "boy": {
+      "name": "Milo",
+      "description": "The star-cup explorer",
+      "frames": [
+        {
+          "pose": "idle0",
+          "rect": [
+            72,
+            13,
+            198,
+            307
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "idle1",
+          "rect": [
+            377,
+            13,
+            190,
+            307
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "run0",
+          "rect": [
+            662,
+            28,
+            244,
+            294
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "run1",
+          "rect": [
+            986,
+            24,
+            237,
+            298
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "jump",
+          "rect": [
+            72,
+            323,
+            223,
+            300
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "fall",
+          "rect": [
+            352,
+            333,
+            256,
+            291
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "land",
+          "rect": [
+            654,
+            397,
+            259,
+            228
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "victory",
+          "rect": [
+            1013,
+            333,
+            228,
+            294
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    "girl": {
+      "name": "Mira",
+      "description": "The fearless brew runner",
+      "frames": [
+        {
+          "pose": "idle0",
+          "rect": [
+            27,
+            629,
+            239,
+            308
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "idle1",
+          "rect": [
+            336,
+            630,
+            236,
+            306
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "run0",
+          "rect": [
+            641,
+            644,
+            262,
+            296
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "run1",
+          "rect": [
+            969,
+            641,
+            261,
+            299
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "jump",
+          "rect": [
+            27,
+            937,
+            267,
+            296
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "fall",
+          "rect": [
+            343,
+            943,
+            272,
+            289
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "land",
+          "rect": [
+            649,
+            1006,
+            267,
+            232
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "pose": "victory",
+          "rect": [
+            967,
+            947,
+            274,
+            293
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "credits": "Original STARBOX barista character concepts and pose atlas generated with OpenAI image generation from the supplied art direction; no external character, logo or franchise assets.",
+  "sourceImage": "assets/v2/baristas.png"
+}

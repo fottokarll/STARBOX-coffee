@@ -1,0 +1,11 @@
+STARBOX COFFEE V2 — original character and title artwork
+
+Character atlas: original Milo and Mira barista adventurers, generated with the OpenAI image generation tool from the user's supplied visual references and STARBOX art direction. No external character, protected logo or franchise assets are used.
+
+Cover artwork: original magical timber-café climbing world inside a transparent glass coffee mug, generated with the OpenAI image generation tool using the user's atmosphere references and the original Milo/Mira atlas. The published cover is technically resized and JPEG-encoded for browser loading; its visual content is unchanged. Source PNG is preserved in tools/art-source/cover-v2.png.
+
+Character animation rectangles and registration data: assets/v2/characters.json. Use nearest texture sampling. Character source PNG is preserved unedited as assets/v2/baristas.png.
+
+Perfect Latte and Perfect Espresso card fronts: original OpenAI image-generated STARBOX drink illustrations and typography, based on the original V2 coffeehouse art direction. Published500×700 JPEGs are technically resized/encoded only. Original source PNGs are preserved in tools/art-source/.
+
+Perfect Espresso original explorer redesign: angular STARBOX wordmark, original diamond constellation and cup emblem, cream faceted demitasse, cocoa/gold palette and geometric stair framing. Generated with OpenAI image generation on 2026-10-20; only technical resizing and JPEG encoding afterward. Original source PNG: tools/art-source/card-espresso-v2-original-explorer.png.

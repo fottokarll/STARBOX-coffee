@@ -1,0 +1,9 @@
+{
+  "name": "starbox-coffee-rising",
+  "version": "2.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

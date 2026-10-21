@@ -1,0 +1,32 @@
+{
+  "version": "60d9ece485b8022b",
+  "allSourcesMatch": true,
+  "checks": [
+    {
+      "path": "experience.json",
+      "matches": true,
+      "sha256": "0cb9818919c25a5b309af9f228c24afa701c07ab9c44d6ed1c670e3fa3b11384"
+    },
+    {
+      "path": "rewards.js",
+      "matches": true,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "ui.js",
+      "matches": true,
+      "sha256": "6a9008123bac4ebe3862359092bd9075f9865dbb31f27a39ce7614e8d130e11e"
+    },
+    {
+      "path": "main.js",
+      "matches": true,
+      "sha256": "9e6b64e5f9947d0d5bcb6547f318594900fde8dbbacd6c3e81641f3c26a94099"
+    },
+    {
+      "path": "rules.js",
+      "matches": true,
+      "sha256": "317566af34245eae564f1f6aee1e642869984762fdc773aaa52accf10d44e1b0"
+    }
+  ],
+  "assetHostCheck": "Blocked by environment destination policy at CONNECT to files.project0.city; HTTP403 before origin."
+}

@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 8827,
+    "check": "https://project0.city/api/agent/submissions/8827",
+    "item": {
+      "id": 719,
+      "kind": "card",
+      "name": "Perfect Espresso",
+      "description": "Coffee Rising Explorer Series. Escape the Espresso cup with every required bean to earn this free gameplay reward. SC-696-E. Original geometric star-and-cup artwork.",
+      "image": "https://files.project0.city/items/1228/59e2051e0375dc5a0e36b94f4e39eb8e.jpg",
+      "supply": null,
+      "issued": 5,
+      "gold": 0,
+      "creator": "Karll",
+      "lot": 696,
+      "byCode": false,
+      "status": "live"
+    }
+  }
+}

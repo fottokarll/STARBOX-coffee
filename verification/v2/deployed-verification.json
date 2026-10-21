@@ -1,0 +1,50 @@
+{
+  "version": "c9fd6462a51c560f",
+  "submission": 8829,
+  "allSourcesMatch": true,
+  "checks": [
+    {
+      "path": "experience.json",
+      "matches": true,
+      "sha256": "9bf3699ebf80b1cfa662048e82e9605975037e2ab30fa9c7d98d17098971855f"
+    },
+    {
+      "path": "collectibles.js",
+      "matches": true,
+      "sha256": "12d97dbc26ad2917b1a3e28de5a07534be799f3e558b30a4aa4163551ac38f9c"
+    },
+    {
+      "path": "environment.js",
+      "matches": true,
+      "sha256": "1a2302dc64f886f446d5575637330ef5d7aa3b1a1afc618aafa510ab46910d67"
+    },
+    {
+      "path": "main.js",
+      "matches": true,
+      "sha256": "07a0e8908c0c3f0b42e949a680268d53b341032947397f8af51d01185b15bcd2"
+    },
+    {
+      "path": "rewards.js",
+      "matches": true,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "rules.js",
+      "matches": true,
+      "sha256": "f56e12ab26c44744df2adf62305b25484cc433e1ded99868f9ab9ac10da4e0b8"
+    },
+    {
+      "path": "ui.js",
+      "matches": true,
+      "sha256": "7000b5a9a58a018af674efaa9f1589df74f1faf4eb7909aeb69454c211000201"
+    }
+  ],
+  "assets": 25,
+  "publicFiles": 26,
+  "freePlay": {
+    "price": 0,
+    "prize": 0,
+    "minSeconds": 10
+  },
+  "assetHostCheck": "Live-city asset fetch is blocked by managed destination policy at CONNECT to files.project0.city; official source API is available. See verification README."
+}

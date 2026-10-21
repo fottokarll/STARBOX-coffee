@@ -1,0 +1,167 @@
+{
+  "package": "starbox-coffee-rising-v2.zip",
+  "sha256": "e39ee7a47d2303979110b185e8b578f698f076a82a90a0da146fad9ce71c51c2",
+  "bytes": 4339891,
+  "files": [
+    {
+      "path": "assets/CREDITS.txt",
+      "bytes": 398,
+      "sha256": "e3fcbb629610be0b30a25d41ffeafe73a05d298cc8c8328fe57f6ab3ef465c1e"
+    },
+    {
+      "path": "assets/barista-preview.png",
+      "bytes": 4107,
+      "sha256": "3b828d32695a64746644c3eb559275a42e35ba14ea229a95495cbc2e837703a9"
+    },
+    {
+      "path": "assets/barista.png",
+      "bytes": 1447,
+      "sha256": "1b77ad28a95799559136f2291630022b243971e2cf300e5d91a77fecb802ad32"
+    },
+    {
+      "path": "assets/card-espresso.png",
+      "bytes": 15564,
+      "sha256": "6d3660072c0acc1606d34dbbd7598603b0a7ab22198efc0a9f0613c91d4a185e"
+    },
+    {
+      "path": "assets/card-latte.png",
+      "bytes": 14625,
+      "sha256": "a984bee47d48302ebc26b70edfd358a2af97fd5e10351f45ccaf7fcef8b9db59"
+    },
+    {
+      "path": "assets/collect.wav",
+      "bytes": 7540,
+      "sha256": "2a1d7dbf8061eaab32d9c20de87c31f4a1b12130b52743b5157a975c3ba40767"
+    },
+    {
+      "path": "assets/cover.png",
+      "bytes": 49175,
+      "sha256": "6160fe6a596dd220428f088547c3233e488abe6f3bba13da59e328ca7892ae86"
+    },
+    {
+      "path": "assets/fail.wav",
+      "bytes": 22094,
+      "sha256": "3f98b6e3031897c73abf900a195c5c7c26a2cb8a1899f28e5e7d6a69e25a0d89"
+    },
+    {
+      "path": "assets/font-license.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    },
+    {
+      "path": "assets/jump.wav",
+      "bytes": 6658,
+      "sha256": "2ded98a895536814ee569848890618f0a249bdf0b3bb8fa1e33e4b78b3401e4e"
+    },
+    {
+      "path": "assets/land.wav",
+      "bytes": 4012,
+      "sha256": "61f8fc045821369a17dc5af6fb3cb5bd04369f7366d1310666bcf837d75ae785"
+    },
+    {
+      "path": "assets/perfect.wav",
+      "bytes": 35324,
+      "sha256": "5149d30023d1f792ae66e0f06daa73e381b535d161d3a199cb9a72d0635c9efd"
+    },
+    {
+      "path": "assets/sprites.json",
+      "bytes": 410,
+      "sha256": "ff165c407746cfe4509a545be9f401fc0f81a357699a5494a88fcc2c1ae09ef1"
+    },
+    {
+      "path": "assets/start.wav",
+      "bytes": 13274,
+      "sha256": "23bc185d330f42b5e08eacc5763022cceabf0ab33c112761a26b9e0503f06b5f"
+    },
+    {
+      "path": "assets/v2/ART-CREDITS.txt",
+      "bytes": 1555,
+      "sha256": "7378b5610b4c5b75465444c78e18c7702af06c5c8d3fcc8ca304a21f144860f5"
+    },
+    {
+      "path": "assets/v2/baristas.png",
+      "bytes": 1870758,
+      "sha256": "502a1aa96ca221558e142e2e689557582802d676b3aed37e56fccd571b723d95"
+    },
+    {
+      "path": "assets/v2/baristas.webp",
+      "bytes": 1445844,
+      "sha256": "32d10940c8d770496d65179ef47330bf74014136d66eb3a68a37fd55fc29bea3"
+    },
+    {
+      "path": "assets/v2/cafe-atlas.png",
+      "bytes": 64604,
+      "sha256": "912ca82af3acaf921a81c0d0d39099a965865f3c8265c0a9c47e39883b34b77b"
+    },
+    {
+      "path": "assets/v2/card-espresso.jpg",
+      "bytes": 125520,
+      "sha256": "59e2051e0375dc5a0e36b94f4e39eb8ef5cdeb6160056c345368c474d9000827"
+    },
+    {
+      "path": "assets/v2/card-latte.jpg",
+      "bytes": 165491,
+      "sha256": "1c12e370f7d4182b0b5c7afccb43277f00144d6fced5caa6f303ab0977dd1f7d"
+    },
+    {
+      "path": "assets/v2/characters.json",
+      "bytes": 5089,
+      "sha256": "a25ad44562e81f6420f1270460eecf68e05b2f9b85b09715d7940ed44e585e2d"
+    },
+    {
+      "path": "assets/v2/cover-v2.jpg",
+      "bytes": 322021,
+      "sha256": "c38bfaafc736e455af2eca852d3b85e44819d899cadb15dc361b5bd5b8f7838a"
+    },
+    {
+      "path": "assets/v2/lettering.json",
+      "bytes": 67706,
+      "sha256": "c285042f058f43dc9693fff6d957ee52a143fd743056ff9ca6de5a8ea6da59ec"
+    },
+    {
+      "path": "assets/v2/lettering.png",
+      "bytes": 153232,
+      "sha256": "3bd704c3e0de045930b6ed0264eb9cd028ae6eff718806a9882a3c35e09362d8"
+    },
+    {
+      "path": "assets/warning.wav",
+      "bytes": 13274,
+      "sha256": "ed3769362d9cd16cfe0a570d28569f6d2aabf7221f8b0114def08bab92f4aaa9"
+    },
+    {
+      "path": "collectibles.js",
+      "bytes": 5529,
+      "sha256": "12d97dbc26ad2917b1a3e28de5a07534be799f3e558b30a4aa4163551ac38f9c"
+    },
+    {
+      "path": "environment.js",
+      "bytes": 31240,
+      "sha256": "1a2302dc64f886f446d5575637330ef5d7aa3b1a1afc618aafa510ab46910d67"
+    },
+    {
+      "path": "experience.json",
+      "bytes": 1055,
+      "sha256": "a02cee5f937fdf8c07b94ad56968445715aff7e23b9fc923880c601518889d46"
+    },
+    {
+      "path": "main.js",
+      "bytes": 17025,
+      "sha256": "07a0e8908c0c3f0b42e949a680268d53b341032947397f8af51d01185b15bcd2"
+    },
+    {
+      "path": "rewards.js",
+      "bytes": 143,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "rules.js",
+      "bytes": 11198,
+      "sha256": "f56e12ab26c44744df2adf62305b25484cc433e1ded99868f9ab9ac10da4e0b8"
+    },
+    {
+      "path": "ui.js",
+      "bytes": 33846,
+      "sha256": "7000b5a9a58a018af674efaa9f1589df74f1faf4eb7909aeb69454c211000201"
+    }
+  ]
+}
