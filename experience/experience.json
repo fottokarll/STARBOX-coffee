@@ -1,7 +1,7 @@
 {
   "entry": "main.js",
-  "name": "STARBOX COFFEE: Coffee Rising",
-  "description": "CLIMB. COLLECT. BREW. Climb the same spiralling glass-mug cafe with Milo or Mira. Biscuits crack, crumble and reform; permanent timber detours offer a safer route. Collect Espresso or Latte recipes, outrun living coffee and earn Perfect Coffee cards. Free arcade play.",
+  "name": "STARBOX COFFEE",
+  "description": "CLIMB. COLLECT. BREW. Version 2.2: a progressive Espresso climb and advanced Latte switchbacks. Circle the glass mug with Milo or Mira, master slippery ceramic and regenerating biscuits, collect your recipe and outrun rising coffee. Permanent timber detours and Perfect Coffee cards. Free arcade play.",
   "maxPlayers": 8,
   "ui": "minimized",
   "stick": false,
@@ -23,7 +23,7 @@
     },
     {
       "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
-      "by": "Created for STARBOX COFFEE: Coffee Rising"
+      "by": "Created for STARBOX COFFEE"
     },
     {
       "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",

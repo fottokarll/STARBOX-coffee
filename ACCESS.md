@@ -5,8 +5,8 @@
 Repository: https://github.com/fottokarll/STARBOX-coffee
 
 This is the complete authoring source, assets, exterior GLBs/Blender source,
-tools and verification evidence for the published 2.1 release. It is not a
-runtime-only recovery. The original local baseline commit is
+tools and verification evidence for the published release. It is not a
+runtime-only recovery. The 2.1 checkpoint is tagged `checkpoint-2.1-before-2.2`. The original local baseline commit is
 8a62725092679755643872efab2e913b3a270c9c; the GitHub import retains the
 repository's existing initial commit as its parent. Earlier local Git history
 remains in the original workspace.
@@ -68,7 +68,8 @@ network settings; do not bypass its proxy or TLS checks.
 
 The gameplay unit tests need Node.js, with no npm dependencies. API and ZIP
 helpers use Python 3's standard library. Browser tooling needs Playwright and
-Chromium. `python3 tools/serve.py` serves only experience/ on port 5500.
+Chromium (`npm install --no-save playwright three@0.186.0`, then
+`npx playwright install chromium`; Three is only needed for mesh measurements). `python3 tools/serve.py` serves only experience/ on port 5500.
 
 ## Validate and publish when a game update is requested
 

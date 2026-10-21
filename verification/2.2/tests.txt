@@ -1,0 +1,88 @@
+
+> starbox-coffee@2.2.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: ceramic retains momentum and has a substantial stopping distance
+ok 1 - ceramic retains momentum and has a substantial stopping distance
+  ---
+  duration_ms: 33.639843
+  type: 'test'
+  ...
+# Subtest: air control stays responsive after leaving a slippery surface
+ok 2 - air control stays responsive after leaving a slippery surface
+  ---
+  duration_ms: 1.978116
+  type: 'test'
+  ...
+# Subtest: courses have distinct geometry, achievable vertical steps and longer routes
+ok 3 - courses have distinct geometry, achievable vertical steps and longer routes
+  ---
+  duration_ms: 4.430016
+  type: 'test'
+  ...
+# Subtest: every main landing and every required fork is traversed with ordinary inputs
+ok 4 - every main landing and every required fork is traversed with ordinary inputs
+  ---
+  duration_ms: 670.123023
+  type: 'test'
+  ...
+# Subtest: independent coffee grace and speeds are exact and failure reports best progress
+ok 5 - independent coffee grace and speeds are exact and failure reports best progress
+  ---
+  duration_ms: 26.093857
+  type: 'test'
+  ...
+# Subtest: coffee allows measured recovery while Latte punishes repeated hesitation
+ok 6 - coffee allows measured recovery while Latte punishes repeated hesitation
+  ---
+  duration_ms: 532.468507
+  type: 'test'
+  ...
+# Subtest: release over another button releases the originating action, preserving jump
+ok 7 - release over another button releases the originating action, preserving jump
+  ---
+  duration_ms: 18.991775
+  type: 'test'
+  ...
+# Subtest: off-button jump release preserves steering; blank contacts cannot cancel it
+ok 8 - off-button jump release preserves steering; blank contacts cannot cancel it
+  ---
+  duration_ms: 0.861875
+  type: 'test'
+  ...
+# Subtest: crossing fingers retain their actions and duplicate contacts use reference counts
+ok 9 - crossing fingers retain their actions and duplicate contacts use reference counts
+  ---
+  duration_ms: 1.594727
+  type: 'test'
+  ...
+# Subtest: mouse release ignores release coordinates; clearing a screen releases every held action
+ok 10 - mouse release ignores release coordinates; clearing a screen releases every held action
+  ---
+  duration_ms: 5.412598
+  type: 'test'
+  ...
+# espresso results 23.84 31 { bean: 6, milk: 0 } PERFECT COFFEE
+# latte results 30.20 39 { bean: 8, milk: 5 } PERFECT COFFEE
+# low fps 30 PERFECT COFFEE 31.02
+# low fps 15 PERFECT COFFEE 33.22
+# low fps 10 PERFECT COFFEE 34.95
+# incomplete GREAT COFFEE { bean: 6, milk: 5 } 30.18
+# weak WEAK COFFEE { bean: 3, milk: 0 }
+# 2.2 rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.
+# Subtest: tests/rules.test.mjs
+ok 3 - tests/rules.test.mjs
+  ---
+  duration_ms: 2188.634855
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2301.316772

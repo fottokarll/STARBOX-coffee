@@ -10,7 +10,7 @@ import {fileURLToPath} from 'node:url';
 const require=createRequire(import.meta.url);
 const {chromium,request}=require('playwright');
 const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const defaultReports='/workspace/work/v2/reports';
+const defaultReports=path.join(projectRoot,'verification/2.2');
 
 export function parseGameLog(line) {
   const text=String(line);
@@ -20,6 +20,8 @@ export function parseGameLog(line) {
     try {data=JSON.parse(text.slice(objectStart));} catch { /* ordinary text */ }
   }
   if(/Coffee Rising.*result/.test(text))return {kind:'result',data,text};
+  if(/Coffee Rising.*pose/.test(text))return {kind:'pose',data,text};
+  if(/Coffee Rising.*input/.test(text))return {kind:'input',data,text};
   if(/Coffee Rising.*event/.test(text)&&data?.type)return {kind:'event',data,text};
   const namedEvent=/Coffee Rising:\s*(jump|land|collect|crumbleStart|crumble|collapse|reform)\b/.exec(text)?.[1];
   if(namedEvent)return {kind:'event',data:{...data,type:namedEvent},text};
@@ -80,9 +82,9 @@ export async function openRuntime(options={}) {
     if(!await localServerExists(5500))throw new Error('Local CORS server did not start on port5500');
   }
   const browser=await chromium.launch({
-    executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,
+    executablePath:process.env.CHROMIUM_PATH||chromium.executablePath(),headless:process.env.P0_HEADLESS!=='0',
     proxy:proxyServer?{server:proxyServer,bypass:'localhost,127.0.0.1'}:undefined,
-    args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader',
+    args:['--no-sandbox',...(process.env.P0_HEADLESS==='0'?['--ignore-gpu-blocklist']:['--use-angle=swiftshader','--enable-unsafe-swiftshader']),
       ...(options.touch?['--disable-features=SyntheticPointerActions']:[])],
   });
   const context=await browser.newContext({
@@ -178,7 +180,7 @@ export async function enterRound(runtime,options={}) {
   screenshots.push(await capture(`character-${character}`));
   await keyTap(page,'Space');
   await waitForLog(page,event=>event.kind==='go',{start,timeout:90000});
-  screenshots.push(await capture('go'));
+  if(options.captureGo!==false)screenshots.push(await capture('go'));
   return {recipe,character,start,screenshots};
 }
 
@@ -201,15 +203,15 @@ async function cli() {
     let result;
     if(mode==='review')result=await runtime.page.evaluate(()=>devkit.review(14));
     else if(mode==='flow'||mode==='climb'||mode==='idle'||mode==='crumble'||mode==='recovery') {
-      const menu=await enterRound(runtime,{recipe,character});
+      const menu=await enterRound(runtime,{recipe,character,captureGo:mode!=='climb'});
       result={menu};
       if(mode==='recovery') {
         const {exerciseRecovery}=await import('./browser_recovery.mjs');
         result.recovery=await exerciseRecovery(runtime,{recipe,start:menu.start,maximumMs:300000});
       }
       if(mode==='climb') {
-        const {driveClimbV2}=await import('./browser_play_v2.mjs');
-        result.climb=await driveClimbV2(runtime,{recipe,character,perfect,safe,start:menu.start,maximumMs:300000});
+        const {driveClimb22}=await import('./browser_play_22.mjs');
+        result.climb=await driveClimb22(runtime,{recipe,character,perfect,safe,start:menu.start,maximumMs:900000});
       }
       if(mode==='idle')result.failure=await waitForLog(runtime.page,event=>event.kind==='result',{
         start:menu.start,timeout:180000,
@@ -219,8 +221,8 @@ async function cli() {
         result.crumble=await exerciseCrumbleV2(runtime,{recipe,start:menu.start,maximumMs:180000});
       }
     } else if(mode==='touch') {
-      const {exerciseTouchV2}=await import('./mobile_touch_v2.mjs');
-      result=await exerciseTouchV2(runtime,{recipe,character});
+      const {exerciseTouch22}=await import('./mobile_touch_22.mjs');
+      result=await exerciseTouch22(runtime,{recipe,character});
     } else if(mode!=='smoke')throw new Error(`Unknown mode ${mode}`);
     const screenshot=await runtime.capture('final');
     report={view,mode,result,...await readRuntime(runtime.page),screenshot,

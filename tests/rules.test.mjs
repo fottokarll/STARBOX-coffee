@@ -1,54 +1,7 @@
 import assert from 'node:assert/strict';
 import { createRun, step, RECIPES, PHYSICS, angleDistance } from '../experience/rules.js';
+import {start,climb} from '../tools/route_pilot.mjs';
 const dt = 1 / 120;
-function start(recipe) {
-  const run = createRun(recipe);
-  for (let i = 0; i < 361; i++) step(run, {}, dt);
-  assert.equal(run.state, 'play');
-  return run;
-}
-
-// Real binary keyboard inputs, never teleports or synthetic collection/finish.
-function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = false, safe = false, stopAt, skip = [] } = {}) {
-  const run = start(recipe);
-  const path = safe ? run.safePath : allForks ? run.mainPath.map(id => run.forks.find(f => f.replaces === id)?.pad ?? id)
-    : collect ? run.perfectPath : run.mainPath;
-  let previousJump = false;
-  let routeIndex = 0;
-  let signedMoves = new Set();
-  let positiveTravel = 0, negativeTravel = 0;
-  const events = [];
-  for (let frame = 0; frame < 24000 && run.state === 'play'; frame++) {
-    if (run.grounded) {
-      const found = path.indexOf(run.onPlatform);
-      if (found >= 0) routeIndex = found;
-      if (stopAt !== undefined && run.onPlatform === stopAt) return { run, events, signedMoves, positiveTravel, negativeTravel };
-    }
-    const next = run.platforms[path[Math.min(path.length - 1, routeIndex + 1)]];
-    const current = run.platforms[path[routeIndex]];
-    const pending = collect && run.ingredients.find(i => i.platform === current.id && !i.collected);
-    const target = pending ? pending.angle : next.angle + (skip.includes(next.id) ? -0.23 : 0);
-    let demand = (target - run.theta) * 5 - run.vTheta * 1.5;
-    let move = demand > 0.08 ? 1 : demand < -0.08 ? -1 : 0;
-    let jump = !run.grounded;
-    if (run.grounded) {
-      if (pending) jump = false;
-      else if (previousJump || Math.sign(run.vTheta) !== Math.sign(target - run.theta) && Math.abs(run.vTheta) > 0.12) {
-        jump = false;
-        move = 0;
-      } else jump = true;
-    }
-    if (move) signedMoves.add(move);
-    const beforeAngle = run.theta;
-    step(run, { move, jump }, frameDt);
-    positiveTravel += Math.max(0, run.theta - beforeAngle);
-    negativeTravel += Math.max(0, beforeAngle - run.theta);
-    events.push(...run.events);
-    previousJump = jump;
-    if (run.elapsed > 100) break;
-  }
-  return { run, events, signedMoves, positiveTravel, negativeTravel };
-}
 
 for (const recipe of Object.keys(RECIPES)) {
   const { run, events, signedMoves, positiveTravel, negativeTravel } = climb(recipe);
@@ -92,7 +45,7 @@ assert.equal(incomplete.result?.perfect, false);
 assert.notEqual(incomplete.result?.quality, 'PERFECT COFFEE');
 assert.ok(incomplete.result.score < 3000000, 'bonus and speed cannot promote an incomplete recipe into the Perfect tier');
 
-const weak = climb('espresso', { collect: false, skip: [8] }).run;
+const weak = climb('espresso', { collect: false, skip: [2] }).run;
 console.log('weak', weak.result?.quality, weak.collected);
 assert.equal(weak.result?.success, true);
 assert.equal(weak.result?.quality, 'WEAK COFFEE');
@@ -180,7 +133,7 @@ for (let i = 0; i < 1800 && idle.state === 'play'; i++) {
 }
 assert.equal(idle.result?.success, false);
 assert.ok(warned);
-assert.ok(idle.elapsed > 7 && idle.elapsed < 9, 'faster coffee still permits a forgiving start');
+assert.ok(idle.elapsed > 4 && idle.elapsed < 4.3, 'Latte has a short but usable launch window');
 
 function jumpHeight(hold) {
   const run = start('latte');
@@ -204,4 +157,4 @@ for (let i = 0; i < 300; i++) {
 assert.equal(jumps, 1, 'holding jump never creates automatic bouncing');
 assert.ok(PHYSICS.jumpSpeed ** 2 / (2 * PHYSICS.gravity) < 2.30, 'two main levels cannot be bypassed by a vertical jump');
 assert.ok(Math.abs(angleDistance(0.1, Math.PI * 2 + 0.1)) < 1e-10);
-console.log('Polish rules passed: original switchbacks, recipes, recovery, permanent timber routes and input fairness.');
+console.log('2.2 rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.');

@@ -1,0 +1,234 @@
+{
+  "version": "83f8f4430e3ed247",
+  "allSourcesMatch": true,
+  "checks": [
+    {
+      "path": "experience.json",
+      "matches": true,
+      "sha256": "9fa713f189b6c7784e4d3a05602d361ccac0d5e8e0b054940795b71c226db9e2"
+    },
+    {
+      "path": "barista.js",
+      "matches": true,
+      "sha256": "37b801ebb8cda14a863ea405fc08b599e91a3db1f3bd5f425f83907ac37ec619"
+    },
+    {
+      "path": "collectibles.js",
+      "matches": true,
+      "sha256": "88a3e26e45f39b90c65400efb9153c246c5a8deca5c8bf3d992c48897cb6a923"
+    },
+    {
+      "path": "environment.js",
+      "matches": true,
+      "sha256": "1dc20232aadc0c719cfc39cf602321450fa8e66de8ce5a6217651548a5d1ef77"
+    },
+    {
+      "path": "main.js",
+      "matches": true,
+      "sha256": "10301e5a7bcf6a638f19d8623e3a4ddae1753cee01a221a93e6a269634b72a7f"
+    },
+    {
+      "path": "pointer-controls.js",
+      "matches": true,
+      "sha256": "7acd3176b2075a77aa2668d5fc9aa9ad731ec5ac1a5adc2b960ed5e06a30d5df"
+    },
+    {
+      "path": "rewards.js",
+      "matches": true,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "rules.js",
+      "matches": true,
+      "sha256": "4cbc5dcb1c21f03f42d047b0d3587b31bf8f5d184d267781bde6390b5a4e2b20"
+    },
+    {
+      "path": "ui.js",
+      "matches": true,
+      "sha256": "03d0d851f269980160b494d84adb7c3e4ee6991a2e074421a82c2852f77e54d2"
+    }
+  ],
+  "allPublicAssetsFetched": true,
+  "assets": [
+    {
+      "path": "bundle.js",
+      "bytes": 136088,
+      "sha256": "898fed83e6c0867d00eb3f8723d0cf865a5cc1eb03dcb0cc6253e5e1dfe696f0",
+      "matches": null
+    },
+    {
+      "path": "assets/CREDITS.txt",
+      "bytes": 398,
+      "sha256": "e3fcbb629610be0b30a25d41ffeafe73a05d298cc8c8328fe57f6ab3ef465c1e",
+      "matches": true
+    },
+    {
+      "path": "assets/barista-preview.png",
+      "bytes": 4107,
+      "sha256": "3b828d32695a64746644c3eb559275a42e35ba14ea229a95495cbc2e837703a9",
+      "matches": true
+    },
+    {
+      "path": "assets/barista.png",
+      "bytes": 1447,
+      "sha256": "1b77ad28a95799559136f2291630022b243971e2cf300e5d91a77fecb802ad32",
+      "matches": true
+    },
+    {
+      "path": "assets/card-espresso.png",
+      "bytes": 15564,
+      "sha256": "6d3660072c0acc1606d34dbbd7598603b0a7ab22198efc0a9f0613c91d4a185e",
+      "matches": true
+    },
+    {
+      "path": "assets/card-latte.png",
+      "bytes": 14625,
+      "sha256": "a984bee47d48302ebc26b70edfd358a2af97fd5e10351f45ccaf7fcef8b9db59",
+      "matches": true
+    },
+    {
+      "path": "assets/collect.wav",
+      "bytes": 7540,
+      "sha256": "2a1d7dbf8061eaab32d9c20de87c31f4a1b12130b52743b5157a975c3ba40767",
+      "matches": true
+    },
+    {
+      "path": "assets/cover.png",
+      "bytes": 49175,
+      "sha256": "6160fe6a596dd220428f088547c3233e488abe6f3bba13da59e328ca7892ae86",
+      "matches": true
+    },
+    {
+      "path": "assets/fail.wav",
+      "bytes": 22094,
+      "sha256": "3f98b6e3031897c73abf900a195c5c7c26a2cb8a1899f28e5e7d6a69e25a0d89",
+      "matches": true
+    },
+    {
+      "path": "assets/font-license.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "matches": true
+    },
+    {
+      "path": "assets/jump.wav",
+      "bytes": 6658,
+      "sha256": "2ded98a895536814ee569848890618f0a249bdf0b3bb8fa1e33e4b78b3401e4e",
+      "matches": true
+    },
+    {
+      "path": "assets/land.wav",
+      "bytes": 4012,
+      "sha256": "61f8fc045821369a17dc5af6fb3cb5bd04369f7366d1310666bcf837d75ae785",
+      "matches": true
+    },
+    {
+      "path": "assets/perfect.wav",
+      "bytes": 35324,
+      "sha256": "5149d30023d1f792ae66e0f06daa73e381b535d161d3a199cb9a72d0635c9efd",
+      "matches": true
+    },
+    {
+      "path": "assets/polish/ART-CREDITS.txt",
+      "bytes": 794,
+      "sha256": "7841b97405b8360aea6380b619685aded084a1801fb7f020899fe328495293ba",
+      "matches": true
+    },
+    {
+      "path": "assets/polish/milo.json",
+      "bytes": 6232,
+      "sha256": "c68bc930bf32c552a3b928327ed499f4b8a85d929eb90f4b465102019d0dba13",
+      "matches": true
+    },
+    {
+      "path": "assets/polish/milo.png",
+      "bytes": 156209,
+      "sha256": "4191265ceca858d8b17233584de410f9b73abeef6d4f0e67be79f2f95e1e4e0a",
+      "matches": true
+    },
+    {
+      "path": "assets/polish/milo.webp",
+      "bytes": 123280,
+      "sha256": "3405136a92341315b974dd0fa7ee5ba72878719285e291d1250a84770dceb94e",
+      "matches": true
+    },
+    {
+      "path": "assets/sprites.json",
+      "bytes": 410,
+      "sha256": "ff165c407746cfe4509a545be9f401fc0f81a357699a5494a88fcc2c1ae09ef1",
+      "matches": true
+    },
+    {
+      "path": "assets/start.wav",
+      "bytes": 13274,
+      "sha256": "23bc185d330f42b5e08eacc5763022cceabf0ab33c112761a26b9e0503f06b5f",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/ART-CREDITS.txt",
+      "bytes": 1555,
+      "sha256": "7378b5610b4c5b75465444c78e18c7702af06c5c8d3fcc8ca304a21f144860f5",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/baristas.png",
+      "bytes": 1870758,
+      "sha256": "502a1aa96ca221558e142e2e689557582802d676b3aed37e56fccd571b723d95",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/baristas.webp",
+      "bytes": 1445844,
+      "sha256": "32d10940c8d770496d65179ef47330bf74014136d66eb3a68a37fd55fc29bea3",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/cafe-atlas.png",
+      "bytes": 64604,
+      "sha256": "912ca82af3acaf921a81c0d0d39099a965865f3c8265c0a9c47e39883b34b77b",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/card-espresso.jpg",
+      "bytes": 125520,
+      "sha256": "59e2051e0375dc5a0e36b94f4e39eb8ef5cdeb6160056c345368c474d9000827",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/card-latte.jpg",
+      "bytes": 165491,
+      "sha256": "1c12e370f7d4182b0b5c7afccb43277f00144d6fced5caa6f303ab0977dd1f7d",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/characters.json",
+      "bytes": 5089,
+      "sha256": "a25ad44562e81f6420f1270460eecf68e05b2f9b85b09715d7940ed44e585e2d",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/cover-v2.jpg",
+      "bytes": 322021,
+      "sha256": "c38bfaafc736e455af2eca852d3b85e44819d899cadb15dc361b5bd5b8f7838a",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/lettering.json",
+      "bytes": 67706,
+      "sha256": "c285042f058f43dc9693fff6d957ee52a143fd743056ff9ca6de5a8ea6da59ec",
+      "matches": true
+    },
+    {
+      "path": "assets/v2/lettering.png",
+      "bytes": 153232,
+      "sha256": "3bd704c3e0de045930b6ed0264eb9cd028ae6eff718806a9882a3c35e09362d8",
+      "matches": true
+    },
+    {
+      "path": "assets/warning.wav",
+      "bytes": 13274,
+      "sha256": "ed3769362d9cd16cfe0a570d28569f6d2aabf7221f8b0114def08bab92f4aaa9",
+      "matches": true
+    }
+  ]
+}

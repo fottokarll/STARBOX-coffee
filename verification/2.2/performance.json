@@ -1,0 +1,116 @@
+[
+  {
+    "version": "2.1",
+    "method": "10-second warmed attract scene at 640x360 on the same GPU browser, sequential runs on a busy shared desktop",
+    "seconds": 10.055,
+    "frames": 426,
+    "fps": 42.36698160119344,
+    "medianMs": 19.2,
+    "p95Ms": 70.9,
+    "errors": [],
+    "networkFailures": [
+      {
+        "url": "http://localhost:5501/ui.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/rules.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/environment.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/characters.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/polish/milo.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/card-espresso.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/card-latte.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/baristas.webp",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/cover-v2.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/polish/milo.webp",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5501/assets/v2/cafe-atlas.png",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "screenshot": "verification/2.2/performance-2.1-review-title.png"
+  },
+  {
+    "version": "2.2",
+    "method": "10-second warmed attract scene at 640x360 on the same GPU browser, sequential runs on a busy shared desktop",
+    "seconds": 10.02,
+    "frames": 483,
+    "fps": 48.20359281437126,
+    "medianMs": 17.8,
+    "p95Ms": 29.5,
+    "errors": [],
+    "networkFailures": [
+      {
+        "url": "http://localhost:5500/rules.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/characters.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.webp",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/baristas.webp",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "screenshot": "verification/2.2/performance-2.2-review-title.png"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "view": "review",
+  "mode": "climb",
+  "error": "Sandbox crashed: STARBOX COFFEE did not finish starting: 30 s with nothing loading (18 files, 2.5 MB arrived)",
+  "stack": "Error: Sandbox crashed: STARBOX COFFEE did not finish starting: 30 s with nothing loading (18 files, 2.5 MB arrived)\n    at openRuntime (file:///home/karll/STARBOX-coffee/tools/devkit_v2.mjs:155:33)\n    at async cli (file:///home/karll/STARBOX-coffee/tools/devkit_v2.mjs:200:13)"
+}

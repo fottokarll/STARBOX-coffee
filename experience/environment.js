@@ -188,10 +188,15 @@ function makePlatform(platform) {
   const wood = platform.surface === 'wood';
   const pieces = [];
   const baseTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.edge;
-  const topTile = biscuit ? TILE.biscuit : wood ? TILE.wood : kind === 'precision' ? TILE.inset : TILE.ceramic;
+  const topTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.ceramic;
   const thickness = kind === 'rest' ? 0.43 : biscuit ? 0.24 : 0.34;
   pieces.push(prepared(bevelledLedge(platform.halfWidth,4.35,5.65,thickness),identity,baseTile));
   pieces.push(prepared(sectorGeometry(platform.halfWidth-.007,4.415,5.585,.003,.003),identity,topTile));
+  if (platform.surface === 'ceramic') {
+    // Cool glaze lines distinguish sliding surfaces, including precision landings.
+    for (const radius of [4.63, 4.77]) pieces.push(prepared(
+      sectorGeometry(platform.halfWidth*.7,radius,radius+.025,.008,.008,12),identity,TILE.ceramic,0xb0d8dc));
+  }
   if (!biscuit) {
     // An outer brass bead and dark inner edge give the ledge an actual crafted profile.
     pieces.push(prepared(sectorGeometry(platform.halfWidth-.004, 5.57, 5.63, -0.005, -0.08), identity, TILE.gold));
@@ -246,7 +251,7 @@ function glowTexture() {
 
 // A low-cost wall of original painted café windows behind the real 3D mug.
 // It supplies warm depth and distant bokeh without lights, shadows or post effects.
-function cafeBackdropTexture(blurred = false) {
+function cafeBackdropTexture(blur = 0) {
   const canvas = new OffscreenCanvas(512, 512);
   const ctx = canvas.getContext('2d');
   const wall = ctx.createLinearGradient(0, 0, 0, 512);
@@ -309,9 +314,9 @@ function cafeBackdropTexture(blurred = false) {
     ctx.beginPath();ctx.ellipse(x, y, 4, 8, i * 0.9, 0, TAU);ctx.fill();
   }
   let output=canvas;
-  if(blurred) {
+  if(blur) {
     output=new OffscreenCanvas(512,512);const soft=output.getContext('2d');
-    soft.filter='blur(7px)';soft.drawImage(canvas,-8,-8,528,528);
+    soft.filter=`blur(${blur}px)`;soft.drawImage(canvas,-3,-3,518,518);
   }
   const texture = new THREE.CanvasTexture(output);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -530,7 +535,14 @@ export function createEnvironment(world, courseData, assets = {}) {
   exitParts.push(prepared(arch,transform(0,1.0,0),TILE.gold));
   addBox(exitParts,-0.89,0.50,0,0.17,1.0,0.19,TILE.green);
   addBox(exitParts,0.89,0.50,0,0.17,1.0,0.19,TILE.green);
-  icon(exitParts,0,1.94,0,0.47);
+  icon(exitParts,0,2.10,0,0.72);
+  addBox(exitParts,0,2.65,0,2.7,.36,.15,TILE.green);
+  for (const x of [-1.34,1.34]) {
+    addBox(exitParts,x,1.25,0,.10,2.8,.10,TILE.gold);
+    icon(exitParts,x,2.77,0,.24);
+  }
+  staticParts.push(prepared(sectorGeometry(goal.halfWidth,4.38,5.62,.015,.015),
+    transform(0,goal.y,0,0,goal.angle),TILE.gold));
   const exitMatrix=transform(Math.sin(goal.angle)*5,goal.y,Math.cos(goal.angle)*5,0,goal.angle);
   for(const geometry of exitParts){geometry.applyMatrix4(exitMatrix);staticParts.push(geometry);}
 
@@ -539,7 +551,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   addTube(staticParts,[-2.2,top+3.45,-1.1],[-2.2,top+2.83,-1.1],0.17,TILE.green);
   const streamGeometry=prepared(new THREE.CylinderGeometry(0.12,0.17,1,8),identity,TILE.coffee);
   const stream=mesh(streamGeometry,coffeeMaterial,'Continuous coffee pour');stream.position.set(-2.2,top/2,-1.1);
-  const backgroundTexture=cafeBackdropTexture(true);
+  const backgroundTexture=cafeBackdropTexture(2);
   backgroundTexture.repeat.set(4,(top+8.45)/12);
   const backgroundMaterial=new THREE.MeshBasicMaterial({map:backgroundTexture,
     side:THREE.BackSide,fog:false,depthWrite:true,toneMapped:false});
@@ -548,10 +560,12 @@ export function createEnvironment(world, courseData, assets = {}) {
   backgroundGeometry.translate(0,(top+1.55)/2,0);
   const background=mesh(backgroundGeometry,backgroundMaterial,'Distant warm café windows');
   background.renderOrder=-30;
-  const middleTexture=cafeBackdropTexture(true);disposable.add(middleTexture);
+  // Two fixed depth layers give natural parallax from the camera's translation.
+  // No texture scrolling or counter-rotation: changes of direction stay calm.
+  const middleTexture=cafeBackdropTexture(.7);disposable.add(middleTexture);
   middleTexture.repeat.set(2,(top+8)/11);
   const middleMaterial=new THREE.MeshBasicMaterial({map:middleTexture,color:0xe6c997,
-    side:THREE.BackSide,transparent:true,opacity:.18,depthWrite:false,fog:false});disposable.add(middleMaterial);
+    side:THREE.BackSide,transparent:true,opacity:.12,depthWrite:false,fog:false});disposable.add(middleMaterial);
   const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+8,36,1,true,0,Math.PI*1.15);
   middleGeometry.translate(0,(top+1)/2,0);
   mesh(middleGeometry,middleMaterial,'Soft middle-distance café parallax');

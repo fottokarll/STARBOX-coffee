@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "game": {
+    "price": 0,
+    "prize": 0,
+    "minSeconds": 10,
+    "scoreUnit": "points",
+    "paused": false
+  }
+}

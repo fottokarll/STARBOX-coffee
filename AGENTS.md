@@ -1,9 +1,9 @@
 # Continue the existing STARBOX project
 
-This repository contains the editable, published STARBOX COFFEE: Coffee Rising
+This repository contains the editable, published STARBOX COFFEE
 source. Start here; do not reconstruct the public bundle or rebuild the game.
-Current baseline: release 2.1, Project 0 lot 696, experience 3a19877ce5677aaa,
-reviewed submission 8883. Read README.md and ACCESS.md first.
+Current baseline: release 2.2, Project 0 lot 696, experience 83f8f4430e3ed247,
+reviewed submission 9459. The recoverable 2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
 
 Keep the current course length, switchbacks, permanent biscuit bypasses and
 regeneration, two recipes/baristas, rewards, atmosphere and compact HUD. Work
@@ -23,8 +23,9 @@ Run npm test for gameplay changes. Use the official DevKit for actual keyboard
 and touch behavior and visual checks. Distinguish deterministic test runs from
 browser playthroughs; report browser/network limitations precisely.
 
-Known next fix: pointer release in experience/main.js uses the release position
-instead of the originating control. Releasing over a different button can leave
-movement held; releasing over blank space can clear another held action. Test
-off-button release and simultaneous touch controls. Do not assume pointerId is
-available: inspect the documented SDK input events first.
+Touch release is fixed in experience/pointer-controls.js using the originating
+contact's x/y and per-contact dx/dy from the official SDK. It does not assume
+pointerId, which the current shell strips. Preserve off-button release,
+simultaneous controls and duplicate-contact reference counts. The SDK also does
+not forward pointercancel; do not invent that event. See verification/2.2 for
+native touch tests, two full DevKit Perfect runs and deployed verification.

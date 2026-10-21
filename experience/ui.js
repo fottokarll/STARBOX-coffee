@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-export const GAME_TITLE = 'STARBOX COFFEE: Coffee Rising';
+import {RECIPES} from './rules.js';
+export const GAME_TITLE = 'STARBOX COFFEE';
 
 const C = Object.freeze({
   green: '#006241', forest: '#1E3932', cream: '#F2F0E8', gold: '#C8A66A',
@@ -177,12 +178,13 @@ export async function createUI(p0) {
   function header(model, inGame = false) {
     const small = W < 500;
     logo(29, 27, 24);
-    text('STARBOX COFFEE:', 48, 15, small ? 11 : 12, C.cream, 'left', 'bold', 0.2);
-    text('Coffee Rising', 48, 31, small ? 10 : 11, C.gold, 'left', 'body');
+    text(GAME_TITLE, 48, 15, small ? 11 : 12, C.cream, 'left', 'bold', 0.2);
+    text('CLIMB. COLLECT. BREW.', 48, 31, small ? 8 : 9, C.gold, 'left', 'body');
     button('mute', '', W - (inGame ? 88 : 49), 13, 32, 30, false, { icon: model.muted ? 'muted' : 'sound' });
     if (inGame) button('pause', '', W - 49, 13, 32, 30, false, { icon: 'pause' });
     else label('LOT 696', W / 2, 24, small ? 8 : 9, C.muted, 'center');
     if (inGame && model.run) {
+      panel(W / 2 - 40, 14, 80, 28, 'rgba(10,31,23,0.97)', 'rgba(200,166,106,0.35)', 5);
       text(formatTime(model.run.elapsed || 0), W / 2, 21, small ? 13 : 14, C.cream, 'center', 'mono', 0.4);
     }
   }
@@ -255,15 +257,15 @@ export async function createUI(p0) {
     if (short) {
       const left = Math.max(28, W * 0.08);
       label('THE VERTICAL COFFEE ARCADE', left, 79, 9);
-      text('Coffee Rising', left, 106, Math.min(42, W * 0.069), C.cream, 'left', 'display', 0, W * 0.65);
+      text(GAME_TITLE, left, 106, Math.min(36, W * 0.061), C.cream, 'left', 'display', 0, W * 0.80);
       text('Climb the cup. Craft the perfect coffee.', left, 165, 14, C.muted, 'left', 'body', 0, W * 0.66);
       label('CLIMB. COLLECT. BREW.', left, 198, 11);
       button('titleStart', 'ORDER A COFFEE', left, H - 96, Math.min(278, W * 0.47), 46, true);
       label('CLIMB TO THE LAST DROP', W * 0.81, H - 67, 8, C.gold, 'center');
     } else if (narrow) {
       label('THE VERTICAL COFFEE ARCADE', W / 2, H * 0.15, 9, C.gold, 'center');
-      text('Coffee', W / 2, H * 0.19, Math.min(48, W * 0.13), C.cream, 'center', 'display');
-      text('Rising', W / 2, H * 0.19 + 54, Math.min(56, W * 0.15), C.cream, 'center', 'display');
+      text('STARBOX', W / 2, H * 0.19, Math.min(44, W * 0.115), C.cream, 'center', 'display');
+      text('COFFEE', W / 2, H * 0.19 + 54, Math.min(48, W * 0.13), C.cream, 'center', 'display');
       drink(W / 2, H * 0.48, Math.min(W * 0.52, H * 0.25), model.selected || 'latte', true);
       text('A little barista. An enormous adventure.', W / 2, H * 0.68, 14, C.muted, 'center', 'body', 0, W - 40);
       text('Outrun the rising coffee. Brew your best.', W / 2, H * 0.68 + 23, 14, C.muted, 'center', 'body', 0, W - 40);
@@ -272,8 +274,8 @@ export async function createUI(p0) {
     } else {
       const left = W * 0.12, top = H * 0.26;
       label('THE VERTICAL COFFEE ARCADE', left, top - 30, 11);
-      text('Coffee', left, top, Math.min(66, W * 0.065), C.cream, 'left', 'display');
-      text('Rising', left, top + 74, Math.min(82, W * 0.08), C.cream, 'left', 'display');
+      text('STARBOX', left, top, Math.min(60, W * 0.063), C.cream, 'left', 'display');
+      text('COFFEE', left, top + 74, Math.min(72, W * 0.075), C.cream, 'left', 'display');
       text('Climb the cup. Collect your recipe.', left, top + 180, 17, C.muted);
       text('Escape with the perfect coffee.', left, top + 207, 17, C.muted);
       button('titleStart', 'ORDER A COFFEE', left, Math.min(H - 105, top + 260), 290, 49, true);
@@ -312,12 +314,12 @@ export async function createUI(p0) {
         drink(x + 46, l.y + l.cardH * 0.48, 66, id);
         text(i ? 'Latte' : 'Espresso', x + 86, l.y + 25, 21, C.cream, 'left', 'display', 0, l.cardW - 98);
         text(i ? 'Beans + milk' : 'Pure coffee', x + 86, l.y + 59, 12, C.muted, 'left', 'body', 0, l.cardW - 98);
-        label(i ? 'FULL CLIMB' : 'QUICK CLIMB', x + 86, l.y + 86, 8, C.gold, 'left', l.cardW - 95);
+        label(i ? 'ADVANCED' : 'INTRODUCTION', x + 86, l.y + 86, 8, C.gold, 'left', l.cardW - 95);
       } else {
         drink(cx, l.y + l.cardH * 0.36, Math.min(l.cardW * 0.7, l.cardH * 0.53), id, true);
         text(i ? 'Latte' : 'Espresso', cx, l.y + l.cardH * 0.65, l.phone ? 24 : 29, C.cream, 'center', 'display');
         text(i ? 'Beans + milk' : 'Pure coffee', cx, l.y + l.cardH * 0.79, 14, C.muted, 'center');
-        label(i ? 'THE FULL CLIMB' : 'A QUICK ASCENT', cx, l.y + l.cardH * 0.90, l.phone ? 8 : 9, C.gold, 'center');
+        label(i ? 'ADVANCED SWITCHBACKS' : 'PROGRESSIVE CLIMB', cx, l.y + l.cardH * 0.90, l.phone ? 8 : 9, C.gold, 'center');
       }
     }
     const bottom = l.y + l.cardH + (l.short ? 13 : 24), bw = Math.min(380, W - 56);
@@ -393,7 +395,8 @@ export async function createUI(p0) {
     const proportions = phone ? [0, 0.22, 0.55, 0.73, 1] : [0, 0.23, 0.56, 0.75, 1];
     const labels = ['ORDER', 'COLLECT', 'CLIMB', 'COFFEE RISING'];
     const required = r.required || { bean: 0, milk: 0 }, collected = r.collected || { bean: 0, milk: 0 };
-    const gap = r.y - r.coffeeY, grace = r.elapsed < 4, danger = !grace && gap < 2.7;
+    const gap = r.y - r.coffeeY, graceSeconds = RECIPES[r.recipe].grace;
+    const grace = r.elapsed < graceSeconds, danger = !grace && gap < 2.7;
     for (let i = 0; i < 4; i++) {
       const cx = x + hw * proportions[i], cw = hw * (proportions[i + 1] - proportions[i]);
       if (i) line(cx, y + 11, cx, y + h - 11, 'rgba(200,166,106,0.16)');
@@ -417,7 +420,7 @@ export async function createUI(p0) {
       }
       if (i === 3) {
         const status = r.state === 'countdown' ? 'Ready' : r.state === 'paused' ? 'Paused' :
-          grace ? `In ${Math.ceil(4-r.elapsed)}s` : danger ? 'CLOSE!' : 'Rising';
+          grace ? `In ${Math.ceil(graceSeconds-r.elapsed)}s` : danger ? 'CLOSE!' : 'Rising';
         text(status, cx + 10, y + 30, phone ? 14 : 16, danger ? C.gold : C.cream, 'left', 'bold', 0, cw - 17);
         meter(cx + 10, y + 52, cw - 20, grace ? 0 : 1 - gap / 12, danger ? C.gold : '#B99A70', 3);
       }
@@ -474,7 +477,8 @@ export async function createUI(p0) {
     const headline = result.success ? result.perfect ? 'Perfect Coffee' : result.quality === 'GREAT COFFEE'
       ? 'A great coffee' : 'You made it!' : 'One more brew?';
     const subtitle = result.success ? result.perfect ? 'Every ingredient. A perfect finish.'
-      : 'The rim is yours. There is more to collect.' : 'The coffee caught you. Your next climb starts now.';
+      : 'The rim is yours. There is more to collect.'
+      : `Reached ${Math.round(result.progress * 100)}% of the cup. ${result.bestHeight.toFixed(1)} / ${result.top.toFixed(1)}m.`;
     if (short) {
       text(headline, x, y, 29, C.cream, 'left', 'display', 0, w - 175);
       text(subtitle, x, y + 41, 13, C.muted, 'left', 'body', 0, w - 170);
@@ -562,7 +566,7 @@ export async function createUI(p0) {
   }
   function drawRewardMessage(model, x, y, maxWidth) {
     const perfect = model.run?.result?.perfect;
-    let message = model.reward || (model.rewardPending ? 'Preparing your collectible...' : perfect
+    let message = !model.run?.result?.success ? 'Keep moving. Brake early on white ceramic.' : model.reward || (model.rewardPending ? 'Preparing your collectible...' : perfect
       ? 'Perfect recipe complete.' : 'Collect every ingredient for Perfect Coffee.');
     if (message.toLowerCase().includes('sign in')) message = 'Sign in to keep your card and score.';
     text(message, x, y, 12, C.muted, 'center', 'body', 0, maxWidth);

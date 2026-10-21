@@ -1,0 +1,253 @@
+{
+  "method": "Same binary steering/jump pilot for both engines; no teleportation or synthetic pickups. Logical metres at radius 5.",
+  "versions": {
+    "2.1": {
+      "espresso": {
+        "mainPlatforms": 24,
+        "top": 26.45,
+        "switchbacks": 3,
+        "centreArcMetres": 74.79019091165905,
+        "meanCentreJump": 3.251747430941698,
+        "maxCentreJump": 3.650000000000002,
+        "maxEdgeGap": 0.9503533175998884,
+        "minimumLandingWidth": 1.6,
+        "coffeeRise": 0.68,
+        "grace": 4,
+        "idleDeadline": 8.294117647058822,
+        "summitDeadline": 47.19117647058823,
+        "runs": {
+          "perfect": {
+            "seconds": 17.266666666666328,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 20.428666666666896,
+            "jumps": 23,
+            "bestProgress": 1
+          },
+          "direct": {
+            "seconds": 17.266666666666328,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 20.428666666666896,
+            "jumps": 23,
+            "bestProgress": 1
+          },
+          "timber": {
+            "seconds": 20.133333333332832,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 18.47933333333367,
+            "jumps": 26,
+            "bestProgress": 1
+          },
+          "deliberate": {
+            "seconds": 19.59999999999953,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 18.84200000000032,
+            "jumps": 23,
+            "bestProgress": 1
+          },
+          "hesitant": {
+            "seconds": 22.683333333332687,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 16.74533333333377,
+            "jumps": 23,
+            "bestProgress": 1
+          }
+        }
+      },
+      "latte": {
+        "mainPlatforms": 32,
+        "top": 35.65,
+        "switchbacks": 3,
+        "centreArcMetres": 99.31637091656597,
+        "meanCentreJump": 3.203753900534386,
+        "maxCentreJump": 3.650000000000002,
+        "maxEdgeGap": 0.9503533175998884,
+        "minimumLandingWidth": 1.6,
+        "coffeeRise": 0.74,
+        "grace": 4,
+        "idleDeadline": 7.945945945945946,
+        "summitDeadline": 56.12162162162162,
+        "runs": {
+          "perfect": {
+            "seconds": 23.266666666665987,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 24.392666666667168,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "direct": {
+            "seconds": 23.266666666665987,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 24.392666666667168,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "timber": {
+            "seconds": 27.06666666666577,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 21.580666666667327,
+            "jumps": 35,
+            "bestProgress": 1
+          },
+          "deliberate": {
+            "seconds": 26.383333333332477,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 22.086333333333965,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "hesitant": {
+            "seconds": 30.566666666665572,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 18.990666666667476,
+            "jumps": 31,
+            "bestProgress": 1
+          }
+        }
+      }
+    },
+    "2.2": {
+      "espresso": {
+        "mainPlatforms": 32,
+        "top": 33.88,
+        "switchbacks": 3,
+        "centreArcMetres": 133.49999999999997,
+        "meanCentreJump": 4.306451612903225,
+        "maxCentreJump": 5.299999999999998,
+        "maxEdgeGap": 2.9000000000000004,
+        "minimumLandingWidth": 2.1,
+        "coffeeRise": 1.18,
+        "grace": 3.2,
+        "idleDeadline": 5.6745762711864405,
+        "summitDeadline": 34.38644067796611,
+        "runs": {
+          "perfect": {
+            "seconds": 23.841666666665954,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 12.522833333334177,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "direct": {
+            "seconds": 23.691666666665963,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 12.699833333334166,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "timber": {
+            "seconds": 26.62499999999913,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 9.238500000001029,
+            "jumps": 34,
+            "bestProgress": 1
+          },
+          "deliberate": {
+            "seconds": 26.924999999999113,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 8.88450000000105,
+            "jumps": 31,
+            "bestProgress": 1
+          },
+          "hesitant": {
+            "seconds": 30.924999999998885,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3,
+            "finishClearance": 4.164500000001318,
+            "jumps": 31,
+            "bestProgress": 1
+          }
+        }
+      },
+      "latte": {
+        "mainPlatforms": 40,
+        "top": 41.34,
+        "switchbacks": 5,
+        "centreArcMetres": 191.09999999999997,
+        "meanCentreJump": 4.8999999999999995,
+        "maxCentreJump": 5.700000000000001,
+        "maxEdgeGap": 3.7999999999999994,
+        "minimumLandingWidth": 1.7000000000000002,
+        "coffeeRise": 1.28,
+        "grace": 1.8,
+        "idleDeadline": 4.08125,
+        "summitDeadline": 36.378125,
+        "runs": {
+          "perfect": {
+            "seconds": 30.199999999998926,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 7.988000000001378,
+            "jumps": 39,
+            "bestProgress": 1
+          },
+          "direct": {
+            "seconds": 30.18333333333226,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 3.1329166666666666,
+            "finishClearance": 8.009333333334709,
+            "jumps": 39,
+            "bestProgress": 1
+          },
+          "timber": {
+            "seconds": 34.41666666666536,
+            "success": true,
+            "quality": "GREAT COFFEE",
+            "minimumClearance": 2.237333333334739,
+            "finishClearance": 2.5906666666683407,
+            "jumps": 43,
+            "bestProgress": 1
+          },
+          "deliberate": {
+            "seconds": 34.04999999999871,
+            "success": true,
+            "quality": "PERFECT COFFEE",
+            "minimumClearance": 2.9800000000016027,
+            "finishClearance": 3.0600000000016507,
+            "jumps": 39,
+            "bestProgress": 1
+          },
+          "hesitant": {
+            "seconds": 22.274999999999377,
+            "success": false,
+            "quality": "SPILLED COFFEE",
+            "minimumClearance": 0.07200000000079854,
+            "finishClearance": 0.07200000000079854,
+            "jumps": 22,
+            "bestProgress": 0.5828193033381712
+          }
+        }
+      }
+    }
+  }
+}
