@@ -51,7 +51,9 @@ export function createBarista(assets, depthTexture) {
         if(pixel.a<0.16) discard;
         float edge=1.0-min(texture2D(atlas,spriteUV+vec2(texel.x,0.0)).a,
                            texture2D(atlas,spriteUV+vec2(0.0,texel.y)).a);
-        vec3 color=pixel.rgb*vec3(0.96,0.975,0.91);
+        // Preserve the native atlas colours while sharing the café's warm light.
+        // The former global green bias made pale skin and cream read as olive.
+        vec3 color=pixel.rgb*vec3(1.0,0.98,0.94);
         color+=vec3(0.13,0.085,0.025)*edge*(0.25+warmth);
         color+=vec3(0.045,0.025,0.008)*(1.0-localUV.y)*bounce;
         color*=1.0+warmth*0.07;

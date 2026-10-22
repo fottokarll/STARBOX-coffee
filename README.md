@@ -4,14 +4,22 @@
 
 An original, free Project 0 arcade climbing experience on [lot 696](https://project0.city/lot/696). Choose a coffee and an expressive pixel barista, then leap around a real cylindrical course as coffee fills the glass mug.
 
-Release **2.3 is live and reviewed**: submission **9637**, experience **08289dd2fc68c6ad**, with no warnings. It publishes the completed gameplay and café/UI overhaul without changing the tested experience files. Release 2.2 is recoverable from Git tag `checkpoint-2.2-before-overhaul` (submission 9459, experience `83f8f4430e3ed247`); release 2.1 remains at `checkpoint-2.1-before-2.2` (submission 8883, experience `3a19877ce5677aaa`).
+Release **2.4 is live and reviewed**: submission **9902**, experience **1bc707880dd2e3c0**, with no warnings. It adds large two-thumb controls, fast retries, meaningful recipe/bonus routes and richer café materials, and fixes the green coffee patches. Release 2.3 is recoverable at `checkpoint-2.3-before-2.4` (submission 9637, experience `08289dd2fc68c6ad`). Release 2.2 remains at `checkpoint-2.2-before-overhaul`; release 2.1 at `checkpoint-2.1-before-2.2`.
 
 **Continuing development:** this repository contains the full editable source.
 Read [GitHub and Project 0 access](ACCESS.md) for authentication, network,
 local setup and official publishing commands. Project 0 credentials stay in
 the executing environment or ignored `.env`, never in GitHub.
 
-See [2.3 release verification](verification/2.3/README.md) for final tests, publication and deployed checks, and [overhaul verification](verification/overhaul/README.md) for the full gameplay and visual evidence. Earlier [2.2 verification](verification/2.2/README.md), [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
+See [2.4 release verification](verification/2.4/README.md) for tests, before/after screenshots, performance, publication and deployed checks. Earlier [2.3 release verification](verification/2.3/README.md), [overhaul verification](verification/overhaul/README.md), [2.2 verification](verification/2.2/README.md), [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
+
+## Release 2.4
+
+- Large raised chocolate LEFT/RIGHT keys and an up-arrow JUMP support expanded hit targets, sliding steering and independent fingers. After a spill, JUMP becomes QUICK RETRY; SPACE and R also restart. Retries have a 0.35-second ready pulse and require fresh jump/steering input. The normal first-start countdown remains three seconds.
+- Primary climb progress sits above the subordinate timer. Revised title, selections, pause and failure receipt keep the cream/forest/gold identity and original Milo/Mira artwork. Results show time, maximum climb, ingredients and personal best.
+- Espresso introduces an optional starting star-and-return pocket; Latte adds an exposed ceramic return pocket near its last switchback. One bean in each recipe now requires the first opposite-side timber route, with signs explaining the choice. Main lengths (32/40), switchbacks (3/5), solid collisions, slippery ceramic, biscuit regeneration and faster coffee settings are retained.
+- The real café room is visible behind the glass. Coherent window/lantern lighting, glazed ceramic, crafted timber, restrained depth-aware softness and warm highlights add depth. The player and UI render crisply afterwards. Coffee is rich brown with fine crema; shallow ripples now clear the solid green coaster that previously poked through the surface.
+- The [published package](artifacts/starbox-coffee-2.4.zip) contains only experience files. The 2.3 rollback checkpoint is preserved locally and on GitHub. A boost remains deferred to preserve the tested jump/coffee balance.
 
 ## Release 2.3
 
@@ -61,9 +69,9 @@ Enter lot 696 in Project 0. Choose Espresso or Latte, then Milo or Mira.
 
 - **A/D or left/right:** run around the cup.
 - **Hold Space, W or Up:** jump higher. Release and press for the next jump.
-- **R:** fresh brew. **P:** pause/resume. **M:** mute.
-- **Touch:** hold left/right and jump together. Releasing jump retains steering.
-- **Space:** advance the menus. **1/2:** choose coffee or barista on its screen.
+- **R:** quick fresh brew. **P:** pause/resume. **M:** mute.
+- **Touch:** slide between LEFT/RIGHT while the other thumb holds the up-arrow JUMP. Releasing jump retains steering; after failure, that key becomes QUICK RETRY.
+- **Space:** advance menus, jump during play, or immediately retry after failure. **1/2:** choose coffee or barista on its screen.
 - **Escape:** leave. **Enter:** Project 0 chat.
 
 Reaching the exit completes the round even when the recipe is incomplete. Only collecting every required ingredient earns **Perfect Coffee**. Time, quality, ingredients, stars and score appear separately. Scores and Perfect Coffee cards use the official Project 0 APIs. Entry and prizes are zero; there are no purchases or token payouts.
@@ -76,6 +84,8 @@ Reaching the exit completes the round even when the recipe is incomplete. Only c
 - `experience/environment.js`: efficient original 3D café geometry, textured surfaces, glass, lanterns, coffee, steam and biscuit effects.
 - `experience/collectibles.js`: batched dimensional beans, milk drops, stars and pickup sparks.
 - `experience/ui.js`: native-resolution typography, menus, HUD and collectible presentation.
+- `experience/ui-layout.js`, `pointer-controls.js`, `input-latch.js`: responsive touch targets, contact tracking and fresh-input retry gates.
+- `experience/cafe-materials.js`, `diorama.js`: coherent material lighting, procedural coffee and a restrained depth-aware world composite.
 - `experience/assets/v2/`: original V2 characters, frame metadata, cover, cards, lettering and surface atlas.
 - `experience/assets/polish/`: registered Milo animation atlas, per-frame data and provenance.
 - `tools/art-source/`: preserved generated artwork and provenance.
@@ -90,6 +100,8 @@ All logical movement and geometry are scaled uniformly by 0.24 into the 12 × 19
 ## Local verification
 
 `npm test` runs renderer-independent complete runs with ordinary binary steering/jump inputs. Tests cover both Perfect recipes, incomplete Great/Weak finishes, actual direction reversals, optional stars, biscuit cracking/collapse/regeneration/relanding, complete permanent bypass routes, coffee failure, short input pulses, pause, retry and low frame rates.
+
+For current 2.4 browser routes use `P0_REPORT_DIR=verification/2.4 node tools/preview_climb.mjs espresso review` (or `latte phone`, `--safe`, `--stars`). `tools/release_routes_24.mjs` runs all six sequentially. `tools/release_controls_24.mjs` checks native touch, retries and focus loss; `tools/verify_presentation.mjs` checks actual geometry. In this desktop environment prefix browser commands with `PYTHONHOME= PYTHONPATH= LD_LIBRARY_PATH= P0_HEADLESS=0` for GPU Chromium. The older `devkit_v2.mjs --mode climb` controller targets 2.2; use the current preview driver for 2.4.
 
 Serve the experience with `python3 tools/serve.py`, then open:
 

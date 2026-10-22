@@ -7,6 +7,8 @@ import {createCollectibles} from './collectibles.js';
 import {readRecords,keepRecord} from './records.js';
 import {CARD_IDS} from './rewards.js';
 import {createPointerControls} from './pointer-controls.js';
+import {createInputLatch} from './input-latch.js';
+import {createDioramaComposite} from './diorama.js';
 
 const SCALE=.24,BASE=.85;
 
@@ -38,7 +40,8 @@ export default async function start(p0,{observe=null}={}) {
   const actorScene=barista.scene,hero=barista.hero;
   const contactShadow=createContactShadow(world);
   const model={screen:'title',selected:'latte',selectedCharacter:'boy',run:null,muted:false,
-    bests:readRecords(p0.saved),notice:'',noticeLeft:0,reward:'',rewardPending:false,table:p0.table||[],gamepad:p0.input.pad||false};
+    bests:readRecords(p0.saved),notice:'',noticeLeft:0,reward:'',rewardPending:false,table:p0.table||[],gamepad:p0.input.pad||false,
+    pressed:{left:false,right:false,jump:false,restart:false}};
   let preview=createRun(model.selected),environment,collectibles,sceneRecipe='';
   const courseCache=new Map();
   let cameraTheta=0,cameraY=0,visualTime=0,lastUI=0,landLeft=0,facing=1;
@@ -48,13 +51,27 @@ export default async function start(p0,{observe=null}={}) {
   let touchLeft=false,touchRight=false,touchJump=false,jumpPulse=false,pausePulse=false;
   let awarded=false,round=0;
   const heldActions=new Set(),lookTarget=new THREE.Vector3();
+  const inputLatch=createInputLatch(),focusPoint=new THREE.Vector3(),landingPoint=new THREE.Vector3();
+  let lastPointerButtons=0,lastTickAt=performance.now();
   const blitScene=new THREE.Scene(),blitCamera=new THREE.OrthographicCamera(-1,1,1,-1,.1,5);
-  const blit=new THREE.Mesh(new THREE.PlaneGeometry(2,2),new THREE.MeshBasicMaterial({
-    map:worldTarget.texture,depthTest:false,depthWrite:false,toneMapped:false}));
+  const composite=createDioramaComposite(worldTarget,camera);
+  const blit=new THREE.Mesh(new THREE.PlaneGeometry(2,2),composite.material);
   blit.position.z=-1;blitScene.add(blit);
 
   const pointers=createPointerControls((x,y)=>ui.hit(x,y),action);
-  function clearTouch() {pointers.clear();touchLeft=false;touchRight=false;touchJump=false;jumpPulse=false;}
+  function clearTouch() {
+    pointers.clear();touchLeft=false;touchRight=false;touchJump=false;jumpPulse=false;
+    for(const id of Object.keys(model.pressed))model.pressed[id]=false;
+    uiDirty=true;
+  }
+  function padJumpDown() {
+    const b=p0.input.gamepad?.buttons;return (b?.[0]||0)>.5||(b?.[7]||0)>.3;
+  }
+  function interrupt() {
+    clearTouch();heldActions.clear();inputLatch.capture(p0.input.keys,padJumpDown());
+    lastPointerButtons=p0.input.pointer.buttons||0;
+    if(model.run?.state==='play')pausePulse=true;
+  }
   function sound(name,volume=.23,rate=1) {
     if(!model.muted)p0.sound.play(`assets/${name}.wav`,{volume,rate});
   }
@@ -84,8 +101,10 @@ export default async function start(p0,{observe=null}={}) {
   function chooseRecipe(recipe) {
     model.selected=recipe;setupCourse(recipe);uiDirty=true;sound('land',.10);
   }
-  function begin() {
+  function begin(quick=false) {
+    inputLatch.capture(p0.input.keys,padJumpDown());pausePulse=false;
     model.run=createRun(model.selected);model.run.character=model.selectedCharacter;
+    if(quick)model.run.countdown=.35;
     model.reward='';model.rewardPending=false;model.notice='White ceramic slides. Brake before the edge.';
     model.noticeLeft=5;awarded=false;round++;landLeft=0;facing=1;cameraTheta=0;cameraY=0;pathDirection=1;cameraDirection=1;
     setupCourse(model.selected);lastPoseLog=-1;clearTouch();sound('start',.24);screen('game');
@@ -97,6 +116,7 @@ export default async function start(p0,{observe=null}={}) {
       if(id==='left')touchLeft=down;
       if(id==='right')touchRight=down;
       if(id==='jump') {touchJump=down;if(down&&model.run?.state==='play')jumpPulse=true;}
+      model.pressed[id]=down;uiDirty=true;
       p0.log('Coffee Rising: input',JSON.stringify({move:Number(touchRight)-Number(touchLeft),jump:touchJump}));
       return;
     }
@@ -106,15 +126,15 @@ export default async function start(p0,{observe=null}={}) {
     if(id==='espresso'||id==='latte'){chooseRecipe(id);return;}
     if(id==='characterNext'){screen('character');sound('land',.10);return;}
     if(id==='boy'||id==='girl') {model.selectedCharacter=id;uiDirty=true;sound('land',.10);return;}
-    if(id==='start'||id==='restart'){begin();return;}
+    if(id==='start'||id==='restart'){begin(id==='restart');return;}
     if(id==='pause'){pausePulse=true;uiDirty=true;return;}
     if(id==='order'){model.run=null;screen('order');return;}
     if(id==='back'){screen(model.screen==='character'?'order':'title');return;}
     if(id==='exit')p0.exit();
   }
-  p0.on('keyup',event=>heldActions.delete(event.code));
+  p0.on('keyup',event=>{heldActions.delete(event.code);inputLatch.release(event.code);});
   p0.on('keydown',event=>{
-    const code=event.code;if(heldActions.has(code))return;heldActions.add(code);
+    const code=event.code;if(event.repeat)return;heldActions.add(code);
     if(code==='KeyM'){action('mute');return;}
     const confirm=code==='Space'||code==='KeyW'||code==='ArrowUp';
     if(model.screen==='title') {if(confirm)action('titleStart');return;}
@@ -128,15 +148,17 @@ export default async function start(p0,{observe=null}={}) {
       if(code==='Digit2'||code==='ArrowRight')action('girl');
       if(confirm)action('start');if(code==='Backspace')action('back');return;
     }
+    if(code==='Space'&&model.run?.state==='results'&&!model.run.result?.success) {action('restart');return;}
     if(confirm&&model.run?.state==='play')jumpPulse=true;
     if(code==='KeyR')action('restart');
     if(code==='KeyP')action('pause');
     if(code==='KeyO'&&(model.run?.state==='results'||model.run?.state==='paused'))action('order');
   });
-  p0.on('pointerdown',pointers.down);
-  p0.on('pointermove',pointers.move);
-  p0.on('pointerup',pointers.up);
-  p0.on('pad',active=>{model.gamepad=active;uiDirty=true;});
+  for(const [event,handle] of [['pointerdown',pointers.down],['pointermove',pointers.move],['pointerup',pointers.up]])
+    p0.on(event,e=>{lastPointerButtons=e.buttons||0;handle(e);});
+  p0.on('resize',interrupt);
+  p0.on('pointerlock',locked=>{if(!locked)interrupt();});
+  p0.on('pad',active=>{if(model.gamepad&&!active)interrupt();model.gamepad=active;uiDirty=true;});
   p0.on('table',table=>{model.table=table;uiDirty=true;});
   p0.on('reward',reward=>{
     if(reward.kind==='item') {
@@ -147,7 +169,7 @@ export default async function start(p0,{observe=null}={}) {
     } else if(reward.kind==='score'&&reward.reason)model.reward=reward.reason;
     uiDirty=true;
   });
-  p0.hud(`${GAME_TITLE}. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides; brake early. Biscuits reform in 1.8s. Green timber routes stay solid. Collect your recipe and reach the gold gate. R retry / P pause / M mute. Esc leave / Enter chat. Free play.`);
+  p0.hud(`${GAME_TITLE}. A/D or arrows: move. Hold Space/W/Up: jump; release between jumps. Touch: slide arrows + UP. Pad: stick + A. White ceramic slides. Biscuits reform in 1.8s; timber stays solid. Follow BEAN signs for your recipe; STAR/RETURN paths are optional. Space after a spill: quick retry. R retry / P pause / M mute. Esc leave / Enter chat. Free play.`);
   function updateWorld(dt,time) {
     visualTime+=dt;
     const active=model.screen==='game'&&model.run;
@@ -160,22 +182,26 @@ export default async function start(p0,{observe=null}={}) {
     cameraY+=(y-cameraY)*(1-Math.exp(-dt*11));
     if(attract&&dt===0){cameraTheta=theta;cameraY=y;}
     const phone=p0.width/p0.height<.8;
-    const fov=phone?72:52;
+    const fov=phone?70:54;
     if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix();}
-    const radius=attract?17:phone?17.6:12.6;
-    const cameraHeight=Math.min((12-BASE)/SCALE-.8,attract?cameraY+7.1:Math.max(3.25,cameraY+(phone?5.5:4.3)));
+    const radius=attract?17:phone?18.6:13.5;
+    const cameraHeight=Math.min((12-BASE)/SCALE-.8,attract?cameraY+7.1:Math.max(3.25,cameraY+(phone?5.8:4.6)));
     camera.position.set(Math.sin(cameraTheta)*radius*SCALE,BASE+cameraHeight*SCALE,Math.cos(cameraTheta)*radius*SCALE);
     if(active&&sample.onPlatform>=0)pathDirection=sample.platforms[sample.onPlatform].direction||1;
     cameraDirection+=(pathDirection-cameraDirection)*(1-Math.exp(-dt*6));
     const lookAngle=cameraTheta+cameraDirection*(phone?.23:.07);
     lookTarget.set(Math.sin(lookAngle)*2.65*SCALE,BASE+(cameraY+1.22)*SCALE,Math.cos(lookAngle)*2.65*SCALE);
     camera.lookAt(lookTarget);
+    focusPoint.set(Math.sin(theta)*5*SCALE,BASE+(y+.8)*SCALE,Math.cos(theta)*5*SCALE);
+    const path=sample.perfectPath,index=path.indexOf(sample.onPlatform);
+    const next=sample.platforms[path[Math.min(path.length-1,Math.max(0,index)+1)]];
+    landingPoint.set(Math.sin(next.angle)*5*SCALE,BASE+(next.y+.3)*SCALE,Math.cos(next.angle)*5*SCALE);
     hero.visible=Boolean(active);
     barista.update(sample,{character:model.selectedCharacter,time:visualTime,dt,camera,facing,landLeft,
       width:p0.width,height:p0.height,light:environment.lightAt?.(sample.theta,sample.y)||0});
     landLeft=Math.max(0,landLeft-dt);
     contactShadow.update(sample,hero.visible);
-    environment.update(sample,time,dt,{theta:cameraTheta});collectibles.update(sample,time);
+    environment.update(sample,time,dt,{theta:cameraTheta});collectibles.update(sample,time,{windowAngle:cameraTheta*.84});
     if(active) {
       p0.me.position.set(hero.position.x*SCALE,BASE+(sample.y+.7)*SCALE,hero.position.z*SCALE);
       p0.me.yaw=sample.theta;
@@ -229,6 +255,7 @@ export default async function start(p0,{observe=null}={}) {
   function renderFrame() {
     const w=Math.max(1,Math.round(p0.width*qualityScale)),h=Math.max(1,Math.round(p0.height*qualityScale));
     if(worldTarget.width!==w||worldTarget.height!==h)worldTarget.setSize(w,h);
+    composite.update(focusPoint,landingPoint);
     renderer.autoClear=true;renderer.setRenderTarget(worldTarget);renderer.render(scene,camera);
     renderer.setRenderTarget(null);renderer.render(blitScene,blitCamera);
     renderer.autoClear=false;renderer.render(actorScene,camera);
@@ -236,16 +263,22 @@ export default async function start(p0,{observe=null}={}) {
     ui.render(renderer);renderer.autoClear=true;
   }
   function tick(dt,time) {
+    const now=performance.now(),wallGap=now-lastTickAt;lastTickAt=now;
+    // The SDK consumes shell blur by clearing input state; it emits no blur or
+    // pointercancel event. Observe that reset without treating a finger's UP
+    // (buttons=0 while another thumb remains down) as a global release.
+    const lostKey=[...heldActions].some(code=>!p0.input.keys.has(code));
+    if(wallGap>3000||lastPointerButtons!==0&&p0.input.pointer.buttons===0||lostKey)interrupt();
     const safe=Math.min(dt,.1),run=model.run;
     if(model.screen==='game'&&run) {
-      const keys=p0.input.keys;
-      const left=keys.has('KeyA')||keys.has('ArrowLeft'),right=keys.has('KeyD')||keys.has('ArrowRight');
+      const keys=inputLatch.read(p0.input.keys,padJumpDown());
+      const left=keys.down('KeyA')||keys.down('ArrowLeft'),right=keys.down('KeyD')||keys.down('ArrowRight');
       const touchMove=Number(touchRight)-Number(touchLeft);
       const analog=p0.input.gamepad?.axes?.[0]||0;
       const move=touchMove||(Math.abs(analog)>.15?analog:Number(right)-Number(left));
-      const padButtons=p0.input.gamepad?.buttons;
-      const padJump=(padButtons?.[0]||0)>.5||(padButtons?.[7]||0)>.3;
-      const jump=touchJump||padJump||keys.has('Space')||keys.has('KeyW')||keys.has('ArrowUp');
+      const jump=touchJump||keys.padJump||keys.down('Space')||keys.down('KeyW')||keys.down('ArrowUp');
+      model.pressed.left=touchLeft||left||analog<-.15;
+      model.pressed.right=touchRight||right||analog>.15;model.pressed.jump=jump;
       step(run,{move,jump,jumpPressed:jumpPulse,pause:pausePulse},safe);
       jumpPulse=false;pausePulse=false;processEvents(run,time);
       // Read-only diagnostics for control/recovery reports; never drive gameplay.
@@ -294,14 +327,15 @@ export default async function start(p0,{observe=null}={}) {
   renderFrame();
   // Allow the final loading status to reach the shell before start returns.
   await new Promise(resolve=>setTimeout(resolve,150));
-  p0.loading(1,'ready to brew');await new Promise(resolve=>setTimeout(resolve,0));p0.loop(tick);
+  p0.loading(1,'ready to brew');await new Promise(resolve=>setTimeout(resolve,0));lastTickAt=performance.now();p0.loop(tick);
   p0.log(`${GAME_TITLE} ready: Milo + Mira / recovering biscuits / safe routes / free entry`);
   p0.log('Coffee Rising: screen title');
   p0.on('end',()=>{
+    clearTouch();heldActions.clear();
     p0.sound.stopAll();
     for(const cached of courseCache.values()){cached.environment.dispose();cached.collectibles.dispose();}
     atlas.dispose();atlasBitmap.close();
     barista.dispose();contactShadow.dispose();
-    worldTarget.dispose();blit.geometry.dispose();blit.material.dispose();ui.dispose();
+    worldTarget.dispose();blit.geometry.dispose();composite.dispose();ui.dispose();
   });
 }

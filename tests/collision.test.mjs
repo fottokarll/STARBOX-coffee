@@ -15,15 +15,46 @@ for(const dt of [1/240,1/120,1/60,1/30,1/15,1/10]) {
     const falling=fixture();falling.y=11;falling.grounded=false;falling.onPlatform=-1;falling.vY=-15;
     for(let t=0;t<.5;t+=dt)step(falling,{},dt);
     assert.equal(falling.y,8);assert.equal(falling.grounded,true);
-    const side=fixture();side.theta=-.5;side.y=7.7;side.vTheta=1.55;side.grounded=false;side.onPlatform=-1;
-    for(let t=0;t<.22;t+=dt)step(side,{move:1,jump:true},dt);
-    assert.ok(side.theta<=-.3-BODY.halfAngle+1e-8);assert.equal(overlapsBody(side.theta,side.y,side.platforms[0]),false);
+    for(const direction of [-1,1]) {
+      const side=fixture();side.theta=-direction*.5;side.y=7.7;side.vTheta=direction*1.55;side.grounded=false;side.onPlatform=-1;
+      for(let t=0;t<.22;t+=dt)step(side,{move:direction,jump:true},dt);
+      assert.ok(direction*side.theta<=-.3-BODY.halfAngle+1e-8);assert.equal(overlapsBody(side.theta,side.y,side.platforms[0]),false);
+    }
     const below=fixture();below.y=6.1;below.grounded=false;below.onPlatform=-1;below.vY=8.2;
     let blocked=false;
     for(let t=0;t<.1;t+=dt) {step(below,{jump:true},dt);blocked ||= below.events.some(e=>e.type==='contact'&&e.axis===1&&e.normal===-1);}
     assert.equal(blocked,true);assert.ok(below.y+BODY.height<=8-platformThickness(below.platforms[0])+1e-8);assert.ok(below.vY<=0);
   });
+  test(`both outer top corners stay supported without jitter or sinking at ${1/dt} FPS`,()=>{
+    for(const direction of [-1,1]) {
+      const corner=fixture();corner.theta=direction*(.3+BODY.halfAngle-.0005);
+      corner.y=8.025;corner.vY=-1;corner.grounded=false;corner.onPlatform=-1;
+      let landed=false;
+      for(let t=0;t<1;t+=dt) {
+        step(corner,{},dt);landed ||= corner.grounded;
+        if(landed) {assert.equal(corner.y,8);assert.equal(corner.grounded,true);assert.equal(corner.vY,0);}
+        assert.equal(overlapsBody(corner.theta,corner.y,corner.platforms[0]),false);
+      }
+      assert.equal(landed,true);
+    }
+  });
 }
+
+test('glancing corners preserve tangential motion on both sides and at the angular seam',()=>{
+  const p=fixture().platforms[0];
+  for(const seam of [0,Math.PI*2])for(const direction of [-1,1]) {
+    const side=sweepBody(seam-direction*.8,7.6,direction*1.4,.9,[p]);
+    assert.ok(side.contacts.some(c=>c.axis===0&&c.normal===-direction));
+    assert.ok(Math.abs(side.y-8.5)<1e-8,'a side contact leaves the upward motion intact');
+    assert.equal(overlapsBody(side.theta,side.y,p),false);
+    const clear=sweepBody(side.theta,side.y,direction*.3,0,[p]);
+    assert.equal(clear.contacts.length,0,'after clearing a corner, horizontal motion resumes');
+    const below=sweepBody(seam-direction*.8,5.8,direction*1.4,.9,[p]);
+    assert.ok(below.contacts.some(c=>c.axis===1&&c.normal===-1));
+    assert.ok(Math.abs(below.theta-(seam+direction*.6))<1e-8,'an underside contact leaves horizontal motion intact');
+    assert.equal(overlapsBody(below.theta,below.y,p),false);
+  }
+});
 
 test('continuous collision cannot tunnel through thin slabs or across the angular seam',()=>{
   const p=fixture().platforms[0];

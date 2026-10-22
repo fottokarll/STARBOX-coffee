@@ -35,12 +35,21 @@ try {
   const enter=page.locator('#panel').getByRole('button',{name:/Play/i}).first();
   await enter.waitFor({state:'visible',timeout:60000});
   const onboarding=page.getByRole('dialog',{name:'How Project 0 works'});
-  for(let step=0;step<10&&await onboarding.isVisible();step++)
-    await onboarding.getByRole('button',{name:/^(Let's go|Next|Start|Got it)$/}).first().click();
-  await page.waitForTimeout(200);
   const navigation=page.getByRole('dialog',{name:'Around the city'});
-  if(await navigation.isVisible())await navigation.getByRole('button',{name:'Close',exact:true}).click();
-  await page.screenshot({path:`${reportDirectory}/live-city.png`});await enter.click();
+  // City onboarding can arrive after the lot panel has already become visible.
+  // Complete it through ordinary clicks, including that delayed arrival.
+  let entered=false;
+  for(let attempt=0;attempt<16&&!entered;attempt++) {
+    if(await onboarding.isVisible()) {
+      await onboarding.getByRole('button',{name:/^(Let's go|Next|Start|Got it)$/}).first().click();
+      await page.waitForTimeout(250);continue;
+    }
+    if(await navigation.isVisible())await navigation.getByRole('button',{name:'Close',exact:true}).click();
+    await page.screenshot({path:`${reportDirectory}/live-city.png`});
+    try {await enter.click({timeout:1500});entered=true;}
+    catch(error) {if(attempt===15)throw error;await page.waitForTimeout(300);}
+  }
+  assert.ok(entered,'city onboarding completed and Play clicked');
   await waitLog('Coffee Rising: screen title',0,120000);
   const shell=page.frames().find(f=>f.url().includes('/sandbox/shell.html?lot=696'));
   assert.ok(shell,'actual city sandbox, rather than DevKit');

@@ -1,0 +1,49 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":46,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "STARBOX COFFEE" in 18.5 s (21 files, 2.5 MB); 1 player; first frame 16 ms; 1 fps
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":46,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[lot 0 experience] Coffee Rising: screen order
+[devkit] started "STARBOX COFFEE" in 15.7 s (21 files, 2.5 MB); 1 player; first frame 44 ms; 1 fps
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte boy 1
+[lot 0 experience] Coffee Rising: screen countdown
+[devkit] review run: ran 14 s at 1.9 fps (worst frame 2812.4 ms, first 44 ms)
+{
+  "reportPath": "verification/2.4/software-baseline-review.json",
+  "status": "started",
+  "summary": {
+    "started": true,
+    "crash": null,
+    "seconds": 30.7,
+    "frames": 27,
+    "fps": 1.9,
+    "firstFrame": 43.8,
+    "worstFrame": 2812.4,
+    "slowFrames": 14,
+    "errors": [],
+    "logs": [
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: screen order",
+      "Coffee Rising: screen character",
+      "Coffee Rising: screen game",
+      "Coffee Rising: round started latte boy 1",
+      "Coffee Rising: screen countdown"
+    ],
+    "violations": [],
+    "hud": [
+      "STARBOX COFFEE. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides; brake early. Biscuits reform in 1.8s. Green timber routes stay solid. Collect your recipe and reach the gold gate. R retry / P pause / M mute. Esc leave / Enter chat. Free play."
+    ],
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 9902,
+    "check": "https://project0.city/api/agent/submissions/9902",
+    "lot": {
+      "id": 696,
+      "ownerId": 1228,
+      "ownerName": "Karll",
+      "ownerColor": "#854cf0",
+      "name": "STARBOX COFFEE",
+      "description": "CLIMB. COLLECT. BREW. Enter the original STARBOX coffeehouse and escape a giant transparent cup as coffee rises below. Jump around a true cylindrical spiral, collect your recipe, and race for a Perfect Coffee.",
+      "version": "fab90cf1e6f03779-dfdeecc369ddd596",
+      "lod0": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod0.glb",
+      "lod1": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod1.glb",
+      "lod2": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod2.glb",
+      "color": "#ffffff",
+      "likes": 9,
+      "dislikes": 0,
+      "experience": {
+        "version": "1bc707880dd2e3c0",
+        "name": "STARBOX COFFEE",
+        "maxPlayers": 8,
+        "muted": false,
+        "ui": "minimized",
+        "stick": false
+      },
+      "work": "agent",
+      "flagged": false,
+      "immune": null,
+      "box": "subtle",
+      "boxColor": "#006241",
+      "burning": 0,
+      "disputed": false,
+      "forSale": null,
+      "bought": 16613,
+      "game": null,
+      "look": "https://files.project0.city/lots/696/fab90cf1e6f03779-look-dfdeecc369ddd596/lot.json",
+      "script": "https://files.project0.city/lots/696/fab90cf1e6f03779-look-dfdeecc369ddd596/build.js",
+      "credits": [
+        {
+          "work": "STARBOX architecture, star-and-cup identity, geometry and animation",
+          "by": "Original procedural artwork for this Project 0 lot"
+        },
+        {
+          "work": "DejaVu Sans lettering",
+          "by": "DejaVu font team; Bitstream Vera licence"
+        },
+        {
+          "work": "STARBOX V2 baristas and glass-mug cafe cover",
+          "by": "Original artwork created with OpenAI image generation for STARBOX COFFEE"
+        },
+        {
+          "work": "Milo explorer animation polish",
+          "by": "Original OpenAI-generated sprite art from the supplied character direction; source and frame data preserved"
+        },
+        {
+          "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
+          "by": "Created for STARBOX COFFEE"
+        },
+        {
+          "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",
+          "by": "DejaVu font team; Bitstream Vera licence in assets/font-license.txt"
+        }
+      ],
+      "event": null,
+      "updated": 1792681121890,
+      "since": 1792506169772,
+      "grow": 1.52
+    },
+    "warnings": [],
+    "stats": {
+      "files": 45,
+      "bytes": 4856590,
+      "sourceBytes": 162735,
+      "bundleBytes": 175132
+    }
+  }
+}

@@ -109,7 +109,8 @@ export function makeCourse(recipe = 'latte') {
       required: kind !== 'star' });
   }
   const occupied = new Set();
-  // Two beans require deliberate travel toward the outside of turning terraces.
+  // Terrace beans require deliberate travel toward the outside edge. One of
+  // these Espresso placements moves onto the permanent ingredient route below.
   for (const fork of forks.filter(f => f.required)) {
     add('bean', platforms[fork.pad], true, directionAt(fork.pad, def.id)*.20);
   }
@@ -125,10 +126,6 @@ export function makeCourse(recipe = 'latte') {
   distribute('bean', def.beans - 2, 0);
   distribute('milk', def.milk, 0.25);
   for (const fork of forks) add('star', platforms[fork.pad], true, .04);
-  const perfectPath = mainPath.map(id => {
-    const fork = forks.find(f => f.replaces === id && f.required);
-    return fork ? fork.pad : id;
-  });
   // Permanent routes use the OTHER side of the cylinder over a whole section.
   // Matching altitude at each step avoids balconies directly above launch pads.
   const biscuitAlternates = [];
@@ -150,6 +147,48 @@ export function makeCourse(recipe = 'latte') {
     before.nextIds.push(pads[0]);
     biscuitAlternates.push({biscuit:biscuitId, from:fromId, pads, rejoin});
   }
+  // One ingredient takes the opposite-side permanent route. The biscuit line
+  // remains a genuine direct choice for an incomplete, still successful brew.
+  const ingredientRoute = biscuitAlternates[0];
+  const detourBean = ingredients.find(i => i.id === (def.id === 'latte' ? 'bean-3' : 'bean-0'));
+  const ingredientPad = platforms[ingredientRoute.pads[0]];
+  detourBean.platform = ingredientPad.id; detourBean.angle = ingredientPad.angle;
+  detourBean.y = ingredientPad.y + .83; detourBean.detour = true;
+  ingredientRoute.requiredRewards = [detourBean.id];
+  ingredientPad.routeRole = 'ingredient';
+  // Optional reward pockets are deliberately isolated from both the main and
+  // permanent routes' flight corridors. Their only exit returns to the source.
+  const returnBranches = [];
+  for (const fromId of def.id === 'latte' ? [30] : [0]) {
+    const from = platforms[fromId], direction = def.id === 'latte' ? 1 : -1;
+    const id = platforms.length;
+    platforms.push(platform(id, from.angle + direction * (def.id === 'latte' ? 1.14 : 1.10),
+      from.y + 1.04, 'bonus', def.id === 'espresso' ? .32 : .26, {
+        surface: def.id === 'espresso' ? 'wood' : 'ceramic',
+        optional: true, routeIndex: null, routeRole: 'bonus',
+        direction: -direction, returnTo: fromId, nextIds: [fromId]
+      }));
+    from.nextIds.push(id);
+    const rewards = [ingredients.find(i => i.id === (def.id === 'latte' ? 'star-4' : 'star-2'))];
+    for (const reward of rewards) {
+      reward.platform = id; reward.angle = platforms[id].angle;
+      reward.y = platforms[id].y + .83; reward.detour = true;
+    }
+    returnBranches.push({from: fromId, pads: [id], returnTo: fromId,
+      rejoin: fromId + 1, required: false, rewards: rewards.map(i => i.id)});
+  }
+  function withReturns(path) {
+    return path.flatMap(id => {
+      const branch = returnBranches.find(b => b.from === id);
+      return branch ? [id, ...branch.pads, branch.returnTo] : [id];
+    });
+  }
+  function withIngredientRoute(path) {
+    return path.flatMap(id => id === ingredientRoute.from ? [id, ...ingredientRoute.pads]
+      : id > ingredientRoute.from && id < ingredientRoute.rejoin ? [] : [id]);
+  }
+  const perfectPath = withIngredientRoute(mainPath);
+  const rewardPath = withReturns(perfectPath);
   const safePath = [];
   for (let i = 0; i < mainPath.length; i++) {
     safePath.push(i);
@@ -157,7 +196,8 @@ export function makeCourse(recipe = 'latte') {
     if (alternate) { safePath.push(...alternate.pads); i = alternate.rejoin - 1; }
   }
   return { platforms, ingredients, top: platforms[finishPlatform].y,
-    mainPath, perfectPath, safePath, biscuitAlternates, forks, finishPlatform };
+    mainPath, perfectPath, rewardPath, safePath,
+    biscuitAlternates, returnBranches, forks, finishPlatform };
 }
 
 export function createRun(recipe = 'latte') {

@@ -1,5 +1,6 @@
 /** Project 0 forwards x/y and per-contact dx/dy, but does not forward pointerId.
- * Recover the previous endpoint from the delta; retain the action from DOWN.
+ * Recover the previous endpoint from the delta; retain each contact's origin.
+ * Only steering-origin contacts may slide between the left and right controls.
  * This also tracks blank contacts so they cannot release another finger's action.
  * Verified against the official shell/runtime, 349b98f4f3 (October 2026).
  */
@@ -28,14 +29,25 @@ export function createPointerControls(hit, action) {
     down(event) {
       const id = hit(event.x, event.y);
       // Store first: a menu action may synchronously clear all contacts.
-      contacts.push({x: event.x, y: event.y, touch: Boolean(event.touch), button: event.button, id});
+      contacts.push({x: event.x, y: event.y, touch: Boolean(event.touch), button: event.button, id, steering: id === 'left' || id === 'right'});
       if (controls.has(id)) set(id, true);
       else if (id) action(id, true);
     },
     move(event) {
       const index = event.touch ? find(event) : contacts.findIndex(c => !c.touch);
       if (index < 0) return;
-      contacts[index].x = event.x; contacts[index].y = event.y;
+      const contact = contacts[index];
+      contact.x = event.x; contact.y = event.y;
+      if (contact.steering) {
+        const next = hit(event.x, event.y);
+        // Leaving both keys retains steering until release. Jump/menu/blank
+        // contacts never acquire steering, even if their paths cross this one.
+        if ((next === 'left' || next === 'right') && next !== contact.id) {
+          const previous = contact.id;
+          contact.id = next;
+          set(previous, false); set(next, true);
+        }
+      }
     },
     up(event) {
       const index = find(event);

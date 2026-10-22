@@ -1,11 +1,15 @@
 import {platformThickness} from './collision.js';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import {createCafeMaterial,createCoffeeMaterial} from './cafe-materials.js';
 
 // All surfaces and furniture are original, deliberately small café geometry.
 // Gameplay colliders remain in rules.js; every landing surface uses those angles.
 const TAU = Math.PI * 2;
 const WHITE = 0xffffff;
+// The green coaster's solid top is -3.02. At the initial -3.00 coffee height,
+// the former ±.067 ripple passed through it and exposed green polygon islands.
+const COASTER_TOP=-3.02, LIQUID_CLEARANCE=.012, MAX_RIPPLE=.07;
 const C = {
   cream: 0xf2f0e8, green: 0x006241, forest: 0x1e3932,
   gold: 0xc8a66a, brown: 0x6f4e37, amber: 0xffcf7b
@@ -16,7 +20,6 @@ const TILE = {
   inset: 12, pot: 13, lantern: 14, white: 15
 };
 const identity = new THREE.Matrix4();
-const lightDirection = new THREE.Vector3(-0.35, 0.88, 0.32).normalize();
 
 function transform(x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, sz = 1) {
   return new THREE.Matrix4().compose(
@@ -29,11 +32,9 @@ function transform(x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1, 
 function tintGeometry(geometry, tile, color = WHITE, shade = true) {
   const uv = geometry.getAttribute('uv');
   const position = geometry.getAttribute('position');
-  const normals = geometry.getAttribute('normal');
   const outUV = new Float32Array(position.count * 2);
   const colors = new Float32Array(position.count * 3);
   const base = new THREE.Color(color);
-  const normal = new THREE.Vector3();
   for (let i = 0; i < position.count; i++) {
     let u = uv ? uv.getX(i) : 0.5;
     let v = uv ? uv.getY(i) : 0.5;
@@ -41,11 +42,9 @@ function tintGeometry(geometry, tile, color = WHITE, shade = true) {
     v = Math.max(0.018, Math.min(0.982, v));
     outUV[i * 2] = ((tile % 4) + u) / 4;
     outUV[i * 2 + 1] = (3 - Math.floor(tile / 4) + v) / 4;
-    let amount = 1;
-    if (shade && normals) {
-      normal.fromBufferAttribute(normals, i);
-      amount = 0.59 + Math.max(0, normal.dot(lightDirection)) * 0.41;
-    }
+    // Lighting is evaluated after all local rotations in the material. Baking it
+    // here made identical ledges face different apparent window directions.
+    const amount = 1;
     colors[i * 3] = base.r * amount;
     colors[i * 3 + 1] = base.g * amount;
     colors[i * 3 + 2] = base.b * amount;
@@ -191,16 +190,29 @@ function makePlatform(platform) {
   const baseTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.edge;
   const topTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.ceramic;
   const thickness = platformThickness(platform);
-  pieces.push(prepared(bevelledLedge(platform.halfWidth,4.35,5.65,thickness),identity,baseTile));
+  pieces.push(prepared(bevelledLedge(platform.halfWidth,4.35,5.65,thickness),identity,baseTile,
+    biscuit?0xeac17a:wood?0xb88b5e:0x92b3a5));
   pieces.push(prepared(sectorGeometry(platform.halfWidth-.007,4.415,5.585,.003,.003),identity,topTile));
   if (platform.surface === 'ceramic') {
     // Cool glaze lines distinguish sliding surfaces, including precision landings.
     for (const radius of [4.63, 4.77]) pieces.push(prepared(
-      sectorGeometry(platform.halfWidth*.7,radius,radius+.025,.008,.008,12),identity,TILE.ceramic,0xb0d8dc));
+      sectorGeometry(platform.halfWidth*.7,radius,radius+.019,.008,.008,12),identity,TILE.ceramic,0xd8e4dc));
+    // A pale outer glaze roll and a narrower recessed seam give white porcelain
+    // its thickness and clear-coat edge instead of a flat cream rectangle.
+    pieces.push(prepared(sectorGeometry(platform.halfWidth-.009,5.52,5.59,.014,-.034),identity,TILE.ceramic,0xfff9ec));
+  }
+  if(wood&&!biscuit) {
+    for(const radius of [4.77,5.20])pieces.push(prepared(
+      sectorGeometry(platform.halfWidth-.012,radius,radius+.013,.008,.008),identity,TILE.wood,0x60442e));
+    // Tiny end-grain pegs are actual recessed-looking brass joinery.
+    for(const side of [-1,1])for(const radius of [4.53,5.45]) {
+      const a=side*(platform.halfWidth-.05);
+      addCylinder(pieces,Math.sin(a)*radius,.012,Math.cos(a)*radius,.028,.028,.015,TILE.gold,0xad8b4d,8);
+    }
   }
   if (!biscuit) {
-    // An outer brass bead and dark inner edge give the ledge an actual crafted profile.
-    pieces.push(prepared(sectorGeometry(platform.halfWidth-.004, 5.57, 5.63, -0.005, -0.08), identity, TILE.gold));
+    // A restrained underside bead leaves the landing edge visually clean.
+    pieces.push(prepared(sectorGeometry(platform.halfWidth-.004, 5.57, 5.63, -0.08, -0.12), identity, TILE.gold,0xc8a66a));
     pieces.push(prepared(sectorGeometry(platform.halfWidth-.004, 4.35, 4.40, -0.07, -0.21), identity, TILE.green));
     // Small supporting corbels stop the platforms feeling like flat floating rectangles.
     for (const sign of [-1, 1]) {
@@ -256,9 +268,9 @@ function cafeBackdropTexture(blur = 0) {
   const canvas = new OffscreenCanvas(512, 512);
   const ctx = canvas.getContext('2d');
   const wall = ctx.createLinearGradient(0, 0, 0, 512);
-  wall.addColorStop(0, '#263c2e');
-  wall.addColorStop(0.44, '#57402a');
-  wall.addColorStop(1, '#302b20');
+  wall.addColorStop(0, '#101b18');
+  wall.addColorStop(0.44, '#34281f');
+  wall.addColorStop(1, '#191f19');
   ctx.fillStyle = wall; ctx.fillRect(0, 0, 512, 512);
   // Oak wall panels anchor the windows in a recognizable coffeehouse room.
   for (let y = 404; y < 512; y += 27) {
@@ -272,16 +284,16 @@ function cafeBackdropTexture(blur = 0) {
   for (let i = 0; i < 3; i++) {
     const x = 16 + i * 170;
     const halo = ctx.createRadialGradient(x + 70, 220, 12, x + 70, 220, 153);
-    halo.addColorStop(0, 'rgba(249,181,78,0.23)');
+    halo.addColorStop(0, 'rgba(249,181,78,0.08)');
     halo.addColorStop(1, 'rgba(249,181,78,0)');
     ctx.fillStyle = halo; ctx.fillRect(x - 75, 40, 300, 370);
     ctx.fillStyle = '#352b20'; ctx.fillRect(x - 7, 62, 151, 348);
     ctx.fillStyle = '#a27a45'; ctx.fillRect(x - 3, 66, 143, 340);
     const window = ctx.createLinearGradient(x, 0, x + 132, 0);
-    window.addColorStop(0, '#98622e');
-    window.addColorStop(0.26, '#c58e49');
-    window.addColorStop(0.55, '#e2b86e');
-    window.addColorStop(1, '#aa7034');
+    window.addColorStop(0, '#4e3825');
+    window.addColorStop(0.26, '#725332');
+    window.addColorStop(0.55, '#946d3c');
+    window.addColorStop(1, '#59422b');
     ctx.fillStyle = window; ctx.fillRect(x + 3, 73, 131, 326);
     // Broad subtle interior silhouettes read as a distant café, not another level.
     ctx.fillStyle = 'rgba(86,56,31,0.25)';
@@ -352,28 +364,34 @@ export function createEnvironment(world, courseData, assets = {}) {
   if (atlas) {
     atlas.colorSpace = THREE.SRGBColorSpace;
     atlas.magFilter = THREE.LinearFilter;
+    // The material selects and clamps each mip footprint inside its own cell,
+    // retaining filtered grain without cross-tile colour contamination.
     atlas.minFilter = THREE.LinearMipmapLinearFilter;
     atlas.generateMipmaps = true;
     atlas.needsUpdate = true;
   }
-  const opaque = new THREE.MeshBasicMaterial({map: atlas, vertexColors: true, side: THREE.DoubleSide});
-  const lanternMaterial = new THREE.MeshBasicMaterial({map: atlas, vertexColors: true, side: THREE.DoubleSide});
-  const glassMaterial = new THREE.MeshBasicMaterial({color: 0xb5dfd3, transparent: true, opacity: 0.04,
+  const opaque = createCafeMaterial(atlas);
+  const roomMaterial = createCafeMaterial(atlas,{distant:true});
+  const lanternMaterial = createCafeMaterial(atlas,{luminous:true});
+  const glassMaterial = new THREE.MeshBasicMaterial({color: 0xe9e6d7, transparent: true, opacity: 0.035,
     side: THREE.BackSide, depthWrite: false});
-  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xe9fff5, transparent: true, opacity: 0.12,
+  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xfff1d9, transparent: true, opacity: 0.10,
     side: THREE.DoubleSide, depthWrite: false});
-  const foamMaterial = new THREE.MeshBasicMaterial({color: 0xe6cb9c});
-  const coffeeMaterial = new THREE.MeshBasicMaterial({map: atlas, vertexColors: true, side: THREE.DoubleSide});
+  const foamMaterial = createCafeMaterial(null);
+  foamMaterial.color.set(0xc99955);
+  const coffeeMaterial = createCoffeeMaterial();
+  const coffeeVolumeMaterial = createCoffeeMaterial({volume:true});
   const glow = glowTexture();
   const glowMaterial = new THREE.MeshBasicMaterial({map: glow, color: 0xffae46, transparent: true,
-    opacity: 0.66, depthWrite: false, depthTest: true, side: THREE.DoubleSide});
+    opacity: 0.39, depthWrite: false, depthTest: true, side: THREE.DoubleSide});
   const steamMaterial = new THREE.MeshBasicMaterial({map: glow, color: 0xe8e0c8, transparent: true,
-    opacity: 0.12, depthWrite: false, side: THREE.DoubleSide});
-  const ghostMaterial=opaque.clone();ghostMaterial.transparent=true;ghostMaterial.opacity=.27;ghostMaterial.depthWrite=false;
+    opacity: 0.065, depthWrite: false, side: THREE.DoubleSide});
+  const ghostMaterial=createCafeMaterial(atlas);ghostMaterial.transparent=true;ghostMaterial.opacity=.27;ghostMaterial.depthWrite=false;
   ghostMaterial.color.set(0xe8d8a8);
-  const bubbleMaterial=new THREE.MeshBasicMaterial({color:0xefbd74,transparent:true,opacity:.64,depthWrite:false});
+  const bubbleMaterial=createCafeMaterial(null);bubbleMaterial.color.set(0xc58c45);
+  bubbleMaterial.transparent=true;bubbleMaterial.opacity=.72;bubbleMaterial.depthWrite=false;
   for (const material of [opaque, lanternMaterial, glassMaterial, glintMaterial, foamMaterial,
-    coffeeMaterial, glowMaterial, steamMaterial,ghostMaterial,bubbleMaterial]) disposable.add(material);
+    coffeeMaterial,coffeeVolumeMaterial,roomMaterial, glowMaterial, steamMaterial,ghostMaterial,bubbleMaterial]) disposable.add(material);
   disposable.add(glow);
   const top = courseData.top;
   const biscuits = [], lanterns = [], leaves = [];
@@ -394,7 +412,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   for (const platform of platforms) {
     const geometry = makePlatform(platform);
     if (platform.kind === 'biscuit') {
-      const biscuitMaterial=opaque.clone();disposable.add(biscuitMaterial);
+      const biscuitMaterial=createCafeMaterial(atlas);disposable.add(biscuitMaterial);
       const object = mesh(geometry, biscuitMaterial, 'Biscuit ' + platform.id);
       object.position.y = platform.y; object.rotation.y = platform.angle;
       const ghost=new THREE.Mesh(geometry,ghostMaterial);root.add(ghost);ghost.visible=false;
@@ -407,7 +425,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   }
 
   // A real oak counter supports the glass. Its quiet horizontal grain is world-fixed.
-  addBox(staticParts,0,-3.24,0,44,.38,58,TILE.wood,0xd3b181);
+  addBox(staticParts,0,-3.24,0,44,.38,58,TILE.wood,0xe8bd87);
   addBox(staticParts,0,-3.43,0,44.15,.10,58.15,TILE.green);
   for(let x=-20;x<=20;x+=4) addBox(staticParts,x,-3.043,0,.018,.008,58,TILE.wood,0x806343);
   addRing(staticParts,-3.025,6.12,.06,TILE.gold);
@@ -416,6 +434,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   // The room is a restrained theatrical depth layer; none of this furniture is a
   // gameplay collider. Everything is geometry, sharing two batched atlas materials.
   function furnitureCup(parts,x,y,z,size=1) {
+    addCylinder(parts,x,y+.012,z,size*.46,size*.46,.018,TILE.white,0x22261b,12);
     addCylinder(parts,x,y+size*.36,z,size*.34,size*.26,size*.70,TILE.ceramic);
     addCylinder(parts,x,y+size*.72,z,size*.30,size*.30,.025,TILE.coffee,WHITE,12);
     addCylinder(parts,x,y+.04,z,size*.5,size*.5,.06,TILE.ceramic,WHITE,12);
@@ -459,10 +478,12 @@ export function createEnvironment(world, courseData, assets = {}) {
     const a=i*TAU/8,r=21.7,x=Math.sin(a)*r,z=Math.cos(a)*r;
     const parts=[],lit=[];
     // Tall windows, oak mullions, a forest-green lower wall and a golden lintel.
-    addBox(parts,0,roomCenter,0,14,roomHeight,.28,TILE.white,0x6d7058);
-    addBox(lit,0,roomCenter+1,-.18,11.5,roomHeight-4,.10,TILE.lantern,0x9f9677);
+    addBox(parts,0,roomCenter,0,14,roomHeight,.28,TILE.white,0x39483b);
+    const primaryWindow=i===7;
+    addBox(lit,0,roomCenter+1,-.18,11.5,roomHeight-4,.10,
+      primaryWindow?TILE.white:TILE.lantern,primaryWindow?0xf3cb83:0x655b3f);
     for(const xx of [-6,-2,2,6])addBox(parts,xx,roomCenter,-.30,.18,roomHeight,.25,TILE.wood,0x8a6945);
-    for(const yy of [-.8,top*.47,top+2.9])addBox(parts,0,yy,-.35,12.5,.20,.32,TILE.gold,0xc0a272);
+    for(const yy of [-.8,top*.23,top*.47,top*.72,top+2.9])addBox(parts,0,yy,-.35,12.5,.20,.32,TILE.wood,0x9b7650);
     addBox(parts,0,-1.7,-.55,13.8,2.2,.5,TILE.green,0x65836d);
     // Deep shelves with cream cups and bags give the room a recognisable scale.
     if(i%2===0)for(const yy of [4.0,8.2]) {
@@ -622,6 +643,39 @@ export function createEnvironment(world, courseData, assets = {}) {
     staticParts.push(mark);
   }
 
+  // Signs describe real route topology. They live beyond the landing radius;
+  // their narrow posts and faces never change a collider or hide the takeoff.
+  function routeSign(platform,direction,label,required=false) {
+    const angle=platform.angle+direction*Math.max(.12,platform.halfWidth-.035);
+    const pieces=[];
+    addBox(pieces,0,.31,0,.055,.60,.055,TILE.wood,0xc79e6e);
+    addBox(pieces,0,.66,0,1.20,.40,.105,TILE.green,required?0xc3c4a5:0x889f82);
+    addBox(pieces,0,.88,0,1.27,.035,.13,TILE.gold,0xcab17b);
+    const matrix=transform(Math.sin(angle)*6.06,platform.y,Math.cos(angle)*6.06,0,angle);
+    for(const g of pieces){g.applyMatrix4(matrix);staticParts.push(g);}
+    const canvas=new OffscreenCanvas(384,128),ctx=canvas.getContext('2d');
+    ctx.clearRect(0,0,384,128);ctx.fillStyle=required?'#ffe3aa':'#e8d5a5';
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='bold 37px sans-serif';
+    ctx.fillText(`${direction<0?'‹ ':''}${label}${direction>0?' ›':''}`,192,64);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    texture.generateMipmaps=false;disposable.add(texture);
+    const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,
+      side:THREE.DoubleSide});disposable.add(material);
+    const face=mesh(new THREE.PlaneGeometry(1.12,.35),material,label+' route sign');
+    face.position.set(0,.66,.058).applyMatrix4(matrix);face.rotation.y=angle;
+  }
+  const angularSign=(a,b)=>Math.sign(Math.atan2(Math.sin(a-b),Math.cos(a-b)))||1;
+  for(const branch of courseData.returnBranches||[]) {
+    const from=lookup.get(branch.from),pad=lookup.get(branch.pads[0]);
+    if(!from||!pad)continue;
+    routeSign(from,angularSign(pad.angle,from.angle),'STAR & BACK');
+    routeSign(pad,angularSign(from.angle,pad.angle),'RETURN');
+  }
+  for(const route of courseData.biscuitAlternates||[])if(route.requiredRewards?.length) {
+    const from=lookup.get(route.from),pad=lookup.get(route.pads[0]);
+    if(from&&pad)routeSign(from,angularSign(pad.angle,from.angle),'BEAN ROUTE',true);
+  }
+
   // A wide café arch signals the actual finish without making a decorative collider.
   const goal=platforms.find(p=>p.finish)||lookup.get(courseData.finishPlatform)||platforms[platforms.length-1];
   const exitParts=[];
@@ -644,13 +698,15 @@ export function createEnvironment(world, courseData, assets = {}) {
   addTube(staticParts,[-2.2,top+3.45,-5.8],[-2.2,top+3.45,-1.1],0.14,TILE.gold);
   addTube(staticParts,[-2.2,top+3.45,-1.1],[-2.2,top+2.83,-1.1],0.17,TILE.green);
   const streamGeometry=prepared(new THREE.CylinderGeometry(0.12,0.17,1,8),identity,TILE.coffee);
-  const stream=mesh(streamGeometry,coffeeMaterial,'Continuous coffee pour');stream.position.set(-2.2,top/2,-1.1);
+  const stream=mesh(streamGeometry,coffeeVolumeMaterial,'Continuous coffee pour');stream.position.set(-2.2,top/2,-1.1);
   const backgroundTexture=cafeBackdropTexture(0);
   backgroundTexture.repeat.set(4,(top+7.05)/12);
   const backgroundMaterial=new THREE.MeshBasicMaterial({map:backgroundTexture,
     side:THREE.BackSide,fog:false,depthWrite:true,toneMapped:false});
   disposable.add(backgroundTexture);disposable.add(backgroundMaterial);
-  const backgroundGeometry=new THREE.CylinderGeometry(16.8,16.8,top+7.05,48,1,true);
+  // The painted distance must sit behind the genuine room. The old radius16.8
+  // opaque/depth-writing cylinder hid the real furniture and walls at radius21.7.
+  const backgroundGeometry=new THREE.CylinderGeometry(24.4,24.4,top+7.05,64,1,true);
   backgroundGeometry.translate(0,(top+.75)/2,0);
   const background=mesh(backgroundGeometry,backgroundMaterial,'Distant warm café windows');
   background.renderOrder=-30;
@@ -659,12 +715,12 @@ export function createEnvironment(world, courseData, assets = {}) {
   const middleTexture=cafeBackdropTexture(0);disposable.add(middleTexture);
   middleTexture.repeat.set(2,(top+8)/11);
   const middleMaterial=new THREE.MeshBasicMaterial({map:middleTexture,color:0xe6c997,
-    side:THREE.BackSide,transparent:true,opacity:.12,depthWrite:false,fog:false});disposable.add(middleMaterial);
+    side:THREE.BackSide,transparent:true,opacity:.035,depthWrite:false,fog:false});disposable.add(middleMaterial);
   const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+7.2,36,1,true,0,Math.PI*1.15);
   middleGeometry.translate(0,(top+.6)/2,0);
   const middle=mesh(middleGeometry,middleMaterial,'Quiet middle-distance café parallax');
   const room=new THREE.Group();room.name='Cafe service counters, windows and pendants';root.add(room);
-  mesh(combine(roomParts),opaque,'Batched cafe furniture',room);
+  mesh(combine(roomParts),roomMaterial,'Batched cafe furniture',room);
   mesh(combine(roomLights),lanternMaterial,'Warm cafe windows and pendant light',room);
   const signCanvas=new OffscreenCanvas(1024,256),signContext=signCanvas.getContext('2d');
   signContext.fillStyle='#173c30';signContext.fillRect(0,0,1024,256);
@@ -680,6 +736,22 @@ export function createEnvironment(world, courseData, assets = {}) {
   const lamps=mesh(combine(lanternLightParts),lanternMaterial,'Warm lantern glass');
   const cup=mesh(combine(glassParts),glassMaterial,'Transparent tapered mug');cup.renderOrder=-20;
   const reflections=mesh(combine(glintParts),glintMaterial,'Glass reflections and handle');reflections.renderOrder=5;
+
+  // Contact and a broad, soft window pool anchor the glass on the real oak slab.
+  // These are two transparent planes, not a shadow-map render pass.
+  const counterShadowMaterial=new THREE.MeshBasicMaterial({map:glow,color:0x1d1009,
+    transparent:true,opacity:.78,depthWrite:false,polygonOffset:true,polygonOffsetFactor:-1});
+  disposable.add(counterShadowMaterial);
+  const counterShadow=mesh(new THREE.PlaneGeometry(18,15),counterShadowMaterial,'Soft glass contact on oak');
+  counterShadow.rotation.x=-Math.PI/2;counterShadow.position.set(1.1,-3.035,-.4);
+  const windowPoolMaterial=new THREE.MeshBasicMaterial({map:glow,color:0xf3b661,
+    transparent:true,opacity:.17,depthWrite:false});disposable.add(windowPoolMaterial);
+  const windowPool=mesh(new THREE.PlaneGeometry(17,12),windowPoolMaterial,'Warm window pool on counter');
+  windowPool.rotation.x=-Math.PI/2;windowPool.rotation.z=-.55;windowPool.position.set(-8,-3.034,6);
+
+  // Evaluate local light positions in the actual scaled lot, once. Every surface
+  // shares the same window direction and receives a smooth warm lantern falloff.
+  for(const material of disposable)material.userData?.setLanterns?.(lanterns,root);
 
   const leafMesh=instances(leafGeometry(),opaque,leaves.length,'Instanced trailing ivy');
   for(let i=0;i<leaves.length;i++) {
@@ -698,11 +770,11 @@ export function createEnvironment(world, courseData, assets = {}) {
   const surfacePosition=surfaceGeometry.getAttribute('position');
   const surfaceBase=new Float32Array(surfacePosition.array);
   const volumeGeometry=prepared(new THREE.CylinderGeometry(5.93,5.93,1,40,1,true),identity,TILE.coffee,0xd4b38d);
-  const volume=mesh(volumeGeometry,coffeeMaterial,'Rising coffee volume');
-  const foamGeometry=new THREE.SphereGeometry(1,7,4);
-  const foam=instances(foamGeometry,foamMaterial,26,'Cream foam bubbles');
+  const volume=mesh(volumeGeometry,coffeeVolumeMaterial,'Rising coffee volume');
+  const foamGeometry=tintGeometry(new THREE.TorusGeometry(1,.18,4,10),TILE.white);
+  const foam=instances(foamGeometry,foamMaterial,26,'Fine crema bubble rims');
   const steam=instances(new THREE.PlaneGeometry(1,1),steamMaterial,9,'Slow coffee steam');
-  const bubbles=instances(new THREE.SphereGeometry(1,8,5),bubbleMaterial,18,'Rising coffee bubbles and splashes');
+  const bubbles=instances(tintGeometry(new THREE.SphereGeometry(1,8,5),TILE.white),bubbleMaterial,18,'Rising coffee bubbles and splashes');
   const topGlowMaterial=new THREE.MeshBasicMaterial({map:glow,color:0xffdb92,transparent:true,
     opacity:.16,depthWrite:false,side:THREE.DoubleSide});disposable.add(topGlowMaterial);
   const topGlow=mesh(new THREE.PlaneGeometry(13,13),topGlowMaterial,'Warm overhead cup glow');
@@ -738,15 +810,24 @@ export function createEnvironment(world, courseData, assets = {}) {
     // most of the orbit, retaining only 8/12/16% of its apparent angular motion.
     // Use the continuous camera angle so a full revolution never snaps the layers.
     background.rotation.y=view.theta*.92;middle.rotation.y=view.theta*.88;room.rotation.y=view.theta*.84;
+    for(const material of disposable)material.userData?.setWindowAngle?.(room.rotation.y);
+    const windowCos=Math.cos(room.rotation.y),windowSin=Math.sin(room.rotation.y);
+    windowPool.position.set(-8*windowCos+6*windowSin,-3.034,8*windowSin+6*windowCos);
+    windowPool.rotation.z=-.55+room.rotation.y;
     const coffeeY=Number.isFinite(run?.coffeeY)?run.coffeeY:-2.8;
+    coffeeMaterial.userData.time.value=time;
+    coffeeVolumeMaterial.userData.time.value=time;
     surface.position.y=coffeeY;
     surface.scale.setScalar((cupRadius(coffeeY)-.08)/5.94);
     surface.rotation.y=time*0.035;
+    const rippleStrength=Math.min(1,Math.max(0,coffeeY-COASTER_TOP-LIQUID_CLEARANCE)/MAX_RIPPLE);
     for(let i=0;i<surfacePosition.count;i++) {
       const x=surfaceBase[i*3],z=surfaceBase[i*3+2];
       const wave=Math.sin(x*1.4+time*1.65)*Math.cos(z*1.2-time*1.3)*.048+
         Math.sin(Math.hypot(x+2.2,z+1.1)*5-time*5)*.019;
-      surfacePosition.setY(i,surfaceBase[i*3+1]+wave);
+      // A shallow first pour has shallow waves. The surface always clears its
+      // real solid basin; full amplitude returns naturally as its depth grows.
+      surfacePosition.setY(i,surfaceBase[i*3+1]+wave*rippleStrength);
     }
     surfacePosition.needsUpdate=true;
     const height=Math.max(0.01,coffeeY+3.05);
@@ -762,10 +843,11 @@ export function createEnvironment(world, courseData, assets = {}) {
     }
     halos.instanceMatrix.needsUpdate=true;
     for(let i=0;i<26;i++) {
-      const angle=i*2.39996+time*0.055,radius=0.55+(i%7)*0.75;
-      const size=0.14+0.045*(i%4)+Math.sin(time*1.7+i)*0.025;
-      holder.position.set(Math.sin(angle)*radius,coffeeY+0.07+Math.sin(time*2.1+i)*0.04,Math.cos(angle)*radius);
-      holder.quaternion.identity();holder.scale.set(size*1.4,size*0.24,size);holder.updateMatrix();foam.setMatrixAt(i,holder.matrix);
+      const angle=i*2.39996+time*0.035,radius=i<7?.14+(i%4)*.20:5.40-(i%6)*.23;
+      const size=.042+.024*(i%4)+Math.sin(time*.9+i)*.007;
+      const x=Math.sin(angle)*radius+(i<7?-2.2:0),z=Math.cos(angle)*radius+(i<7?-1.1:0);
+      holder.position.set(x,coffeeY+.035+Math.sin(x*1.4+time*1.65)*Math.cos(z*1.2-time*1.3)*.04,z);
+      holder.rotation.set(-Math.PI/2,0,angle);holder.scale.set(size*1.2,size,size*.5);holder.updateMatrix();foam.setMatrixAt(i,holder.matrix);
     }
     foam.instanceMatrix.needsUpdate=true;
     for(let i=0;i<9;i++) {
@@ -780,9 +862,9 @@ export function createEnvironment(world, courseData, assets = {}) {
       const angle=i*2.39996,radius=i<10?1.2+i%5*.83:.38+i%3*.1;
       const baseX=i<10?Math.sin(angle)*radius:-2.2;
       const baseZ=i<10?Math.cos(angle)*radius:-1.1;
-      const height=i<10?Math.sin(phase*Math.PI)*.32:Math.sin(phase*Math.PI)*.85;
+      const height=i<10?Math.sin(phase*Math.PI)*.12:Math.sin(phase*Math.PI)*.55;
       holder.position.set(baseX+Math.cos(angle)*phase*.27,coffeeY+.035+height,baseZ+Math.sin(angle)*phase*.27);
-      const size=(i<10?.09:.055)*(1-Math.pow(phase,4));
+      const size=(i<10?.042:.038)*(1-Math.pow(phase,4));
       holder.scale.set(size,size*(i<10?.7:1.4),size);holder.rotation.set(0,0,0);
       holder.updateMatrix();bubbles.setMatrixAt(i,holder.matrix);
     }
@@ -853,5 +935,6 @@ export function createEnvironment(world, courseData, assets = {}) {
       return amount;
     },
     stats:{staticTriangles:staticMesh.geometry.getAttribute('position').count/3,biscuits:biscuits.length,
-      lanterns:lanterns.length,ivyLeaves:leaves.length,parallaxRates:[.08,.12,.16]}};
+      lanterns:lanterns.length,ivyLeaves:leaves.length,parallaxRates:[.08,.12,.16],
+      backdropRadius:24.4,coffeeAtlasSampling:false,lighting:'coherent window diffuse/glaze and local lantern pools'}};
 }

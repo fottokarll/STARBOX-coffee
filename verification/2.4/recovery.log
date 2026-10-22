@@ -1,0 +1,54 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "STARBOX COFFEE" in 6.4 s (25 files, 2.5 MB); 1 player; first frame 10 ms; 4 fps
+[lot 0 experience] Coffee Rising: screen order
+[lot 0 experience] Coffee Rising: course {"recipe":"espresso","top":35.38000000000001,"platforms":39,"scale":0.24,"base":0.85,"finish":31,"switchbacks":3}
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7583333333333331,"theta":0.275,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":1,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 2
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.11666666666666665,"theta":0,"y":0,"vTheta":0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7583333333333331,"theta":0.6099652777777782,"y":1.4787499999999947,"vTheta":0.07083333333333333,"vY":-3.5000000000000075,"grounded":false,"onPlatform":-1,"move":1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":1,"elapsed":0.8499999999999994,"theta":0.6306250000000005,"y":1.08,"vTheta":0,"vY":0}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.8999999999999992,"theta":0.6365277777777784,"y":1.08,"vTheta":0.35416666666666663,"vY":8.2}
+[lot 0 experience] Coffee Rising: collect {"id":"bean-2","kind":"bean"}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.524999999999997,"theta":1.3109375000000014,"y":2.6158333333333283,"vTheta":0,"vY":-3.2000000000000077,"grounded":false,"onPlatform":-1,"move":0,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":2,"elapsed":1.63333333333333,"theta":1.3469444444444458,"y":2.18,"vTheta":0.2125,"vY":0}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":1.6666666666666632,"theta":1.3502569444444459,"y":2.18,"vTheta":0.13249999999999998,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.308333333333328,"theta":1.961986111111113,"y":3.6587499999999946,"vTheta":5.551115123125783e-16,"vY":-3.5000000000000075,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":3,"elapsed":2.3833333333333275,"theta":1.9678888888888904,"y":3.34,"vTheta":0.2833333333333333,"vY":0}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":2.399999999999994,"theta":1.9708402777777791,"y":3.34,"vTheta":0.42499999999999993,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.0749999999999917,"theta":2.7967777777777707,"y":4.689583333333328,"vTheta":0.5583333333333338,"vY":-4.100000000000008,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":4,"elapsed":3.1499999999999915,"theta":2.812715277777771,"y":4.359999999999999,"vTheta":0,"vY":0}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":3.1583333333333248,"theta":2.812715277777771,"y":4.359999999999999,"vTheta":0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.849999999999989,"theta":3.6388611111110962,"y":5.637499999999994,"vTheta":0.7000000000000004,"vY":-4.400000000000008,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":-2.233000000000013}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":5,"elapsed":3.883333333333322,"theta":3.6562916666666516,"y":5.4799999999999995,"vTheta":0.4166666666666672,"vY":0}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":3.9249999999999887,"theta":3.664277777777763,"y":5.4799999999999995,"vTheta":0.20416666666666725,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":4.600000000000018,"theta":4.350145833333312,"y":6.829583333333328,"vTheta":0.37500000000000033,"vY":-4.100000000000008,"grounded":false,"onPlatform":-1,"move":1,"jump":true,"coffeeY":-1.3479999999999788}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":6,"elapsed":4.6583333333333545,"theta":4.387368055555535,"y":6.56,"vTheta":0.7291666666666669,"vY":0}
+[lot 0 experience] Coffee Rising: crumbleStart {"platform":6}
+[lot 0 experience] Coffee Rising: crumble {"platform":6}
+[lot 0 experience] Coffee Rising: pose {"elapsed":5.350000000000056,"theta":4.415180555555534,"y":6.56,"vTheta":0,"vY":0,"grounded":true,"onPlatform":6,"move":0,"jump":false,"coffeeY":-0.4629999999999348}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":5.408333333333392,"theta":4.415180555555534,"y":6.56,"vTheta":-0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: collapse {"platform":6}
+[lot 0 experience] Coffee Rising: pose {"elapsed":6.100000000000093,"theta":3.7430972222222065,"y":7.837499999999996,"vTheta":-0.4875000000000005,"vY":-4.400000000000008,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":0.4220000000001094}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":5,"elapsed":6.425000000000109,"theta":3.653131944444429,"y":5.4799999999999995,"vTheta":-0.13333333333333391,"vY":0}
+[lot 0 experience] Coffee Rising: pose {"elapsed":6.858333333333464,"theta":3.653340277777762,"y":5.4799999999999995,"vTheta":0,"vY":0,"grounded":true,"onPlatform":5,"move":0,"jump":false,"coffeeY":1.316833333333487}
+[lot 0 experience] Coffee Rising: reform {"platform":6}
+[lot 0 experience] Coffee Rising: pose {"elapsed":7.658333333333504,"theta":3.653340277777762,"y":5.4799999999999995,"vTheta":0,"vY":0,"grounded":true,"onPlatform":5,"move":0,"jump":false,"coffeeY":2.260833333333534}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":7.708333333333506,"theta":3.653340277777762,"y":5.4799999999999995,"vTheta":0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":8.425000000000162,"theta":4.375909722222201,"y":6.639999999999994,"vTheta":0.2833333333333333,"vY":-4.850000000000009,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":3.1655000000001907}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":6,"elapsed":8.441666666666828,"theta":4.378861111111091,"y":6.56,"vTheta":0.14166666666666666,"vY":0}
+[lot 0 experience] Coffee Rising: crumbleStart {"platform":6}
+[lot 0 experience] Coffee Rising: crumble {"platform":6}
+[lot 0 experience] Coffee Rising: pose {"elapsed":9.208333333333451,"theta":4.379451388888868,"y":6.56,"vTheta":0,"vY":0,"grounded":true,"onPlatform":6,"move":0,"jump":false,"coffeeY":4.0898333333334715}
+[lot 0 experience] Coffee Rising: collapse {"platform":6}
+{"passed":true}

@@ -1,0 +1,258 @@
+{
+  "view": "review",
+  "mode": "review",
+  "result": {
+    "started": true,
+    "crash": null,
+    "seconds": 30.7,
+    "frames": 27,
+    "fps": 1.9,
+    "firstFrame": 43.8,
+    "worstFrame": 2812.4,
+    "slowFrames": 14,
+    "errors": [],
+    "logs": [
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: screen order",
+      "Coffee Rising: screen character",
+      "Coffee Rising: screen game",
+      "Coffee Rising: round started latte boy 1",
+      "Coffee Rising: screen countdown"
+    ],
+    "violations": [],
+    "hud": [
+      "STARBOX COFFEE. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides; brake early. Biscuits reform in 1.8s. Green timber routes stay solid. Collect your recipe and reach the gold gate. R retry / P pause / M mute. Esc leave / Enter chat. Free play."
+    ],
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    }
+  },
+  "status": "started",
+  "reason": null,
+  "summary": "started \"STARBOX COFFEE\" in 15.7 s (21 files, 2.5 MB); 1 player; first frame 44 ms; 2 fps",
+  "frames": {
+    "fps": 2,
+    "avg": 518.9,
+    "p95": 2490.3,
+    "worst": 2812.4,
+    "first": 43.8,
+    "count": 38,
+    "over50": 20,
+    "over250": 20,
+    "recent": [
+      1493.1,
+      14.4,
+      2490.3,
+      9.9,
+      2812.4,
+      359.3,
+      1603.8,
+      4.5,
+      5.3,
+      970.5,
+      16.9,
+      354.1,
+      332.9,
+      13.6,
+      328.8,
+      27.5,
+      1213.9,
+      8,
+      11.6,
+      426.4,
+      348.9,
+      19,
+      345.3,
+      4.6,
+      497.9,
+      0.2,
+      1710.3,
+      17.1,
+      475.4,
+      561,
+      8.4,
+      765.5,
+      0.2,
+      19,
+      309.9,
+      1608,
+      10.1
+    ]
+  },
+  "console": [
+    "devkit: 11 modules, 133 KB from http://localhost:5501/",
+    "log: Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "log: STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "log: Coffee Rising: screen title",
+    "devkit: Started in 18.5 s (21 files, 2.5 MB loaded)",
+    "devkit: Running again",
+    "devkit: 11 modules, 133 KB from http://localhost:5501/",
+    "log: Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "log: STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "log: Coffee Rising: screen title",
+    "devkit: Started in 15.7 s (21 files, 2.5 MB loaded)",
+    "log: Coffee Rising: screen order",
+    "log: Coffee Rising: screen character",
+    "log: Coffee Rising: screen game",
+    "log: Coffee Rising: round started latte boy 1",
+    "log: Coffee Rising: screen countdown",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "devkit: Review run: ran 14 s at 1.9 fps (worst frame 2812.4 ms, first 44 ms); 0 errors, 0 blocked requests. Its mouse clicks and drags are left to you (Playwright)."
+  ],
+  "errors": [],
+  "hud": "STARBOX COFFEE. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides; brake early. Biscuits reform in 1.8s. Green timber routes stay solid. Collect your recipe and reach the gold gate. R retry / P pause / M mute. Esc leave / Enter chat. Free play.",
+  "room": {
+    "online": true,
+    "id": 1,
+    "me": 1,
+    "host": 1,
+    "tick": 0,
+    "players": [
+      {
+        "id": 1,
+        "name": "Dev",
+        "color": "#7fd4ff",
+        "bot": false
+      }
+    ],
+    "keys": 0,
+    "bytes": 0,
+    "state": {},
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    },
+    "dropped": 0,
+    "heard": 0,
+    "position": {
+      "x": 0,
+      "y": 1.02,
+      "z": 1.2,
+      "yaw": 0
+    }
+  },
+  "screenshot": "verification/2.4/software-baseline-review-final.png",
+  "browserLogs": [
+    "info: [lot 0 experience] [dev kit] 11 modules, 133 KB from http://localhost:5501/",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+    "info: [lot 0 experience] STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "info: [lot 0 experience] Coffee Rising: screen title",
+    "info: [devkit] started \"STARBOX COFFEE\" in 18.5 s (21 files, 2.5 MB); 1 player; first frame 16 ms; 1 fps",
+    "info: [lot 0 experience] [dev kit] 11 modules, 133 KB from http://localhost:5501/",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":46,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "warning: THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.",
+    "info: [lot 0 experience] STARBOX COFFEE ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "info: [lot 0 experience] Coffee Rising: screen title",
+    "info: [lot 0 experience] Coffee Rising: screen order",
+    "info: [devkit] started \"STARBOX COFFEE\" in 15.7 s (21 files, 2.5 MB); 1 player; first frame 44 ms; 1 fps",
+    "info: [lot 0 experience] Coffee Rising: screen character",
+    "info: [lot 0 experience] Coffee Rising: screen game",
+    "info: [lot 0 experience] Coffee Rising: round started latte boy 1",
+    "info: [lot 0 experience] Coffee Rising: screen countdown",
+    "info: [devkit] review run: ran 14 s at 1.9 fps (worst frame 2812.4 ms, first 44 ms)"
+  ],
+  "networkFailures": [
+    {
+      "url": "http://localhost:5501/ui.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/collision.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/card-espresso.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/lettering.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/main.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/main.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/rules.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/ui.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/environment.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/ui-layout.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/characters.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/polish/milo.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5501/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}

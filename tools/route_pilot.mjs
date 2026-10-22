@@ -12,7 +12,7 @@ export function start(recipe, rules = currentRules) {
 // Real binary keyboard inputs, never teleports or synthetic collection/finish.
 export function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = false, safe = false, stopAt, skip = [], hesitation = 0, rules = currentRules } = {}) {
   const run = start(recipe, rules);
-  const path = safe ? run.safePath : allForks ? run.mainPath.map(id => run.forks.find(f => f.replaces === id)?.pad ?? id)
+  const path = safe ? run.safePath : allForks ? run.rewardPath || run.mainPath.map(id => run.forks.find(f => f.replaces === id)?.pad ?? id)
     : collect ? run.perfectPath : run.mainPath;
   let previousJump = false;
   let routeIndex = 0;
@@ -23,8 +23,12 @@ export function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = fal
   const events = [];
   for (let frame = 0; frame < 24000 && run.state === 'play'; frame++) {
     if (run.grounded) {
-      const found = path.indexOf(run.onPlatform);
-      if (found >= 0) routeIndex = found;
+      // Return pockets revisit their source terrace. Advance to the next
+      // occurrence rather than resetting to its first appearance in the path.
+      if (run.onPlatform !== path[routeIndex]) {
+        const found = path.indexOf(run.onPlatform, routeIndex + 1);
+        if (found >= 0) routeIndex = found;
+      }
       if (stopAt !== undefined && run.onPlatform === stopAt) return { run, events, signedMoves, positiveTravel, negativeTravel };
     }
     const next = run.platforms[path[Math.min(path.length - 1, routeIndex + 1)]];
@@ -44,7 +48,9 @@ export function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = fal
       } else if (pending) jump = false;
       else if (previousJump || Math.sign(run.vTheta) !== Math.sign(target - run.theta) && Math.abs(run.vTheta) > 0.12) {
         jump = false;
-        move = 0;
+        // At render rates above the fixed tick, a press can still be buffered.
+        // Release jump without braking away its intended launch momentum.
+        move = run.jumpBuffer > 0 ? Math.sign(target - run.theta) : 0;
        } else {
         const dir = Math.sign(rules.angleDistance(next.angle, current.angle));
         const gap = Math.abs(rules.angleDistance(next.angle, current.angle));
@@ -55,7 +61,9 @@ export function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = fal
           move = Math.sign(target-run.theta); jump = Math.abs(target-run.theta)<1.1;
         } else if (gap > 1.25) {
           move = dir;
-          jump = dir * rules.angleDistance(run.theta, current.angle) > current.halfWidth * .85 && dir * run.vTheta > .85;
+          const launchSpeed = next.y - current.y > 1.4 ? 1.50 : .85;
+          const launchEdge = current.halfWidth * (next.y - current.y > 1.4 ? 1 : .85);
+          jump = dir * rules.angleDistance(run.theta, current.angle) > launchEdge && dir * run.vTheta > launchSpeed;
         } else if (Math.abs(error) > .06 || next.y-current.y > 1.6 && gap < .9 && Math.abs(run.vTheta) > .55) {
           const d = error * 8 - run.vTheta * 1.7;
           move = d > .08 ? 1 : d < -.08 ? -1 : 0; jump = false;

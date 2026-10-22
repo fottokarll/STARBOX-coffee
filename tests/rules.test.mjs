@@ -16,7 +16,7 @@ for (const recipe of Object.keys(RECIPES)) {
   const directions = run.mainPath.slice(1).map((id, i) => Math.sign(run.platforms[id].angle - run.platforms[i].angle));
   assert.ok(directions.slice(1).filter((dir, i) => dir !== directions[i]).length >= 3, 'main route has three genuine switchbacks');
   assert.ok(run.result.score > 3000000);
-  assert.equal(run.bonusStars, recipe === 'latte' ? 5 : 3, 'turning terraces reward route progress');
+  assert.equal(run.bonusStars, recipe === 'latte' ? 4 : 2, 'one star remains an optional return-pocket reward');
   assert.ok(events.some(e => e.type === 'crumbleStart'));
   assert.ok(events.some(e => e.type === 'collapse'), 'departed biscuits keep collapsing');
   for (const kind of ['solid', 'rest', 'precision', 'biscuit', 'safe']) {
@@ -28,7 +28,7 @@ for (const recipe of Object.keys(RECIPES)) {
   assert.ok(run.platforms.length > run.mainPath.length);
 }
 
-for (const frameDt of [1 / 120, 1 / 60, 1 / 30, 1 / 15, 1 / 10]) {
+for (const frameDt of [1 / 240, 1 / 120, 1 / 60, 1 / 30, 1 / 15, 1 / 10]) {
   const { run } = climb('latte', { frameDt });
   console.log('full route fps', 1 / frameDt, run.result?.quality, run.elapsed.toFixed(2));
   assert.equal(run.result?.perfect, true, 'binary controls remain usable at lower frame rates');
@@ -52,7 +52,7 @@ assert.equal(weak.result?.quality, 'WEAK COFFEE');
 assert.ok(weak.result.score < incomplete.result.score);
 
 const biscuitId = 6;
-const biscuitRun = climb('espresso', { stopAt: biscuitId }).run;
+const biscuitRun = climb('espresso', { collect: false, stopAt: biscuitId }).run;
 const biscuit = biscuitRun.platforms[biscuitId];
 assert.equal(biscuit.kind, 'biscuit');
 assert.ok(biscuit.crumbleTimer > 0 && biscuit.crumbleTimer <= PHYSICS.biscuitSeconds);

@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "response": {
+    "id": 9902,
+    "kind": "experience",
+    "lot": 696,
+    "status": "live",
+    "reasons": [],
+    "categories": [],
+    "warnings": [],
+    "created": 1792681099407
+  }
+}

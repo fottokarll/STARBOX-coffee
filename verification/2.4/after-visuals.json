@@ -1,0 +1,239 @@
+[
+  {
+    "stage": "after",
+    "view": "review",
+    "entry": "http://localhost:5500/main.js",
+    "performance": {
+      "seconds": 10.021,
+      "frames": 484,
+      "fps": 48.29857299670691,
+      "medianMs": 16.8,
+      "p95Ms": 23.3,
+      "method": "Warmed 10-second 640x360 attract scene, same GPU Chromium, sequential shared-desktop sample"
+    },
+    "menu": {
+      "recipe": "espresso",
+      "character": "girl",
+      "start": 5,
+      "screenshots": [
+        "verification/2.4/after-review-title.png",
+        "verification/2.4/after-review-order.png",
+        "verification/2.4/after-review-character-girl.png",
+        "verification/2.4/after-review-go.png"
+      ]
+    },
+    "landing": {
+      "kind": "event",
+      "data": {
+        "type": "land",
+        "platform": 1,
+        "elapsed": 1.2083333333333315,
+        "theta": 0.779687500000001,
+        "y": 1.08,
+        "vTheta": 0,
+        "vY": 0
+      },
+      "text": "log: Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":1.2083333333333315,\"theta\":0.779687500000001,\"y\":1.08,\"vTheta\":0,\"vY\":0}"
+    },
+    "screenshot": "verification/2.4/after-review-gameplay.png",
+    "errors": [],
+    "networkFailures": [
+      {
+        "url": "http://localhost:5500/barista.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/collision.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/characters.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/baristas.webp",
+        "error": "net::ERR_ABORTED"
+      }
+    ]
+  },
+  {
+    "stage": "after",
+    "view": "phone",
+    "entry": "http://localhost:5500/main.js",
+    "performance": null,
+    "menu": {
+      "recipe": "espresso",
+      "character": "girl",
+      "start": 5,
+      "screenshots": [
+        "verification/2.4/after-phone-title.png",
+        "verification/2.4/after-phone-order.png",
+        "verification/2.4/after-phone-character-girl.png",
+        "verification/2.4/after-phone-go.png"
+      ]
+    },
+    "landing": {
+      "kind": "event",
+      "data": {
+        "type": "land",
+        "platform": 1,
+        "elapsed": 1.549999999999997,
+        "theta": 0.6763541666666675,
+        "y": 1.08,
+        "vTheta": 0,
+        "vY": 0
+      },
+      "text": "log: Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":1.549999999999997,\"theta\":0.6763541666666675,\"y\":1.08,\"vTheta\":0,\"vY\":0}"
+    },
+    "screenshot": "verification/2.4/after-phone-gameplay.png",
+    "errors": [],
+    "networkFailures": [
+      {
+        "url": "http://localhost:5500/rules.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/collision.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/baristas.webp",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+        "error": "net::ERR_ABORTED"
+      }
+    ]
+  },
+  {
+    "stage": "after",
+    "view": "desktop",
+    "entry": "http://localhost:5500/main.js",
+    "performance": null,
+    "menu": {
+      "recipe": "espresso",
+      "character": "girl",
+      "start": 5,
+      "screenshots": [
+        "verification/2.4/after-desktop-title.png",
+        "verification/2.4/after-desktop-order.png",
+        "verification/2.4/after-desktop-character-girl.png",
+        "verification/2.4/after-desktop-go.png"
+      ]
+    },
+    "landing": {
+      "kind": "event",
+      "data": {
+        "type": "land",
+        "platform": 1,
+        "elapsed": 1.4583333333333306,
+        "theta": 0.7021875000000009,
+        "y": 1.08,
+        "vTheta": 0,
+        "vY": 0
+      },
+      "text": "log: Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":1.4583333333333306,\"theta\":0.7021875000000009,\"y\":1.08,\"vTheta\":0,\"vY\":0}"
+    },
+    "screenshot": "verification/2.4/after-desktop-gameplay.png",
+    "errors": [],
+    "networkFailures": [
+      {
+        "url": "http://localhost:5500/rules.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/collision.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/cafe-materials.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.json",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/polish/milo.webp",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/lettering.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://localhost:5500/assets/v2/baristas.webp",
+        "error": "net::ERR_ABORTED"
+      }
+    ]
+  }
+]

@@ -1,0 +1,153 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "STARBOX COFFEE" in 7.6 s (25 files, 2.5 MB); 1 player; first frame 96 ms; 7 fps
+[lot 0 experience] Coffee Rising: screen order
+[lot 0 experience] Coffee Rising: course {"recipe":"espresso","top":35.38000000000001,"platforms":39,"scale":0.24,"base":0.85,"finish":31,"switchbacks":3}
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 2
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 3
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 4
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.24999999999999997,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 5
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.3166666666666668,"theta":-0.032465277777777767,"y":0,"vTheta":-0.7791666666666665,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":true}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":-0.3446180555555557,"y":1.8333333333333297,"vTheta":0.3624999999999994,"vY":-0.05000000000000862,"grounded":false,"onPlatform":-1,"move":-1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: result {"recipe":"espresso","time":1.4916666666666638,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":6,"milk":0},"bonusStars":0,"bonusScore":0,"progress":0.05183013001695862,"bestHeight":1.8337499999999964,"top":35.38000000000001,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 6
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.3833333333333337,"theta":-0.1239583333333333,"y":0,"vTheta":-1.4874999999999996,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7583333333333331,"theta":-0.623159722222223,"y":1.768749999999997,"vTheta":-0.216666666666667,"vY":0.49999999999999134,"grounded":false,"onPlatform":-1,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 7
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.41666666666666713,"theta":0.04604166666666665,"y":0,"vTheta":0.9208333333333331,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7916666666666663,"theta":0.5892708333333339,"y":1.7920833333333304,"vTheta":0.8833333333333337,"vY":1.2999999999999914,"grounded":false,"onPlatform":-1,"move":0,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 8
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.3250000000000002,"theta":0.04604166666666665,"y":0,"vTheta":0.9208333333333331,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0.7176041666666673,"y":1.8337499999999964,"vTheta":1.55,"vY":0.09999999999999137,"grounded":false,"onPlatform":-1,"move":1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 9
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7749999999999997,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.5333333333333303,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.2999999999999945,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.058333333333325,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.8166666666666558,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-2.2723333333333464}
+[lot 0 experience] Coffee Rising: pose {"elapsed":4.575000000000017,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-1.3774999999999802}
+[lot 0 experience] Coffee Rising: pose {"elapsed":5.333333333333388,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-0.4826666666666024}
+[lot 0 experience] Coffee Rising: result {"recipe":"espresso","time":5.675000000000072,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":6,"milk":0},"bonusStars":0,"bonusScore":0,"progress":0,"bestHeight":0,"top":35.38000000000001,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 10
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7583333333333331,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":1.0249999999999988,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 11
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.5666666666666635,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.3333333333333277,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.0999999999999917,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.899999999999989,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-2.1740000000000137}
+[lot 0 experience] Coffee Rising: pose {"elapsed":4.666666666666688,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-1.2693333333333081}
+[lot 0 experience] Coffee Rising: pose {"elapsed":5.466666666666728,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-0.3253333333332611}
+[lot 0 experience] Coffee Rising: result {"recipe":"espresso","time":5.675000000000072,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":6,"milk":0},"bonusStars":0,"bonusScore":0,"progress":0,"bestHeight":0,"top":35.38000000000001,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 12
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.9583333333333324,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 13
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":-1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.275,"theta":-0.021249999999999995,"y":0,"vTheta":-0.6374999999999998,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen pause
+[lot 0 experience] Coffee Rising: screen play
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.783333333333333,"theta":-0.26302083333333337,"y":0.8787499999999981,"vTheta":0,"vY":-4.033333333333336,"grounded":false,"onPlatform":-1,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 14
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":false}
+[lot 0 experience] Coffee Rising: input {"move":1,"jump":true}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.3250000000000002,"theta":0.05371527777777776,"y":0,"vTheta":0.9916666666666664,"vY":8.2}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":true}
+[lot 0 experience] Coffee Rising: input {"move":0,"jump":false}
+[lot 0 experience] Coffee Rising: screen pause
+[lot 0 experience] Coffee Rising: screen play
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0.35368055555555566,"y":1.6137499999999965,"vTheta":0,"vY":-1.5000000000000087,"grounded":false,"onPlatform":-1,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":1,"elapsed":0.9416666666666658,"theta":0.35368055555555566,"y":1.08,"vTheta":0,"vY":0}
+{"passed":true,"checks":10,"limitations":["The current official SDK strips pointer IDs and does not forward pointercancel or a blur event. Contact matching uses the official per-contact x/y and dx/dy.","An OS cancellation without a shell input reset, resize or interruption is not immediately observable through this SDK. This test does not claim an invented cancellation signal."]}

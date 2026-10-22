@@ -1,12 +1,13 @@
 import * as THREE from 'three';
 import {RADIUS} from './rules.js';
+import {createCafeMaterial} from './cafe-materials.js';
 
 function shade(geometry) {
   const n=geometry.getAttribute('normal'),c=[];
   for(let i=0;i<n.count;i++) {
-    const dot=n.getY(i)*.72+n.getZ(i)*.51-n.getX(i)*.3;
-    const light=dot>.55?1.12:dot>-.1?.88:.60;
-    c.push(light,light,light);
+    // Actual window shading runs after each ingredient's instance rotation, so
+    // its highlight agrees with the ceramic ledge and the barista beside it.
+    c.push(1,1,1);
   }
   geometry.setAttribute('color',new THREE.Float32BufferAttribute(c,3));
   return geometry;
@@ -24,13 +25,13 @@ function starGeometry() {
 
 export function createCollectibles(world,course,assets={}) {
   const root=new THREE.Group();world.add(root);
-  const material=new THREE.MeshBasicMaterial({vertexColors:true});
+  const material=createCafeMaterial(null,{polished:true});
   const glowCanvas=new OffscreenCanvas(64,64),ctx=glowCanvas.getContext('2d');
   const gradient=ctx.createRadialGradient(32,32,3,32,32,31);
   gradient.addColorStop(0,'rgba(255,255,255,0.65)');gradient.addColorStop(.5,'rgba(255,255,255,0.14)');
   gradient.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=gradient;ctx.fillRect(0,0,64,64);
   const glowTexture=new THREE.CanvasTexture(glowCanvas);glowTexture.generateMipmaps=false;
-  const haloMaterial=new THREE.MeshBasicMaterial({map:glowTexture,color:0xf2cc86,transparent:true,opacity:.38,depthWrite:false});
+  const haloMaterial=new THREE.MeshBasicMaterial({map:glowTexture,color:0xf2cc86,transparent:true,opacity:.24,depthWrite:false});
   const shadowMaterial=new THREE.MeshBasicMaterial({map:glowTexture,color:0x20140d,transparent:true,opacity:.48,depthWrite:false});
   const sphere=shade(new THREE.SphereGeometry(1,16,10));
   const profile=[[0,-.33],[.13,-.29],[.22,-.16],[.23,-.02],[.18,.14],[.08,.32],[0,.47]];
@@ -49,7 +50,7 @@ export function createCollectibles(world,course,assets={}) {
     const batch=new THREE.InstancedMesh(geo,material,list.length);
     batch.frustumCulled=false;root.add(batch);batches[kind]=batch;
     list.forEach((item,index)=>{
-      batch.setColorAt(index,new THREE.Color(kind==='bean'?0xaf6637:kind==='milk'?0xfff1d0:0xf7bb54));
+      batch.setColorAt(index,new THREE.Color(kind==='bean'?0x99562f:kind==='milk'?0xfff6df:0xf4b843));
       all.push({...item,index,batch,phase:index*1.7});
     });
   }
@@ -76,7 +77,8 @@ export function createCollectibles(world,course,assets={}) {
     burst.push({time,x:Math.sin(item.angle)*RADIUS,y:item.y,z:Math.cos(item.angle)*RADIUS});
     if(burst.length>3)burst.shift();
   }
-  function update(run,time) {
+  function update(run,time,{windowAngle=0}={}) {
+    material.userData.setWindowAngle(windowAngle);
     const states=new Map(run.ingredients.map(item=>[item.id,item]));
     all.forEach((item,haloIndex)=>{
       const taken=states.get(item.id)?.collected;

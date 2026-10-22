@@ -1,0 +1,19 @@
+{
+  "before": {
+    "seconds": 10.021,
+    "frames": 536,
+    "fps": 53.48767588065063,
+    "medianMs": 17.1,
+    "p95Ms": 32.3,
+    "method": "Warmed 10-second 640x360 attract scene, same GPU Chromium, sequential shared-desktop sample"
+  },
+  "after": {
+    "seconds": 10.021,
+    "frames": 484,
+    "fps": 48.29857299670691,
+    "medianMs": 16.8,
+    "p95Ms": 23.3,
+    "method": "Warmed 10-second 640x360 attract scene, same GPU Chromium, sequential shared-desktop sample"
+  },
+  "relativeFpsChangePercent": -9.701492537313438
+}

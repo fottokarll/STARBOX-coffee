@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {headerLayout} from './ui-layout.js';
+import {headerLayout, touchLayout} from './ui-layout.js';
 import {RECIPES} from './rules.js';
 export const GAME_TITLE = 'STARBOX COFFEE';
 
@@ -41,7 +41,7 @@ export async function createUI(p0) {
   mesh.renderOrder = 1000;
   scene.add(mesh);
   const tintCache = new Map();
-  let W = 640, H = 360, buttons = [];
+  let W = 640, H = 360, buttons = [], pressed = {};
 
   function fontAtlas(color) {
     if (!tintCache.has(color)) {
@@ -155,8 +155,13 @@ export async function createUI(p0) {
     ctx.restore();
   }
   function button(id, title, x, y, w, h = 44, primary = false, options = {}) {
-    panel(x, y, w, h, primary ? C.cream : options.selected ? '#245242' : 'rgba(27,61,47,0.92)',
-      primary ? C.cream : options.selected ? C.gold : 'rgba(200,166,106,0.4)', 6);
+    const down = Boolean(pressed[id]), gradient = ctx.createLinearGradient(0, y, 0, y + h);
+    gradient.addColorStop(0, primary ? '#FFF2D5' : options.selected ? '#315B43' : '#214737');
+    gradient.addColorStop(1, primary ? '#E7C896' : '#102F23');
+    panel(x, y + (down ? 2 : 0), w, h - (down ? 2 : 0), gradient,
+      primary ? '#F5D9A7' : options.selected ? C.gold : 'rgba(200,166,106,0.4)', 8);
+    if (h > 35) {ctx.strokeStyle = primary ? 'rgba(255,255,255,.42)' : 'rgba(255,235,187,.09)';
+      roundRect(x+3,y+3,w-6,h-7,6);ctx.stroke();}
     if (options.icon) icon(options.icon, x + w / 2, y + h / 2, 15);
     else {
       text(title, x + w / 2, y + (h - 13) / 2, options.fontSize || 14,
@@ -191,13 +196,13 @@ export async function createUI(p0) {
         if(!phone)label('THE CLIMBING CAFE',52,88,8,C.gold);
       }
     }
-    if(l.mute)button('mute','',l.mute.x,l.mute.y,31,31,false,{icon:model.muted?'muted':'sound'});
-    if(l.pause)button('pause','',l.pause.x,l.pause.y,31,31,false,{icon:'pause'});
+    if(l.mute)button('mute','',l.mute.x,l.mute.y,l.mute.w,l.mute.h,false,{icon:model.muted?'muted':'sound'});
+    if(l.pause)button('pause','',l.pause.x,l.pause.y,l.pause.w,l.pause.h,false,{icon:'pause'});
     if(l.timer&&model.run) {
       const t=l.timer;
-      panel(t.x,t.y,t.w,t.h,'rgba(13,43,32,.98)','rgba(200,170,115,.70)',23);
-      symbol('timer',t.x+(phone?18:22),77,17,C.gold);
-      text(formatTime(model.run.elapsed||0),t.x+t.w/2+9,66,phone?24:28,C.cream,'center','mono',0);
+      panel(t.x,t.y,t.w,t.h,'rgba(13,43,32,.94)','rgba(200,170,115,.45)',12);
+      symbol('timer',t.x+20,t.y+t.h/2,17,C.gold);
+      text(formatTime(model.run.elapsed||0),t.x+t.w/2+10,t.y+(t.h-21)/2,21,C.cream,'center','mono',0,t.w-44);
     }
   }
   // Matching line icons, shared by the HUD and the results receipt.
@@ -274,13 +279,15 @@ export async function createUI(p0) {
   function titleScreen(model) {
     ctx.save();
     const imageScale = Math.max(W / coverBitmap.width, H / coverBitmap.height);
-    ctx.globalAlpha = 0.72;
-    ctx.drawImage(coverBitmap, (W - coverBitmap.width * imageScale) / 2,
+    ctx.globalAlpha = W<620 ? .96 : .82;
+    ctx.drawImage(coverBitmap, W*.5 - coverBitmap.width * imageScale * (W<620?.64:.5),
       (H - coverBitmap.height * imageScale) / 2, coverBitmap.width * imageScale, coverBitmap.height * imageScale);
     ctx.globalAlpha = 1;
-    const grade = ctx.createLinearGradient(0, 0, W, 0);
-    grade.addColorStop(0, 'rgba(5,23,17,0.96)'); grade.addColorStop(0.52, 'rgba(5,23,17,0.72)');
-    grade.addColorStop(1, 'rgba(5,23,17,0.14)');
+    const grade = ctx.createLinearGradient(0, 0, W<620?0:W, W<620?H:0);
+    if(W<620){grade.addColorStop(0,'rgba(5,23,17,.95)');grade.addColorStop(.28,'rgba(5,23,17,.54)');
+      grade.addColorStop(.48,'rgba(5,23,17,.08)');grade.addColorStop(.71,'rgba(5,23,17,.64)');grade.addColorStop(1,'rgba(5,23,17,.96)');}
+    else {grade.addColorStop(0, 'rgba(5,23,17,0.96)'); grade.addColorStop(0.52, 'rgba(5,23,17,0.72)');
+      grade.addColorStop(1, 'rgba(5,23,17,0.14)');}
     ctx.fillStyle = grade; ctx.fillRect(0, 0, W, H); ctx.restore();
     const short = H < 460, narrow = W < 620;
     if (short) {
@@ -294,7 +301,6 @@ export async function createUI(p0) {
     } else if (narrow && H<650) {
       label('THE VERTICAL COFFEE ARCADE',W/2,110,8,C.gold,'center');
       text(GAME_TITLE,W/2,136,28,C.cream,'center','display',0,W-36);
-      drink(W/2,H*.54,Math.min(W*.38,H*.22),model.selected||'latte',true);
       text('Climb the cup. Craft your perfect coffee.',W/2,H-164,13,C.muted,'center','body',0,W-34);
       button('titleStart','ORDER A COFFEE',28,H-108,W-56,46,true);
       label('FREE PLAY  ·  INSTANT RETRIES',W/2,H-48,8,C.gold,'center');
@@ -302,7 +308,6 @@ export async function createUI(p0) {
       label('THE VERTICAL COFFEE ARCADE', W / 2, H * 0.15, 9, C.gold, 'center');
       text('STARBOX', W / 2, H * 0.19, Math.min(44, W * 0.115), C.cream, 'center', 'display');
       text('COFFEE', W / 2, H * 0.19 + 54, Math.min(48, W * 0.13), C.cream, 'center', 'display');
-      drink(W / 2, H * 0.51, Math.min(W * 0.52, H * 0.23), model.selected || 'latte', true);
       text('A little barista. An enormous adventure.', W / 2, H * 0.68, 14, C.muted, 'center', 'body', 0, W - 40);
       text('Outrun the rising coffee. Brew your best.', W / 2, H * 0.68 + 23, 14, C.muted, 'center', 'body', 0, W - 40);
       button('titleStart', 'ORDER A COFFEE', 28, H - 126, W - 56, 49, true);
@@ -417,7 +422,7 @@ export async function createUI(p0) {
     button('start', 'LET\'S BREW', (W - bw) / 2, bottom, bw, l.short ? 40 : 48, true);
     if (!l.short) {
       text('Move with A/D. Hold Space to jump higher.', W / 2, bottom + 68, 14, C.muted, 'center', 'body', 0, W - 30);
-      text('Touch: use the arrows and JUMP.', W / 2, bottom + 90, 13, C.muted, 'center', 'body', 0, W - 30);
+      text('Touch: steer left. Hold the up arrow to jump.', W / 2, bottom + 90, 13, C.muted, 'center', 'body', 0, W - 30);
       footer();
     }
     button('back', '', 18, l.short ? H - 44 : H - 51, 32, 30, false, { icon: 'back' });
@@ -429,50 +434,73 @@ export async function createUI(p0) {
   }
   function hud(model) {
     const r=model.run;if(!r)return;
-    const phone=W<500,short=H<450,hw=Math.min(W-20,760),x=(W-hw)/2,y=short?57:105,h=short?64:74;
-    panel(x,y,hw,h,'rgba(13,43,32,.97)','rgba(200,170,115,.62)',12);
-    const stops=short?[0,.18,.39,.63,.78,1]:phone?[0,.22,.55,.74,1]:[0,.24,.53,.74,1];
+    const l=headerLayout(W,H,true),{x,y,w,h}=l.hud,phone=l.mobile;
     const gap=r.y-r.coffeeY,grace=r.elapsed<RECIPES[r.recipe].grace;
-    const danger=!grace&&gap<2.7,alarm=danger?'#F2A17E':C.gold;
-    const taken=r.collected.bean+r.collected.milk,total=r.required.bean+r.required.milk;
-    const names=['ORDER','COLLECT','CLIMB','COFFEE RISING'];
-    for(let column=0;column<(short?5:4);column++) {
-      const i=short && column>2?column-1:column;
-      const sx=x+hw*stops[column],w=hw*(stops[column+1]-stops[column]),pad=phone||short?8:15;
-      if(short && column===2) {
-        line(sx,y+13,sx,y+h-13,'rgba(200,170,115,.22)');
-        label('TIME',sx+w/2,y+11,9,C.gold,'center');
-        text(formatTime(r.elapsed),sx+w/2,y+30,22,C.cream,'center','mono',0,w-12);continue;
-      }
-      if(i)line(sx,y+13,sx,y+h-13,'rgba(200,170,115,.22)');
-      if(!phone && !short)symbol(['order','collect','climb','steam'][i],sx+23,y+35,22,i===3?alarm:C.gold);
-      const tx=sx+(phone||short?pad:44),available=w-(phone||short?pad*2:53);
-      text(names[i],tx,y+11,phone?8.5:10,i===3?alarm:C.gold,'left','bold',.3,available);
-      if(i===0)text(r.recipe==='latte'?'Latte':'Espresso',tx,y+31,phone?17:24,C.cream,'left','display',0,available);
-      if(i===1) {
-        text(`${taken} / ${total}`,tx,y+29,phone?21:26,C.cream,'left','bold',0,available);
-        if(r.required.milk && !short) {
-          bean(tx+4,y+61,9);text(`${r.collected.bean}/${r.required.bean}`,tx+13,y+56,11,C.muted);
-          drop(tx+available*.53,y+61,9);text(`${r.collected.milk}/${r.required.milk}`,tx+available*.53+10,y+56,11,C.muted);
-        } else if(!short)text(r.required.milk?'beans + milk':'coffee beans',tx,y+57,10,C.muted);
-      }
-      if(i===2) {
-        text(`${Math.round(r.progress*100)}%`,tx,y+29,phone?21:26,C.cream,'left','bold',0,available);
-        meter(tx,y+h-11,available,r.progress,C.gold,3);
-      }
-      if(i===3) {
-        const status=r.state==='countdown'?'Ready':r.state==='paused'?'Paused':grace?`In ${Math.ceil(RECIPES[r.recipe].grace-r.elapsed)}s`:danger?'Close!':'Rising';
-        text(status,tx,y+31,phone?18:23,danger?'#FFC9AA':C.cream,'left','display',0,available);
-        meter(tx,y+h-11,available,grace?0:1-gap/10,alarm,3);
-      }
+    const danger=!grace&&gap<2.7,alarm=danger?'#F4A07A':C.gold;
+    panel(x,y,w,h,'rgba(12,38,28,.96)','rgba(200,170,115,.58)',12);
+    const a=x+w*.36,b=x+w*.65,pad=phone?10:18;
+    line(a,y+11,a,y+h-11,'rgba(200,170,115,.23)');
+    line(b,y+11,b,y+h-11,'rgba(200,170,115,.23)');
+    // Recipe is supporting information; ingredients stay individually legible.
+    label(r.recipe==='latte'?'LATTE ORDER':'ESPRESSO ORDER',x+pad,y+10,phone?8:10,C.gold,'left',w*.36-pad*2);
+    const ingredientY=y+(h<70?29:33), available=w*.36-pad*2;
+    bean(x+pad+5,ingredientY+8,phone?12:16);
+    text(`${r.collected.bean}/${r.required.bean}`,x+pad+(phone?14:20),ingredientY,phone?16:24,C.cream,'left','bold',0,r.required.milk?available*.40:available-20);
+    if(r.required.milk) {
+      const mx=x+pad+available*.56;drop(mx,ingredientY+8,phone?11:14);
+      text(`${r.collected.milk}/${r.required.milk}`,mx+(phone?9:12),ingredientY,phone?16:24,C.cream,'left','bold',0,available*.44-(phone?9:12));
     }
+    if(h>=78)text('Recipe ingredients',x+pad,y+h-18,10,C.muted,'left','body',0,available);
+    const cx=(a+b)/2;
+    label('CLIMB',cx,y+8,phone?9:10,C.gold,'center');
+    text(`${Math.round(r.progress*100)}%`,cx,y+(h<70?23:26),phone?29:33,C.cream,'center','bold',0,b-a-14);
+    meter(a+12,y+h-12,b-a-24,r.progress,C.gold,5);
+    const status=r.state==='countdown'?'Ready':r.state==='paused'?'Paused':grace?`In ${Math.ceil(RECIPES[r.recipe].grace-r.elapsed)}s`:danger?'Close!':'Rising';
+    const dangerW=x+w-b;
+    if(danger){const glow=ctx.createLinearGradient(b,0,x+w,0);glow.addColorStop(0,'rgba(125,43,23,.1)');glow.addColorStop(1,'rgba(125,43,23,.42)');
+      ctx.save();roundRect(b+3,y+3,dangerW-6,h-6,9);ctx.fillStyle=glow;ctx.fill();ctx.restore();}
+    label('COFFEE',b+dangerW/2,y+10,phone?8:10,alarm,'center');
+    text(status,b+dangerW/2,y+(h<70?28:32),phone?22:26,danger?'#FFC29B':C.cream,'center','display',0,dangerW-18);
+    meter(b+12,y+h-12,dangerW-24,grace?0:1-gap/10,alarm,5);
   }
-  function touchControls() {
-    const compact = H < 450, y = H - (compact ? 62 : 71), s = compact ? 42 : 47;
-    button('left', '', 18, y, s, s, false, { icon: 'left' });
-    button('right', '', 25 + s, y, s, s, false, { icon: 'right' });
-    button('jump', 'JUMP', W - (compact ? 103 : 118), y, compact ? 85 : 100, s, true, { fontSize: 12 });
-    if (W > 700) label('A / D MOVE   ·   HOLD SPACE JUMP   ·   R RETRY', W / 2, H - 29, 9, C.muted, 'center');
+  function controlKey(id, box, retry=false) {
+    const {x,y,w,h}=box,down=Boolean(pressed[id]),sink=down?5:0,radius=Math.min(24,w*.24);
+    // A raised chocolate key: dark underside, warm bevel and cream inlay.
+    ctx.save();ctx.shadowColor='rgba(0,0,0,.38)';ctx.shadowBlur=10;ctx.shadowOffsetY=4;
+    roundRect(x,y+6,w,h,radius);ctx.fillStyle='#2E180F';ctx.fill();ctx.restore();
+    const face=ctx.createLinearGradient(x,y,x+w,y+h);
+    face.addColorStop(0,down?'#71432C':'#A56D47');face.addColorStop(.44,down?'#633822':'#805034');face.addColorStop(1,'#56301F');
+    roundRect(x,y+sink,w,h-2,radius);ctx.fillStyle=face;ctx.fill();ctx.strokeStyle=down?'#F4D3A0':'#C39669';ctx.lineWidth=down?2.5:1.5;ctx.stroke();
+    roundRect(x+4,y+4+sink,w-8,h-10,radius-3);ctx.strokeStyle='rgba(255,225,181,.16)';ctx.lineWidth=1;ctx.stroke();
+    ctx.save();ctx.translate(x+w/2,y+h/2+sink-2);
+    if(retry) {
+      ctx.strokeStyle=C.cream;ctx.lineWidth=3;ctx.lineCap='round';
+      ctx.beginPath();ctx.arc(0,-8,13,-.7,Math.PI*1.65);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(9,-23);ctx.lineTo(8,-11);ctx.lineTo(19,-13);ctx.stroke();
+      label('QUICK RETRY',0,18,w<105?8:9,C.cream,'center',w-12);
+    } else {
+      const s=Math.min(w,h)*(id==='jump'?.30:.26);
+      ctx.beginPath();
+      if(id==='jump') {
+        ctx.moveTo(0,-s);ctx.lineTo(s,-s*.06);ctx.quadraticCurveTo(s*1.12,s*.12,s*.8,s*.12);
+        ctx.lineTo(s*.36,s*.12);ctx.lineTo(s*.36,s*.85);ctx.quadraticCurveTo(s*.36,s,s*.17,s);
+        ctx.lineTo(-s*.17,s);ctx.quadraticCurveTo(-s*.36,s,-s*.36,s*.85);ctx.lineTo(-s*.36,s*.12);
+        ctx.lineTo(-s*.8,s*.12);ctx.quadraticCurveTo(-s*1.12,s*.12,-s,-s*.06);
+      } else {
+        const d=id==='left'?-1:1;ctx.moveTo(d*s,0);ctx.lineTo(-d*s*.65,-s);ctx.quadraticCurveTo(-d*s,-s*1.15,-d*s,-s*.75);
+        ctx.lineTo(-d*s,s*.75);ctx.quadraticCurveTo(-d*s,s*1.15,-d*s*.65,s);
+      }
+      ctx.closePath();ctx.shadowColor='#382012';ctx.shadowBlur=1;ctx.shadowOffsetY=3;
+      const inlay=ctx.createLinearGradient(0,-s,0,s);inlay.addColorStop(0,'#FFF4D8');inlay.addColorStop(1,'#E5BC7D');
+      ctx.fillStyle=inlay;ctx.fill();ctx.shadowColor='transparent';ctx.strokeStyle='#FFDEAA';ctx.lineWidth=1;ctx.stroke();
+    }
+    ctx.restore();buttons.push({id,...box.hit});
+  }
+  function touchControls(model, retry=false) {
+    const l=touchLayout(W,H);
+    if(!retry){controlKey('left',l.left);controlKey('right',l.right);}
+    controlKey(retry?'restart':'jump',l.jump,retry);
+    if(W>700&&!retry)label('A / D MOVE   ·   HOLD SPACE JUMP   ·   R RETRY',W/2,H-28,9,C.muted,'center');
   }
   function countdown(r) {
     const cy = Math.min(H * 0.49, H - 160);
@@ -507,8 +535,10 @@ export async function createUI(p0) {
   function resultsScreen(model) {
     const r=model.run,result=r?.result;if(!result)return;
     menuBackdrop();
-    const short=H<500,w=Math.min(W-32,short?720:530),x=(W-w)/2;
-    const h=short?H-82:Math.min(510,H-112),y=short?64:Math.max(78,(H-h)/2);
+    const failed=!result.success,sideRetry=failed&&H<500&&W>H,short=H<500||(failed&&H<740),
+      w=Math.min(W-32-(sideRetry?touchLayout(W,H).jump.w+24:0),short?720:530),x=sideRetry?16:(W-w)/2;
+    const retryReserve=failed&&!sideRetry?touchLayout(W,H).jump.h+42:0;
+    const h=short?Math.min(H-82-retryReserve,400):Math.min(510,H-112-retryReserve),y=short?64:Math.max(78,(H-h-retryReserve)/2);
     panel(x,y,w,h,'rgba(16,48,36,.98)','rgba(200,170,115,.7)',18);
     ctx.strokeStyle='rgba(200,170,115,.18)';roundRect(x+6,y+6,w-12,h-12,13);ctx.stroke();
     const heading=result.success?(result.perfect?'Perfect Coffee':'Beautifully brewed'):'One more brew?';
@@ -553,6 +583,7 @@ export async function createUI(p0) {
     text(message, x, y, 12, C.muted, 'center', 'body', 0, maxWidth);
   }
   function draw(model) {
+    pressed = model.pressed || {};
     const nextW = Math.max(320, Math.round(p0.width || 640)), nextH = Math.max(260, Math.round(p0.height || 360));
     W = nextW; H = nextH;
     if (canvas.width !== W || canvas.height !== H) { canvas.width = W; canvas.height = H; }
@@ -560,16 +591,16 @@ export async function createUI(p0) {
     const r = model.run;
     if (model.screen === 'game' && r) {
       if (r.state === 'results') {
-        resultsScreen(model); header(model, false); texture.needsUpdate = true; return;
+        resultsScreen(model); header(model, false); if(!r.result?.success)touchControls(model,true); texture.needsUpdate = true; return;
       }
       header(model, true); hud(model);
       if (r.state === 'countdown') countdown(r);
       if (r.state === 'play' || r.state === 'countdown') {
-        touchControls();
+        touchControls(model);
         const notice = model.notice && (model.noticeLeft > 0 || model.noticeTime > 0);
-        if (notice && r.state !== 'countdown') {
+        if (notice && r.state !== 'countdown' && H >= 450) {
           const nw = Math.min(W - 42, width(model.notice, 12, 'bold') + 34), nx = (W - nw) / 2;
-          const ny = H - (H < 450 ? 105 : 119);
+          const timer=headerLayout(W,H,true).timer,ny=timer.y+timer.h+12;
           panel(nx, ny, nw, 29, 'rgba(13,37,28,0.85)', 'rgba(200,166,106,0.34)', 5);
           text(model.notice, W / 2, ny + 9, 12, C.gold, 'center', 'bold', 0, nw - 20);
         }

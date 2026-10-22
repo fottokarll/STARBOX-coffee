@@ -1,0 +1,25 @@
+{
+  "2.3": {
+    "started": true,
+    "crash": null,
+    "fps": 1.9,
+    "firstFrameMs": 43.8,
+    "worstFrameMs": 2812.4,
+    "errors": [],
+    "violations": [],
+    "summary": "started \"STARBOX COFFEE\" in 15.7 s (21 files, 2.5 MB); 1 player; first frame 44 ms; 2 fps",
+    "error": null
+  },
+  "2.4": {
+    "started": true,
+    "crash": null,
+    "fps": 1.5,
+    "firstFrameMs": 22.3,
+    "worstFrameMs": 2921,
+    "errors": [],
+    "violations": [],
+    "summary": "started \"STARBOX COFFEE\" in 20.0 s (24 files, 2.5 MB); 1 player; first frame 22 ms; 4 fps",
+    "error": null
+  },
+  "note": "Official DevKit review profile in local Chromium SwiftShader, sequential runs on shared desktop. Slow rendering affects both releases; this is separate from GPU benchmarks and actual platform publication review."
+}

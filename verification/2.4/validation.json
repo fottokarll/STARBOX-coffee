@@ -1,0 +1,49 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "findings": [],
+    "manifest": {
+      "entry": "main.js",
+      "name": "STARBOX COFFEE",
+      "description": "CLIMB. COLLECT. BREW. A miniature cafe platformer with expressive Milo and Mira. Explore distinct cylindrical Espresso and Latte mazes, follow bean routes around the glass, brave optional star detours and outrun rising coffee. Solid wood, slippery ceramic, regenerating biscuits, large two-thumb controls and instant retries. Free play and Perfect Coffee cards.",
+      "maxPlayers": 8,
+      "credits": [
+        {
+          "work": "STARBOX V2 baristas and glass-mug cafe cover",
+          "by": "Original artwork created with OpenAI image generation for STARBOX COFFEE"
+        },
+        {
+          "work": "Milo explorer animation polish",
+          "by": "Original OpenAI-generated sprite art from the supplied character direction; source and frame data preserved"
+        },
+        {
+          "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
+          "by": "Created for STARBOX COFFEE"
+        },
+        {
+          "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",
+          "by": "DejaVu font team; Bitstream Vera licence in assets/font-license.txt"
+        }
+      ],
+      "loading": {
+        "background": "#1e3932",
+        "accent": "#c8a66a",
+        "text": "#f2f0e8",
+        "cover": "assets/v2/cover-v2.jpg",
+        "fit": "cover"
+      },
+      "ui": "minimized",
+      "stick": false
+    },
+    "stats": {
+      "files": 45,
+      "bytes": 4856590,
+      "sourceBytes": 162735,
+      "bundleBytes": 175132
+    },
+    "hash": "1bc707880dd2e3c0"
+  }
+}

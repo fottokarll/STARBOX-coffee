@@ -1,0 +1,10 @@
+{
+  "package": "artifacts/starbox-coffee-2.4.zip",
+  "bytes": 4635881,
+  "sha256": "c2fc13f9cb70ba93227b1a4cf96c882228e2e1ac4ed45f2e23182d7148ea4b8c",
+  "files": 45,
+  "allSourceFilesMatch": true,
+  "credentialsExcluded": true,
+  "checkpoint": "checkpoint-2.3-before-2.4",
+  "checkpointCommit": "2da93ed12a751e179c562dbf43fd9ed196d1b41d"
+}

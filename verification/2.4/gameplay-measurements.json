@@ -1,0 +1,1739 @@
+{
+  "method": "Deterministic ordinary binary steering and jump inputs. No teleportation, synthetic collection, state bypass or browser playthrough. Each snapshot uses its own checked-in pilot.",
+  "baseline": {
+    "tag": "checkpoint-2.3-before-2.4",
+    "commit": "2da93ed12a751e179c562dbf43fd9ed196d1b41d",
+    "tagObject": "be35db43bfed35978d271a33d980e24fe5ecf58a"
+  },
+  "candidate": {
+    "rulesSha256": "8f1a47bf1342d571587dfbf11b25207dd7efc56f89286b211850c37d083bbc61",
+    "pilotSha256": "bcb6348d4b45bd6862da71acf0662686086cced3ea6415758f43d7099c0d541b",
+    "collisionSha256": "c8164aeb824467d2301745884d95d6be80243b35fac22632fd522ee400ffa1cf"
+  },
+  "notes": [
+    "Main platform counts, main geometry, switchbacks, ceramic physics, biscuit lifecycle, recipe/reward totals and coffee speed/grace are unchanged.",
+    "One existing bean per recipe moves to the first existing permanent opposite-side route; Perfect uses that route. The direct main line still finishes with an incomplete recipe.",
+    "One optional star per recipe moves to a separated return pocket. Espresso introduces it beside the starting pad; Latte places a larger exposed ceramic jump near the final switchback.",
+    "The candidate pilot advances repeated path IDs and keeps buffered launch steering above the fixed tick rate. Long high-rise jumps launch closer to the edge at full speed. The baseline pilot has a preexisting Latte permanent-route failure at240FPS.",
+    "Candidate Latte all-stars at10FPS has a narrow finish margin; this is an optional risk route, not the Perfect recipe requirement.",
+    "No late-game boost was added; existing jump/coffee balance remains unchanged."
+  ],
+  "versions": {
+    "2.3": {
+      "espresso": {
+        "mainPlatforms": 32,
+        "totalPlatforms": 38,
+        "top": 35.38,
+        "switchbacks": 3,
+        "coffeeRise": 1.18,
+        "coffeeGrace": 3.2,
+        "required": 6,
+        "stars": 3,
+        "returnBranches": [],
+        "ingredientRoutes": [],
+        "runs": [
+          {
+            "fps": 240,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 23.4833,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 14.4457,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 12.73,
+            "sideContacts": 17,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 240,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 23.4833,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 14.4457,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 12.73,
+            "sideContacts": 17,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 240,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 25.575,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 11.9775,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 10.3012,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 23.8,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 14.072,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 12.4842,
+            "sideContacts": 17,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 120,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 23.8,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 14.072,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 12.4842,
+            "sideContacts": 17,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 120,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.0167,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 11.4563,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 9.9078,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.2083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 13.5902,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 12.1302,
+            "sideContacts": 15,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 60,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.2083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 13.5902,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 12.1302,
+            "sideContacts": 15,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 60,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.4583,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 10.9352,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 9.544,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.9417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 12.7248,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 11.4615,
+            "sideContacts": 14,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 30,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.9417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 12.7248,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 11.4615,
+            "sideContacts": 14,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 30,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 27.2417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 10.0108,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 8.8163,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.7417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 10.6008,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 9.956,
+            "sideContacts": 24,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 15,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.7417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 10.6008,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 9.956,
+            "sideContacts": 24,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 15,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 28.9417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 8.0048,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 7.36,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 28.7417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 8.2408,
+            "minimumClearance": 3.7225,
+            "minimumUpperLandingClearance": 8.0552,
+            "sideContacts": 20,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 10,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 28.7417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 8.2408,
+            "minimumClearance": 3.7225,
+            "minimumUpperLandingClearance": 8.0552,
+            "sideContacts": 20,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 10,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.6417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 5.9988,
+            "minimumClearance": 3.7225,
+            "minimumUpperLandingClearance": 5.8132,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          }
+        ]
+      },
+      "latte": {
+        "mainPlatforms": 40,
+        "totalPlatforms": 46,
+        "top": 42.4,
+        "switchbacks": 5,
+        "coffeeRise": 1.28,
+        "coffeeGrace": 1.8,
+        "required": 13,
+        "stars": 5,
+        "returnBranches": [],
+        "ingredientRoutes": [],
+        "runs": [
+          {
+            "fps": 240,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.3417,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 8.8667,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 8.0973,
+            "sideContacts": 62,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 240,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.3917,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 8.8027,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 8.076,
+            "sideContacts": 60,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 240,
+            "mode": "permanent",
+            "success": false,
+            "perfect": false,
+            "quality": "SPILLED COFFEE",
+            "time": 12.1333,
+            "collected": {
+              "bean": 2,
+              "milk": 2
+            },
+            "stars": 2,
+            "finishClearance": -0.0129,
+            "minimumClearance": -0.0129,
+            "minimumUpperLandingClearance": null,
+            "sideContacts": 52,
+            "undersideContacts": 1,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.925,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 8.12,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 7.596,
+            "sideContacts": 61,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 120,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.975,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 8.056,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 7.5427,
+            "sideContacts": 61,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 120,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 30.8667,
+            "collected": {
+              "bean": 4,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 8.1947,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 7.6707,
+            "sideContacts": 26,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 31.2667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 7.6827,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 7.2653,
+            "sideContacts": 57,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 60,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 31.3167,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 7.6187,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 7.2653,
+            "sideContacts": 57,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 60,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 31.3,
+            "collected": {
+              "bean": 4,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 7.64,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 7.2227,
+            "sideContacts": 29,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 32.2,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 6.488,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 6.3267,
+            "sideContacts": 61,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 30,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 32.4,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 6.232,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 6.232,
+            "sideContacts": 61,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 30,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 32.3333,
+            "collected": {
+              "bean": 4,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 6.3173,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 6.156,
+            "sideContacts": 32,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 34.0333,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 4.1413,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 4.1413,
+            "sideContacts": 81,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 15,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 34.0333,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 4.1413,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 4.1413,
+            "sideContacts": 81,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 15,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 34.5667,
+            "collected": {
+              "bean": 4,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 3.4587,
+            "minimumClearance": 3.4587,
+            "minimumUpperLandingClearance": 3.4587,
+            "sideContacts": 32,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 36.1667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 1.4107,
+            "minimumClearance": 1.4107,
+            "minimumUpperLandingClearance": 1.4107,
+            "sideContacts": 90,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 10,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 36.1667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 1.4107,
+            "minimumClearance": 1.4107,
+            "minimumUpperLandingClearance": 1.4107,
+            "sideContacts": 90,
+            "undersideContacts": 0,
+            "permanentPadsLanded": []
+          },
+          {
+            "fps": 10,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 35.9667,
+            "collected": {
+              "bean": 4,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 1.6667,
+            "minimumClearance": 1.6667,
+            "minimumUpperLandingClearance": 1.6667,
+            "sideContacts": 48,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          }
+        ]
+      }
+    },
+    "2.4": {
+      "espresso": {
+        "mainPlatforms": 32,
+        "totalPlatforms": 39,
+        "top": 35.38,
+        "switchbacks": 3,
+        "coffeeRise": 1.18,
+        "coffeeGrace": 3.2,
+        "required": 6,
+        "stars": 3,
+        "returnBranches": [
+          {
+            "from": 0,
+            "pads": [
+              38
+            ],
+            "returnTo": 0,
+            "rejoin": 1,
+            "required": false,
+            "rewards": [
+              "star-2"
+            ]
+          }
+        ],
+        "ingredientRoutes": [
+          {
+            "biscuit": 6,
+            "from": 5,
+            "pads": [
+              32,
+              33
+            ],
+            "rejoin": 8,
+            "requiredRewards": [
+              "bean-0"
+            ]
+          }
+        ],
+        "runs": [
+          {
+            "fps": 240,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.0333,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 13.7967,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 12.0908,
+            "sideContacts": 12,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 240,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 25.9083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 11.5842,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 9.8783,
+            "sideContacts": 12,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 240,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 25.575,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 11.9775,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 10.311,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.4333,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 13.3247,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 11.7368,
+            "sideContacts": 11,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.2667,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 11.1613,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 9.5735,
+            "sideContacts": 12,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.0917,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 11.3678,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 9.839,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 24.825,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 12.8625,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 11.4025,
+            "sideContacts": 11,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.675,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 10.6795,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 9.2195,
+            "sideContacts": 11,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 26.5083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 10.8762,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 9.485,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 25.6083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 11.9382,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 10.6748,
+            "sideContacts": 9,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 27.475,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 9.7355,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 8.4722,
+            "sideContacts": 9,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 27.2083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 10.0502,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 8.8557,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 27.4083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 9.8142,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 9.1693,
+            "sideContacts": 10,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 29.4083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 7.4542,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 6.8093,
+            "sideContacts": 14,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 29.2083,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 7.6902,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 7.0453,
+            "sideContacts": 0,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 29.2417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 7.6508,
+            "minimumClearance": 3.7225,
+            "minimumUpperLandingClearance": 7.4652,
+            "sideContacts": 20,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 31.2417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 3,
+            "finishClearance": 5.2908,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 5.1052,
+            "sideContacts": 22,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "permanent",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.7417,
+            "collected": {
+              "bean": 6,
+              "milk": 0
+            },
+            "stars": 2,
+            "finishClearance": 5.8808,
+            "minimumClearance": 3.7225,
+            "minimumUpperLandingClearance": 5.6952,
+            "sideContacts": 3,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          }
+        ]
+      },
+      "latte": {
+        "mainPlatforms": 40,
+        "totalPlatforms": 47,
+        "top": 42.4,
+        "switchbacks": 5,
+        "coffeeRise": 1.28,
+        "coffeeGrace": 1.8,
+        "required": 13,
+        "stars": 5,
+        "returnBranches": [
+          {
+            "from": 30,
+            "pads": [
+              46
+            ],
+            "returnTo": 30,
+            "rejoin": 31,
+            "required": false,
+            "rewards": [
+              "star-4"
+            ]
+          }
+        ],
+        "ingredientRoutes": [
+          {
+            "biscuit": 8,
+            "from": 7,
+            "pads": [
+              40,
+              41
+            ],
+            "rejoin": 11,
+            "requiredRewards": [
+              "bean-3"
+            ]
+          }
+        ],
+        "runs": [
+          {
+            "fps": 240,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 29.225,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 10.296,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 9.5373,
+            "sideContacts": 47,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 240,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 31.4167,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 7.4907,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 7.4907,
+            "sideContacts": 47,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 240,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 30.225,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 9.016,
+            "minimumClearance": 3,
+            "minimumUpperLandingClearance": 8.2573,
+            "sideContacts": 27,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 29.8083,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 9.5493,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 9.0253,
+            "sideContacts": 47,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 32.0417,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 6.6907,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 6.6907,
+            "sideContacts": 47,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 120,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 30.8833,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 8.1733,
+            "minimumClearance": 3.0671,
+            "minimumUpperLandingClearance": 7.6493,
+            "sideContacts": 26,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 30.1833,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 9.0693,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 8.652,
+            "sideContacts": 45,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 32.2833,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 6.3813,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 6.3813,
+            "sideContacts": 45,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 60,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 31.35,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 7.576,
+            "minimumClearance": 3.1329,
+            "minimumUpperLandingClearance": 7.1587,
+            "sideContacts": 27,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 31.0667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 7.9387,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 7.7773,
+            "sideContacts": 50,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 33.2333,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 5.1653,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 5.1653,
+            "sideContacts": 50,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 30,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 32.2333,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 6.4453,
+            "minimumClearance": 3.2608,
+            "minimumUpperLandingClearance": 6.284,
+            "sideContacts": 32,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 32.8333,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 5.6773,
+            "minimumClearance": 3.5017,
+            "minimumUpperLandingClearance": 5.6773,
+            "sideContacts": 67,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 35.1667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 2.6907,
+            "minimumClearance": 2.6907,
+            "minimumUpperLandingClearance": 2.6907,
+            "sideContacts": 67,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 15,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 34.5667,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 3.4587,
+            "minimumClearance": 3.4587,
+            "minimumUpperLandingClearance": 3.4587,
+            "sideContacts": 32,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "perfect",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 34.8667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 3.0747,
+            "minimumClearance": 3.0747,
+            "minimumUpperLandingClearance": 3.0747,
+            "sideContacts": 71,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "allStars",
+            "success": true,
+            "perfect": true,
+            "quality": "PERFECT COFFEE",
+            "time": 37.1667,
+            "collected": {
+              "bean": 8,
+              "milk": 5
+            },
+            "stars": 5,
+            "finishClearance": 0.1307,
+            "minimumClearance": 0.1307,
+            "minimumUpperLandingClearance": 0.1307,
+            "sideContacts": 71,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41
+            ]
+          },
+          {
+            "fps": 10,
+            "mode": "permanent",
+            "success": true,
+            "perfect": false,
+            "quality": "GREAT COFFEE",
+            "time": 35.9667,
+            "collected": {
+              "bean": 5,
+              "milk": 5
+            },
+            "stars": 4,
+            "finishClearance": 1.6667,
+            "minimumClearance": 1.6667,
+            "minimumUpperLandingClearance": 1.6667,
+            "sideContacts": 48,
+            "undersideContacts": 0,
+            "permanentPadsLanded": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

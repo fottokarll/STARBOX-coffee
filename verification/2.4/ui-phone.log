@@ -1,0 +1,26 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "STARBOX COFFEE" in 5.7 s (24 files, 2.5 MB); 1 player; first frame 24 ms; 3 fps
+[lot 0 experience] Coffee Rising: screen order
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte girl 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: screen pause
+[lot 0 experience] Coffee Rising: screen play
+[lot 0 experience] Coffee Rising: mute true
+[lot 0 experience] Coffee Rising: mute false
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.783333333333333,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.549999999999997,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.3249999999999944,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-2.3280000000000074}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.083333333333325,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-1.357333333333344}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.8416666666666557,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-0.3866666666666809}
+[lot 0 experience] Coffee Rising: result {"recipe":"latte","time":4.083333333333326,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":8,"milk":5},"bonusStars":0,"bonusScore":0,"progress":0,"bestHeight":0,"top":42.399999999999984,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte girl 2
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+{"passed":true}

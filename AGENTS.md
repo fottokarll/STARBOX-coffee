@@ -2,8 +2,9 @@
 
 This repository contains the editable, published STARBOX COFFEE
 source. Start here; do not reconstruct the public bundle or rebuild the game.
-Current baseline: release 2.3, Project 0 lot 696, experience 08289dd2fc68c6ad,
-reviewed submission 9637. Previous published 2.2 (experience 83f8f4430e3ed247,
+Current baseline: release 2.4, Project 0 lot 696, experience 1bc707880dd2e3c0,
+reviewed submission 9902. Previous published 2.3 (experience 08289dd2fc68c6ad,
+submission 9637) is recoverable at checkpoint-2.3-before-2.4. Published 2.2 (experience 83f8f4430e3ed247,
 submission 9459) is recoverable at checkpoint-2.2-before-overhaul. The recoverable
 2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
 
@@ -31,6 +32,11 @@ pointerId, which the current shell strips. Preserve off-button release,
 simultaneous controls and duplicate-contact reference counts. The SDK also does
 not forward pointercancel; do not invent that event. See verification/2.2 for
 native touch tests, two full DevKit Perfect runs and deployed verification.
+In 2.4, only steering-origin contacts may slide between LEFT and RIGHT; jump
+and blank origins keep their identities. Preserve the retry input latch, expanded
+hit targets and reference counts. The SDK consumes focus loss by clearing its
+input state; observe that reset without treating one finger's release as a global
+release. See verification/2.4 for native touch, retry, focus-loss and maze checks.
 
 ## Permanent AI model selection policy
 

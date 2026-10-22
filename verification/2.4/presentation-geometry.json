@@ -1,0 +1,100 @@
+[
+  {
+    "recipe": "espresso",
+    "coasterTop": -3.0199999809265137,
+    "surfaceSamples": 219520,
+    "heights": [
+      -3,
+      -2.99,
+      -2.96,
+      -2.9,
+      -2.8,
+      0,
+      17.690000000000005,
+      35.28000000000001
+    ],
+    "originalCoasterIntersections": 6609,
+    "correctedCoasterIntersections": 0,
+    "minimumClearance": 0.012492479612229435,
+    "coverageRays": 349,
+    "maxRoomRadius": 22.934376090599002,
+    "backdropRadius": 24.4,
+    "bounds": {
+      "min": [
+        -5.853209241908061,
+        0.014799995422363321,
+        -6.978000183105468
+      ],
+      "max": [
+        5.853209241908061,
+        10.301200256347656,
+        6.978000183105468
+      ]
+    },
+    "drawObjects": 40,
+    "triangles": 68504,
+    "stats": {
+      "staticTriangles": 36046,
+      "biscuits": 7,
+      "lanterns": 12,
+      "ivyLeaves": 58,
+      "parallaxRates": [
+        0.08,
+        0.12,
+        0.16
+      ],
+      "backdropRadius": 24.4,
+      "coffeeAtlasSampling": false,
+      "lighting": "coherent window diffuse/glaze and local lantern pools"
+    }
+  },
+  {
+    "recipe": "latte",
+    "coasterTop": -3.0199999809265137,
+    "surfaceSamples": 219520,
+    "heights": [
+      -3,
+      -2.99,
+      -2.96,
+      -2.9,
+      -2.8,
+      0,
+      21.199999999999992,
+      42.29999999999998
+    ],
+    "originalCoasterIntersections": 6609,
+    "correctedCoasterIntersections": 0,
+    "minimumClearance": 0.012492479612229435,
+    "coverageRays": 349,
+    "maxRoomRadius": 22.934376090599002,
+    "backdropRadius": 24.4,
+    "bounds": {
+      "min": [
+        -5.853209241908061,
+        0.014799995422363321,
+        -6.978000183105468
+      ],
+      "max": [
+        5.853209241908061,
+        11.986000366210936,
+        6.978000183105468
+      ]
+    },
+    "drawObjects": 46,
+    "triangles": 76388,
+    "stats": {
+      "staticTriangles": 40806,
+      "biscuits": 10,
+      "lanterns": 14,
+      "ivyLeaves": 58,
+      "parallaxRates": [
+        0.08,
+        0.12,
+        0.16
+      ],
+      "backdropRadius": 24.4,
+      "coffeeAtlasSampling": false,
+      "lighting": "coherent window diffuse/glaze and local lantern pools"
+    }
+  }
+]
