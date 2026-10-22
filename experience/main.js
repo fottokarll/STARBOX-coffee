@@ -4,12 +4,13 @@ import {createUI,GAME_TITLE} from './ui.js';
 import {createBarista,createContactShadow} from './barista.js';
 import {createEnvironment} from './environment.js';
 import {createCollectibles} from './collectibles.js';
+import {readRecords,keepRecord} from './records.js';
 import {CARD_IDS} from './rewards.js';
 import {createPointerControls} from './pointer-controls.js';
 
 const SCALE=.24,BASE=.85;
 
-export default async function start(p0) {
+export default async function start(p0,{observe=null}={}) {
   p0.loading(.03,'opening the lantern cafe');
   p0.controls.mode='none';p0.controls.vertical=false;p0.bodies.visible=false;
   for(const id of p0.players.keys()) {const body=p0.bodies.get(id);if(body)body.visible=false;}
@@ -37,13 +38,13 @@ export default async function start(p0) {
   const actorScene=barista.scene,hero=barista.hero;
   const contactShadow=createContactShadow(world);
   const model={screen:'title',selected:'latte',selectedCharacter:'boy',run:null,muted:false,
-    notice:'',noticeLeft:0,reward:'',rewardPending:false,table:p0.table||[],gamepad:p0.input.pad||false};
+    bests:readRecords(p0.saved),notice:'',noticeLeft:0,reward:'',rewardPending:false,table:p0.table||[],gamepad:p0.input.pad||false};
   let preview=createRun(model.selected),environment,collectibles,sceneRecipe='';
   const courseCache=new Map();
   let cameraTheta=0,cameraY=0,visualTime=0,lastUI=0,landLeft=0,facing=1;
   let lastPoseLog=-1;
   let pathDirection=1,cameraDirection=1;
-  let qualityScale=.85,slowFrames=0,lastScreenDraw='',uiDirty=true;
+  let qualityScale=.85,slowFrames=0,steadyFrames=0,lastScreenDraw='',uiDirty=true;
   let touchLeft=false,touchRight=false,touchJump=false,jumpPulse=false,pausePulse=false;
   let awarded=false,round=0;
   const heldActions=new Set(),lookTarget=new THREE.Vector3();
@@ -100,7 +101,7 @@ export default async function start(p0) {
       return;
     }
     if(!down)return;
-    if(id==='mute') {model.muted=!model.muted;if(model.muted)p0.sound.stopAll();uiDirty=true;return;}
+    if(id==='mute') {model.muted=!model.muted;p0.log('Coffee Rising: mute',model.muted);if(model.muted)p0.sound.stopAll();uiDirty=true;return;}
     if(id==='titleStart'){screen('order');sound('land',.10);return;}
     if(id==='espresso'||id==='latte'){chooseRecipe(id);return;}
     if(id==='characterNext'){screen('character');sound('land',.10);return;}
@@ -146,7 +147,7 @@ export default async function start(p0) {
     } else if(reward.kind==='score'&&reward.reason)model.reward=reward.reason;
     uiDirty=true;
   });
-  p0.hud(`${GAME_TITLE}. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides: brake early. Biscuits reform in 1.8s; green timber detours stay solid. Gold forks hold recipe ingredients. Espresso: introduction. Latte: advanced. R retry / P pause / M mute. Esc leaves; Enter chats. Free play.`);
+  p0.hud(`${GAME_TITLE}. A/D or arrows: move. Hold Space/W/Up: high jump; release between jumps. Touch: arrows + JUMP. Pad: stick + A. White ceramic slides; brake early. Biscuits reform in 1.8s. Green timber routes stay solid. Collect your recipe and reach the gold gate. R retry / P pause / M mute. Esc leave / Enter chat. Free play.`);
   function updateWorld(dt,time) {
     visualTime+=dt;
     const active=model.screen==='game'&&model.run;
@@ -162,7 +163,7 @@ export default async function start(p0) {
     const fov=phone?72:52;
     if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix();}
     const radius=attract?17:phone?17.6:12.6;
-    const cameraHeight=attract?cameraY+7.1:Math.max(3.25,cameraY+(phone?5.5:4.3));
+    const cameraHeight=Math.min((12-BASE)/SCALE-.8,attract?cameraY+7.1:Math.max(3.25,cameraY+(phone?5.5:4.3)));
     camera.position.set(Math.sin(cameraTheta)*radius*SCALE,BASE+cameraHeight*SCALE,Math.cos(cameraTheta)*radius*SCALE);
     if(active&&sample.onPlatform>=0)pathDirection=sample.platforms[sample.onPlatform].direction||1;
     cameraDirection+=(pathDirection-cameraDirection)*(1-Math.exp(-dt*6));
@@ -174,7 +175,7 @@ export default async function start(p0) {
       width:p0.width,height:p0.height,light:environment.lightAt?.(sample.theta,sample.y)||0});
     landLeft=Math.max(0,landLeft-dt);
     contactShadow.update(sample,hero.visible);
-    environment.update(sample,time,dt);collectibles.update(sample,time);
+    environment.update(sample,time,dt,{theta:cameraTheta});collectibles.update(sample,time);
     if(active) {
       p0.me.position.set(hero.position.x*SCALE,BASE+(sample.y+.7)*SCALE,hero.position.z*SCALE);
       p0.me.yaw=sample.theta;
@@ -218,9 +219,11 @@ export default async function start(p0) {
       }
       if(event.type==='finish'||event.type==='fail') {
         clearTouch();sound(event.type==='finish'?'perfect':'fail',.25);
+        model.bests=keepRecord(model.bests,run.result);
+        p0.save({...p0.saved,starbox:{version:1,bests:model.bests}}).catch(()=>{});
         p0.log('Coffee Rising: result',JSON.stringify(run.result));finishRewards(run);
       }
-      uiDirty=true;
+      if(event.type!=='contact')uiDirty=true;
     }
   }
   function renderFrame() {
@@ -256,27 +259,42 @@ export default async function start(p0) {
     model.noticeLeft=Math.max(0,model.noticeLeft-safe);
     updateWorld(safe,time);
     if(dt>.065)slowFrames++;else slowFrames=Math.max(0,slowFrames-1);
+    steadyFrames=dt<.030?steadyFrames+1:0;
+    if(steadyFrames>120 && qualityScale<.90){qualityScale=Math.min(.90,qualityScale+.05);steadyFrames=0;}
     if(slowFrames>4&&qualityScale>.5){qualityScale=Math.max(.5,qualityScale*.8);slowFrames=0;}
     lastUI+=safe;
     if(uiDirty||lastUI>1/15||model.screen!==lastScreenDraw) {
       ui.draw(model);lastUI=0;uiDirty=false;lastScreenDraw=model.screen;
     }
     renderFrame();
+    if(observe&&model.run) {
+      const r=model.run,b=r.platforms[6],best=model.bests[r.recipe];
+      // Primitives and new arrays only; the optional QA observer cannot edit a run.
+      observe([r.recipe,r.state,r.elapsed,r.theta,r.y,r.vTheta,r.vY,r.grounded,r.onPlatform,
+        r.ingredients.reduce((mask,i,index)=>i.collected?mask|(1<<index):mask,0),
+        r.collected.bean,r.collected.milk,r.bonusStars,r.coffeeY,r.bestHeight,qualityScale,
+        r.platforms.filter(p=>p.collapsed).map(p=>p.id),b?.crumbleTimer,b?.regenerateTimer,
+        r.result?.success??null,r.result?.score??0,model.rewardPending,model.reward.slice(0,80),
+        [best.progress,best.height,best.time],r.result?.quality??null]);
+    }
   }
   updateWorld(0,0);ui.draw(model);
   p0.loading(.80,'lighting lanterns and warming the mug');
   const warmStart=performance.now();
   renderer.setRenderTarget(worldTarget);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
   renderer.setRenderTarget(null);if(performance.now()-warmStart>800)qualityScale=.55;
-  p0.loading(.86,'preparing the camera');
+  p0.loading(.86,'setting your table');
   await renderer.compileAsync(blitScene,blitCamera);
-  p0.loading(.90,'preparing crisp baristas');
+  p0.loading(.90,'welcoming your baristas');
   const wasVisible=hero.visible;hero.visible=true;
   await renderer.compileAsync(actorScene,camera);hero.visible=wasVisible;
-  p0.loading(.94,'preparing cafe lettering');await ui.compile(renderer);
-  p0.loading(.97,'preparing glass reflections');
+  p0.loading(.94,'one more moment');await ui.compile(renderer);
+  p0.loading(.97,'ready to brew');
   if(environment.foregroundScene)await renderer.compileAsync(environment.foregroundScene,camera);
-  renderFrame();p0.loading(1,'ready to brew');p0.loop(tick);
+  renderFrame();
+  // Allow the final loading status to reach the shell before start returns.
+  await new Promise(resolve=>setTimeout(resolve,150));
+  p0.loading(1,'ready to brew');await new Promise(resolve=>setTimeout(resolve,0));p0.loop(tick);
   p0.log(`${GAME_TITLE} ready: Milo + Mira / recovering biscuits / safe routes / free entry`);
   p0.log('Coffee Rising: screen title');
   p0.on('end',()=>{

@@ -29,22 +29,38 @@ export function climb(recipe, { collect = true, frameDt = 1 / 60, allForks = fal
     }
     const next = run.platforms[path[Math.min(path.length - 1, routeIndex + 1)]];
     const current = run.platforms[path[routeIndex]];
-    const pending = collect && run.ingredients.find(i => i.platform === current.id && !i.collected);
-    const target = pending ? pending.angle : next.angle + (skip.includes(next.id) ? -0.23 : 0);
-    let demand = (target - run.theta) * 6 - run.vTheta * 1.25;
+    const pending = collect && !skip.includes(current.id) && run.ingredients.find(i => i.platform === current.id && !i.collected && (i.required || allForks));
+    const aim = pending ? pending.angle : next.angle + (skip.includes(next.id) ? -0.23 : 0);
+    const target = run.theta + rules.angleDistance(aim, run.theta);
+    let demand = (target - run.theta) * 9 - run.vTheta * 1.25;
     let move = demand > 0.08 ? 1 : demand < -0.08 ? -1 : 0;
     let jump = !run.grounded;
     groundSeconds = run.grounded ? groundSeconds + frameDt : 0;
     if (run.grounded) {
       if (groundSeconds < hesitation) {
         jump = false;
-        demand = (current.angle - run.theta) * 6 - run.vTheta * 1.25;
+        demand = rules.angleDistance(current.angle, run.theta) * 6 - run.vTheta * 1.25;
         move = demand > .08 ? 1 : demand < -.08 ? -1 : 0;
       } else if (pending) jump = false;
       else if (previousJump || Math.sign(run.vTheta) !== Math.sign(target - run.theta) && Math.abs(run.vTheta) > 0.12) {
         jump = false;
         move = 0;
-      } else jump = true;
+       } else {
+        const dir = Math.sign(rules.angleDistance(next.angle, current.angle));
+        const gap = Math.abs(rules.angleDistance(next.angle, current.angle));
+        const offset = skip.includes(current.id) ? -.24 : next.y - current.y > 1.6 && gap < .9 ? -.14 : Math.max(0, gap - .98);
+        const launch = current.angle + dir * Math.min(current.halfWidth * .85, offset);
+        const error = rules.angleDistance(launch, run.theta);
+        if (gap <= 1.25 && !skip.includes(current.id)) {
+          move = Math.sign(target-run.theta); jump = Math.abs(target-run.theta)<1.1;
+        } else if (gap > 1.25) {
+          move = dir;
+          jump = dir * rules.angleDistance(run.theta, current.angle) > current.halfWidth * .85 && dir * run.vTheta > .85;
+        } else if (Math.abs(error) > .06 || next.y-current.y > 1.6 && gap < .9 && Math.abs(run.vTheta) > .55) {
+          const d = error * 8 - run.vTheta * 1.7;
+          move = d > .08 ? 1 : d < -.08 ? -1 : 0; jump = false;
+        } else jump = true;
+      }
     }
     if (move) signedMoves.add(move);
     const beforeAngle = run.theta;

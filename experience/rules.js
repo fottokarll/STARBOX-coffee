@@ -1,3 +1,4 @@
+import {BODY, sweepBody, overlapsBody} from './collision.js';
 /** Deterministic STARBOX rules. Logical metres; the renderer scales the cup to the lot. */
 export const RADIUS = 5;
 export const RECIPES = Object.freeze({
@@ -18,15 +19,15 @@ const LAYOUTS = {
     [.66,1.08,.34,'solid','wood'], [.72,1.10,.31,'solid','ceramic'],
     [.62,1.16,.30,'solid','wood'], [.84,1.02,.38,'rest','wood'],
     [.86,1.12,.34,'solid','wood'], [.72,1.08,.27,'biscuit','biscuit'],
-    [.80,1.14,.29,'solid','wood'], [.92,1.06,.40,'rest','wood'],
-    [-.82,1.16,.25,'solid','ceramic'], [-.88,1.06,.26,'biscuit','biscuit'],
+    [.80,1.14,.29,'solid','wood'], [.60,1.06,.32,'rest','wood'],
+    [-1.14,1.16,.20,'solid','ceramic'], [-.88,1.06,.26,'biscuit','biscuit'],
     [-1.00,1.02,.22,'precision','ceramic'], [-.72,1.16,.29,'solid','wood'],
     [-.78,1.10,.25,'biscuit','biscuit'], [-.82,1.12,.24,'solid','ceramic'],
-    [-.96,1.04,.40,'rest','wood'], [.94,1.10,.25,'solid','wood'],
+    [-.60,1.04,.32,'rest','wood'], [1.14,1.10,.20,'solid','wood'],
     [.82,1.16,.22,'precision','ceramic'], [.90,1.04,.25,'biscuit','biscuit'],
     [1.02,1.06,.24,'solid','wood'], [.76,1.16,.23,'solid','ceramic'],
-    [.78,1.10,.25,'biscuit','biscuit'], [.84,1.12,.40,'rest','wood'],
-    [-.92,1.12,.23,'precision','ceramic'], [-1.06,1.00,.28,'solid','wood'],
+    [.78,1.10,.25,'biscuit','biscuit'], [.60,1.12,.32,'rest','wood'],
+    [-1.14,1.12,.20,'precision','ceramic'], [-1.06,1.00,.28,'solid','wood'],
     [-.84,1.16,.25,'biscuit','biscuit'], [-.94,1.08,.23,'precision','ceramic'],
     [-1.02,1.08,.32,'solid','wood'], [-.84,1.14,.22,'solid','ceramic'],
     [-.96,1.02,.25,'biscuit','biscuit'], [-1.04,1.02,.21,'precision','ceramic'],
@@ -35,19 +36,19 @@ const LAYOUTS = {
   latte: [
     [.88,1.06,.28,'solid','wood'], [1.00,1.00,.22,'solid','ceramic'],
     [.80,1.06,.23,'biscuit','biscuit'], [1.04,1.04,.25,'solid','wood'],
-    [.94,1.14,.36,'rest','wood'], [-1.06,1.02,.19,'precision','ceramic'],
+    [.60,1.14,.30,'rest','wood'], [-1.14,1.02,.18,'precision','ceramic'],
     [-.88,1.06,.24,'solid','wood'], [-.80,1.08,.23,'biscuit','biscuit'],
     [-.90,1.10,.18,'precision','ceramic'], [-1.08,1.00,.23,'biscuit','biscuit'],
-    [-.98,1.14,.36,'rest','wood'], [1.08,1.00,.22,'solid','ceramic'],
+    [-.60,1.14,.30,'rest','wood'], [1.14,1.00,.20,'solid','ceramic'],
     [.90,1.06,.18,'precision','ceramic'], [1.10,1.00,.25,'solid','wood'],
     [.82,1.12,.23,'biscuit','biscuit'], [.88,1.10,.18,'precision','ceramic'],
-    [1.04,1.08,.36,'rest','wood'], [-1.10,1.00,.23,'solid','wood'],
+    [.60,1.08,.30,'rest','wood'], [-1.14,1.00,.20,'solid','wood'],
     [-.96,1.14,.18,'precision','ceramic'], [-1.12,1.00,.22,'biscuit','biscuit'],
     [-.88,1.06,.23,'biscuit','biscuit'], [-1.06,1.02,.18,'precision','ceramic'],
-    [-.80,1.12,.23,'biscuit','biscuit'], [-.90,1.10,.36,'rest','wood'],
-    [1.10,1.00,.19,'precision','ceramic'], [.92,1.06,.24,'solid','wood'],
+    [-.80,1.12,.23,'biscuit','biscuit'], [-.60,1.10,.30,'rest','wood'],
+    [1.14,1.00,.18,'precision','ceramic'], [.92,1.06,.24,'solid','wood'],
     [1.12,1.00,.18,'precision','ceramic'], [.84,1.14,.23,'biscuit','biscuit'],
-    [1.08,1.02,.20,'solid','ceramic'], [.98,1.12,.36,'rest','wood'],
+    [1.08,1.02,.20,'solid','ceramic'], [.60,1.12,.30,'rest','wood'],
     [-1.12,1.00,.18,'precision','ceramic'], [-.82,1.14,.23,'biscuit','biscuit'],
     [-.92,1.10,.20,'solid','wood'], [-1.14,1.00,.18,'precision','ceramic'],
     [-1.02,1.10,.26,'solid','wood'], [-1.10,1.00,.18,'precision','ceramic'],
@@ -86,7 +87,7 @@ export function makeCourse(recipe = 'latte') {
   for (let i = 0; i < def.platforms; i++) {
     const [gap, rise, halfWidth, kind, surface] = i ? LAYOUTS[def.id][i - 1] : [0,0,.5,'rest','wood'];
     const direction = directionAt(i || 1, def.id);
-    angle += gap; y += rise;
+    angle += gap; y += rise + (turnIndices.includes(i) ? def.id === 'latte' ? .62 : .5 : def.id === 'latte' && i ? -.06 : 0);
     platforms.push(platform(i, angle, y, kind, halfWidth, {
       surface,
       direction: i < def.platforms - 1 ? directionAt(i + 1, def.id) : direction,
@@ -96,18 +97,10 @@ export function makeCourse(recipe = 'latte') {
   }
   const mainPath = platforms.map(p => p.id);
   const finishPlatform = def.platforms - 1;
-  const forks = [];
-  for (const [index, turn] of turnIndices.entries()) {
-    const from = platforms[turn - 1];
-    const incoming = directionAt(turn, def.id);
-    const id = platforms.length;
-    const pad = platform(id, from.angle - incoming * (def.id === 'latte' ? .80 : .67), platforms[turn].y, 'bonus', def.id === 'latte' ? .22 : .26, {
-      optional: true, routeIndex: null, direction: incoming, nextIds: [turn + 1]
-    });
-    platforms.push(pad);
-    from.nextIds.push(id);
-    forks.push({ from: from.id, pad: id, rejoin: turn + 1, replaces: turn, required: index < 2 });
-  }
+  // Ingredient terraces replace the crowded, nearly stacked fork islands.
+  // Each turn now has one readable landing, with a bean toward its outside edge.
+  const forks = turnIndices.map((turn, index) => ({from: turn - 1, pad: turn,
+    rejoin: turn + 1, replaces: turn, required: index < 2}));
   const ingredients = [];
   function add(kind, p, detour = false, offset = 0) {
     const index = ingredients.filter(item => item.kind === kind).length;
@@ -116,9 +109,9 @@ export function makeCourse(recipe = 'latte') {
       required: kind !== 'star' });
   }
   const occupied = new Set();
-  // Two required bean ingredients live on genuinely separate, safe fork pads.
+  // Two beans require deliberate travel toward the outside of turning terraces.
   for (const fork of forks.filter(f => f.required)) {
-    add('bean', platforms[fork.pad], true);
+    add('bean', platforms[fork.pad], true, directionAt(fork.pad, def.id)*.20);
   }
   function distribute(kind, count, phase) {
     for (let i = 0; i < count; i++) {
@@ -131,33 +124,38 @@ export function makeCourse(recipe = 'latte') {
   }
   distribute('bean', def.beans - 2, 0);
   distribute('milk', def.milk, 0.25);
-  for (const fork of forks) add('star', platforms[fork.pad], true, 0.04);
+  for (const fork of forks) add('star', platforms[fork.pad], true, .04);
   const perfectPath = mainPath.map(id => {
     const fork = forks.find(f => f.replaces === id && f.required);
     return fork ? fork.pad : id;
   });
-  // A biscuit is the direct shortcut. Selected sections also have a longer,
-  // permanent timber route, with two comfortable hops joining the same next pad.
-  // IDs of the existing main route, recipe forks and ingredients remain stable.
+  // Permanent routes use the OTHER side of the cylinder over a whole section.
+  // Matching altitude at each step avoids balconies directly above launch pads.
   const biscuitAlternates = [];
-  const saferSections = def.id === 'latte' ? [8, 15, 23, 32] : [6, 13, 18];
-  for (const biscuitId of saferSections) {
-    const before = platforms[biscuitId - 1], after = platforms[biscuitId + 1];
-    const dir = directionAt(biscuitId, def.id), first = platforms.length;
-    platforms.push(platform(first, before.angle - dir * 0.45, before.y + 0.90, 'safe', 0.30, {
-      surface: 'wood', optional: true, safeRouteFor: biscuitId, routeIndex: null,
-      direction: dir, nextIds: [first + 1]
-    }));
-    // Above the direct jump's apex: this balcony cannot intercept a player
-    // taking the biscuit shortcut, even when they launch from its rear edge.
-    platforms.push(platform(first + 1, before.angle + dir * 0.60, before.y + 1.94, 'safe', 0.34, {
-      surface: 'wood', optional: true, safeRouteFor: biscuitId, routeIndex: null,
-      direction: dir, nextIds: [after.id]
-    }));
-    before.nextIds.push(first);
-    biscuitAlternates.push({ biscuit: biscuitId, from: before.id, pads: [first, first + 1], rejoin: after.id });
+  const sections = def.id === 'latte' ? [[7,11,8],[14,17,15],[21,24,23]]
+    : [[5,8,6],[12,15,13],[19,22,21]];
+  for (const [fromId, rejoin, biscuitId] of sections) {
+    const before = platforms[fromId], after = platforms[rejoin];
+    const direct = after.angle - before.angle;
+    const arc = direct - Math.sign(direct) * Math.PI * 2;
+    const jumps = 3, pads = [];
+    const firstGap = Math.max(1.35, Math.abs(platforms[fromId].angle-platforms[fromId-1].angle)+.48);
+    for (let j = 1; j < jumps; j++) {
+      const id = platforms.length; pads.push(id);
+      platforms.push(platform(id, before.angle + Math.sign(arc) * (j === 1 ? firstGap : firstGap + (Math.abs(arc)-firstGap)*(j-1)/(jumps-1)), before.y + (j === 1 ? 1.60 : Math.max(2.66, (after.y-before.y)*.68)), 'safe', .40, {
+        surface: 'wood', optional: true, safeRouteFor: biscuitId, routeIndex: null,
+        direction: Math.sign(arc), nextIds: [j === jumps-1 ? rejoin : id+1]
+      }));
+    }
+    before.nextIds.push(pads[0]);
+    biscuitAlternates.push({biscuit:biscuitId, from:fromId, pads, rejoin});
   }
-  const safePath = mainPath.flatMap(id => biscuitAlternates.find(a => a.biscuit === id)?.pads || [id]);
+  const safePath = [];
+  for (let i = 0; i < mainPath.length; i++) {
+    safePath.push(i);
+    const alternate = biscuitAlternates.find(a => a.from === i);
+    if (alternate) { safePath.push(...alternate.pads); i = alternate.rejoin - 1; }
+  }
   return { platforms, ingredients, top: platforms[finishPlatform].y,
     mainPath, perfectPath, safePath, biscuitAlternates, forks, finishPlatform };
 }
@@ -200,7 +198,7 @@ function updateBiscuits(run, dt) {
     if (p.collapsed) {
       p.regenerateTimer = Math.max(0, p.regenerateTimer - dt);
       p.regenerateProgress = Math.max(0, 1 - p.regenerateTimer / 0.45);
-      if (p.regenerateTimer === 0) {
+      if (p.regenerateTimer === 0 && !overlapsBody(run.theta, run.y, p)) {
         p.collapsed = false; p.crumbleTimer = null; p.crumbleProgress = 0;
         p.crumbleStage = 'idle'; p.cracked = false;
         p.regenerateTimer = null; p.regenerateProgress = 0;
@@ -236,7 +234,7 @@ function tick(run, input, dt) {
   const rate = move ? ceramic ? PHYSICS.ceramicAcceleration : PHYSICS.acceleration
     : ceramic ? PHYSICS.ceramicBraking : PHYSICS.braking;
   run.vTheta += Math.max(-rate * dt, Math.min(rate * dt, target - run.vTheta));
-  run.theta += run.vTheta * dt;
+  const previousTheta = run.theta;
   run.coyote = run.grounded ? PHYSICS.coyote : Math.max(0, run.coyote - dt);
   run.jumpBuffer = Math.max(0, run.jumpBuffer - dt);
   if (run.jumpBuffer > 0 && run.coyote > 0) {
@@ -247,36 +245,27 @@ function tick(run, input, dt) {
     run.jumpBuffer = 0;
     run.events.push({ type: 'jump', elapsed: run.elapsed, theta: run.theta, y: run.y, vTheta: run.vTheta, vY: run.vY });
   }
-  const previousY = run.y;
   if (run.grounded) {
     const p = run.platforms[run.onPlatform];
-    if (!p || p.collapsed || Math.abs(angleDistance(run.theta, p.angle)) > p.halfWidth + 0.04) {
-      run.grounded = false;
-      run.onPlatform = -1;
+    if (!p || p.collapsed || Math.abs(angleDistance(run.theta + run.vTheta * dt, p.angle)) > p.halfWidth + BODY.halfAngle) {
+      run.grounded = false; run.onPlatform = -1;
     }
   }
-  if (!run.grounded) {
-    run.vY -= (run.vY > 0 && !input.jump ? PHYSICS.releaseGravity : PHYSICS.gravity) * dt;
-    run.y += run.vY * dt;
-    if (run.vY <= 0) {
-      let landed = null;
-      for (const p of run.platforms) {
-        if (!p.collapsed && previousY + 0.002 >= p.y && run.y <= p.y &&
-            Math.abs(angleDistance(run.theta, p.angle)) <= p.halfWidth + 0.04 &&
-            (!landed || p.y > landed.y)) landed = p;
-      }
-      if (landed) {
-        run.y = landed.y;
-        run.vY = 0;
-        run.grounded = true;
-        run.onPlatform = landed.id;
-        run.events.push({ type: 'land', platform: landed.id, elapsed: run.elapsed, theta: run.theta, y: run.y, vTheta: run.vTheta, vY: run.vY });
-        if (landed.kind === 'biscuit' && landed.crumbleTimer === null) {
-          landed.crumbleTimer = landed.crumbleDuration;
-          landed.crumbleStage = 'cracking';
-          run.events.push({ type: 'crumbleStart', platform: landed.id, remaining: landed.crumbleTimer });
-        }
-      }
+  if (!run.grounded) run.vY -= (run.vY > 0 && !input.jump ? PHYSICS.releaseGravity : PHYSICS.gravity) * dt;
+  const contact = sweepBody(previousTheta, run.y, run.vTheta * dt, run.grounded ? 0 : run.vY * dt, run.platforms);
+  run.theta = contact.theta; run.y = contact.y;
+  for (const hit of contact.contacts) {
+    if (hit.axis === 0) run.vTheta = 0;
+    else run.vY = 0;
+    run.events.push({type: 'contact', ...hit});
+  }
+  const landed = contact.landing;
+  if (landed) {
+    run.y = landed.y; run.vY = 0; run.grounded = true; run.onPlatform = landed.id;
+    run.events.push({ type: 'land', platform: landed.id, elapsed: run.elapsed, theta: run.theta, y: run.y, vTheta: run.vTheta, vY: run.vY });
+    if (landed.kind === 'biscuit' && landed.crumbleTimer === null) {
+      landed.crumbleTimer = landed.crumbleDuration; landed.crumbleStage = 'cracking';
+      run.events.push({ type: 'crumbleStart', platform: landed.id, remaining: landed.crumbleTimer });
     }
   }
   for (const ingredient of run.ingredients) {

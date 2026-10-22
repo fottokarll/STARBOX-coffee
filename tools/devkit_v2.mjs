@@ -119,6 +119,7 @@ export async function openRuntime(options={}) {
       await route.abort('failed').catch(()=>{});
     }
   });
+  if(options.initScript)await context.addInitScript(options.initScript);
   const page=await context.newPage();
   page.on('console',message=>{
     logs.push(`${message.type()}: ${message.text()}`);

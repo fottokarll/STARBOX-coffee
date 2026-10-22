@@ -16,10 +16,10 @@ for (const recipe of Object.keys(RECIPES)) {
   const directions = run.mainPath.slice(1).map((id, i) => Math.sign(run.platforms[id].angle - run.platforms[i].angle));
   assert.ok(directions.slice(1).filter((dir, i) => dir !== directions[i]).length >= 3, 'main route has three genuine switchbacks');
   assert.ok(run.result.score > 3000000);
-  assert.equal(run.bonusStars, 2, 'required detour forks can also hold optional score stars');
+  assert.equal(run.bonusStars, recipe === 'latte' ? 5 : 3, 'turning terraces reward route progress');
   assert.ok(events.some(e => e.type === 'crumbleStart'));
   assert.ok(events.some(e => e.type === 'collapse'), 'departed biscuits keep collapsing');
-  for (const kind of ['solid', 'rest', 'precision', 'biscuit', 'bonus']) {
+  for (const kind of ['solid', 'rest', 'precision', 'biscuit', 'safe']) {
     assert.ok(run.platforms.some(p => p.kind === kind));
   }
   assert.equal(run.forks.filter(f => f.required).length, 2);
@@ -28,9 +28,9 @@ for (const recipe of Object.keys(RECIPES)) {
   assert.ok(run.platforms.length > run.mainPath.length);
 }
 
-for (const frameDt of [1 / 30, 1 / 15, 1 / 10]) {
+for (const frameDt of [1 / 120, 1 / 60, 1 / 30, 1 / 15, 1 / 10]) {
   const { run } = climb('latte', { frameDt });
-  console.log('low fps', 1 / frameDt, run.result?.quality, run.elapsed.toFixed(2));
+  console.log('full route fps', 1 / frameDt, run.result?.quality, run.elapsed.toFixed(2));
   assert.equal(run.result?.perfect, true, 'binary controls remain usable at lower frame rates');
 }
 const bonus = climb('espresso', { allForks: true }).run;
@@ -157,4 +157,4 @@ for (let i = 0; i < 300; i++) {
 assert.equal(jumps, 1, 'holding jump never creates automatic bouncing');
 assert.ok(PHYSICS.jumpSpeed ** 2 / (2 * PHYSICS.gravity) < 2.30, 'two main levels cannot be bypassed by a vertical jump');
 assert.ok(Math.abs(angleDistance(0.1, Math.PI * 2 + 0.1)) < 1e-10);
-console.log('2.2 rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.');
+console.log('Preview rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.');

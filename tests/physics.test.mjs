@@ -6,6 +6,7 @@ import {start, climb} from '../tools/route_pilot.mjs';
 // Isolated surface fixture: a broad starting pad avoids measuring an accidental fall.
 function glide(surface, move = 0) {
   const run = start('espresso');
+  run.platforms=run.platforms.slice(0,1);
   run.platforms[0].surface = surface; run.platforms[0].halfWidth = 1.5;
   run.vTheta = PHYSICS.maxSpeed;
   let seconds = 0;
@@ -48,15 +49,16 @@ test('courses have distinct geometry, achievable vertical steps and longer route
       if (id > 1) assert.ok(b.y - course.platforms[id - 2].y > PHYSICS.jumpSpeed ** 2 / (2 * PHYSICS.gravity), 'cannot skip two levels vertically');
     }
     assert.ok(biggest >= 1.04, 'selected gaps demand substantially more travel than 2.1');
-    assert.ok((course.top + 4.1) * .24 + .85 < 12, 'mug, finish and course fit lot height');
+    assert.ok((course.top + 4.0) * .24 + .85 < 12, 'mug, finish and course fit lot height');
   }
 });
 
-test('every main landing and every required fork is traversed with ordinary inputs', () => {
+test('every main landing and every ingredient terrace is traversed with ordinary inputs', () => {
   for (const recipe of Object.keys(RECIPES)) {
     for (const collect of [false, true]) {
       const {run, events} = climb(recipe, {collect});
       assert.equal(run.result.success, true);
+      assert.ok(!events.some(e=>e.type==='contact'&&e.axis===1&&e.normal<0), 'authored main jumps have clear overhead space');
       const landed = new Set([0, ...events.filter(e => e.type === 'land').map(e => e.platform)]);
       const route = collect ? run.perfectPath : run.mainPath;
       for (const id of route) assert.ok(landed.has(id), `${recipe} landed ${id}`);

@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {openRuntime,readRuntime,enterRound,keyTap,waitForLog,parseGameLog} from './devkit_v2.mjs';
 
-const runtime=await openRuntime({view:'review',reportDirectory:'verification/2.2',name:'controls'});
+const reportDirectory=process.env.P0_V2_REPORT_DIR||'verification/2.2';
+const runtime=await openRuntime({view:'review',reportDirectory,name:'controls'});
 let report;
 try {
   const {page}=runtime,menu=await enterRound(runtime,{recipe:'latte',character:'boy'});
@@ -35,6 +36,6 @@ try {
     screenshots:menu.screenshots,frames:state.frames,errors:state.errors,networkFailures:runtime.networkFailures,
     rewards:'Score/item success paths are exercised by legitimate deterministic completions and DevKit finish probes; this smoke test deliberately spills.'};
 } catch(error) {report={passed:false,error:error.message,...await readRuntime(runtime.page)};}
-finally {await runtime.close();await fs.writeFile('verification/2.2/controls.json',JSON.stringify(report,null,2)+'\n');}
+finally {await runtime.close();await fs.writeFile(`${reportDirectory}/controls.json`,JSON.stringify(report,null,2)+'\n');}
 console.log(JSON.stringify({passed:report.passed,error:report.error},null,2));
 if(!report.passed)process.exitCode=1;

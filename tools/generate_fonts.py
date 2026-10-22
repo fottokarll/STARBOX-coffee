@@ -7,10 +7,10 @@ out=root/'experience/assets/v2'
 out.mkdir(exist_ok=True,parents=True)
 fonts=Path('/usr/share/fonts/truetype/dejavu')
 styles={
-    'body': ('DejaVuSansCondensed.ttf',40),
-    'bold': ('DejaVuSansCondensed-Bold.ttf',56),
+    'body': ('DejaVuSans.ttf',40),
+    'bold': ('DejaVuSans-Bold.ttf',56),
     'mono': ('DejaVuSansMono.ttf',32),
-    'display': ('DejaVuSerifCondensed-Bold.ttf',72),
+    'display': ('DejaVuSerif.ttf',72),
 }
 chars=''.join(chr(i) for i in range(32,127))+'×·’…'
 atlas=Image.new('RGBA',(1024,1024))

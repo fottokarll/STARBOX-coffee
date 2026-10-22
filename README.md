@@ -13,6 +13,17 @@ the executing environment or ignored `.env`, never in GitHub.
 
 See [2.2 verification](verification/2.2/README.md) for balancing, tests, browser evidence and publication. Earlier [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
 
+## Development preview (not published)
+
+The gameplay and café/UI overhaul is on `dev/gameplay-visual-overhaul`, version `2.3.0-preview.0`.
+Lot 696 remains on the published 2.2 release. `checkpoint-2.2-before-overhaul` preserves its exact source; the 2.1 checkpoint remains available too.
+
+This preview adds solid swept platform collisions, cleaner turning terraces and permanent routes around the opposite side of the glass, a real procedural café and oak counter, much calmer distant scenery, upright foot contact, a premium HUD/menus/results receipt and personal climb records. The 2.2 coffee speeds and slippery physics are retained.
+
+See [preview verification](verification/overhaul/README.md) for evidence, balancing and the validated package. To preview, run `PYTHONHOME= PYTHONPATH= python3 tools/serve.py` and open [the official DevKit](https://project0.city/devkit?entry=http://localhost:5500/main.js&width=12&depth=19&height=12&size=960x640). The server serves only `experience/`.
+
+`npm test` runs the regression suite. `tools/preview_climb.mjs` uses ordinary DevKit keys and the optional `preview.js` entry's copied status from the documented `p0.hud` API; the manifest's `main.js` entry does not enable that diagnostic stream.
+
 ## Release 2.2
 
 - Espresso: 32 main platforms, three switchbacks and progressive jumps; 133.5 logical metres around the cup. Latte: 40 main platforms, five switchbacks, longer gaps and narrow ceramic combinations; 191.1 metres. Both retain two required ingredient forks, biscuit regeneration and permanent timber bypasses.

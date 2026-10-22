@@ -1,0 +1,1086 @@
+[
+  {
+    "version": "2.2",
+    "recipe": "espresso",
+    "platforms": 41,
+    "mainPlatforms": 32,
+    "top": 33.88,
+    "coffee": {
+      "id": "espresso",
+      "name": "Espresso",
+      "platforms": 32,
+      "beans": 6,
+      "milk": 0,
+      "rise": 1.18,
+      "grace": 3.2
+    },
+    "perfectSeconds": 23.841666666665954,
+    "perfect": true,
+    "safeSeconds": 26.62499999999913,
+    "safeSuccess": true,
+    "totalCircumferentialMetres": 133.49999999999997,
+    "largestClearGap": 2.9000000000000004,
+    "largestRise": 1.1600000000000001,
+    "mainCeilingContacts": 0,
+    "jumps": [
+      {
+        "from": 0,
+        "to": 1,
+        "centerMetres": 3.3000000000000003,
+        "clearGapMetres": 0,
+        "rise": 1.08
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "centerMetres": 3.5999999999999996,
+        "clearGapMetres": 0.34999999999999976,
+        "rise": 1.1
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "centerMetres": 3.1000000000000005,
+        "clearGapMetres": 0.0500000000000006,
+        "rise": 1.1599999999999997
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 0.799999999999999,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "centerMetres": 4.299999999999999,
+        "clearGapMetres": 0.6999999999999993,
+        "rise": 1.12
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "centerMetres": 3.600000000000001,
+        "clearGapMetres": 0.5500000000000007,
+        "rise": 1.08
+      },
+      {
+        "from": 6,
+        "to": 7,
+        "centerMetres": 3.9999999999999996,
+        "clearGapMetres": 1.1999999999999997,
+        "rise": 1.1399999999999997
+      },
+      {
+        "from": 7,
+        "to": 8,
+        "centerMetres": 4.6,
+        "clearGapMetres": 1.1499999999999995,
+        "rise": 1.0600000000000005
+      },
+      {
+        "from": 8,
+        "to": 9,
+        "centerMetres": 4.100000000000001,
+        "clearGapMetres": 0.8500000000000013,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 9,
+        "to": 10,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 1.8499999999999994,
+        "rise": 1.0600000000000005
+      },
+      {
+        "from": 10,
+        "to": 11,
+        "centerMetres": 5,
+        "clearGapMetres": 2.6,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 11,
+        "to": 12,
+        "centerMetres": 3.5999999999999988,
+        "clearGapMetres": 1.049999999999999,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 12,
+        "to": 13,
+        "centerMetres": 3.9000000000000004,
+        "clearGapMetres": 1.2000000000000002,
+        "rise": 1.0999999999999996
+      },
+      {
+        "from": 13,
+        "to": 14,
+        "centerMetres": 4.1000000000000005,
+        "clearGapMetres": 1.6500000000000004,
+        "rise": 1.1199999999999992
+      },
+      {
+        "from": 14,
+        "to": 15,
+        "centerMetres": 4.8,
+        "clearGapMetres": 1.5999999999999996,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 15,
+        "to": 16,
+        "centerMetres": 4.699999999999999,
+        "clearGapMetres": 1.4499999999999997,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 16,
+        "to": 17,
+        "centerMetres": 4.1,
+        "clearGapMetres": 1.7499999999999993,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 17,
+        "to": 18,
+        "centerMetres": 4.5,
+        "clearGapMetres": 2.1499999999999995,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 18,
+        "to": 19,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.6500000000000004,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 19,
+        "to": 20,
+        "centerMetres": 3.800000000000001,
+        "clearGapMetres": 1.4500000000000013,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 20,
+        "to": 21,
+        "centerMetres": 3.9000000000000012,
+        "clearGapMetres": 1.5000000000000013,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 21,
+        "to": 22,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 0.9499999999999992,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 22,
+        "to": 23,
+        "centerMetres": 4.6,
+        "clearGapMetres": 1.4499999999999997,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 23,
+        "to": 24,
+        "centerMetres": 5.299999999999998,
+        "clearGapMetres": 2.7499999999999982,
+        "rise": 1
+      },
+      {
+        "from": 24,
+        "to": 25,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 1.5499999999999992,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 25,
+        "to": 26,
+        "centerMetres": 4.699999999999999,
+        "clearGapMetres": 2.3,
+        "rise": 1.0800000000000018
+      },
+      {
+        "from": 26,
+        "to": 27,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.35,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 27,
+        "to": 28,
+        "centerMetres": 4.2,
+        "clearGapMetres": 1.5000000000000002,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 28,
+        "to": 29,
+        "centerMetres": 4.8,
+        "clearGapMetres": 2.45,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 29,
+        "to": 30,
+        "centerMetres": 5.2,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 30,
+        "to": 31,
+        "centerMetres": 4.5,
+        "clearGapMetres": 1.2499999999999998,
+        "rise": 1.1000000000000014
+      }
+    ]
+  },
+  {
+    "version": "2.2",
+    "recipe": "latte",
+    "platforms": 53,
+    "mainPlatforms": 40,
+    "top": 41.34,
+    "coffee": {
+      "id": "latte",
+      "name": "Latte",
+      "platforms": 40,
+      "beans": 8,
+      "milk": 5,
+      "rise": 1.28,
+      "grace": 1.8
+    },
+    "perfectSeconds": 30.199999999998926,
+    "perfect": true,
+    "safeSeconds": 34.41666666666536,
+    "safeSuccess": true,
+    "totalCircumferentialMetres": 191.09999999999997,
+    "largestClearGap": 3.8,
+    "largestRise": 1.1400000000000006,
+    "mainCeilingContacts": 0,
+    "jumps": [
+      {
+        "from": 0,
+        "to": 1,
+        "centerMetres": 4.4,
+        "clearGapMetres": 0.4999999999999999,
+        "rise": 1.06
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "centerMetres": 4.999999999999999,
+        "clearGapMetres": 2.4999999999999996,
+        "rise": 1
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "centerMetres": 3.9999999999999996,
+        "clearGapMetres": 1.75,
+        "rise": 1.06
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "centerMetres": 5.2,
+        "clearGapMetres": 2.8000000000000003,
+        "rise": 1.04
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "centerMetres": 4.700000000000002,
+        "clearGapMetres": 1.6500000000000021,
+        "rise": 1.1399999999999997
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "centerMetres": 5.300000000000001,
+        "clearGapMetres": 2.55,
+        "rise": 1.0200000000000005
+      },
+      {
+        "from": 6,
+        "to": 7,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 2.25,
+        "rise": 1.0600000000000005
+      },
+      {
+        "from": 7,
+        "to": 8,
+        "centerMetres": 4,
+        "clearGapMetres": 1.6500000000000004,
+        "rise": 1.08
+      },
+      {
+        "from": 8,
+        "to": 9,
+        "centerMetres": 4.500000000000001,
+        "clearGapMetres": 2.4500000000000006,
+        "rise": 1.0999999999999996
+      },
+      {
+        "from": 9,
+        "to": 10,
+        "centerMetres": 5.4,
+        "clearGapMetres": 3.3500000000000005,
+        "rise": 1
+      },
+      {
+        "from": 10,
+        "to": 11,
+        "centerMetres": 4.9,
+        "clearGapMetres": 1.9500000000000002,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 11,
+        "to": 12,
+        "centerMetres": 5.4,
+        "clearGapMetres": 2.5000000000000004,
+        "rise": 1
+      },
+      {
+        "from": 12,
+        "to": 13,
+        "centerMetres": 4.500000000000001,
+        "clearGapMetres": 2.500000000000001,
+        "rise": 1.0600000000000005
+      },
+      {
+        "from": 13,
+        "to": 14,
+        "centerMetres": 5.5,
+        "clearGapMetres": 3.3500000000000005,
+        "rise": 1
+      },
+      {
+        "from": 14,
+        "to": 15,
+        "centerMetres": 4.1,
+        "clearGapMetres": 1.6999999999999993,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 15,
+        "to": 16,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 2.3499999999999996,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 16,
+        "to": 17,
+        "centerMetres": 5.1999999999999975,
+        "clearGapMetres": 2.4999999999999982,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 17,
+        "to": 18,
+        "centerMetres": 5.5,
+        "clearGapMetres": 2.5500000000000007,
+        "rise": 1
+      },
+      {
+        "from": 18,
+        "to": 19,
+        "centerMetres": 4.8,
+        "clearGapMetres": 2.75,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 19,
+        "to": 20,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 3.600000000000001,
+        "rise": 1
+      },
+      {
+        "from": 20,
+        "to": 21,
+        "centerMetres": 4.4,
+        "clearGapMetres": 2.1500000000000004,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 21,
+        "to": 22,
+        "centerMetres": 5.300000000000001,
+        "clearGapMetres": 3.250000000000001,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 22,
+        "to": 23,
+        "centerMetres": 4.000000000000001,
+        "clearGapMetres": 1.9500000000000006,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 23,
+        "to": 24,
+        "centerMetres": 4.5,
+        "clearGapMetres": 1.5499999999999998,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 24,
+        "to": 25,
+        "centerMetres": 5.5,
+        "clearGapMetres": 2.75,
+        "rise": 1
+      },
+      {
+        "from": 25,
+        "to": 26,
+        "centerMetres": 4.6000000000000005,
+        "clearGapMetres": 2.45,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 26,
+        "to": 27,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 3.500000000000001,
+        "rise": 1
+      },
+      {
+        "from": 27,
+        "to": 28,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 2.1499999999999995,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 28,
+        "to": 29,
+        "centerMetres": 5.4,
+        "clearGapMetres": 3.250000000000001,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 29,
+        "to": 30,
+        "centerMetres": 4.9,
+        "clearGapMetres": 2.1,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 30,
+        "to": 31,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1
+      },
+      {
+        "from": 31,
+        "to": 32,
+        "centerMetres": 4.1,
+        "clearGapMetres": 2.05,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 32,
+        "to": 33,
+        "centerMetres": 4.6,
+        "clearGapMetres": 2.4499999999999997,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 33,
+        "to": 34,
+        "centerMetres": 5.699999999999999,
+        "clearGapMetres": 3.8,
+        "rise": 1
+      },
+      {
+        "from": 34,
+        "to": 35,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 35,
+        "to": 36,
+        "centerMetres": 5.500000000000002,
+        "clearGapMetres": 3.3000000000000016,
+        "rise": 1
+      },
+      {
+        "from": 36,
+        "to": 37,
+        "centerMetres": 4.299999999999999,
+        "clearGapMetres": 2.25,
+        "rise": 1.1199999999999974
+      },
+      {
+        "from": 37,
+        "to": 38,
+        "centerMetres": 5.700000000000001,
+        "clearGapMetres": 3.7000000000000006,
+        "rise": 1
+      },
+      {
+        "from": 38,
+        "to": 39,
+        "centerMetres": 5.3000000000000025,
+        "clearGapMetres": 2.3500000000000023,
+        "rise": 1.0399999999999991
+      }
+    ]
+  },
+  {
+    "version": "preview",
+    "recipe": "espresso",
+    "platforms": 38,
+    "mainPlatforms": 32,
+    "top": 35.38000000000001,
+    "coffee": {
+      "id": "espresso",
+      "name": "Espresso",
+      "platforms": 32,
+      "beans": 6,
+      "milk": 0,
+      "rise": 1.18,
+      "grace": 3.2
+    },
+    "perfectSeconds": 24.2083333333326,
+    "perfect": true,
+    "safeSeconds": 26.458333333332472,
+    "safeSuccess": true,
+    "totalCircumferentialMetres": 132.6,
+    "largestClearGap": 3.0999999999999996,
+    "largestRise": 1.620000000000001,
+    "mainCeilingContacts": 0,
+    "jumps": [
+      {
+        "from": 0,
+        "to": 1,
+        "centerMetres": 3.3000000000000003,
+        "clearGapMetres": 0,
+        "rise": 1.08
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "centerMetres": 3.5999999999999996,
+        "clearGapMetres": 0.34999999999999976,
+        "rise": 1.1
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "centerMetres": 3.1000000000000005,
+        "clearGapMetres": 0.0500000000000006,
+        "rise": 1.1599999999999997
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 0.799999999999999,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "centerMetres": 4.299999999999999,
+        "clearGapMetres": 0.6999999999999993,
+        "rise": 1.12
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "centerMetres": 3.600000000000001,
+        "clearGapMetres": 0.5500000000000007,
+        "rise": 1.08
+      },
+      {
+        "from": 6,
+        "to": 7,
+        "centerMetres": 3.9999999999999996,
+        "clearGapMetres": 1.1999999999999997,
+        "rise": 1.1399999999999997
+      },
+      {
+        "from": 7,
+        "to": 8,
+        "centerMetres": 2.9999999999999982,
+        "clearGapMetres": 0,
+        "rise": 1.5600000000000005
+      },
+      {
+        "from": 8,
+        "to": 9,
+        "centerMetres": 5.699999999999998,
+        "clearGapMetres": 3.0999999999999983,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 9,
+        "to": 10,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 2.0999999999999996,
+        "rise": 1.0600000000000005
+      },
+      {
+        "from": 10,
+        "to": 11,
+        "centerMetres": 5,
+        "clearGapMetres": 2.6,
+        "rise": 1.0199999999999996
+      },
+      {
+        "from": 11,
+        "to": 12,
+        "centerMetres": 3.5999999999999988,
+        "clearGapMetres": 1.049999999999999,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 12,
+        "to": 13,
+        "centerMetres": 3.9000000000000004,
+        "clearGapMetres": 1.2000000000000002,
+        "rise": 1.0999999999999996
+      },
+      {
+        "from": 13,
+        "to": 14,
+        "centerMetres": 4.1,
+        "clearGapMetres": 1.6499999999999992,
+        "rise": 1.1199999999999992
+      },
+      {
+        "from": 14,
+        "to": 15,
+        "centerMetres": 3,
+        "clearGapMetres": 0.1999999999999999,
+        "rise": 1.5399999999999991
+      },
+      {
+        "from": 15,
+        "to": 16,
+        "centerMetres": 5.699999999999999,
+        "clearGapMetres": 3.0999999999999996,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 16,
+        "to": 17,
+        "centerMetres": 4.1,
+        "clearGapMetres": 1.9999999999999996,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 17,
+        "to": 18,
+        "centerMetres": 4.5,
+        "clearGapMetres": 2.1499999999999995,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 18,
+        "to": 19,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.6500000000000004,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 19,
+        "to": 20,
+        "centerMetres": 3.799999999999999,
+        "clearGapMetres": 1.449999999999999,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 20,
+        "to": 21,
+        "centerMetres": 3.9000000000000012,
+        "clearGapMetres": 1.5000000000000013,
+        "rise": 1.1000000000000014
+      },
+      {
+        "from": 21,
+        "to": 22,
+        "centerMetres": 2.9999999999999982,
+        "clearGapMetres": 0.1499999999999982,
+        "rise": 1.620000000000001
+      },
+      {
+        "from": 22,
+        "to": 23,
+        "centerMetres": 5.699999999999998,
+        "clearGapMetres": 3.0999999999999983,
+        "rise": 1.120000000000001
+      },
+      {
+        "from": 23,
+        "to": 24,
+        "centerMetres": 5.300000000000001,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1
+      },
+      {
+        "from": 24,
+        "to": 25,
+        "centerMetres": 4.199999999999999,
+        "clearGapMetres": 1.5499999999999992,
+        "rise": 1.1600000000000001
+      },
+      {
+        "from": 25,
+        "to": 26,
+        "centerMetres": 4.699999999999999,
+        "clearGapMetres": 2.3,
+        "rise": 1.0800000000000018
+      },
+      {
+        "from": 26,
+        "to": 27,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.35,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 27,
+        "to": 28,
+        "centerMetres": 4.2,
+        "clearGapMetres": 1.5000000000000002,
+        "rise": 1.1400000000000006
+      },
+      {
+        "from": 28,
+        "to": 29,
+        "centerMetres": 4.8,
+        "clearGapMetres": 2.45,
+        "rise": 1.0200000000000031
+      },
+      {
+        "from": 29,
+        "to": 30,
+        "centerMetres": 5.2,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1.0200000000000031
+      },
+      {
+        "from": 30,
+        "to": 31,
+        "centerMetres": 4.5,
+        "clearGapMetres": 1.2499999999999998,
+        "rise": 1.1000000000000014
+      }
+    ]
+  },
+  {
+    "version": "preview",
+    "recipe": "latte",
+    "platforms": 46,
+    "mainPlatforms": 40,
+    "top": 42.399999999999984,
+    "coffee": {
+      "id": "latte",
+      "name": "Latte",
+      "platforms": 40,
+      "beans": 8,
+      "milk": 5,
+      "rise": 1.28,
+      "grace": 1.8
+    },
+    "perfectSeconds": 31.266666666665532,
+    "perfect": true,
+    "safeSeconds": 31.299999999998864,
+    "safeSuccess": true,
+    "totalCircumferentialMetres": 182.99999999999994,
+    "largestClearGap": 3.8,
+    "largestRise": 1.7599999999999998,
+    "mainCeilingContacts": 0,
+    "jumps": [
+      {
+        "from": 0,
+        "to": 1,
+        "centerMetres": 4.4,
+        "clearGapMetres": 0.4999999999999999,
+        "rise": 1
+      },
+      {
+        "from": 1,
+        "to": 2,
+        "centerMetres": 4.999999999999999,
+        "clearGapMetres": 2.4999999999999996,
+        "rise": 0.94
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "centerMetres": 3.9999999999999996,
+        "clearGapMetres": 1.75,
+        "rise": 1
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "centerMetres": 5.2,
+        "clearGapMetres": 2.8000000000000003,
+        "rise": 0.98
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "centerMetres": 2.9999999999999982,
+        "clearGapMetres": 0.24999999999999828,
+        "rise": 1.7599999999999998
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "centerMetres": 5.699999999999998,
+        "clearGapMetres": 3.2999999999999985,
+        "rise": 0.96
+      },
+      {
+        "from": 6,
+        "to": 7,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 2.3,
+        "rise": 1
+      },
+      {
+        "from": 7,
+        "to": 8,
+        "centerMetres": 4,
+        "clearGapMetres": 1.6500000000000004,
+        "rise": 1.0200000000000005
+      },
+      {
+        "from": 8,
+        "to": 9,
+        "centerMetres": 4.500000000000001,
+        "clearGapMetres": 2.4500000000000006,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 9,
+        "to": 10,
+        "centerMetres": 5.4,
+        "clearGapMetres": 3.3500000000000005,
+        "rise": 0.9399999999999995
+      },
+      {
+        "from": 10,
+        "to": 11,
+        "centerMetres": 3,
+        "clearGapMetres": 0.35000000000000003,
+        "rise": 1.7599999999999998
+      },
+      {
+        "from": 11,
+        "to": 12,
+        "centerMetres": 5.699999999999999,
+        "clearGapMetres": 3.1999999999999993,
+        "rise": 0.9399999999999995
+      },
+      {
+        "from": 12,
+        "to": 13,
+        "centerMetres": 4.500000000000001,
+        "clearGapMetres": 2.6000000000000014,
+        "rise": 1
+      },
+      {
+        "from": 13,
+        "to": 14,
+        "centerMetres": 5.5,
+        "clearGapMetres": 3.3500000000000005,
+        "rise": 0.9399999999999995
+      },
+      {
+        "from": 14,
+        "to": 15,
+        "centerMetres": 4.1,
+        "clearGapMetres": 1.6999999999999993,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 15,
+        "to": 16,
+        "centerMetres": 4.3999999999999995,
+        "clearGapMetres": 2.3499999999999996,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 16,
+        "to": 17,
+        "centerMetres": 3.0000000000000004,
+        "clearGapMetres": 0.6000000000000005,
+        "rise": 1.6999999999999993
+      },
+      {
+        "from": 17,
+        "to": 18,
+        "centerMetres": 5.699999999999998,
+        "clearGapMetres": 3.1999999999999984,
+        "rise": 0.9400000000000013
+      },
+      {
+        "from": 18,
+        "to": 19,
+        "centerMetres": 4.8,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 19,
+        "to": 20,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 3.600000000000001,
+        "rise": 0.9400000000000013
+      },
+      {
+        "from": 20,
+        "to": 21,
+        "centerMetres": 4.4,
+        "clearGapMetres": 2.1500000000000004,
+        "rise": 1
+      },
+      {
+        "from": 21,
+        "to": 22,
+        "centerMetres": 5.300000000000001,
+        "clearGapMetres": 3.250000000000001,
+        "rise": 0.9600000000000009
+      },
+      {
+        "from": 22,
+        "to": 23,
+        "centerMetres": 4.000000000000001,
+        "clearGapMetres": 1.9500000000000006,
+        "rise": 1.0599999999999987
+      },
+      {
+        "from": 23,
+        "to": 24,
+        "centerMetres": 3.0000000000000004,
+        "clearGapMetres": 0.3500000000000006,
+        "rise": 1.7199999999999989
+      },
+      {
+        "from": 24,
+        "to": 25,
+        "centerMetres": 5.699999999999999,
+        "clearGapMetres": 3.3,
+        "rise": 0.9400000000000013
+      },
+      {
+        "from": 25,
+        "to": 26,
+        "centerMetres": 4.6000000000000005,
+        "clearGapMetres": 2.5,
+        "rise": 1
+      },
+      {
+        "from": 26,
+        "to": 27,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 3.500000000000001,
+        "rise": 0.9400000000000013
+      },
+      {
+        "from": 27,
+        "to": 28,
+        "centerMetres": 4.2,
+        "clearGapMetres": 2.1499999999999995,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 28,
+        "to": 29,
+        "centerMetres": 5.4,
+        "clearGapMetres": 3.250000000000001,
+        "rise": 0.9600000000000009
+      },
+      {
+        "from": 29,
+        "to": 30,
+        "centerMetres": 3.0000000000000004,
+        "clearGapMetres": 0.5000000000000004,
+        "rise": 1.740000000000002
+      },
+      {
+        "from": 30,
+        "to": 31,
+        "centerMetres": 5.6000000000000005,
+        "clearGapMetres": 3.2000000000000006,
+        "rise": 0.9399999999999977
+      },
+      {
+        "from": 31,
+        "to": 32,
+        "centerMetres": 4.1,
+        "clearGapMetres": 2.05,
+        "rise": 1.0799999999999983
+      },
+      {
+        "from": 32,
+        "to": 33,
+        "centerMetres": 4.6000000000000005,
+        "clearGapMetres": 2.45,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 33,
+        "to": 34,
+        "centerMetres": 5.699999999999999,
+        "clearGapMetres": 3.8,
+        "rise": 0.9399999999999977
+      },
+      {
+        "from": 34,
+        "to": 35,
+        "centerMetres": 5.1,
+        "clearGapMetres": 2.9000000000000004,
+        "rise": 1.0399999999999991
+      },
+      {
+        "from": 35,
+        "to": 36,
+        "centerMetres": 5.5,
+        "clearGapMetres": 3.3000000000000007,
+        "rise": 0.9399999999999977
+      },
+      {
+        "from": 36,
+        "to": 37,
+        "centerMetres": 4.299999999999999,
+        "clearGapMetres": 2.25,
+        "rise": 1.0600000000000023
+      },
+      {
+        "from": 37,
+        "to": 38,
+        "centerMetres": 5.699999999999998,
+        "clearGapMetres": 3.6999999999999984,
+        "rise": 0.9399999999999977
+      },
+      {
+        "from": 38,
+        "to": 39,
+        "centerMetres": 5.299999999999998,
+        "clearGapMetres": 2.349999999999998,
+        "rise": 0.9799999999999969
+      }
+    ]
+  }
+]

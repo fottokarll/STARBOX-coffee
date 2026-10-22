@@ -1,3 +1,4 @@
+import {platformThickness} from './collision.js';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
@@ -104,7 +105,7 @@ function addRing(parts, y, radius, thickness, tile, color = WHITE, segments = 48
   parts.push(prepared(geometry, transform(0, y, 0, Math.PI / 2), tile, color));
 }
 
-function sectorGeometry(halfWidth, inner, outer, top, bottom, count = 24) {
+function sectorGeometry(halfWidth, inner, outer, top, bottom, count = 18) {
   const positions = [], uv = [];
   function point(radius, angle, y) {
     return [Math.sin(angle) * radius, y, Math.cos(angle) * radius];
@@ -140,7 +141,7 @@ function sectorGeometry(halfWidth, inner, outer, top, bottom, count = 24) {
 }
 
 function bevelledLedge(halfWidth, inner, outer, thickness) {
-  const positions=[],uv=[],steps=24,bevel=Math.min(.065,thickness*.25);
+  const positions=[],uv=[],steps=18,bevel=Math.min(.065,thickness*.25);
   const levels=[{y:0,i:inner+bevel,o:outer-bevel,a:halfWidth-.007},
     {y:-bevel,i:inner,o:outer,a:halfWidth},
     {y:-thickness+bevel,i:inner,o:outer,a:halfWidth},
@@ -189,7 +190,7 @@ function makePlatform(platform) {
   const pieces = [];
   const baseTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.edge;
   const topTile = biscuit ? TILE.biscuit : wood ? TILE.wood : TILE.ceramic;
-  const thickness = kind === 'rest' ? 0.43 : biscuit ? 0.24 : 0.34;
+  const thickness = platformThickness(platform);
   pieces.push(prepared(bevelledLedge(platform.halfWidth,4.35,5.65,thickness),identity,baseTile));
   pieces.push(prepared(sectorGeometry(platform.halfWidth-.007,4.415,5.585,.003,.003),identity,topTile));
   if (platform.surface === 'ceramic') {
@@ -204,7 +205,7 @@ function makePlatform(platform) {
     // Small supporting corbels stop the platforms feeling like flat floating rectangles.
     for (const sign of [-1, 1]) {
       const angle = sign * platform.halfWidth * 0.64;
-      addTube(pieces, [Math.sin(angle) * 5.55, -0.28, Math.cos(angle) * 5.55],
+      addTube(pieces, [Math.sin(angle) * 5.55, -thickness+.02, Math.cos(angle) * 5.55],
         [Math.sin(angle) * 6.08, -0.89, Math.cos(angle) * 6.08], 0.065, TILE.wood);
     }
   }
@@ -345,6 +346,7 @@ function leafGeometry() {
 export function createEnvironment(world, courseData, assets = {}) {
   const root = new THREE.Group(); root.name = 'STARBOX V2 handcrafted café'; world.add(root);
   const staticParts = [], lanternLightParts = [], glassParts = [], glintParts = [];
+  const roomParts = [], roomLights = [];
   const disposable = new Set();
   const atlas = assets.atlas || null;
   if (atlas) {
@@ -358,7 +360,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   const lanternMaterial = new THREE.MeshBasicMaterial({map: atlas, vertexColors: true, side: THREE.DoubleSide});
   const glassMaterial = new THREE.MeshBasicMaterial({color: 0xb5dfd3, transparent: true, opacity: 0.04,
     side: THREE.BackSide, depthWrite: false});
-  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xe9fff5, transparent: true, opacity: 0.18,
+  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xe9fff5, transparent: true, opacity: 0.12,
     side: THREE.DoubleSide, depthWrite: false});
   const foamMaterial = new THREE.MeshBasicMaterial({color: 0xe6cb9c});
   const coffeeMaterial = new THREE.MeshBasicMaterial({map: atlas, vertexColors: true, side: THREE.DoubleSide});
@@ -404,6 +406,98 @@ export function createEnvironment(world, courseData, assets = {}) {
     }
   }
 
+  // A real oak counter supports the glass. Its quiet horizontal grain is world-fixed.
+  addBox(staticParts,0,-3.24,0,44,.38,58,TILE.wood,0xd3b181);
+  addBox(staticParts,0,-3.43,0,44.15,.10,58.15,TILE.green);
+  for(let x=-20;x<=20;x+=4) addBox(staticParts,x,-3.043,0,.018,.008,58,TILE.wood,0x806343);
+  addRing(staticParts,-3.025,6.12,.06,TILE.gold);
+  addCylinder(staticParts,0,-3.06,0,6.05,6.05,.08,TILE.white,C.forest,64);
+
+  // The room is a restrained theatrical depth layer; none of this furniture is a
+  // gameplay collider. Everything is geometry, sharing two batched atlas materials.
+  function furnitureCup(parts,x,y,z,size=1) {
+    addCylinder(parts,x,y+size*.36,z,size*.34,size*.26,size*.70,TILE.ceramic);
+    addCylinder(parts,x,y+size*.72,z,size*.30,size*.30,.025,TILE.coffee,WHITE,12);
+    addCylinder(parts,x,y+.04,z,size*.5,size*.5,.06,TILE.ceramic,WHITE,12);
+    parts.push(prepared(new THREE.TorusGeometry(size*.25,size*.065,4,10),transform(x+size*.36,y+size*.39,z),TILE.ceramic));
+  }
+  function espressoMachine(x,z,ry=0) {
+    const parts=[];
+    addBox(parts,0,-1.55,0,5.4,2.4,2.5,TILE.ceramic,0xd4d7d0);
+    addBox(parts,0,-1.1,-1.30,5.15,1.1,.14,TILE.green,0x9ebda5);
+    addBox(parts,0,-.22,0,5.7,.18,2.8,TILE.gold);
+    addBox(parts,0,-2.62,-.65,5.8,.22,3.9,TILE.green);
+    addBox(parts,0,-2.46,-1.4,4.8,.06,1.7,TILE.ceramic,0x9baaa5);
+    for(const xx of [-1.55,0,1.55]) {
+      addTube(parts,[xx,-1.1,-1.4],[xx,-1.8,-1.4],.16,TILE.ceramic);
+      addTube(parts,[xx,-1.65,-1.4],[xx+.6,-1.65,-1.9],.10,TILE.green);
+      parts.push(prepared(new THREE.CylinderGeometry(.27,.27,.10,16),transform(xx,-.86,-1.42,Math.PI/2),TILE.gold));
+      parts.push(prepared(new THREE.CylinderGeometry(.20,.20,.11,16),transform(xx,-.86,-1.48,Math.PI/2),TILE.ceramic));
+      furnitureCup(parts,xx,-2.43,-1.65,.6);furnitureCup(parts,xx,-.10,.1,.65);
+    }
+    addTube(parts,[2.5,-1,-1],[3.0,-1.2,-1.1],.07,TILE.gold);
+    addTube(parts,[3,-1.2,-1.1],[3,-2.05,-1.1],.07,TILE.gold);
+    // Grinder hopper, base, adjustment collar and dosing spout.
+    addBox(parts,-4,-2.24,0,1.5,1.1,1.6,TILE.green);
+    addCylinder(parts,-4,-1.25,0,.48,.62,1.1,TILE.ceramic,0xa3a99c);
+    addCylinder(parts,-4,-.30,0,.69,.40,.9,TILE.coffee,0xb38c63,12);
+    addCylinder(parts,-4,.20,0,.73,.73,.12,TILE.gold,WHITE,12);
+    addBox(parts,-4,-1.7,-.8,.45,.3,.8,TILE.gold);
+    const matrix=transform(x,0,z,0,ry);
+    for(const g of parts){g.applyMatrix4(matrix);roomParts.push(g);}
+  }
+  // Equipment faces inward from a curved service counter, with generous silhouettes.
+  for(const side of [-1,1]) {
+    const a=Math.PI+side*.67, r=18;
+    const x=Math.sin(a)*r,z=Math.cos(a)*r;
+    addBox(roomParts,x,-2.91,z,10,.25,5,TILE.wood,0xd9b587,a);
+    espressoMachine(x,z,a);
+  }
+  for(const [x,z] of [[-11,4],[12,3],[-7,-14]])furnitureCup(roomParts,x,-3.04,z,1.4);
+  const roomHeight=top+6.6, roomCenter=(top-.1)/2;
+  for(let i=0;i<8;i++) {
+    const a=i*TAU/8,r=21.7,x=Math.sin(a)*r,z=Math.cos(a)*r;
+    const parts=[],lit=[];
+    // Tall windows, oak mullions, a forest-green lower wall and a golden lintel.
+    addBox(parts,0,roomCenter,0,14,roomHeight,.28,TILE.white,0x6d7058);
+    addBox(lit,0,roomCenter+1,-.18,11.5,roomHeight-4,.10,TILE.lantern,0x9f9677);
+    for(const xx of [-6,-2,2,6])addBox(parts,xx,roomCenter,-.30,.18,roomHeight,.25,TILE.wood,0x8a6945);
+    for(const yy of [-.8,top*.47,top+2.9])addBox(parts,0,yy,-.35,12.5,.20,.32,TILE.gold,0xc0a272);
+    addBox(parts,0,-1.7,-.55,13.8,2.2,.5,TILE.green,0x65836d);
+    // Deep shelves with cream cups and bags give the room a recognisable scale.
+    if(i%2===0)for(const yy of [4.0,8.2]) {
+      addBox(parts,0,yy,-.9,10,.20,1.6,TILE.wood);
+      for(let k=0;k<6;k++) {
+        if(k%2)furnitureCup(parts,-4+k*1.6,yy+.1,-.95,.9);
+        else addBox(parts,-4+k*1.6,yy+.7,-.6,.8,1.2,.65,TILE.wood,0xd3b992);
+      }
+    }
+    const matrix=transform(x,0,z,0,a);
+    for(const g of parts){g.applyMatrix4(matrix);roomParts.push(g);}
+    for(const g of lit){g.applyMatrix4(matrix);roomLights.push(g);}
+  }
+  // An oak ceiling and quiet beams close the room above the finish; the upper
+  // camera sees cafe architecture rather than an empty band beyond the windows.
+  addCylinder(roomParts,0,top+3.94,0,22,22,.08,TILE.wood,0x96734b,48);
+  roomParts.push(prepared(new THREE.CylinderGeometry(21.8,21.8,.75,48,1,true),
+    transform(0,top+3.53,0),TILE.green,0x84947b));
+  for(const z of [-12,0,12])addBox(roomParts,0,top+3.78,z,36,.24,.35,TILE.wood,0x745535);
+  // Long warm pendants and tapered shades; no realtime light/shadow pass is needed.
+  for(let i=0;i<6;i++) {
+    const a=i*TAU/6+.35,r=19,x=Math.sin(a)*r,z=Math.cos(a)*r;
+    const y=top*.62+(i%2)*2;
+    addTube(roomParts,[x,top+3.0,z],[x,y+1.2,z],.035,TILE.green);
+    addCylinder(roomParts,x,y+.55,z,.28,1.15,1.15,TILE.green,WHITE,16);
+    addCylinder(roomParts,x,y,z,1.18,1.18,.10,TILE.gold,WHITE,16);
+    addCylinder(roomLights,x,y-.06,z,1.05,1.05,.04,TILE.lantern,0xffd393,16);
+    // Broad plants stay outside the running lane.
+    addCylinder(roomParts,x,-2.0,z,.80,.55,2.0,TILE.pot);
+    for(let k=0;k<9;k++) {
+      const xx=x+Math.sin(k*2.4)*1.1,zz=z+Math.cos(k*2.4)*1.1,yy=-.3+k%3*.5;
+      addTube(roomParts,[x,-1,z],[xx,yy,zz],.035,TILE.leaf);
+      addSphere(roomParts,xx,yy,zz,.55,.85,.28,TILE.leaf,k%2?0xa0b67d:0x79935d);
+    }
+  }
   // Slightly tapered open glass with a broad lip, fine reflections and mug handle.
   const cupHeight = top + 7;
   const cupRadius=y=>5.92+(y+3)/cupHeight*1.18;
@@ -411,9 +505,9 @@ export function createEnvironment(world, courseData, assets = {}) {
     .translate(0, (top + 1) / 2, 0));
   addRing(staticParts, -2.94, 5.98, 0.12, TILE.gold);
   addRing(staticParts, -2.76, 6.00, 0.15, TILE.green);
-  addRing(staticParts, top + 3.95, 7.10, 0.14, TILE.ceramic);
+  addRing(staticParts, top + 3.80, 7.10, 0.14, TILE.ceramic);
   addRing(staticParts, top + 3.70, 7.08, 0.065, TILE.gold);
-  addRing(staticParts, top + 4.08, 7.10, 0.035, TILE.gold);
+  addRing(staticParts, top + 3.90, 7.10, 0.035, TILE.gold);
   for (let i = 0; i < 5; i++) {
     const angle = i * TAU / 5 + 0.21;
     const a = -3, b = top + 3.85;
@@ -486,7 +580,7 @@ export function createEnvironment(world, courseData, assets = {}) {
     }
   }
   const mainLength=courseData.mainPath.length;
-  const cafeIndices = [Math.floor(mainLength * 0.18), Math.floor(mainLength * 0.52), Math.floor(mainLength * 0.80)];
+  const cafeIndices = [0]; // One welcome alcove; the surrounding cafe supplies the architecture.
   cafeIndices.forEach((index,i)=>{
     const p=platforms[index];
     // The first alcove welcomes players immediately from behind the starting ledge.
@@ -518,10 +612,10 @@ export function createEnvironment(world, courseData, assets = {}) {
   lantern(Math.PI-0.73,0.42,0);
   lantern(Math.PI+0.73,0.42,1);
   for(let i=3;i<mainLength-1;i+=4) {
-    const p=platforms[i];lantern(p.angle,p.y+0.1,i);
+    const p=platforms[i];lantern(p.angle-p.direction*(p.halfWidth+.23),p.y+.12,i);
   }
   for(const route of courseData.biscuitAlternates||[]) {
-    const p=platforms[route.pads[0]];lantern(p.angle,p.y-.2,p.id);
+    const p=platforms[route.pads[0]];lantern(p.angle-p.direction*(p.halfWidth+.18),p.y-.2,p.id);
     // A green inset and two brass studs distinguish the permanent timber detour.
     const mark=prepared(sectorGeometry(p.halfWidth*.7,4.48,4.56,.018,.005),
       transform(0,p.y,0,0,p.angle),TILE.green,0x9dcaa2);
@@ -551,24 +645,37 @@ export function createEnvironment(world, courseData, assets = {}) {
   addTube(staticParts,[-2.2,top+3.45,-1.1],[-2.2,top+2.83,-1.1],0.17,TILE.green);
   const streamGeometry=prepared(new THREE.CylinderGeometry(0.12,0.17,1,8),identity,TILE.coffee);
   const stream=mesh(streamGeometry,coffeeMaterial,'Continuous coffee pour');stream.position.set(-2.2,top/2,-1.1);
-  const backgroundTexture=cafeBackdropTexture(2);
-  backgroundTexture.repeat.set(4,(top+8.45)/12);
+  const backgroundTexture=cafeBackdropTexture(0);
+  backgroundTexture.repeat.set(4,(top+7.05)/12);
   const backgroundMaterial=new THREE.MeshBasicMaterial({map:backgroundTexture,
     side:THREE.BackSide,fog:false,depthWrite:true,toneMapped:false});
   disposable.add(backgroundTexture);disposable.add(backgroundMaterial);
-  const backgroundGeometry=new THREE.CylinderGeometry(16.8,16.8,top+8.45,48,1,true);
-  backgroundGeometry.translate(0,(top+1.55)/2,0);
+  const backgroundGeometry=new THREE.CylinderGeometry(16.8,16.8,top+7.05,48,1,true);
+  backgroundGeometry.translate(0,(top+.75)/2,0);
   const background=mesh(backgroundGeometry,backgroundMaterial,'Distant warm café windows');
   background.renderOrder=-30;
-  // Two fixed depth layers give natural parallax from the camera's translation.
-  // No texture scrolling or counter-rotation: changes of direction stay calm.
-  const middleTexture=cafeBackdropTexture(.7);disposable.add(middleTexture);
+  // Distinct distant layers retain only a small fraction of the camera orbit.
+  // Their continuous presentation angle is updated below; the counter stays fixed.
+  const middleTexture=cafeBackdropTexture(0);disposable.add(middleTexture);
   middleTexture.repeat.set(2,(top+8)/11);
   const middleMaterial=new THREE.MeshBasicMaterial({map:middleTexture,color:0xe6c997,
     side:THREE.BackSide,transparent:true,opacity:.12,depthWrite:false,fog:false});disposable.add(middleMaterial);
-  const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+8,36,1,true,0,Math.PI*1.15);
-  middleGeometry.translate(0,(top+1)/2,0);
-  mesh(middleGeometry,middleMaterial,'Soft middle-distance café parallax');
+  const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+7.2,36,1,true,0,Math.PI*1.15);
+  middleGeometry.translate(0,(top+.6)/2,0);
+  const middle=mesh(middleGeometry,middleMaterial,'Quiet middle-distance café parallax');
+  const room=new THREE.Group();room.name='Cafe service counters, windows and pendants';root.add(room);
+  mesh(combine(roomParts),opaque,'Batched cafe furniture',room);
+  mesh(combine(roomLights),lanternMaterial,'Warm cafe windows and pendant light',room);
+  const signCanvas=new OffscreenCanvas(1024,256),signContext=signCanvas.getContext('2d');
+  signContext.fillStyle='#173c30';signContext.fillRect(0,0,1024,256);
+  signContext.strokeStyle='#c8a66a';signContext.lineWidth=5;signContext.strokeRect(12,12,1000,232);
+  signContext.fillStyle='#f2f0e8';signContext.textAlign='center';signContext.font='bold 74px serif';
+  signContext.fillText('STARBOX COFFEE',512,126);signContext.font='25px serif';signContext.fillStyle='#c8a66a';
+  signContext.fillText('FRESHLY ROASTED  ·  BEAUTIFULLY BREWED',512,184);
+  const signTexture=new THREE.CanvasTexture(signCanvas);signTexture.colorSpace=THREE.SRGBColorSpace;disposable.add(signTexture);
+  const signMaterial=new THREE.MeshBasicMaterial({map:signTexture,side:THREE.DoubleSide});disposable.add(signMaterial);
+  const sign=mesh(new THREE.PlaneGeometry(12,3),signMaterial,'STARBOX COFFEE cafe sign',room);
+  sign.position.set(0,top*.40,-20.5);
   const staticMesh=mesh(combine(staticParts),opaque,'Merged textured café architecture');
   const lamps=mesh(combine(lanternLightParts),lanternMaterial,'Warm lantern glass');
   const cup=mesh(combine(glassParts),glassMaterial,'Transparent tapered mug');cup.renderOrder=-20;
@@ -626,7 +733,11 @@ export function createEnvironment(world, courseData, assets = {}) {
     const rotation=new THREE.Quaternion();
   const billboard=new THREE.Quaternion();
 
-  function update(run,time,dt=0) {
+  function update(run,time,dt=0,view={theta:0}) {
+    // Near counter/cup stay physically anchored. Distant theatrical scenery follows
+    // most of the orbit, retaining only 8/12/16% of its apparent angular motion.
+    // Use the continuous camera angle so a full revolution never snaps the layers.
+    background.rotation.y=view.theta*.92;middle.rotation.y=view.theta*.88;room.rotation.y=view.theta*.84;
     const coffeeY=Number.isFinite(run?.coffeeY)?run.coffeeY:-2.8;
     surface.position.y=coffeeY;
     surface.scale.setScalar((cupRadius(coffeeY)-.08)/5.94);
@@ -742,5 +853,5 @@ export function createEnvironment(world, courseData, assets = {}) {
       return amount;
     },
     stats:{staticTriangles:staticMesh.geometry.getAttribute('position').count/3,biscuits:biscuits.length,
-      lanterns:lanterns.length,ivyLeaves:leaves.length}};
+      lanterns:lanterns.length,ivyLeaves:leaves.length,parallaxRates:[.08,.12,.16]}};
 }

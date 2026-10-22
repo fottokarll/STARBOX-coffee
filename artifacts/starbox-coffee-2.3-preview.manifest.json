@@ -1,0 +1,217 @@
+{
+  "package": "starbox-coffee-2.3-preview.zip",
+  "bytes": 4626065,
+  "sha256": "17296050129b584adede02153b7b2698ca69c6d08174bf41c3e8a9e8aae17f78",
+  "files": [
+    {
+      "path": "assets/CREDITS.txt",
+      "bytes": 398,
+      "sha256": "e3fcbb629610be0b30a25d41ffeafe73a05d298cc8c8328fe57f6ab3ef465c1e"
+    },
+    {
+      "path": "assets/barista-preview.png",
+      "bytes": 4107,
+      "sha256": "3b828d32695a64746644c3eb559275a42e35ba14ea229a95495cbc2e837703a9"
+    },
+    {
+      "path": "assets/barista.png",
+      "bytes": 1447,
+      "sha256": "1b77ad28a95799559136f2291630022b243971e2cf300e5d91a77fecb802ad32"
+    },
+    {
+      "path": "assets/card-espresso.png",
+      "bytes": 15564,
+      "sha256": "6d3660072c0acc1606d34dbbd7598603b0a7ab22198efc0a9f0613c91d4a185e"
+    },
+    {
+      "path": "assets/card-latte.png",
+      "bytes": 14625,
+      "sha256": "a984bee47d48302ebc26b70edfd358a2af97fd5e10351f45ccaf7fcef8b9db59"
+    },
+    {
+      "path": "assets/collect.wav",
+      "bytes": 7540,
+      "sha256": "2a1d7dbf8061eaab32d9c20de87c31f4a1b12130b52743b5157a975c3ba40767"
+    },
+    {
+      "path": "assets/cover.png",
+      "bytes": 49175,
+      "sha256": "6160fe6a596dd220428f088547c3233e488abe6f3bba13da59e328ca7892ae86"
+    },
+    {
+      "path": "assets/fail.wav",
+      "bytes": 22094,
+      "sha256": "3f98b6e3031897c73abf900a195c5c7c26a2cb8a1899f28e5e7d6a69e25a0d89"
+    },
+    {
+      "path": "assets/font-license.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    },
+    {
+      "path": "assets/jump.wav",
+      "bytes": 6658,
+      "sha256": "2ded98a895536814ee569848890618f0a249bdf0b3bb8fa1e33e4b78b3401e4e"
+    },
+    {
+      "path": "assets/land.wav",
+      "bytes": 4012,
+      "sha256": "61f8fc045821369a17dc5af6fb3cb5bd04369f7366d1310666bcf837d75ae785"
+    },
+    {
+      "path": "assets/perfect.wav",
+      "bytes": 35324,
+      "sha256": "5149d30023d1f792ae66e0f06daa73e381b535d161d3a199cb9a72d0635c9efd"
+    },
+    {
+      "path": "assets/polish/ART-CREDITS.txt",
+      "bytes": 779,
+      "sha256": "6fdf16291f551fd58d78fd29b010a982e6535657dc62127cb289b39f6c8e99cd"
+    },
+    {
+      "path": "assets/polish/milo.json",
+      "bytes": 6232,
+      "sha256": "c68bc930bf32c552a3b928327ed499f4b8a85d929eb90f4b465102019d0dba13"
+    },
+    {
+      "path": "assets/polish/milo.png",
+      "bytes": 156209,
+      "sha256": "4191265ceca858d8b17233584de410f9b73abeef6d4f0e67be79f2f95e1e4e0a"
+    },
+    {
+      "path": "assets/polish/milo.webp",
+      "bytes": 123280,
+      "sha256": "3405136a92341315b974dd0fa7ee5ba72878719285e291d1250a84770dceb94e"
+    },
+    {
+      "path": "assets/sprites.json",
+      "bytes": 410,
+      "sha256": "ff165c407746cfe4509a545be9f401fc0f81a357699a5494a88fcc2c1ae09ef1"
+    },
+    {
+      "path": "assets/start.wav",
+      "bytes": 13274,
+      "sha256": "23bc185d330f42b5e08eacc5763022cceabf0ab33c112761a26b9e0503f06b5f"
+    },
+    {
+      "path": "assets/v2/ART-CREDITS.txt",
+      "bytes": 1555,
+      "sha256": "7378b5610b4c5b75465444c78e18c7702af06c5c8d3fcc8ca304a21f144860f5"
+    },
+    {
+      "path": "assets/v2/baristas.png",
+      "bytes": 1870758,
+      "sha256": "502a1aa96ca221558e142e2e689557582802d676b3aed37e56fccd571b723d95"
+    },
+    {
+      "path": "assets/v2/baristas.webp",
+      "bytes": 1445844,
+      "sha256": "32d10940c8d770496d65179ef47330bf74014136d66eb3a68a37fd55fc29bea3"
+    },
+    {
+      "path": "assets/v2/cafe-atlas.png",
+      "bytes": 64604,
+      "sha256": "912ca82af3acaf921a81c0d0d39099a965865f3c8265c0a9c47e39883b34b77b"
+    },
+    {
+      "path": "assets/v2/card-espresso.jpg",
+      "bytes": 125520,
+      "sha256": "59e2051e0375dc5a0e36b94f4e39eb8ef5cdeb6160056c345368c474d9000827"
+    },
+    {
+      "path": "assets/v2/card-latte.jpg",
+      "bytes": 165491,
+      "sha256": "1c12e370f7d4182b0b5c7afccb43277f00144d6fced5caa6f303ab0977dd1f7d"
+    },
+    {
+      "path": "assets/v2/characters.json",
+      "bytes": 5089,
+      "sha256": "a25ad44562e81f6420f1270460eecf68e05b2f9b85b09715d7940ed44e585e2d"
+    },
+    {
+      "path": "assets/v2/cover-v2.jpg",
+      "bytes": 322021,
+      "sha256": "c38bfaafc736e455af2eca852d3b85e44819d899cadb15dc361b5bd5b8f7838a"
+    },
+    {
+      "path": "assets/v2/lettering.json",
+      "bytes": 67699,
+      "sha256": "91800283de2d4bbe3389d99149b7040d9154a2d33f8c637711e01fd51287a7d5"
+    },
+    {
+      "path": "assets/v2/lettering.png",
+      "bytes": 145689,
+      "sha256": "5b5a097951877dd2314509543205d4dfbcf05fe8173fe490386ea7df047b1b64"
+    },
+    {
+      "path": "assets/warning.wav",
+      "bytes": 13274,
+      "sha256": "ed3769362d9cd16cfe0a570d28569f6d2aabf7221f8b0114def08bab92f4aaa9"
+    },
+    {
+      "path": "barista.js",
+      "bytes": 6191,
+      "sha256": "ac7ae99c9f543e8535256ba30bbc8d3bf9dae30f4d774542ddc9d36325c84620"
+    },
+    {
+      "path": "collectibles.js",
+      "bytes": 7417,
+      "sha256": "88a3e26e45f39b90c65400efb9153c246c5a8deca5c8bf3d992c48897cb6a923"
+    },
+    {
+      "path": "collision.js",
+      "bytes": 2561,
+      "sha256": "c8164aeb824467d2301745884d95d6be80243b35fac22632fd522ee400ffa1cf"
+    },
+    {
+      "path": "environment.js",
+      "bytes": 47405,
+      "sha256": "7b1f27f4d75de48fbb44cbd6bcfbac74648ff413304e053f6b669ca6d8fa6616"
+    },
+    {
+      "path": "experience.json",
+      "bytes": 1267,
+      "sha256": "444fa2d8607c382cf10f1871792b0f5d2aaf59c137ff1b0a04bad0f27b25c830"
+    },
+    {
+      "path": "main.js",
+      "bytes": 17787,
+      "sha256": "386b3d163cfa5128bfa717c78a035a02c299107568ad9ace8a2be776b8ab4e49"
+    },
+    {
+      "path": "pointer-controls.js",
+      "bytes": 2012,
+      "sha256": "7acd3176b2075a77aa2668d5fc9aa9ad731ec5ac1a5adc2b960ed5e06a30d5df"
+    },
+    {
+      "path": "preview.js",
+      "bytes": 477,
+      "sha256": "9f170a5cd89f4ccd05f584579ae6ee4dd929393e5550e47873aa44ad1eaf0633"
+    },
+    {
+      "path": "records.js",
+      "bytes": 896,
+      "sha256": "7866aca8072ed1761e86adb4d7d3ff3bbc691822cacfcea7b93343661f14f78d"
+    },
+    {
+      "path": "rewards.js",
+      "bytes": 143,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    {
+      "path": "rules.js",
+      "bytes": 15878,
+      "sha256": "b7a0e4f56a235e58b267fd6c51c62d4acacd81104fb6c0ec141cb976a16940f3"
+    },
+    {
+      "path": "ui-layout.js",
+      "bytes": 480,
+      "sha256": "7cec99d9ca8268ebb57c018b7eb8edb61513754d4b3e00f76258d04f1dc57fb3"
+    },
+    {
+      "path": "ui.js",
+      "bytes": 35122,
+      "sha256": "aa74adc1fb279fc49c9edd3aabe9340c27ff420569b545dc0650ac902318f87f"
+    }
+  ]
+}

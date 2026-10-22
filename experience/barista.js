@@ -87,9 +87,9 @@ export function createBarista(assets, depthTexture) {
     uniforms.warmth.value=light;
     uniforms.bounce.value=Math.max(0,1-(sample.y-sample.coffeeY)/5);
     const size=1.62/meta.nominalBodyHeight;
-    hero.position.set(Math.sin(sample.theta)*5,sample.y,Math.cos(sample.theta)*5);
+    hero.position.set(Math.sin(sample.theta)*5,sample.y+.018,Math.cos(sample.theta)*5);
     hero.scale.set(w*size,h*size,1);
-    hero.quaternion.copy(camera.quaternion);
+    hero.rotation.set(0,Math.atan2(camera.position.x-hero.position.x*.24,camera.position.z-hero.position.z*.24),0);
   }
   return {scene,root,hero,update,dispose(){
     hero.geometry.dispose();material.dispose();

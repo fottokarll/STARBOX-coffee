@@ -1,9 +1,10 @@
 import * as THREE from 'three';
+import {headerLayout} from './ui-layout.js';
 import {RECIPES} from './rules.js';
 export const GAME_TITLE = 'STARBOX COFFEE';
 
 const C = Object.freeze({
-  green: '#006241', forest: '#1E3932', cream: '#F2F0E8', gold: '#C8A66A',
+  green: '#187454', forest: '#143C30', cream: '#FFF3DB', gold: '#C8AA73',
   brown: '#6F4E37', ink: '#10281F', muted: '#C4D0C5', milk: '#E7F1E5', white: '#FFFFFF'
 });
 
@@ -92,9 +93,10 @@ export async function createUI(p0) {
     ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r);
     ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
   }
-  function panel(x, y, w, h, fill = 'rgba(18,43,34,0.96)', border = 'rgba(200,166,106,0.4)', radius = 10) {
+  function panel(x, y, w, h, fill = 'rgba(18,43,34,0.96)', border = 'rgba(200,166,106,0.4)', radius = 12) {
+    ctx.save();ctx.shadowColor='rgba(0,0,0,.23)';ctx.shadowBlur=0;ctx.shadowOffsetY=3;
     roundRect(x, y, w, h, radius); ctx.fillStyle = fill; ctx.fill();
-    ctx.strokeStyle = border; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = border; ctx.lineWidth = 1; ctx.stroke();ctx.restore();
   }
   function line(x1, y1, x2, y2, color = 'rgba(200,166,106,0.25)', thickness = 1) {
     ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
@@ -168,25 +170,52 @@ export async function createUI(p0) {
     buttons.push({ id, x, y, w, h });
   }
   function menuBackdrop() {
-    ctx.fillStyle = 'rgba(5,23,17,0.83)'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = 'rgba(5,23,17,0.70)'; ctx.fillRect(0, 0, W, H);
     const glow = ctx.createRadialGradient(W * 0.75, H * 0.36, 10, W * 0.75, H * 0.36, Math.max(W, H) * 0.75);
     glow.addColorStop(0, 'rgba(200,166,106,0.1)'); glow.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
     ctx.strokeStyle = 'rgba(200,166,106,0.15)'; ctx.lineWidth = 1;
     roundRect(10.5, 10.5, W - 21, H - 21, 10); ctx.stroke();
   }
-  function header(model, inGame = false) {
-    const small = W < 500;
-    logo(29, 27, 24);
-    text(GAME_TITLE, 48, 15, small ? 11 : 12, C.cream, 'left', 'bold', 0.2);
-    text('CLIMB. COLLECT. BREW.', 48, 31, small ? 8 : 9, C.gold, 'left', 'body');
-    button('mute', '', W - (inGame ? 88 : 49), 13, 32, 30, false, { icon: model.muted ? 'muted' : 'sound' });
-    if (inGame) button('pause', '', W - 49, 13, 32, 30, false, { icon: 'pause' });
-    else label('LOT 696', W / 2, 24, small ? 8 : 9, C.muted, 'center');
-    if (inGame && model.run) {
-      panel(W / 2 - 40, 14, 80, 28, 'rgba(10,31,23,0.97)', 'rgba(200,166,106,0.35)', 5);
-      text(formatTime(model.run.elapsed || 0), W / 2, 21, small ? 13 : 14, C.cream, 'center', 'mono', 0.4);
+  function header(model,inGame=false) {
+    const l=headerLayout(W,H,inGame),phone=W<500;
+    if(l.brand) {
+      const shade=ctx.createLinearGradient(0,52,0,105);
+      shade.addColorStop(0,'rgba(6,25,18,.63)');shade.addColorStop(1,'rgba(6,25,18,0)');
+      ctx.fillStyle=shade;ctx.fillRect(0,52,W,53);
+      logo(28,77,30);
+      if(l.stacked) {
+        if(W>=360){text('STARBOX',49,63,11,C.cream,'left','display');text('COFFEE',49,80,12,C.gold,'left','display');}
+      } else {
+        text(GAME_TITLE,51,67,phone?13:15,C.cream,'left','display',.2);
+        if(!phone)label('THE CLIMBING CAFE',52,88,8,C.gold);
+      }
     }
+    if(l.mute)button('mute','',l.mute.x,l.mute.y,31,31,false,{icon:model.muted?'muted':'sound'});
+    if(l.pause)button('pause','',l.pause.x,l.pause.y,31,31,false,{icon:'pause'});
+    if(l.timer&&model.run) {
+      const t=l.timer;
+      panel(t.x,t.y,t.w,t.h,'rgba(13,43,32,.98)','rgba(200,170,115,.70)',23);
+      symbol('timer',t.x+(phone?18:22),77,17,C.gold);
+      text(formatTime(model.run.elapsed||0),t.x+t.w/2+9,66,phone?24:28,C.cream,'center','mono',0);
+    }
+  }
+  // Matching line icons, shared by the HUD and the results receipt.
+  function symbol(kind,x,y,size=20,color=C.gold) {
+    ctx.save();ctx.translate(x,y);ctx.scale(size/20,size/20);
+    ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=1.6;ctx.lineCap='round';ctx.lineJoin='round';
+    if(kind==='timer') {
+      ctx.beginPath();ctx.arc(0,1,7,0,Math.PI*2);ctx.moveTo(0,1);ctx.lineTo(0,-3);ctx.lineTo(3,1);ctx.stroke();
+      line(-3,-10,3,-10,color,1.6);line(0,-10,0,-7,color,1.6);
+    } else if(kind==='climb') {
+      ctx.beginPath();ctx.moveTo(-10,7);ctx.lineTo(-2,-7);ctx.lineTo(3,1);ctx.lineTo(6,-3);ctx.lineTo(11,7);ctx.closePath();ctx.stroke();
+      line(-5,-1,-2,0,color);line(-2,0,0,-2,color);
+    } else if(kind==='steam') {
+      for(let i=-1;i<=1;i++){ctx.beginPath();ctx.moveTo(i*6,7);ctx.bezierCurveTo(i*6-5,1,i*6+5,-1,i*6,-8);ctx.stroke();}
+    } else if(kind==='collect') {bean(-4,0,18,color);drop(7,2,12);}
+    else if(kind==='best')star(0,0,9,color);
+    else logo(0,0,23);
+    ctx.restore();
   }
   function footer() {
     label('CLIMB. COLLECT. BREW.', W / 2, H - 28, 10, C.muted, 'center');
@@ -262,11 +291,18 @@ export async function createUI(p0) {
       label('CLIMB. COLLECT. BREW.', left, 198, 11);
       button('titleStart', 'ORDER A COFFEE', left, H - 96, Math.min(278, W * 0.47), 46, true);
       label('CLIMB TO THE LAST DROP', W * 0.81, H - 67, 8, C.gold, 'center');
+    } else if (narrow && H<650) {
+      label('THE VERTICAL COFFEE ARCADE',W/2,110,8,C.gold,'center');
+      text(GAME_TITLE,W/2,136,28,C.cream,'center','display',0,W-36);
+      drink(W/2,H*.54,Math.min(W*.38,H*.22),model.selected||'latte',true);
+      text('Climb the cup. Craft your perfect coffee.',W/2,H-164,13,C.muted,'center','body',0,W-34);
+      button('titleStart','ORDER A COFFEE',28,H-108,W-56,46,true);
+      label('FREE PLAY  ·  INSTANT RETRIES',W/2,H-48,8,C.gold,'center');
     } else if (narrow) {
       label('THE VERTICAL COFFEE ARCADE', W / 2, H * 0.15, 9, C.gold, 'center');
       text('STARBOX', W / 2, H * 0.19, Math.min(44, W * 0.115), C.cream, 'center', 'display');
       text('COFFEE', W / 2, H * 0.19 + 54, Math.min(48, W * 0.13), C.cream, 'center', 'display');
-      drink(W / 2, H * 0.48, Math.min(W * 0.52, H * 0.25), model.selected || 'latte', true);
+      drink(W / 2, H * 0.51, Math.min(W * 0.52, H * 0.23), model.selected || 'latte', true);
       text('A little barista. An enormous adventure.', W / 2, H * 0.68, 14, C.muted, 'center', 'body', 0, W - 40);
       text('Outrun the rising coffee. Brew your best.', W / 2, H * 0.68 + 23, 14, C.muted, 'center', 'body', 0, W - 40);
       button('titleStart', 'ORDER A COFFEE', 28, H - 126, W - 56, 49, true);
@@ -284,16 +320,14 @@ export async function createUI(p0) {
     if (!narrow || short) footer();
   }
   function selectionLayout() {
-    const short = H < 460, phone = W < 500;
-    const cardW = Math.min(phone ? (W - 44) / 2 : (W - 92) / 2, short ? 235 : 266);
-    const cardH = short ? Math.max(130, H - 207) : Math.min(phone ? 310 : 302, H - 294);
-    const gap = phone ? 12 : 20;
-    const x = (W - cardW * 2 - gap) / 2;
-    const y = short ? 110 : Math.max(154, H * (phone ? 0.25 : 0.23));
-    return { short, phone, cardW, cardH, gap, x, y };
+    const short=H<460,phone=W<500,gap=phone?12:20;
+    const cardW=Math.min(phone?(W-44)/2:(W-92)/2,short?235:266);
+    const y=short?110:Math.max(188,H*(phone?.25:.23));
+    const cardH=short?Math.max(70,H-210):Math.min(phone?310:302,H-y-160);
+    return {short,phone,cardW,cardH,gap,x:(W-cardW*2-gap)/2,y};
   }
   function selectFrame(id, selected, x, y, w, h) {
-    panel(x, y, w, h, selected ? 'rgba(43,83,60,0.97)' : 'rgba(19,48,36,0.94)',
+    panel(x, y, w, h, selected ? 'rgba(40,79,57,0.98)' : 'rgba(15,46,34,0.95)',
       selected ? C.gold : 'rgba(200,166,106,0.22)', 10);
     if (selected) {
       ctx.strokeStyle = 'rgba(200,166,106,0.18)'; roundRect(x + 4, y + 4, w - 8, h - 8, 7); ctx.stroke();
@@ -305,12 +339,15 @@ export async function createUI(p0) {
   }
   function orderScreen(model) {
     const l = selectionLayout(), selected = model.selected || model.selectedRecipe || 'latte';
-    steps(1, l.short ? 64 : 76);
-    title('Choose your coffee', l.short ? '' : 'Two orders. One way up.', l.short ? 81 : 107, l.short);
+    steps(1, l.short ? 64 : 91);
+    title('Choose your coffee', l.short ? '' : 'Two orders. One way up.', l.short ? 81 : 112, l.short);
     for (let i = 0; i < 2; i++) {
       const id = i ? 'latte' : 'espresso', x = l.x + i * (l.cardW + l.gap), cx = x + l.cardW / 2;
       selectFrame(id, selected === id, x, l.y, l.cardW, l.cardH);
-      if (l.short) {
+      if (l.short && (l.cardH<110||l.cardW<180)) {
+        text(i?'Latte':'Espresso',cx,l.y+17,20,C.cream,'center','display',0,l.cardW-14);
+        label(i?'ADVANCED':'PROGRESSIVE',cx,l.y+49,8,C.gold,'center',l.cardW-12);
+      } else if (l.short) {
         drink(x + 46, l.y + l.cardH * 0.48, 66, id);
         text(i ? 'Latte' : 'Espresso', x + 86, l.y + 25, 21, C.cream, 'left', 'display', 0, l.cardW - 98);
         text(i ? 'Beans + milk' : 'Pure coffee', x + 86, l.y + 59, 12, C.muted, 'left', 'body', 0, l.cardW - 98);
@@ -351,8 +388,8 @@ export async function createUI(p0) {
   }
   function characterScreen(model) {
     const l = selectionLayout(), selected = model.selectedCharacter || 'boy';
-    steps(2, l.short ? 64 : 76);
-    title('Meet your barista', l.short ? '' : 'Small heroes. Legendary coffee.', l.short ? 81 : 107, l.short);
+    steps(2, l.short ? 64 : 91);
+    title('Meet your barista', l.short ? '' : 'Small heroes. Legendary coffee.', l.short ? 81 : 112, l.short);
     for (let i = 0; i < 2; i++) {
       const id = i ? 'girl' : 'boy', x = l.x + i * (l.cardW + l.gap), cx = x + l.cardW / 2;
       selectFrame(id, selected === id, x, l.y, l.cardW, l.cardH);
@@ -361,7 +398,10 @@ export async function createUI(p0) {
       const glow = ctx.createRadialGradient(cx, py, 0, cx, py, size * 0.65);
       glow.addColorStop(0, 'rgba(200,166,106,0.16)'); glow.addColorStop(1, 'rgba(200,166,106,0)');
       ctx.fillStyle = glow; ctx.fillRect(x + 2, l.y + 2, l.cardW - 4, l.cardH - 4);
-      if (l.short) {
+      if(l.short&&(l.cardH<110||l.cardW<180)) {
+        portrait(id,x+l.cardW*.28,py,Math.min(65,l.cardH*.85),model);
+        text(i?'Mira':'Milo',x+l.cardW*.57,l.y+25,20,C.cream,'left','display',0,l.cardW*.40);
+      } else if (l.short) {
         portrait(id, x + l.cardW * 0.30, py, size, model);
         text(i ? 'Mira' : 'Milo', x + l.cardW * 0.56, l.y + 30, 23, C.cream, 'left', 'display');
         text(i ? 'Bright & bold' : 'Ready to rise', x + l.cardW * 0.56, l.y + 66, 12, C.muted,
@@ -388,53 +428,50 @@ export async function createUI(p0) {
     if (v > 0) { roundRect(x, y, Math.max(h, w * v), h, h / 2); ctx.fillStyle = color; ctx.fill(); }
   }
   function hud(model) {
-    const r = model.run;
-    if (!r) return;
-    const phone = W < 500, hw = Math.min(W - 28, 654), x = (W - hw) / 2, y = 54, h = 59;
-    panel(x, y, hw, h, 'rgba(10,31,23,0.97)', 'rgba(200,166,106,0.53)', 7);
-    const proportions = phone ? [0, 0.22, 0.55, 0.73, 1] : [0, 0.23, 0.56, 0.75, 1];
-    const labels = ['ORDER', 'COLLECT', 'CLIMB', 'COFFEE RISING'];
-    const required = r.required || { bean: 0, milk: 0 }, collected = r.collected || { bean: 0, milk: 0 };
-    const gap = r.y - r.coffeeY, graceSeconds = RECIPES[r.recipe].grace;
-    const grace = r.elapsed < graceSeconds, danger = !grace && gap < 2.7;
-    for (let i = 0; i < 4; i++) {
-      const cx = x + hw * proportions[i], cw = hw * (proportions[i + 1] - proportions[i]);
-      if (i) line(cx, y + 11, cx, y + h - 11, 'rgba(200,166,106,0.16)');
-      text(labels[i], cx + 8, y + 9, phone ? 9 : 10.5, i === 3 && danger ? C.gold : C.muted,
-        'left', 'bold', 0.1, cw - 14);
-      if (i === 0) text(r.recipe === 'espresso' ? 'Espresso' : 'Latte', cx + 10, y + 30,
-        phone ? 15 : 17, C.cream, 'left', 'bold', 0, cw - 17);
-      if (i === 1) {
-        bean(cx + 15, y + 38, phone ? 12 : 13);
-        const first = `${collected.bean}/${required.bean}`;
-        text(first, cx + 27, y + 31, phone ? 14 : 16, C.cream, 'left', 'bold');
-        if (required.milk) {
-          const mx = cx + (phone ? cw * 0.56 : cw * 0.54);
-          drop(mx, y + 38, phone ? 11 : 12);
-          text(`${collected.milk}/${required.milk}`, mx + 12, y + 31, phone ? 14 : 16, C.milk, 'left', 'bold');
-        }
+    const r=model.run;if(!r)return;
+    const phone=W<500,short=H<450,hw=Math.min(W-20,760),x=(W-hw)/2,y=short?57:105,h=short?64:74;
+    panel(x,y,hw,h,'rgba(13,43,32,.97)','rgba(200,170,115,.62)',12);
+    const stops=short?[0,.18,.39,.63,.78,1]:phone?[0,.22,.55,.74,1]:[0,.24,.53,.74,1];
+    const gap=r.y-r.coffeeY,grace=r.elapsed<RECIPES[r.recipe].grace;
+    const danger=!grace&&gap<2.7,alarm=danger?'#F2A17E':C.gold;
+    const taken=r.collected.bean+r.collected.milk,total=r.required.bean+r.required.milk;
+    const names=['ORDER','COLLECT','CLIMB','COFFEE RISING'];
+    for(let column=0;column<(short?5:4);column++) {
+      const i=short && column>2?column-1:column;
+      const sx=x+hw*stops[column],w=hw*(stops[column+1]-stops[column]),pad=phone||short?8:15;
+      if(short && column===2) {
+        line(sx,y+13,sx,y+h-13,'rgba(200,170,115,.22)');
+        label('TIME',sx+w/2,y+11,9,C.gold,'center');
+        text(formatTime(r.elapsed),sx+w/2,y+30,22,C.cream,'center','mono',0,w-12);continue;
       }
-      if (i === 2) {
-        text(`${Math.round((r.progress || 0) * 100)}%`, cx + 10, y + 30, phone ? 15 : 17, C.cream, 'left', 'bold');
-        meter(cx + 10, y + 52, cw - 20, r.progress || 0, C.gold, 3);
+      if(i)line(sx,y+13,sx,y+h-13,'rgba(200,170,115,.22)');
+      if(!phone && !short)symbol(['order','collect','climb','steam'][i],sx+23,y+35,22,i===3?alarm:C.gold);
+      const tx=sx+(phone||short?pad:44),available=w-(phone||short?pad*2:53);
+      text(names[i],tx,y+11,phone?8.5:10,i===3?alarm:C.gold,'left','bold',.3,available);
+      if(i===0)text(r.recipe==='latte'?'Latte':'Espresso',tx,y+31,phone?17:24,C.cream,'left','display',0,available);
+      if(i===1) {
+        text(`${taken} / ${total}`,tx,y+29,phone?21:26,C.cream,'left','bold',0,available);
+        if(r.required.milk && !short) {
+          bean(tx+4,y+61,9);text(`${r.collected.bean}/${r.required.bean}`,tx+13,y+56,11,C.muted);
+          drop(tx+available*.53,y+61,9);text(`${r.collected.milk}/${r.required.milk}`,tx+available*.53+10,y+56,11,C.muted);
+        } else if(!short)text(r.required.milk?'beans + milk':'coffee beans',tx,y+57,10,C.muted);
       }
-      if (i === 3) {
-        const status = r.state === 'countdown' ? 'Ready' : r.state === 'paused' ? 'Paused' :
-          grace ? `In ${Math.ceil(graceSeconds-r.elapsed)}s` : danger ? 'CLOSE!' : 'Rising';
-        text(status, cx + 10, y + 30, phone ? 14 : 16, danger ? C.gold : C.cream, 'left', 'bold', 0, cw - 17);
-        meter(cx + 10, y + 52, cw - 20, grace ? 0 : 1 - gap / 12, danger ? C.gold : '#B99A70', 3);
+      if(i===2) {
+        text(`${Math.round(r.progress*100)}%`,tx,y+29,phone?21:26,C.cream,'left','bold',0,available);
+        meter(tx,y+h-11,available,r.progress,C.gold,3);
       }
-    }
-    if (r.bonusStars) {
-      star(x + hw - 14, y + h + 15, 4);
-      text(`+${r.bonusStars}`, x + hw - 25, y + h + 10, 11, C.gold, 'right', 'mono');
+      if(i===3) {
+        const status=r.state==='countdown'?'Ready':r.state==='paused'?'Paused':grace?`In ${Math.ceil(RECIPES[r.recipe].grace-r.elapsed)}s`:danger?'Close!':'Rising';
+        text(status,tx,y+31,phone?18:23,danger?'#FFC9AA':C.cream,'left','display',0,available);
+        meter(tx,y+h-11,available,grace?0:1-gap/10,alarm,3);
+      }
     }
   }
   function touchControls() {
     const compact = H < 450, y = H - (compact ? 62 : 71), s = compact ? 42 : 47;
     button('left', '', 18, y, s, s, false, { icon: 'left' });
     button('right', '', 25 + s, y, s, s, false, { icon: 'right' });
-    button('jump', 'JUMP', W - (compact ? 103 : 118), y, compact ? 85 : 100, s, false, { fontSize: 12 });
+    button('jump', 'JUMP', W - (compact ? 103 : 118), y, compact ? 85 : 100, s, true, { fontSize: 12 });
     if (W > 700) label('A / D MOVE   ·   HOLD SPACE JUMP   ·   R RETRY', W / 2, H - 29, 9, C.muted, 'center');
   }
   function countdown(r) {
@@ -468,100 +505,44 @@ export async function createUI(p0) {
   }
 
   function resultsScreen(model) {
-    const r = model.run, result = r?.result;
-    if (!result) return;
-    const short = H < 500, narrow = W < 620;
+    const r=model.run,result=r?.result;if(!result)return;
     menuBackdrop();
-    const w = Math.min(W - 42, 770), x = (W - w) / 2;
-    const y = short ? 65 : Math.max(85, H * (narrow ? 0.12 : 0.17));
-    const headline = result.success ? result.perfect ? 'Perfect Coffee' : result.quality === 'GREAT COFFEE'
-      ? 'A great coffee' : 'You made it!' : 'One more brew?';
-    const subtitle = result.success ? result.perfect ? 'Every ingredient. A perfect finish.'
-      : 'The rim is yours. There is more to collect.'
-      : `Reached ${Math.round(result.progress * 100)}% of the cup. ${result.bestHeight.toFixed(1)} / ${result.top.toFixed(1)}m.`;
-    if (short) {
-      text(headline, x, y, 29, C.cream, 'left', 'display', 0, w - 175);
-      text(subtitle, x, y + 41, 13, C.muted, 'left', 'body', 0, w - 170);
-      const sy = y + 83;
-      resultStats(result, r, x, sy, w - 175, true);
-      if (result.perfect) rewardCard(x + w - 145, y, 145, Math.min(202, H - y - 46), r.recipe);
-      else drink(x + w - 70, y + 92, 126, r.recipe, true);
-      const by = H - 64, actionSpace = Math.max(0, w - 96), bw = Math.min(actionSpace * 0.55, 265);
-      button('restart', 'BREW AGAIN', x, by, bw, 40, true);
-      button('order', 'CHANGE ORDER', x + bw + 12, by, actionSpace - bw, 40, false, { fontSize: 11 });
-      button('exit', 'LEAVE', x + w - 72, H - 55, 72, 30, false, { fontSize: 11 });
-      return;
-    }
-    title(headline, subtitle, y, false);
-    if (narrow) {
-      const startY = y + 87;
-      let artworkH = Math.min(result.perfect ? 204 : 145, Math.max(0, H - startY - 334));
-      if (artworkH < 100) artworkH = 0;
-      if (artworkH && result.perfect) {
-        const artworkW = artworkH * 5 / 7;
-        rewardCard(W / 2 - artworkW / 2, startY, artworkW, artworkH, r.recipe);
-      } else if (artworkH) {
-        drink(W / 2, startY + artworkH * 0.54, artworkH * 0.88, r.recipe, true);
-      }
-      const statsY = startY + (artworkH ? artworkH + 20 : 0);
-      resultStats(result, r, x + 7, statsY, w - 14, false);
-      const by = statsY + 201;
-      button('restart', 'BREW AGAIN', x + 4, by, w - 8, 46, true);
-      button('order', 'CHANGE ORDER', x + 4, by + 57, (w - 20) * 0.64, 36, false, { fontSize: 12 });
-      button('exit', 'LEAVE CAFE', x + 16 + (w - 20) * 0.64, by + 57, (w - 20) * 0.36, 36, false, { fontSize: 11 });
-      drawRewardMessage(model, x + w / 2, by - 23, w - 10);
+    const short=H<500,w=Math.min(W-32,short?720:530),x=(W-w)/2;
+    const h=short?H-82:Math.min(510,H-112),y=short?64:Math.max(78,(H-h)/2);
+    panel(x,y,w,h,'rgba(16,48,36,.98)','rgba(200,170,115,.7)',18);
+    ctx.strokeStyle='rgba(200,170,115,.18)';roundRect(x+6,y+6,w-12,h-12,13);ctx.stroke();
+    const heading=result.success?(result.perfect?'Perfect Coffee':'Beautifully brewed'):'One more brew?';
+    text(heading,x+24,y+25,short?28:36,C.cream,'left','display',0,w-48);
+    const progress=Math.round(result.progress*100),taken=result.collected.bean+result.collected.milk,total=result.required.bean+result.required.milk;
+    text(result.success?'You reached the golden rim.':`Reached ${progress}% of the cup. Keep the next jump in sight.`,x+24,y+(short?61:77),short?12:14,C.muted,'left','body',0,w-48);
+    const best=model.bests?.[r.recipe];
+    const rows=[['timer','TIME',formatTime(result.time)],['climb','HIGHEST CLIMB',`${progress}%  ·  ${result.bestHeight.toFixed(1)}m`],
+      ['collect','COLLECTED',`${taken} / ${total}`],['best','BEST CLIMB',`${Math.round((best?.progress||result.progress)*100)}%`]];
+    if(short) {
+      rows.forEach(([ico,labelText,value],i)=>{
+        const cx=x+24+(i%2)*(w/2),cy=y+94+Math.floor(i/2)*45;
+        symbol(ico,cx+10,cy+10,18);label(labelText,cx+30,cy,8,C.gold);
+        text(value,cx+30,cy+16,18,C.cream,'left','bold',0,w/2-70);
+      });
+      const bw=(w-60)*.60;
+      button('restart','BREW AGAIN',x+24,y+h-55,bw,38,true);
+      button('order','CHANGE ORDER',x+36+bw,y+h-55,w-bw-60,38,false,{fontSize:11});
     } else {
-      const sy = y + 105, bodyH = Math.min(232, H - sy - 132);
-      panel(x, sy, w * 0.6, bodyH, 'rgba(19,48,36,0.92)', 'rgba(200,166,106,0.24)', 10);
-      resultStats(result, r, x + 24, sy + 24, w * 0.6 - 48, false);
-      drawRewardMessage(model, x + w * 0.3, sy + bodyH - 32, w * 0.6 - 38);
-      const cardH = bodyH + 20, cardW = cardH * 5 / 7;
-      if (result.perfect) rewardCard(x + w - cardW - 8, sy - 9, cardW, cardH, r.recipe);
-      else drink(x + w * 0.82, sy + 112, 192, r.recipe, true);
-      const by = sy + bodyH + 24;
-      button('restart', 'BREW AGAIN', x, by, w * 0.6, 47, true);
-      button('order', 'CHANGE ORDER', x + w * 0.6 + 15, by, w * 0.4 - 15, 47, false, { fontSize: 12 });
-      button('exit', 'LEAVE CAFE', W / 2 - 70, by + 61, 140, 30, false, { fontSize: 11 });
-    }
-  }
-  function resultStats(result, run, x, y, w, short) {
-    const taken = result.collected || run.collected, required = result.required || run.required;
-    const name = run.recipe === 'espresso' ? 'Espresso' : 'Latte';
-    if (short) {
-      label('TIME', x, y, 9, C.muted);
-      text(formatTime(result.time), x, y + 19, 22, C.gold, 'left', 'mono');
-      label('SCORE', x + w, y, 9, C.muted, 'right');
-      text(String(result.score || 0).replace(/\B(?=(\d{3})+(?!\d))/g, ','), x + w, y + 19,
-        22, C.gold, 'right', 'bold', 0, w * 0.48);
-      bean(x + 6, y + 63, 13);
-      text(`${taken.bean}/${required.bean} beans`, x + 19, y + 56, 14, C.cream);
-      if (required.milk) {
-        drop(x + w * 0.57, y + 63, 12);
-        text(`${taken.milk}/${required.milk} milk`, x + w * 0.57 + 14, y + 56, 14, C.milk,
-          'left', 'body', 0, w * 0.43 - 14);
-      }
-      return;
-    }
-    label('ORDER', x, y, 9, C.muted); text(name, x + w, y - 2, short ? 15 : 17, C.cream, 'right', 'bold');
-    line(x, y + 27, x + w, y + 27);
-    label('TIME', x, y + 42, 9, C.muted);
-    text(formatTime(result.time), x + w, y + 38, short ? 21 : 25, C.gold, 'right', 'mono');
-    const cy = y + (short ? 79 : 89);
-    bean(x + 6, cy + 7, 13); text(`${taken.bean}/${required.bean} beans`, x + 19, cy, 14, C.cream);
-    if (required.milk) {
-      drop(x + w * 0.54, cy + 7, 12);
-      text(`${taken.milk}/${required.milk} milk`, x + w * 0.54 + 14, cy, 14, C.milk, 'left', 'body', 0, w * 0.46 - 14);
-    }
-    if (!short) {
-      line(x, cy + 29, x + w, cy + 29);
-      label('SCORE', x, cy + 49, 9, C.muted);
-      const bonusStars = result.bonusStars || run.bonusStars || 0;
-      if (bonusStars) {
-        star(x + 67, cy + 54, 4);
-        text(`${bonusStars} bonus`, x + 78, cy + 49, 11, C.muted);
-      }
-      text(String(result.score || 0).replace(/\B(?=(\d{3})+(?!\d))/g, ','), x + w, cy + 42,
-        24, C.gold, 'right', 'bold');
+      meter(x+24,y+106,w-48,result.progress,C.gold,4);
+      rows.forEach(([ico,labelText,value],i)=>{
+        const cy=y+125+i*Math.min(44,(h-270)/4);
+        symbol(ico,x+35,cy+10,19);label(labelText,x+59,cy+5,10,C.muted);
+        text(value,x+w-26,cy,21,i===3?C.gold:C.cream,'right','bold',0,w*.44);
+        if(i===2 && h>=470)text(`${result.collected.bean}/${result.required.bean} beans${result.required.milk?' · '+result.collected.milk+'/'+result.required.milk+' milk':''}`,x+59,cy+24,10,C.muted,'left','body',0,w*.53);
+        if(i<3)line(x+24,cy+33,x+w-24,cy+33,'rgba(200,170,115,.15)');
+      });
+      const by=y+h-133;
+      if(result.success)text(`SCORE  ${result.score.toLocaleString('en-US')}`,x+w/2,by-30,12,C.gold,'center','mono');
+      else if(best?.time)text(`Best finish  ${formatTime(best.time)}`,x+w/2,by-30,12,C.gold,'center','mono');
+      button('restart','BREW AGAIN',x+24,by,w-48,46,true);
+      button('order','CHANGE ORDER',x+24,by+57,(w-60)*.63,35,false,{fontSize:11});
+      button('exit','LEAVE CAFE',x+36+(w-60)*.63,by+57,(w-60)*.37,35,false,{fontSize:10});
+      if(W>930 && result.perfect)rewardCard(x+w+18,y+130,130,182,r.recipe);
     }
   }
   function drawRewardMessage(model, x, y, maxWidth) {

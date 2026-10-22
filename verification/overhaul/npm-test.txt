@@ -1,0 +1,162 @@
+
+> starbox-coffee@2.3.0-preview.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: solid tops, sides and undersides at 240 FPS
+ok 1 - solid tops, sides and undersides at 240 FPS
+  ---
+  duration_ms: 22.004572
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 120 FPS
+ok 2 - solid tops, sides and undersides at 120 FPS
+  ---
+  duration_ms: 3.458618
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 60 FPS
+ok 3 - solid tops, sides and undersides at 60 FPS
+  ---
+  duration_ms: 4.161176
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 30 FPS
+ok 4 - solid tops, sides and undersides at 30 FPS
+  ---
+  duration_ms: 2.708462
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 15 FPS
+ok 5 - solid tops, sides and undersides at 15 FPS
+  ---
+  duration_ms: 3.367984
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 10 FPS
+ok 6 - solid tops, sides and undersides at 10 FPS
+  ---
+  duration_ms: 2.775983
+  type: 'test'
+  ...
+# Subtest: continuous collision cannot tunnel through thin slabs or across the angular seam
+ok 7 - continuous collision cannot tunnel through thin slabs or across the angular seam
+  ---
+  duration_ms: 6.735829
+  type: 'test'
+  ...
+# Subtest: every authored pad has body headroom and slabs do not intersect
+ok 8 - every authored pad has body headroom and slabs do not intersect
+  ---
+  duration_ms: 20.371665
+  type: 'test'
+  ...
+# Subtest: reforming biscuits wait until the player body clears their slab
+ok 9 - reforming biscuits wait until the player body clears their slab
+  ---
+  duration_ms: 5.452092
+  type: 'test'
+  ...
+# Subtest: solid contacts preserve coyote jumps and a press buffered before landing
+ok 10 - solid contacts preserve coyote jumps and a press buffered before landing
+  ---
+  duration_ms: 2.533495
+  type: 'test'
+  ...
+# Subtest: ceramic retains momentum and has a substantial stopping distance
+ok 11 - ceramic retains momentum and has a substantial stopping distance
+  ---
+  duration_ms: 58.95265
+  type: 'test'
+  ...
+# Subtest: air control stays responsive after leaving a slippery surface
+ok 12 - air control stays responsive after leaving a slippery surface
+  ---
+  duration_ms: 8.274579
+  type: 'test'
+  ...
+# Subtest: courses have distinct geometry, achievable vertical steps and longer routes
+ok 13 - courses have distinct geometry, achievable vertical steps and longer routes
+  ---
+  duration_ms: 2.235592
+  type: 'test'
+  ...
+# Subtest: every main landing and every ingredient terrace is traversed with ordinary inputs
+ok 14 - every main landing and every ingredient terrace is traversed with ordinary inputs
+  ---
+  duration_ms: 1239.330484
+  type: 'test'
+  ...
+# Subtest: independent coffee grace and speeds are exact and failure reports best progress
+ok 15 - independent coffee grace and speeds are exact and failure reports best progress
+  ---
+  duration_ms: 13.323352
+  type: 'test'
+  ...
+# Subtest: coffee allows measured recovery while Latte punishes repeated hesitation
+ok 16 - coffee allows measured recovery while Latte punishes repeated hesitation
+  ---
+  duration_ms: 928.664143
+  type: 'test'
+  ...
+# Subtest: release over another button releases the originating action, preserving jump
+ok 17 - release over another button releases the originating action, preserving jump
+  ---
+  duration_ms: 21.045423
+  type: 'test'
+  ...
+# Subtest: off-button jump release preserves steering; blank contacts cannot cancel it
+ok 18 - off-button jump release preserves steering; blank contacts cannot cancel it
+  ---
+  duration_ms: 0.832995
+  type: 'test'
+  ...
+# Subtest: crossing fingers retain their actions and duplicate contacts use reference counts
+ok 19 - crossing fingers retain their actions and duplicate contacts use reference counts
+  ---
+  duration_ms: 0.709511
+  type: 'test'
+  ...
+# Subtest: mouse release ignores release coordinates; clearing a screen releases every held action
+ok 20 - mouse release ignores release coordinates; clearing a screen releases every held action
+  ---
+  duration_ms: 24.128944
+  type: 'test'
+  ...
+# Subtest: personal records keep the highest climb and fastest legitimate finish per recipe
+ok 21 - personal records keep the highest climb and fastest legitimate finish per recipe
+  ---
+  duration_ms: 5.013112
+  type: 'test'
+  ...
+# espresso results 24.21 31 { bean: 6, milk: 0 } PERFECT COFFEE
+# latte results 31.27 39 { bean: 8, milk: 5 } PERFECT COFFEE
+# full route fps 120 PERFECT COFFEE 30.92
+# full route fps 60 PERFECT COFFEE 31.27
+# full route fps 30 PERFECT COFFEE 32.20
+# full route fps 15 PERFECT COFFEE 34.03
+# full route fps 10 PERFECT COFFEE 36.17
+# incomplete GREAT COFFEE { bean: 6, milk: 5 } 30.67
+# weak WEAK COFFEE { bean: 3, milk: 0 }
+# Preview rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.
+# Subtest: tests/rules.test.mjs
+ok 5 - tests/rules.test.mjs
+  ---
+  duration_ms: 2477.208601
+  type: 'test'
+  ...
+# Subtest: timer and pause/mute targets stay clear of the Project 0 toolbar and each other
+ok 23 - timer and pause/mute targets stay clear of the Project 0 toolbar and each other
+  ---
+  duration_ms: 3.346766
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3018.344139
