@@ -2,8 +2,10 @@
 
 This repository contains the editable, published STARBOX COFFEE
 source. Start here; do not reconstruct the public bundle or rebuild the game.
-Current baseline: release 2.2, Project 0 lot 696, experience 83f8f4430e3ed247,
-reviewed submission 9459. The recoverable 2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
+Current baseline: release 2.3, Project 0 lot 696, experience 08289dd2fc68c6ad,
+reviewed submission 9637. Previous published 2.2 (experience 83f8f4430e3ed247,
+submission 9459) is recoverable at checkpoint-2.2-before-overhaul. The recoverable
+2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
 
 Keep the current course length, switchbacks, permanent biscuit bypasses and
 regeneration, two recipes/baristas, rewards, atmosphere and compact HUD. Work
@@ -29,3 +31,47 @@ pointerId, which the current shell strips. Preserve off-button release,
 simultaneous controls and duplicate-contact reference counts. The SDK also does
 not forward pointercancel; do not invent that event. See verification/2.2 for
 native touch tests, two full DevKit Perfect runs and deployed verification.
+
+## Permanent AI model selection policy
+
+Choose the most efficient model capable of completing the task reliably:
+
+- **GPT-6.1 Sol xhigh:** complex gameplay physics, collision systems, rendering
+  architecture, difficult debugging, major refactoring and high-risk technical
+  changes.
+- **GPT-6.1 Sol high:** default for everyday gameplay development, visual
+  improvements, UI implementation, new features and testing.
+- **GPT-6 Luna:** simple file operations, straightforward code changes,
+  documentation, formatting and lightweight inspections.
+
+Where supported, use lower-cost subagents for suitable independent work.
+Do not claim to have changed models unless the Codex runtime confirms it.
+Instructions alone do not switch the active model.
+
+## Permanent autonomous development and publication policy
+
+The owner gives standing authorization to publish completed, verified STARBOX
+COFFEE gameplay and visual updates to Project 0 lot **696**, and to synchronize
+the matching source with **fottokarll/STARBOX-coffee** on GitHub. Do not stop at
+a preview build unless validation fails or publication is technically impossible.
+
+1. Complete assigned development tasks independently from implementation through
+   testing, publication and deployed verification.
+2. Do not ask the owner for routine approvals or additional publication
+   confirmation.
+3. Make reasonable technical decisions autonomously.
+4. Prioritize working code over excessive research and reports.
+5. Create Git checkpoints before major changes.
+6. Run appropriate automated tests and real gameplay verification.
+7. Fix failures and regressions before publishing.
+8. Once a game update is complete and verified, publish it automatically to
+   Project 0 lot **696**.
+9. Commit and push the matching source code to GitHub.
+10. Verify the live published version rather than merely trusting the API
+    submission.
+11. Never expose, print or commit API credentials.
+12. Never modify other Project 0 lots or unrelated repositories.
+13. Documentation-only tasks do not require an unnecessary re-upload of
+    unchanged gameplay.
+14. Explicit user instructions for a particular task override this default
+    release workflow.

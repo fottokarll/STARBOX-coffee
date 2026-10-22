@@ -1,6 +1,6 @@
 # Gameplay and café preview
 
-Development branch: `dev/gameplay-visual-overhaul`, package version `2.3.0-preview.0`. This update is **not published**. Lot 696 remains on release 2.2 (`83f8f4430e3ed247`, submission 9459). Recovery tags: `checkpoint-2.2-before-overhaul` and `checkpoint-2.1-before-2.2`.
+This directory records the completed prepublication preview on `dev/gameplay-visual-overhaul`, originally version `2.3.0-preview.0`. Its exact package was subsequently published as **release 2.3** on lot 696: experience `08289dd2fc68c6ad`, reviewed submission 9637. See [2.3 release verification](../2.3/README.md) for the publication and deployed checks. Recovery tags: `checkpoint-2.2-before-overhaul` and `checkpoint-2.1-before-2.2`.
 
 The supplied café and premium HUD images guided the shapes, palette and composition. They were not copied into game assets. Existing character artwork, animation, recipes, reward cards, score tiers and the street exterior are retained.
 
@@ -52,4 +52,4 @@ Use `size=390x844` for the phone layout. The optional `preview.js` entry enables
 
 [Validated ZIP](../../artifacts/starbox-coffee-2.3-preview.zip) · [content manifest](../../artifacts/starbox-coffee-2.3-preview.manifest.json) · [API validation](validation.json).
 
-The owner validation endpoint returned HTTP 200, `ok:true`, no errors, warnings or findings. Candidate content hash: `08289dd2fc68c6ad`. The ZIP SHA-256 is `17296050129b584adede02153b7b2698ca69c6d08174bf41c3e8a9e8aae17f78`. Every packaged file was compared with the current source hash; credential files and blocked worker transport are absent. This is a validation hash, not a published experience version. No publication endpoint was called.
+At preview completion, the owner validation endpoint returned HTTP 200, `ok:true`, no errors, warnings or findings. Candidate content hash: `08289dd2fc68c6ad`. The ZIP SHA-256 is `17296050129b584adede02153b7b2698ca69c6d08174bf41c3e8a9e8aae17f78`. Every packaged file was compared with the current source hash; credential files and blocked worker transport are absent. Publication was held at that stage. The same archive was later revalidated and published unchanged as release 2.3; its content hash is now the live experience version, as recorded in [the release evidence](../2.3/README.md).

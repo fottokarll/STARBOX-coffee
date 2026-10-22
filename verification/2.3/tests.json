@@ -1,0 +1,11 @@
+{
+  "command": "npm test",
+  "sourceCommit": "54dc059405efe8e05c1c4cc9a77d25d183a45c20",
+  "tests": 23,
+  "pass": 23,
+  "fail": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "durationMs": 1882.521964,
+  "note": "Fresh final-release deterministic test run; not a browser playthrough. Complete input-driven recipes and collision fixtures include 10 FPS."
+}

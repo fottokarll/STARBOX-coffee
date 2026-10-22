@@ -8,9 +8,11 @@ import project0
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--expected-version', required=True)
+parser.add_argument('--out-dir', default='verification/2.2')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
-out = root / 'verification/2.2'
+out = root / args.out_dir
+out.mkdir(parents=True, exist_ok=True)
 source = project0.request('/api/agent/lots/696/source')
 public = project0.request('/api/lots/696/experience/files')
 assert source['status'] == public['status'] == 200

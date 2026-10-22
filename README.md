@@ -4,23 +4,23 @@
 
 An original, free Project 0 arcade climbing experience on [lot 696](https://project0.city/lot/696). Choose a coffee and an expressive pixel barista, then leap around a real cylindrical course as coffee fills the glass mug.
 
-Release **2.2 is live and reviewed**: submission **9459**, experience **83f8f4430e3ed247**, with no warnings. It introduces independently designed courses, stronger coffee pressure, slippery ceramic and corrected multi-touch release. Release 2.1 is recoverable from Git tag `checkpoint-2.1-before-2.2` (submission 8883, experience `3a19877ce5677aaa`).
+Release **2.3 is live and reviewed**: submission **9637**, experience **08289dd2fc68c6ad**, with no warnings. It publishes the completed gameplay and café/UI overhaul without changing the tested experience files. Release 2.2 is recoverable from Git tag `checkpoint-2.2-before-overhaul` (submission 9459, experience `83f8f4430e3ed247`); release 2.1 remains at `checkpoint-2.1-before-2.2` (submission 8883, experience `3a19877ce5677aaa`).
 
 **Continuing development:** this repository contains the full editable source.
 Read [GitHub and Project 0 access](ACCESS.md) for authentication, network,
 local setup and official publishing commands. Project 0 credentials stay in
 the executing environment or ignored `.env`, never in GitHub.
 
-See [2.2 verification](verification/2.2/README.md) for balancing, tests, browser evidence and publication. Earlier [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
+See [2.3 release verification](verification/2.3/README.md) for final tests, publication and deployed checks, and [overhaul verification](verification/overhaul/README.md) for the full gameplay and visual evidence. Earlier [2.2 verification](verification/2.2/README.md), [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
 
-## Development preview (not published)
+## Release 2.3
 
-The gameplay and café/UI overhaul is on `dev/gameplay-visual-overhaul`, version `2.3.0-preview.0`.
-Lot 696 remains on the published 2.2 release. `checkpoint-2.2-before-overhaul` preserves its exact source; the 2.1 checkpoint remains available too.
+The gameplay and café/UI overhaul is published from `dev/gameplay-visual-overhaul`, version `2.3.0`.
+The exact previously verified `artifacts/starbox-coffee-2.3-preview.zip` was published without repackaging. `checkpoint-2.2-before-overhaul` preserves the previous published source; the 2.1 checkpoint remains available too.
 
-This preview adds solid swept platform collisions, cleaner turning terraces and permanent routes around the opposite side of the glass, a real procedural café and oak counter, much calmer distant scenery, upright foot contact, a premium HUD/menus/results receipt and personal climb records. The 2.2 coffee speeds and slippery physics are retained.
+This release adds solid swept platform collisions, cleaner turning terraces and permanent routes around the opposite side of the glass, a real procedural café and oak counter, much calmer distant scenery, upright foot contact, a premium HUD/menus/results receipt and personal climb records. The 2.2 coffee speeds and slippery physics are retained.
 
-See [preview verification](verification/overhaul/README.md) for evidence, balancing and the validated package. To preview, run `PYTHONHOME= PYTHONPATH= python3 tools/serve.py` and open [the official DevKit](https://project0.city/devkit?entry=http://localhost:5500/main.js&width=12&depth=19&height=12&size=960x640). The server serves only `experience/`.
+See [overhaul verification](verification/overhaul/README.md) for evidence, balancing and the validated package. To preview locally, run `PYTHONHOME= PYTHONPATH= python3 tools/serve.py` and open [the official DevKit](https://project0.city/devkit?entry=http://localhost:5500/main.js&width=12&depth=19&height=12&size=960x640). The server serves only `experience/`.
 
 `npm test` runs the regression suite. `tools/preview_climb.mjs` uses ordinary DevKit keys and the optional `preview.js` entry's copied status from the documented `p0.hud` API; the manifest's `main.js` entry does not enable that diagnostic stream.
 
