@@ -1,0 +1,304 @@
+{
+  "baseline": "8a8a8a5778b7a6bad16ddde20b02e683ffe4cf09",
+  "previousName": "STARBOX COFFEE",
+  "newName": "COFFEE PANIC!",
+  "uiChangesOnlyStringLiterals": true,
+  "environmentChangesOnlySignText": true,
+  "unchangedFiles": [
+    {
+      "path": "experience/ui-layout.js",
+      "sha256": "871c951b3a3c577bf8f45ce67ce5286d6216b2f1019960b976b6310c196e1a1c",
+      "unchanged": true
+    },
+    {
+      "path": "experience/rules.js",
+      "sha256": "8f1a47bf1342d571587dfbf11b25207dd7efc56f89286b211850c37d083bbc61",
+      "unchanged": true
+    },
+    {
+      "path": "experience/diorama.js",
+      "sha256": "b42b5965f2d35462b7b4315f84cd51696562c1bdca487de2cdf608f86fcd00f9",
+      "unchanged": true
+    },
+    {
+      "path": "experience/collision.js",
+      "sha256": "c8164aeb824467d2301745884d95d6be80243b35fac22632fd522ee400ffa1cf",
+      "unchanged": true
+    },
+    {
+      "path": "experience/main.js",
+      "sha256": "4c04cbcad1bf8bd0c4b0293f5aaec06f13bcc086c7b8211a3d2e4695e24642d0",
+      "unchanged": true
+    },
+    {
+      "path": "experience/preview.js",
+      "sha256": "9f170a5cd89f4ccd05f584579ae6ee4dd929393e5550e47873aa44ad1eaf0633",
+      "unchanged": true
+    },
+    {
+      "path": "experience/pointer-controls.js",
+      "sha256": "5962649e017be55539c8170e1e3c88c03c08bf64de5df4462018e4a96b3e80f4",
+      "unchanged": true
+    },
+    {
+      "path": "experience/barista.js",
+      "sha256": "db6a80070975078d94af83703f7ec61dc2f2c549d3217ef5570bf0be03668152",
+      "unchanged": true
+    },
+    {
+      "path": "experience/camera-layout.js",
+      "sha256": "0c3b9cc7e72ed3a24a085f23590a8af6085bfe2d60c472c843983a001d3a1d68",
+      "unchanged": true
+    },
+    {
+      "path": "experience/collectibles.js",
+      "sha256": "42b1fa41ea7dcfe718fc939bf3c66e38d4baf81007279a17922a1a53a9a7205e",
+      "unchanged": true
+    },
+    {
+      "path": "experience/input-latch.js",
+      "sha256": "da5950ac9994d54f253412ada1fb4b4ba5064ed686d04873de9204f9dc87a495",
+      "unchanged": true
+    },
+    {
+      "path": "experience/rewards.js",
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09",
+      "unchanged": true
+    },
+    {
+      "path": "experience/records.js",
+      "sha256": "7866aca8072ed1761e86adb4d7d3ff3bbc691822cacfcea7b93343661f14f78d",
+      "unchanged": true
+    },
+    {
+      "path": "experience/cafe-materials.js",
+      "sha256": "a9a0dea3520af9c1a4133e53ebf40753b775c4416f61ee9bb02d0c19aca2a427",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/cover.png",
+      "sha256": "6160fe6a596dd220428f088547c3233e488abe6f3bba13da59e328ca7892ae86",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/CREDITS.txt",
+      "sha256": "e3fcbb629610be0b30a25d41ffeafe73a05d298cc8c8328fe57f6ab3ef465c1e",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/barista.png",
+      "sha256": "1b77ad28a95799559136f2291630022b243971e2cf300e5d91a77fecb802ad32",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/land.wav",
+      "sha256": "61f8fc045821369a17dc5af6fb3cb5bd04369f7366d1310666bcf837d75ae785",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/sprites.json",
+      "sha256": "ff165c407746cfe4509a545be9f401fc0f81a357699a5494a88fcc2c1ae09ef1",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/fail.wav",
+      "sha256": "3f98b6e3031897c73abf900a195c5c7c26a2cb8a1899f28e5e7d6a69e25a0d89",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/card-espresso.png",
+      "sha256": "6d3660072c0acc1606d34dbbd7598603b0a7ab22198efc0a9f0613c91d4a185e",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/barista-preview.png",
+      "sha256": "3b828d32695a64746644c3eb559275a42e35ba14ea229a95495cbc2e837703a9",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/collect.wav",
+      "sha256": "2a1d7dbf8061eaab32d9c20de87c31f4a1b12130b52743b5157a975c3ba40767",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/warning.wav",
+      "sha256": "ed3769362d9cd16cfe0a570d28569f6d2aabf7221f8b0114def08bab92f4aaa9",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/start.wav",
+      "sha256": "23bc185d330f42b5e08eacc5763022cceabf0ab33c112761a26b9e0503f06b5f",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/card-latte.png",
+      "sha256": "a984bee47d48302ebc26b70edfd358a2af97fd5e10351f45ccaf7fcef8b9db59",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/perfect.wav",
+      "sha256": "5149d30023d1f792ae66e0f06daa73e381b535d161d3a199cb9a72d0635c9efd",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/font-license.txt",
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/jump.wav",
+      "sha256": "2ded98a895536814ee569848890618f0a249bdf0b3bb8fa1e33e4b78b3401e4e",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/polish/ART-CREDITS.txt",
+      "sha256": "42c14e2eda1fe404432a60562e65993ac70538d9bc02445fe7d383b052c62460",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/polish/milo.webp",
+      "sha256": "3288eacf53ab3aecf966a8173d02b84a20b761c8af8290c9331f32e5e5b57e1a",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/polish/milo.png",
+      "sha256": "6e314628cad1b5f138ea587361e3f65057a838f8fa6362b2e7a543d11a0659a4",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/polish/milo.json",
+      "sha256": "afdb3108e8cf51c797bcb59cffa5eeac27a427fa64c6b7f7aa37cfeb8da34fb3",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/baristas.png",
+      "sha256": "502a1aa96ca221558e142e2e689557582802d676b3aed37e56fccd571b723d95",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/lettering.json",
+      "sha256": "91800283de2d4bbe3389d99149b7040d9154a2d33f8c637711e01fd51287a7d5",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/lettering.png",
+      "sha256": "5b5a097951877dd2314509543205d4dfbcf05fe8173fe490386ea7df047b1b64",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/ART-CREDITS.txt",
+      "sha256": "7378b5610b4c5b75465444c78e18c7702af06c5c8d3fcc8ca304a21f144860f5",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/cafe-atlas.png",
+      "sha256": "912ca82af3acaf921a81c0d0d39099a965865f3c8265c0a9c47e39883b34b77b",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/card-latte.jpg",
+      "sha256": "1c12e370f7d4182b0b5c7afccb43277f00144d6fced5caa6f303ab0977dd1f7d",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/baristas.webp",
+      "sha256": "32d10940c8d770496d65179ef47330bf74014136d66eb3a68a37fd55fc29bea3",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/characters.json",
+      "sha256": "a25ad44562e81f6420f1270460eecf68e05b2f9b85b09715d7940ed44e585e2d",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/card-espresso.jpg",
+      "sha256": "59e2051e0375dc5a0e36b94f4e39eb8ef5cdeb6160056c345368c474d9000827",
+      "unchanged": true
+    },
+    {
+      "path": "experience/assets/v2/cover-v2.jpg",
+      "sha256": "c38bfaafc736e455af2eca852d3b85e44819d899cadb15dc361b5bd5b8f7838a",
+      "unchanged": true
+    },
+    {
+      "path": "build/lod1.glb",
+      "sha256": "b335525dac6d18ddd4e63bfd7799992901c1b965a25522ef26da7576dbf538f1",
+      "unchanged": true
+    },
+    {
+      "path": "build/lod2.glb",
+      "sha256": "7d9d9bc336ad4f06bdfef247d3372b43e119038f739fb4a3a03ad236b7068014",
+      "unchanged": true
+    },
+    {
+      "path": "build/lod0.glb",
+      "sha256": "573e4a4502822d628c1faebfa65b8cd999e657c33f8fa4d5b89650a2602db81f",
+      "unchanged": true
+    },
+    {
+      "path": "build/source.blend",
+      "sha256": "41cec012b4b4997866f22b0f99995fe7d5b1bb81283e6fa2c34832db62b23154",
+      "unchanged": true
+    },
+    {
+      "path": "build/glass.glsl",
+      "sha256": "aa250be14516bf26104e5aeeea6a80ad018f599021966318ddd41b505d25b0d7",
+      "unchanged": true
+    },
+    {
+      "path": "build/coffee.glsl",
+      "sha256": "55c90c1ffbadef4d8e7aec8f18720e654883cac02b41f7bdfdc92135789bcf86",
+      "unchanged": true
+    },
+    {
+      "path": "build/lot.json",
+      "sha256": "1527539ab2de83662b15809274c119272708bc13d5d46f34df434b4f6f7613cd",
+      "unchanged": true
+    },
+    {
+      "path": "build/build.js",
+      "sha256": "d857ec1d0471422ef654259d51dd66ec3630ddaa63681320b9b773e6057d2e51",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/README.md",
+      "sha256": "3b90ee997924f905751b4d4be0b245e7b3227941e4def5e9fb685fc82dbb84ee",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/runtime.mjs",
+      "sha256": "455a97a6a8533bb72bb03302395db24b4c4dd0a1b26bdd802151046db0317734",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/verify.mjs",
+      "sha256": "fb8d5f266fa6d542e7a5909a27a810466caf6110a885715c15660af95e63f11e",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/session.mjs",
+      "sha256": "9ff0bc9f906c4747b2cf223af898eb3ee04ba1d8705a606ed2c88855d337f1a7",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/stage.py",
+      "sha256": "20902970475ac51ab5805d337cf79670e735effecde3cb7bf089745a3c3a6fce",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/assets/milo.webp",
+      "sha256": "d84e4aadb528fd9d463be435cef6666ca45110507513be63835bf0ab18cfafe5",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/assets/milo.png",
+      "sha256": "cc5f2bfa7b7adb34be27b6929e990bc17964ddf27b6b742e38378d4248024856",
+      "unchanged": true
+    },
+    {
+      "path": "tools/developer/assets/milo.json",
+      "sha256": "f7f946b4525875ded282d47689c4eda99b79321562596956525fbed96e84093f",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "entry": "main.js",
-  "name": "STARBOX COFFEE",
+  "name": "COFFEE PANIC!",
   "description": "CLIMB. COLLECT. BREW. A miniature cafe platformer with expressive Milo and Mira. Explore distinct cylindrical Espresso and Latte mazes, follow bean routes around the glass, brave optional star detours and outrun rising coffee. Solid wood, slippery ceramic, regenerating biscuits, large two-thumb controls and instant retries. Free play and Perfect Coffee cards.",
   "maxPlayers": 8,
   "ui": "minimized",
@@ -14,8 +14,8 @@
   },
   "credits": [
     {
-      "work": "STARBOX V2 baristas and glass-mug cafe cover",
-      "by": "Original artwork created with OpenAI image generation for STARBOX COFFEE"
+      "work": "COFFEE PANIC! V2 baristas and glass-mug cafe cover",
+      "by": "Original artwork created with OpenAI image generation for COFFEE PANIC!"
     },
     {
       "work": "Milo high-resolution explorer animation, 2.4.1",
@@ -23,7 +23,7 @@
     },
     {
       "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
-      "by": "Created for STARBOX COFFEE"
+      "by": "Created for COFFEE PANIC!"
     },
     {
       "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",

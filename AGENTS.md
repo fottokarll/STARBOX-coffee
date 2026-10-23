@@ -1,17 +1,21 @@
-# Continue the existing STARBOX project
+# Continue the existing COFFEE PANIC! project
 
-This repository contains the editable, published STARBOX COFFEE
+This repository contains the editable, published COFFEE PANIC! (formerly STARBOX COFFEE)
 source. Start here; do not reconstruct the public bundle or rebuild the game.
-Current baseline: release 2.4, Project 0 lot 696, experience 1bc707880dd2e3c0,
-reviewed submission 9902. Previous published 2.3 (experience 08289dd2fc68c6ad,
+Current baseline: release 2.4.1, Project 0 lot 696, experience e9cad449634dc727,
+reviewed submission 10211; public listing rename reviewed as 10212. Previous
+published 2.4 (experience 1bc707880dd2e3c0, submission 9902) is recoverable at
+checkpoint-2.4-before-2.4.1. Previous published 2.3 (experience 08289dd2fc68c6ad,
 submission 9637) is recoverable at checkpoint-2.3-before-2.4. Published 2.2 (experience 83f8f4430e3ed247,
 submission 9459) is recoverable at checkpoint-2.2-before-overhaul. The recoverable
 2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
 
-The 2.4.1 camera/UI fixes and private developer tester are implemented and tested,
-but are **not published**: Project 0 rejected submission 10192 for IP/branding.
-See verification/2.4.1. Do not confuse this branch's source with the live 2.4
-deployment. `checkpoint-2.4-before-2.4.1` preserves that deployed source.
+The initial STARBOX-named 2.4.1 submission 10192 was rejected for IP/branding.
+The owner authorized a name-only change to COFFEE PANIC!, which is now published
+and reviewed. See verification/rename and the original verification/2.4.1.
+checkpoint-before-coffee-panic-rename preserves the candidate before renaming.
+Keep technical identifiers, storage keys, reward IDs, characters and existing
+artwork intact unless separately requested; the rename changes display text only.
 
 Keep the current course length, switchbacks, permanent biscuit bypasses and
 regeneration, two recipes/baristas, rewards, atmosphere and compact HUD. Work
@@ -69,8 +73,8 @@ Instructions alone do not switch the active model.
 
 ## Permanent autonomous development and publication policy
 
-The owner gives standing authorization to publish completed, verified STARBOX
-COFFEE gameplay and visual updates to Project 0 lot **696**, and to synchronize
+The owner gives standing authorization to publish completed, verified COFFEE
+PANIC! gameplay and visual updates to Project 0 lot **696**, and to synchronize
 the matching source with **fottokarll/STARBOX-coffee** on GitHub. Do not stop at
 a preview build unless validation fails or publication is technically impossible.
 

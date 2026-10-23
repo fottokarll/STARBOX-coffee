@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "version": "e9cad449634dc727",
+  "title": "COFFEE PANIC!",
+  "release": "2.4.1",
+  "releaseLog": "[lot 696 experience] COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+  "sandbox": "https://project0.city/sandbox/shell.html?lot=696&v=e9cad449634dc727",
+  "guest": true,
+  "jump": "[lot 696 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.025,\"theta\":0,\"y\":0,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+  "landing": "[lot 696 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":0.7583333333333331,\"theta\":0.6763541666666675,\"y\":1.08,\"vTheta\":0,\"vY\":0}",
+  "errors": [],
+  "failures": [],
+  "logs": [
+    "[lot 696 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "[lot 696 experience] COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "[lot 696 experience] Coffee Rising: screen title",
+    "[lot 696 experience] Coffee Rising: screen order",
+    "[lot 696 experience] Coffee Rising: course {\"recipe\":\"espresso\",\"top\":35.38000000000001,\"platforms\":39,\"scale\":0.24,\"base\":0.85,\"finish\":31,\"switchbacks\":3}",
+    "[lot 696 experience] Coffee Rising: screen character",
+    "[lot 696 experience] Coffee Rising: screen game",
+    "[lot 696 experience] Coffee Rising: round started espresso girl 1",
+    "[lot 696 experience] Coffee Rising: screen countdown",
+    "[lot 696 experience] Coffee Rising: GO",
+    "[lot 696 experience] Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "[lot 696 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.025,\"theta\":0,\"y\":0,\"vTheta\":0.07083333333333333,\"vY\":8.2}",
+    "[lot 696 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":1,\"elapsed\":0.7583333333333331,\"theta\":0.6763541666666675,\"y\":1.08,\"vTheta\":0,\"vY\":0}",
+    "[lot 696 experience] Coffee Rising: pose {\"elapsed\":0.7666666666666664,\"theta\":0.6763541666666675,\"y\":1.08,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":1,\"move\":0,\"jump\":true,\"coffeeY\":-3}",
+    "[lot 696 experience] Coffee Rising: screen pause"
+  ],
+  "note": "Live guest entry, title, coffee/character selection, keyboard jump/landing and pause. Full Perfect victories were separately verified in official DevKit."
+}

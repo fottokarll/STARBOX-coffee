@@ -1,5 +1,10 @@
 # STARBOX COFFEE 2.4.1 verification
 
+Follow-up: the owner-authorized name-only **COFFEE PANIC!** release subsequently
+passed moderation as submissions 10211/10212 and is live at e9cad449634dc727.
+See [rename verification](../rename/README.md). The rejected submission and
+pre-rename checks below remain historical evidence.
+
 This release fixes the upper Espresso camera and small-screen modal input,
 and imports the supplied higher-resolution Milo. Private Developer Tester
 tools and artwork remain outside the public experience.

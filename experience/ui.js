@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {headerLayout, touchLayout, resultsLayout} from './ui-layout.js';
 import {RECIPES} from './rules.js';
-export const GAME_TITLE = 'STARBOX COFFEE';
+export const GAME_TITLE = 'COFFEE PANIC!';
 
 const C = Object.freeze({
   green: '#187454', forest: '#143C30', cream: '#FFF3DB', gold: '#C8AA73',
@@ -190,7 +190,7 @@ export async function createUI(p0) {
       ctx.fillStyle=shade;ctx.fillRect(0,52,W,53);
       logo(28,77,30);
       if(l.stacked) {
-        if(W>=360){text('STARBOX',49,63,11,C.cream,'left','display');text('COFFEE',49,80,12,C.gold,'left','display');}
+        if(W>=360){text('COFFEE',49,63,11,C.cream,'left','display');text('PANIC!',49,80,12,C.gold,'left','display');}
       } else {
         text(GAME_TITLE,51,67,phone?13:15,C.cream,'left','display',.2);
         if(!phone)label('THE CLIMBING CAFE',52,88,8,C.gold);
@@ -306,8 +306,8 @@ export async function createUI(p0) {
       label('FREE PLAY  ·  INSTANT RETRIES',W/2,H-48,8,C.gold,'center');
     } else if (narrow) {
       label('THE VERTICAL COFFEE ARCADE', W / 2, H * 0.15, 9, C.gold, 'center');
-      text('STARBOX', W / 2, H * 0.19, Math.min(44, W * 0.115), C.cream, 'center', 'display');
-      text('COFFEE', W / 2, H * 0.19 + 54, Math.min(48, W * 0.13), C.cream, 'center', 'display');
+      text('COFFEE', W / 2, H * 0.19, Math.min(44, W * 0.115), C.cream, 'center', 'display');
+      text('PANIC!', W / 2, H * 0.19 + 54, Math.min(48, W * 0.13), C.cream, 'center', 'display');
       text('A little barista. An enormous adventure.', W / 2, H * 0.68, 14, C.muted, 'center', 'body', 0, W - 40);
       text('Outrun the rising coffee. Brew your best.', W / 2, H * 0.68 + 23, 14, C.muted, 'center', 'body', 0, W - 40);
       button('titleStart', 'ORDER A COFFEE', 28, H - 126, W - 56, 49, true);
@@ -315,8 +315,8 @@ export async function createUI(p0) {
     } else {
       const left = W * 0.12, top = H * 0.26;
       label('THE VERTICAL COFFEE ARCADE', left, top - 30, 11);
-      text('STARBOX', left, top, Math.min(60, W * 0.063), C.cream, 'left', 'display');
-      text('COFFEE', left, top + 74, Math.min(72, W * 0.075), C.cream, 'left', 'display');
+      text('COFFEE', left, top, Math.min(60, W * 0.063), C.cream, 'left', 'display');
+      text('PANIC!', left, top + 74, Math.min(72, W * 0.075), C.cream, 'left', 'display');
       text('Climb the cup. Collect your recipe.', left, top + 180, 17, C.muted);
       text('Escape with the perfect coffee.', left, top + 207, 17, C.muted);
       button('titleStart', 'ORDER A COFFEE', left, Math.min(H - 105, top + 260), 290, 49, true);

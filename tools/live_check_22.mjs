@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 const expected=process.argv[2];if(!expected)throw new Error('Pass the published experience version');
 const reportDirectory=process.argv[3]||'verification/2.2';
 const expectedRelease=process.argv[4]||null;
+const expectedTitle=process.argv[5]||'STARBOX COFFEE';
 await fs.mkdir(reportDirectory,{recursive:true});
 const proxyServer=process.env.HTTPS_PROXY||process.env.HTTP_PROXY;
 const proxy=proxyServer?{server:proxyServer,bypass:'localhost,127.0.0.1'}:undefined;
@@ -18,7 +19,7 @@ await context.route(/^https:\/\/(project0\.city|files\.project0\.city)\//,async 
   catch(error) {failures.push({url:new URL(route.request().url()).origin+new URL(route.request().url()).pathname,error:error.message});await route.abort();}
 });
 const page=await context.newPage();
-page.on('console',m=>{if(/Coffee Rising|STARBOX/.test(m.text()))logs.push(m.text());});
+page.on('console',m=>{if(/Coffee Rising|STARBOX|COFFEE PANIC!/.test(m.text()))logs.push(m.text());});
 page.on('pageerror',e=>errors.push(e.message));
 let report;
 async function waitLog(part,start=0,timeout=60000) {
@@ -35,6 +36,7 @@ try {
   await page.screenshot({path:`${reportDirectory}/live-city.png`});
   const enter=page.locator('#panel').getByRole('button',{name:/Play/i}).first();
   await enter.waitFor({state:'visible',timeout:60000});
+  if(process.argv[5])assert.ok((await page.locator('#panel').innerText()).includes(expectedTitle),'public lot listing title');
   const onboarding=page.getByRole('dialog',{name:'How Project 0 works'});
   const navigation=page.getByRole('dialog',{name:'Around the city'});
   // City onboarding can arrive after the lot panel has already become visible.
@@ -52,10 +54,12 @@ try {
   }
   assert.ok(entered,'city onboarding completed and Play clicked');
   await waitLog('Coffee Rising: screen title',0,120000);
-  const releaseLog=expectedRelease?await waitLog(`STARBOX COFFEE ${expectedRelease} ready:`):null;
+  const releaseLog=expectedRelease?await waitLog(`${expectedTitle} ${expectedRelease} ready:`):null;
   const shell=page.frames().find(f=>f.url().includes('/sandbox/shell.html?lot=696'));
   assert.ok(shell,'actual city sandbox, rather than DevKit');
   assert.equal(new URL(shell.url()).searchParams.get('v'),expected);
+  // The city's loading cover fades after the worker reports readiness.
+  await page.waitForTimeout(1500);
   await page.screenshot({path:`${reportDirectory}/live-title.png`});
   await shell.locator('canvas').click({position:{x:25,y:200}});
   await page.keyboard.press('Space');await waitLog('Coffee Rising: screen order');
@@ -70,7 +74,7 @@ try {
   await page.keyboard.press('KeyP');
   await waitLog('Coffee Rising: screen pause',start);
   await page.screenshot({path:`${reportDirectory}/live-gameplay.png`});
-  report={passed:true,version:expected,release:expectedRelease,releaseLog,sandbox:shell.url(),guest:true,jump,landing,errors,failures,logs,
+  report={passed:true,version:expected,title:expectedTitle,release:expectedRelease,releaseLog,sandbox:shell.url(),guest:true,jump,landing,errors,failures,logs,
     note:'Live guest entry, title, coffee/character selection, keyboard jump/landing and pause. Full Perfect victories were separately verified in official DevKit.'};
 } catch(error) {
   await page.screenshot({path:`${reportDirectory}/live-error.png`}).catch(()=>{});

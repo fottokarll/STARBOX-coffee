@@ -1,10 +1,19 @@
-# STARBOX COFFEE
+# COFFEE PANIC!
 
 **CLIMB. COLLECT. BREW.**
 
 An original, free Project 0 arcade climbing experience on [lot 696](https://project0.city/lot/696). Choose a coffee and an expressive pixel barista, then leap around a real cylindrical course as coffee fills the glass mug.
 
-Release **2.4 is live and reviewed**: submission **9902**, experience **1bc707880dd2e3c0**, with no warnings. It adds large two-thumb controls, fast retries, meaningful recipe/bonus routes and richer café materials, and fixes the green coffee patches. Release 2.3 is recoverable at `checkpoint-2.3-before-2.4` (submission 9637, experience `08289dd2fc68c6ad`). Release 2.2 remains at `checkpoint-2.2-before-overhaul`; release 2.1 at `checkpoint-2.1-before-2.2`.
+**COFFEE PANIC! 2.4.1 is live and reviewed**: experience submission **10211**,
+experience **e9cad449634dc727**, public listing submission **10212**, with no
+warnings. The owner-authorized rename from STARBOX COFFEE changes display text
+and metadata only; gameplay and artwork are unchanged from the tested 2.4.1
+candidate. See [rename verification](verification/rename/README.md).
+Release 2.4 remains at `checkpoint-2.4-before-2.4.1`; the pre-rename candidate
+at `checkpoint-before-coffee-panic-rename`. Release 2.3 is recoverable at
+`checkpoint-2.3-before-2.4`; 2.2 at `checkpoint-2.2-before-overhaul`; 2.1 at
+`checkpoint-2.1-before-2.2`. Repository name and save/reward identifiers remain
+unchanged to preserve access and player data.
 
 **Continuing development:** this repository contains the full editable source.
 Read [GitHub and Project 0 access](ACCESS.md) for authentication, network,
@@ -13,7 +22,7 @@ the executing environment or ignored `.env`, never in GitHub.
 
 See [2.4 release verification](verification/2.4/README.md) for tests, before/after screenshots, performance, publication and deployed checks. Earlier [2.3 release verification](verification/2.3/README.md), [overhaul verification](verification/overhaul/README.md), [2.2 verification](verification/2.2/README.md), [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
 
-## 2.4.1 — tested, publication blocked
+## 2.4.1 — published as COFFEE PANIC!
 
 The upper Espresso obstruction is fixed by keeping the camera below the real
 oak roof beams. Small-screen results have a single BREW AGAIN and modal input
@@ -27,11 +36,11 @@ restart and object inspection. Its code and assets are excluded from the
 public package; score, reward and save writes are disabled in practice.
 
 All 59 tests, full Espresso/Latte browser runs, native touch/UI checks and
-official technical validation passed. **Project 0 rejected publication** of
-submission **10192**, citing the game name and green/white star-on-cup branding
-as an imitation of Starbucks. Live lot 696 therefore remains **2.4**,
-experience **1bc707880dd2e3c0**. The preserved title/art direction was not changed
-to work around that review. See [2.4.1 evidence](verification/2.4.1/README.md),
+official technical validation passed. Project 0 initially rejected STARBOX-named
+submission **10192**, citing branding similarities. The owner then authorized
+the name-only COFFEE PANIC! rename; submissions **10211/10212** passed review
+with no warnings. Existing artwork and logos remain unchanged as requested.
+See [2.4.1 evidence](verification/2.4.1/README.md),
 [asset inventory](docs/ASSET-INVENTORY.md) and
 [tested package](artifacts/starbox-coffee-2.4.1.zip).
 Rollback source: `checkpoint-2.4-before-2.4.1`.
@@ -72,7 +81,7 @@ See [overhaul verification](verification/overhaul/README.md) for evidence, balan
 - The native-resolution sprite samples the 3D world's depth: real foreground geometry can hide it. A soft projected contact shadow, warm ambient tint, local lantern rim light and coffee bounce help it sit in the environment.
 - Smooth bevelled platform silhouettes retain stylized surface textures. White ceramic has a gentle stopping glide; timber remains firmer. Dimensional beans, milk and stars use three shading levels, highlights, soft glows and platform shadows.
 - The glass widens upward. Soft distant café layers, edge condensation, reflections and overhead warmth add depth; coffee ripples, bubbles, splashes and steam remain inexpensive geometry/texture effects.
-- The compact HUD uses stronger contrast, larger counts, bold labels and clear ready/grace/rising/danger states. The current official game name is **STARBOX COFFEE**; Coffee Rising remains the danger mechanic.
+- The compact HUD uses stronger contrast, larger counts, bold labels and clear ready/grace/rising/danger states. That release used **STARBOX COFFEE**, subsequently renamed **COFFEE PANIC!**; Coffee Rising remains the danger mechanic.
 
 ## What V2 adds
 

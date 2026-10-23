@@ -1,0 +1,31 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "COFFEE PANIC!" in 5.0 s (25 files, 2.7 MB); 1 player; first frame 22 ms; 10 fps
+[lot 0 experience] Coffee Rising: screen order
+[lot 0 experience] Coffee Rising: course {"recipe":"espresso","top":35.38000000000001,"platforms":39,"scale":0.24,"base":0.85,"finish":31,"switchbacks":3}
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso boy 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.3166666666666668,"theta":0,"y":0,"vTheta":0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0.571354166666667,"y":1.8333333333333297,"vTheta":1.3000000000000003,"vY":-0.05000000000000862,"grounded":false,"onPlatform":-1,"move":0,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":1,"elapsed":1.0499999999999987,"theta":0.6505208333333341,"y":1.08,"vTheta":0,"vY":0}
+[lot 0 experience] Coffee Rising: screen pause
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "COFFEE PANIC!" in 4.2 s (25 files, 2.7 MB); 1 player; first frame 26 ms; 6 fps
+[lot 0 experience] Coffee Rising: screen order
+[lot 0 experience] Coffee Rising: course {"recipe":"espresso","top":35.38000000000001,"platforms":39,"scale":0.24,"base":0.85,"finish":31,"switchbacks":3}
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started espresso girl 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.45000000000000057,"theta":0,"y":0,"vTheta":0.07083333333333333,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7666666666666664,"theta":0.36885416666666676,"y":1.6899999999999975,"vTheta":1.55,"vY":2.3499999999999908,"grounded":false,"onPlatform":-1,"move":1,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":1,"elapsed":1.1833333333333316,"theta":0.6505208333333341,"y":1.08,"vTheta":0,"vY":0}
+[lot 0 experience] Coffee Rising: screen pause
+[{"view":"phone","passed":true},{"view":"desktop","passed":true}]

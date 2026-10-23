@@ -727,7 +727,7 @@ export function createEnvironment(world, courseData, assets = {}) {
   signContext.fillStyle='#173c30';signContext.fillRect(0,0,1024,256);
   signContext.strokeStyle='#c8a66a';signContext.lineWidth=5;signContext.strokeRect(12,12,1000,232);
   signContext.fillStyle='#f2f0e8';signContext.textAlign='center';signContext.font='bold 74px serif';
-  signContext.fillText('STARBOX COFFEE',512,126);signContext.font='25px serif';signContext.fillStyle='#c8a66a';
+  signContext.fillText('COFFEE PANIC!',512,126);signContext.font='25px serif';signContext.fillStyle='#c8a66a';
   signContext.fillText('FRESHLY ROASTED  ·  BEAUTIFULLY BREWED',512,184);
   const signTexture=new THREE.CanvasTexture(signCanvas);signTexture.colorSpace=THREE.SRGBColorSpace;disposable.add(signTexture);
   const signMaterial=new THREE.MeshBasicMaterial({map:signTexture,side:THREE.DoubleSide});disposable.add(signMaterial);

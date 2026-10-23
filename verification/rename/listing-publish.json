@@ -1,0 +1,215 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "status": "live",
+    "reviewed": true,
+    "submission": 10212,
+    "check": "https://project0.city/api/agent/submissions/10212",
+    "lot": {
+      "id": 696,
+      "ownerId": 1228,
+      "ownerName": "Karll",
+      "ownerColor": "#854cf0",
+      "name": "COFFEE PANIC!",
+      "description": "CLIMB. COLLECT. BREW. Enter COFFEE PANIC! and escape a giant transparent cup as coffee rises below. Jump around a true cylindrical spiral, collect your recipe, and race for a Perfect Coffee.",
+      "version": "fab90cf1e6f03779-dfdeecc369ddd596",
+      "lod0": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod0.glb",
+      "lod1": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod1.glb",
+      "lod2": "https://files.project0.city/lots/696/fab90cf1e6f03779-lod2.glb",
+      "color": "#ffffff",
+      "likes": 12,
+      "dislikes": 0,
+      "experience": {
+        "version": "e9cad449634dc727",
+        "name": "COFFEE PANIC!",
+        "maxPlayers": 8,
+        "muted": false,
+        "ui": "minimized",
+        "stick": false
+      },
+      "work": "agent",
+      "flagged": false,
+      "immune": null,
+      "box": "subtle",
+      "boxColor": "#006241",
+      "burning": 0,
+      "disputed": false,
+      "forSale": null,
+      "bought": 16613,
+      "game": null,
+      "look": "https://files.project0.city/lots/696/fab90cf1e6f03779-look-dfdeecc369ddd596/lot.json",
+      "script": "https://files.project0.city/lots/696/fab90cf1e6f03779-look-dfdeecc369ddd596/build.js",
+      "credits": [
+        {
+          "work": "COFFEE PANIC! architecture, star-and-cup identity, geometry and animation",
+          "by": "Original procedural artwork for this Project 0 lot"
+        },
+        {
+          "work": "DejaVu Sans lettering",
+          "by": "DejaVu font team; Bitstream Vera licence"
+        },
+        {
+          "work": "COFFEE PANIC! V2 baristas and glass-mug cafe cover",
+          "by": "Original artwork created with OpenAI image generation for COFFEE PANIC!"
+        },
+        {
+          "work": "Milo high-resolution explorer animation, 2.4.1",
+          "by": "OpenAI image generation from the owner's supplied Milo reference; transparent source, prompts and registered frame data preserved"
+        },
+        {
+          "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
+          "by": "Created for COFFEE PANIC!"
+        },
+        {
+          "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",
+          "by": "DejaVu font team; Bitstream Vera licence in assets/font-license.txt"
+        }
+      ],
+      "event": null,
+      "updated": 1792735364719,
+      "since": 1792506169772,
+      "grow": 1.26
+    },
+    "reports": {
+      "lod0": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "bytes": 305616,
+          "triangles": 29697,
+          "drawCalls": 6,
+          "materials": 4,
+          "textures": 0,
+          "maxTextureSize": 0,
+          "texels": 0,
+          "skinnedMeshes": 0,
+          "bones": 0,
+          "animations": 0,
+          "animationNames": [],
+          "bounds": {
+            "min": [
+              -5.699999809265137,
+              0,
+              -5.699999809265137
+            ],
+            "max": [
+              5.699999809265137,
+              11.690000146627426,
+              9.40000057220459
+            ]
+          }
+        },
+        "budget": {
+          "triangles": 70000,
+          "drawCalls": 14,
+          "materials": 4,
+          "textures": 8,
+          "maxTextureSize": 1024,
+          "texels": 8388608,
+          "skinnedMeshes": 2,
+          "bones": 64,
+          "animations": 8,
+          "fileBytes": 5242880,
+          "uploadBytes": 26214400
+        }
+      },
+      "lod1": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "bytes": 59748,
+          "triangles": 7057,
+          "drawCalls": 2,
+          "materials": 2,
+          "textures": 0,
+          "maxTextureSize": 0,
+          "texels": 0,
+          "skinnedMeshes": 0,
+          "bones": 0,
+          "animations": 0,
+          "animationNames": [],
+          "bounds": {
+            "min": [
+              -5.699999809265137,
+              0,
+              -5.699999809265137
+            ],
+            "max": [
+              5.699999809265137,
+              11.690000146627426,
+              9.40000057220459
+            ]
+          }
+        },
+        "budget": {
+          "triangles": 10000,
+          "drawCalls": 4,
+          "materials": 2,
+          "textures": 2,
+          "maxTextureSize": 512,
+          "texels": 734003.2,
+          "skinnedMeshes": 0,
+          "bones": 0,
+          "animations": 0,
+          "fileBytes": 1048576,
+          "uploadBytes": 8388608
+        }
+      },
+      "lod2": {
+        "ok": true,
+        "errors": [],
+        "warnings": [],
+        "stats": {
+          "bytes": 13116,
+          "triangles": 918,
+          "drawCalls": 1,
+          "materials": 1,
+          "textures": 0,
+          "maxTextureSize": 0,
+          "texels": 0,
+          "skinnedMeshes": 0,
+          "bones": 0,
+          "animations": 0,
+          "animationNames": [],
+          "bounds": {
+            "min": [
+              -5.699999809265137,
+              0,
+              -5.699999809265137
+            ],
+            "max": [
+              5.699999809265137,
+              11.690000146627426,
+              9.40000057220459
+            ]
+          }
+        },
+        "budget": {
+          "triangles": 1000,
+          "drawCalls": 1,
+          "materials": 1,
+          "textures": 1,
+          "maxTextureSize": 256,
+          "texels": 94371.84,
+          "skinnedMeshes": 0,
+          "bones": 0,
+          "animations": 0,
+          "fileBytes": 209715.2,
+          "uploadBytes": 2097152
+        }
+      }
+    },
+    "look": {
+      "script": true,
+      "cost": {
+        "customMs": 79.88,
+        "plainMs": 76.67,
+        "ratio": 1.04
+      },
+      "warnings": []
+    }
+  }
+}
