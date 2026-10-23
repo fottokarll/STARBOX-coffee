@@ -1,0 +1,452 @@
+{
+  "view": "review",
+  "mode": "review",
+  "result": {
+    "started": true,
+    "crash": null,
+    "seconds": 17.1,
+    "frames": 806,
+    "fps": 57.5,
+    "firstFrame": 17.6,
+    "worstFrame": 30.9,
+    "slowFrames": 1,
+    "errors": [],
+    "logs": [
+      "HD2D: optional asset not found assets/v3/backdrop-mid.png",
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.55}",
+      "COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "HD2D: optional asset not found assets/v3/backdrop-mid.png",
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.8}",
+      "COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: screen order",
+      "Coffee Rising: screen character",
+      "Coffee Rising: screen game",
+      "Coffee Rising: round started latte boy 1",
+      "Coffee Rising: screen countdown",
+      "Coffee Rising: GO",
+      "Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+      "Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.18333333333333332,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+      "Coffee Rising: pose {\"elapsed\":0.7666666666666664,\"theta\":-0.23968749999999991,\"y\":1.4544444444444404,\"vTheta\":-1.55,\"vY\":-3.383333333333341,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+      "Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.0249999999999988,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}"
+    ],
+    "violations": [],
+    "hud": [
+      "COFFEE PANIC!. A/D or arrows: move. Hold Space/W/Up: jump; release between jumps. Touch: slide arrows + UP. Pad: stick + A. White ceramic slides. Biscuits reform in 1.8s; timber stays solid. Follow BEAN signs for your recipe; STAR/RETURN paths are optional. Space after a spill: quick retry. R retry / P pause / M mute. Esc leave / Enter chat. Free play."
+    ],
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    }
+  },
+  "status": "started",
+  "reason": null,
+  "summary": "started \"COFFEE PANIC!\" in 2.7 s (26 files, 2.8 MB); 1 player; first frame 18 ms; 60 fps",
+  "frames": {
+    "fps": 60,
+    "avg": 16.7,
+    "p95": 21.9,
+    "worst": 30.9,
+    "first": 17.6,
+    "count": 821,
+    "over50": 3,
+    "over250": 1,
+    "recent": [
+      14.3,
+      17.2,
+      15.6,
+      17.4,
+      13.3,
+      18.5,
+      18.2,
+      17.8,
+      12.7,
+      17.7,
+      17.2,
+      17.7,
+      14.1,
+      17.5,
+      18,
+      15.5,
+      16.8,
+      20.6,
+      10.7,
+      20.7,
+      14.9,
+      16.5,
+      17.6,
+      15,
+      15.7,
+      17.9,
+      21,
+      13.8,
+      15.4,
+      15.2,
+      18.7,
+      23.5,
+      10.5,
+      18,
+      15.2,
+      18.7,
+      15.6,
+      19.6,
+      10.4,
+      19.6,
+      16.4,
+      18.4,
+      17.4,
+      18.6,
+      18,
+      15.4,
+      14.6,
+      15.7,
+      30.2,
+      4.7,
+      17.5,
+      12,
+      24.3,
+      7.3,
+      19.8,
+      14.9,
+      17.9,
+      19.1,
+      12.5,
+      16.6,
+      20.3,
+      20.9,
+      13,
+      16.1,
+      15.1,
+      19.9,
+      16.3,
+      13.5,
+      18.5,
+      19.2,
+      16.6,
+      12.6,
+      16.1,
+      19.3,
+      14.9,
+      18.3,
+      20.7,
+      12.6,
+      15.5,
+      24.2,
+      10.9,
+      12.9,
+      19.9,
+      11.3,
+      20.9,
+      15.1,
+      20.8,
+      14.1,
+      21.4,
+      10.4,
+      22.2,
+      12.4,
+      15.8,
+      23.6,
+      16.6,
+      11.9,
+      13.8,
+      15.5,
+      19.4,
+      12.7,
+      20.9,
+      12.8,
+      19.1,
+      18.6,
+      12.9,
+      18.7,
+      14.6,
+      20.9,
+      12.2,
+      23.7,
+      12.3,
+      21.4,
+      16.3,
+      15.8,
+      19.1,
+      16.1,
+      12,
+      15.4,
+      18.8,
+      14.3
+    ]
+  },
+  "console": [
+    "devkit: 15 modules, 165 KB from http://localhost:5500/",
+    "log: HD2D: optional asset not found assets/v3/backdrop-mid.png",
+    "log: Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "log: HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.55}",
+    "log: COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "log: Coffee Rising: screen title",
+    "devkit: Started in 3.0 s (26 files, 2.8 MB loaded)",
+    "devkit: Running again",
+    "devkit: 15 modules, 165 KB from http://localhost:5500/",
+    "log: HD2D: optional asset not found assets/v3/backdrop-mid.png",
+    "log: Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "log: HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.8}",
+    "log: COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "log: Coffee Rising: screen title",
+    "devkit: Started in 2.7 s (26 files, 2.8 MB loaded)",
+    "log: Coffee Rising: screen order",
+    "log: Coffee Rising: screen character",
+    "log: Coffee Rising: screen game",
+    "log: Coffee Rising: round started latte boy 1",
+    "log: Coffee Rising: screen countdown",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "log: Coffee Rising: GO",
+    "log: Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.18333333333333332,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "log: Coffee Rising: pose {\"elapsed\":0.7666666666666664,\"theta\":-0.23968749999999991,\"y\":1.4544444444444404,\"vTheta\":-1.55,\"vY\":-3.383333333333341,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.0249999999999988,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "log: Coffee Rising: pose {\"elapsed\":1.524999999999997,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":1.933333333333329,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "log: Coffee Rising: pose {\"elapsed\":2.2999999999999945,\"theta\":-0.5248958333333337,\"y\":1.7745833333333307,\"vTheta\":-0.2125,\"vY\":1.0499999999999914,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-2.360000000000007}",
+    "devkit: p0.save: 0.2 KB kept in this browser",
+    "log: Coffee Rising: result {\"recipe\":\"latte\",\"time\":2.9333333333333256,\"success\":false,\"perfect\":false,\"quality\":\"SPILLED COFFEE\",\"collected\":{\"bean\":0,\"milk\":0},\"required\":{\"bean\":8,\"milk\":5},\"bonusStars\":0,\"bonusScore\":0,\"progress\":0.04213836477987416,\"bestHeight\":1.786666666666664,\"top\":42.399999999999984,\"score\":0}",
+    "log: Coffee Rising: screen game",
+    "log: Coffee Rising: round started latte boy 2",
+    "log: Coffee Rising: screen countdown",
+    "log: Coffee Rising: GO",
+    "log: Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.3583333333333336,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "log: Coffee Rising: pose {\"elapsed\":0.7583333333333331,\"theta\":-0.021249999999999995,\"y\":1.7770833333333302,\"vTheta\":-0.5666666666666665,\"vY\":-0.21666666666667533,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.1916666666666649,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "log: Coffee Rising: pose {\"elapsed\":1.524999999999997,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":2.099999999999995,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "log: Coffee Rising: pose {\"elapsed\":2.291666666666661,\"theta\":-0.5213541666666669,\"y\":1.2649999999999988,\"vTheta\":0,\"vY\":4.599999999999991,\"grounded\":false,\"onPlatform\":-1,\"move\":0,\"jump\":true,\"coffeeY\":-2.370666666666674}",
+    "log: Coffee Rising: pose {\"elapsed\":3.058333333333325,\"theta\":-1.0306250000000006,\"y\":-1.1080555555555647,\"vTheta\":0.7166666666666659,\"vY\":-10.133333333333354,\"grounded\":false,\"onPlatform\":-1,\"move\":1,\"jump\":false,\"coffeeY\":-1.3893333333333437}",
+    "devkit: p0.save: 0.2 KB kept in this browser",
+    "log: Coffee Rising: result {\"recipe\":\"latte\",\"time\":3.083333333333325,\"success\":false,\"perfect\":false,\"quality\":\"SPILLED COFFEE\",\"collected\":{\"bean\":0,\"milk\":0},\"required\":{\"bean\":8,\"milk\":5},\"bonusStars\":0,\"bonusScore\":0,\"progress\":0.04213836477987416,\"bestHeight\":1.786666666666664,\"top\":42.399999999999984,\"score\":0}",
+    "log: Coffee Rising: screen game",
+    "log: Coffee Rising: round started latte boy 3",
+    "log: Coffee Rising: screen countdown",
+    "log: Coffee Rising: GO",
+    "log: Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.33333333333333354,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "log: Coffee Rising: pose {\"elapsed\":0.7583333333333331,\"theta\":-0.032465277777777767,\"y\":1.776388888888886,\"vTheta\":-0.7083333333333331,\"vY\":-0.5333333333333419,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "log: Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.1749999999999983,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "notice: Enter opens the chat in the city: the game does not get it, and held keys are let go",
+    "log: Coffee Rising: pose {\"elapsed\":1.5166666666666637,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "devkit: Review run: ran 14 s at 57.5 fps (worst frame 30.9 ms, first 18 ms); 0 errors, 0 blocked requests. Its mouse clicks and drags are left to you (Playwright).",
+    "log: Coffee Rising: pose {\"elapsed\":2.2749999999999946,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-2.392000000000007}"
+  ],
+  "errors": [],
+  "hud": "COFFEE PANIC!. A/D or arrows: move. Hold Space/W/Up: jump; release between jumps. Touch: slide arrows + UP. Pad: stick + A. White ceramic slides. Biscuits reform in 1.8s; timber stays solid. Follow BEAN signs for your recipe; STAR/RETURN paths are optional. Space after a spill: quick retry. R retry / P pause / M mute. Esc leave / Enter chat. Free play.",
+  "room": {
+    "online": true,
+    "id": 1,
+    "me": 1,
+    "host": 1,
+    "tick": 0,
+    "players": [
+      {
+        "id": 1,
+        "name": "Dev",
+        "color": "#7fd4ff",
+        "bot": false
+      }
+    ],
+    "keys": 0,
+    "bytes": 0,
+    "state": {},
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    },
+    "dropped": 0,
+    "heard": 0,
+    "position": {
+      "x": -0.6,
+      "y": 1.02,
+      "z": 1.04,
+      "yaw": -0.52
+    }
+  },
+  "screenshot": "verification/hd-release-ae63d92/hd-review-review-final.png",
+  "browserLogs": [
+    "info: [lot 0 experience] [dev kit] 15 modules, 165 KB from http://localhost:5500/",
+    "info: [lot 0 experience] HD2D: optional asset not found assets/v3/backdrop-mid.png",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "info: [lot 0 experience] HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.55}",
+    "info: [lot 0 experience] COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "info: [lot 0 experience] Coffee Rising: screen title",
+    "info: [devkit] started \"COFFEE PANIC!\" in 3.0 s (26 files, 2.8 MB); 1 player; first frame 6 ms; 9 fps",
+    "info: [lot 0 experience] [dev kit] 15 modules, 165 KB from http://localhost:5500/",
+    "info: [lot 0 experience] HD2D: optional asset not found assets/v3/backdrop-mid.png",
+    "info: [lot 0 experience] Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+    "info: [lot 0 experience] HD2D: resolution {\"pixelRatio\":1,\"buffer\":[640,360],\"css\":[640,360],\"scale\":0.8}",
+    "info: [lot 0 experience] COFFEE PANIC! 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+    "info: [lot 0 experience] Coffee Rising: screen title",
+    "info: [lot 0 experience] Coffee Rising: screen order",
+    "info: [devkit] started \"COFFEE PANIC!\" in 2.7 s (26 files, 2.8 MB); 1 player; first frame 18 ms; 11 fps",
+    "info: [lot 0 experience] Coffee Rising: screen character",
+    "info: [lot 0 experience] Coffee Rising: screen game",
+    "info: [lot 0 experience] Coffee Rising: round started latte boy 1",
+    "info: [lot 0 experience] Coffee Rising: screen countdown",
+    "info: [lot 0 experience] Coffee Rising: GO",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.18333333333333332,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0.7666666666666664,\"theta\":-0.23968749999999991,\"y\":1.4544444444444404,\"vTheta\":-1.55,\"vY\":-3.383333333333341,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.0249999999999988,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":1.524999999999997,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":1.933333333333329,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":2.2999999999999945,\"theta\":-0.5248958333333337,\"y\":1.7745833333333307,\"vTheta\":-0.2125,\"vY\":1.0499999999999914,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-2.360000000000007}",
+    "info: [lot 0 experience] Coffee Rising: result {\"recipe\":\"latte\",\"time\":2.9333333333333256,\"success\":false,\"perfect\":false,\"quality\":\"SPILLED COFFEE\",\"collected\":{\"bean\":0,\"milk\":0},\"required\":{\"bean\":8,\"milk\":5},\"bonusStars\":0,\"bonusScore\":0,\"progress\":0.04213836477987416,\"bestHeight\":1.786666666666664,\"top\":42.399999999999984,\"score\":0}",
+    "info: [lot 0 experience] Coffee Rising: screen game",
+    "info: [lot 0 experience] Coffee Rising: round started latte boy 2",
+    "info: [lot 0 experience] Coffee Rising: screen countdown",
+    "info: [lot 0 experience] Coffee Rising: GO",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.3583333333333336,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0.7583333333333331,\"theta\":-0.021249999999999995,\"y\":1.7770833333333302,\"vTheta\":-0.5666666666666665,\"vY\":-0.21666666666667533,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.1916666666666649,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":1.524999999999997,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":2.099999999999995,\"theta\":-0.5213541666666669,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":2.291666666666661,\"theta\":-0.5213541666666669,\"y\":1.2649999999999988,\"vTheta\":0,\"vY\":4.599999999999991,\"grounded\":false,\"onPlatform\":-1,\"move\":0,\"jump\":true,\"coffeeY\":-2.370666666666674}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":3.058333333333325,\"theta\":-1.0306250000000006,\"y\":-1.1080555555555647,\"vTheta\":0.7166666666666659,\"vY\":-10.133333333333354,\"grounded\":false,\"onPlatform\":-1,\"move\":1,\"jump\":false,\"coffeeY\":-1.3893333333333437}",
+    "info: [lot 0 experience] Coffee Rising: result {\"recipe\":\"latte\",\"time\":3.083333333333325,\"success\":false,\"perfect\":false,\"quality\":\"SPILLED COFFEE\",\"collected\":{\"bean\":0,\"milk\":0},\"required\":{\"bean\":8,\"milk\":5},\"bonusStars\":0,\"bonusScore\":0,\"progress\":0.04213836477987416,\"bestHeight\":1.786666666666664,\"top\":42.399999999999984,\"score\":0}",
+    "info: [lot 0 experience] Coffee Rising: screen game",
+    "info: [lot 0 experience] Coffee Rising: round started latte boy 3",
+    "info: [lot 0 experience] Coffee Rising: screen countdown",
+    "info: [lot 0 experience] Coffee Rising: GO",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.33333333333333354,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":0.7583333333333331,\"theta\":-0.032465277777777767,\"y\":1.776388888888886,\"vTheta\":-0.7083333333333331,\"vY\":-0.5333333333333419,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+    "info: [lot 0 experience] Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.1749999999999983,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":1.5166666666666637,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+    "info: [devkit] review run: ran 14 s at 57.5 fps (worst frame 30.9 ms, first 18 ms)",
+    "info: [lot 0 experience] Coffee Rising: pose {\"elapsed\":2.2749999999999946,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-2.392000000000007}"
+  ],
+  "networkFailures": [
+    {
+      "url": "http://localhost:5500/rules.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/ui.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/collision.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/cafe-materials.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/characters.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v3/backdrop-far.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/main.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/ui.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/barista.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/environment.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/rules.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/characters.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/polish/milo.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/lettering.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5500/assets/v3/backdrop-far.png",
+      "error": "net::ERR_ABORTED"
+    }
+  ]
+}

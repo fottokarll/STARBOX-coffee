@@ -1,0 +1,16 @@
+{
+  "releaseCommit": "ae63d92eadc47f8b8d1b8057202989500a4f5cf8",
+  "package": "coffee-panic-hd-ae63d92.zip",
+  "sha256": "ae379b3faaaf01f717f64ed7b0590ebf28d8ba56e3044ec3d92c338f428f9e3f",
+  "files": 47,
+  "exactCommitContent": true,
+  "publicFilesOnly": true,
+  "credentialPatterns": 0,
+  "rollback": {
+    "version": "e9cad449634dc727",
+    "commit": "5f3297449a81a577d61e3de82e693b082cc92e67",
+    "tag": "checkpoint-before-hd-ae63d92",
+    "package": "artifacts/coffee-panic-2.4.1.zip",
+    "liveSourceMatchesArchive": true
+  }
+}

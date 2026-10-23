@@ -4,11 +4,16 @@
 
 An original, free Project 0 arcade climbing experience on [lot 696](https://project0.city/lot/696). Choose a coffee and an expressive pixel barista, then leap around a real cylindrical course as coffee fills the glass mug.
 
-**COFFEE PANIC! 2.4.1 is live and reviewed**: experience submission **10211**,
-experience **e9cad449634dc727**, public listing submission **10212**, with no
-warnings. The owner-authorized rename from STARBOX COFFEE changes display text
-and metadata only; gameplay and artwork are unchanged from the tested 2.4.1
-candidate. See [rename verification](verification/rename/README.md).
+**COFFEE PANIC! 2.4.1 HD-2.5D is live and reviewed**: submission **10318**,
+experience **5f659407861fce0e**, released from commit
+`ae63d92eadc47f8b8d1b8057202989500a4f5cf8`, with no warnings. See
+[HD release verification](verification/hd-release-ae63d92/README.md).
+The previous live experience `e9cad449634dc727` is recoverable at
+`checkpoint-before-hd-ae63d92` and `artifacts/coffee-panic-2.4.1.zip`.
+This publishing step packages the merged source without changing game code or
+visual assets. The earlier owner-authorized rename from STARBOX COFFEE changed display text
+and metadata only; that rename preserved gameplay and artwork from the tested 2.4.1
+candidate (experience submission 10211, listing 10212). See [rename verification](verification/rename/README.md).
 Release 2.4 remains at `checkpoint-2.4-before-2.4.1`; the pre-rename candidate
 at `checkpoint-before-coffee-panic-rename`. Release 2.3 is recoverable at
 `checkpoint-2.3-before-2.4`; 2.2 at `checkpoint-2.2-before-overhaul`; 2.1 at

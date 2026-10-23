@@ -1,0 +1,49 @@
+{
+  "status": 200,
+  "response": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "findings": [],
+    "manifest": {
+      "entry": "main.js",
+      "name": "COFFEE PANIC!",
+      "description": "CLIMB. COLLECT. BREW. A miniature cafe platformer with expressive Milo and Mira. Explore distinct cylindrical Espresso and Latte mazes, follow bean routes around the glass, brave optional star detours and outrun rising coffee. Solid wood, slippery ceramic, regenerating biscuits, large two-thumb controls and instant retries. Free play and Perfect Coffee cards.",
+      "maxPlayers": 8,
+      "credits": [
+        {
+          "work": "COFFEE PANIC! V2 baristas and glass-mug cafe cover",
+          "by": "Original artwork created with OpenAI image generation for COFFEE PANIC!"
+        },
+        {
+          "work": "Milo high-resolution explorer animation, 2.4.1",
+          "by": "OpenAI image generation from the owner's supplied Milo reference; transparent source, prompts and registered frame data preserved"
+        },
+        {
+          "work": "Original cafe architecture, surface textures, gameplay and synthesized sound",
+          "by": "Created for COFFEE PANIC!"
+        },
+        {
+          "work": "DejaVu Sans, Serif and Mono rasterised UI lettering",
+          "by": "DejaVu font team; Bitstream Vera licence in assets/font-license.txt"
+        }
+      ],
+      "loading": {
+        "background": "#1e3932",
+        "accent": "#c8a66a",
+        "text": "#f2f0e8",
+        "cover": "assets/v2/cover-v2.jpg",
+        "fit": "cover"
+      },
+      "ui": "minimized",
+      "stick": false
+    },
+    "stats": {
+      "files": 47,
+      "bytes": 5404131,
+      "sourceBytes": 169948,
+      "bundleBytes": 181607
+    },
+    "hash": "5f659407861fce0e"
+  }
+}

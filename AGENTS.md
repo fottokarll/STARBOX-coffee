@@ -2,8 +2,11 @@
 
 This repository contains the editable, published COFFEE PANIC! (formerly STARBOX COFFEE)
 source. Start here; do not reconstruct the public bundle or rebuild the game.
-Current baseline: release 2.4.1, Project 0 lot 696, experience e9cad449634dc727,
-reviewed submission 10211; public listing rename reviewed as 10212. Previous
+Current baseline: release 2.4.1 HD-2.5D, Project 0 lot 696, experience 5f659407861fce0e,
+reviewed submission 10318, published from ae63d92eadc47f8b8d1b8057202989500a4f5cf8.
+The previous COFFEE PANIC! experience e9cad449634dc727 (submission 10211) is
+recoverable at checkpoint-before-hd-ae63d92 and artifacts/coffee-panic-2.4.1.zip.
+Public listing rename was reviewed as 10212. Previous
 published 2.4 (experience 1bc707880dd2e3c0, submission 9902) is recoverable at
 checkpoint-2.4-before-2.4.1. Previous published 2.3 (experience 08289dd2fc68c6ad,
 submission 9637) is recoverable at checkpoint-2.3-before-2.4. Published 2.2 (experience 83f8f4430e3ed247,

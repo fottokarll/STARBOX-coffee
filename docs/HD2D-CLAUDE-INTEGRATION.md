@@ -18,15 +18,13 @@
 - Missing optional mid-background falls back to the procedural layer.
 - Original 2.4.1 branch remains an immediate rollback checkpoint.
 
-## Verification status
-Static source review and original Claude package syntax test are available. **This branch has not yet undergone current-project node test suite, Project 0 GPU/browser validation or physical-phone testing. It is NOT published to lot #696.**
+## Verification and publication status
 
-Before merge/release, run:
-```
-node --check experience/main.js
-node --check experience/environment.js
-node --check experience/diorama.js
-node --check experience/barista.js
-npm test
-```
-Then run official Project 0 DevKit visual, camera and touch checks at multiple mobile resolutions, assess FPS, inspect Espresso upper 85–100% and Latte, and publish only a tested build.
+Published without game-source edits from merge commit
+`ae63d92eadc47f8b8d1b8057202989500a4f5cf8`: Project 0 submission **10318**,
+experience **5f659407861fce0e**, reviewed/live without warnings.
+All 59 automated tests, official technical validation and a GPU DevKit runtime
+review passed. Physical-phone verification is not claimed. Publication and
+deployed verification evidence: [HD release report](../verification/hd-release-ae63d92/README.md).
+The optional mid-background is absent in the merged source; its existing
+procedural fallback remains active. The publication step adds no assets.

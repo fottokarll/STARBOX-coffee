@@ -1,0 +1,39 @@
+{
+  "status": 200,
+  "response": {
+    "version": "5f659407861fce0e",
+    "files": [
+      "https://files.project0.city/x/696/5f659407861fce0e/bundle.js",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/CREDITS.txt",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/barista-preview.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/barista.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/card-espresso.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/card-latte.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/collect.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/cover.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/fail.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/font-license.txt",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/jump.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/land.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/perfect.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/polish/ART-CREDITS.txt",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/polish/milo.json",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/polish/milo.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/polish/milo.webp",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/sprites.json",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/start.wav",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/ART-CREDITS.txt",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/baristas.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/baristas.webp",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/cafe-atlas.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/card-espresso.jpg",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/card-latte.jpg",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/characters.json",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/cover-v2.jpg",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/lettering.json",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v2/lettering.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/v3/backdrop-far.png",
+      "https://files.project0.city/x/696/5f659407861fce0e/assets/warning.wav"
+    ]
+  }
+}
