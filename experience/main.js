@@ -13,6 +13,13 @@ import {cameraFrame} from './camera-layout.js';
 
 const SCALE=.24,BASE=.85;
 export const RELEASE_VERSION='2.4.1';
+// Claude HD-2D visual configuration. Keep Project 0's renderer lifecycle.
+const HD2D={
+  maxPixelRatio:1.5,
+  startScale:.80,minScale:.50,maxScale:1.0,
+  bloom:true,grade:true,aa:true,
+  optionalBackdrop:true
+};
 
 export default async function start(p0,{observe=null}={}) {
   p0.loading(.03,'opening the lantern cafe');
@@ -21,7 +28,7 @@ export default async function start(p0,{observe=null}={}) {
   p0.createRenderer({antialias:false,alpha:true,depth:false,stencil:false});
   const renderer=p0.renderer,scene=p0.scene,camera=p0.camera;
   p0.autoRender=false;
-  const capResolution=()=>renderer.setPixelRatio(Math.min(1,p0.pixelRatio||1));
+  const capResolution=()=>renderer.setPixelRatio(Math.min(HD2D.maxPixelRatio,p0.pixelRatio||1));
   capResolution();p0.on('resize',capResolution);
   for(const child of [...scene.children])if(child.isLight)scene.remove(child);
   scene.background=new THREE.Color(0x28211c);
@@ -33,6 +40,15 @@ export default async function start(p0,{observe=null}={}) {
   const [ui,atlasBitmap]=await Promise.all([
     createUI(p0),loader.setOptions({imageOrientation:'flipY'}).loadAsync(p0.asset('assets/v2/cafe-atlas.png'))
   ]);
+  // The optional painted layers fall back to the original procedural café.
+  const optionalBitmap=async path=>{
+    try{return await loader.loadAsync(p0.asset(path));}
+    catch(error){p0.log('HD2D: optional asset not found',path);return null;}
+  };
+  const [backdropFar,backdropMid]=HD2D.optionalBackdrop?await Promise.all([
+    optionalBitmap('assets/v3/backdrop-far.png'),optionalBitmap('assets/v3/backdrop-mid.png')
+  ]):[null,null];
+  const backdrop={far:backdropFar,mid:backdropMid};
   const atlas=new THREE.Texture(atlasBitmap);atlas.needsUpdate=true;
   atlas.minFilter=THREE.LinearFilter;atlas.magFilter=THREE.LinearFilter;
   atlas.generateMipmaps=false;atlas.colorSpace=THREE.SRGBColorSpace;
@@ -49,12 +65,15 @@ export default async function start(p0,{observe=null}={}) {
   let cameraTheta=0,cameraY=0,visualTime=0,lastUI=0,landLeft=0,facing=1;
   let lastPoseLog=-1;
   let pathDirection=1,cameraDirection=1;
-  let qualityScale=.85,slowFrames=0,steadyFrames=0,lastScreenDraw='',uiDirty=true;
+  let qualityScale=HD2D.startScale,slowFrames=0,steadyFrames=0,lastScreenDraw='',uiDirty=true;
   let touchLeft=false,touchRight=false,touchJump=false,jumpPulse=false,pausePulse=false;
   let awarded=false,round=0;
   const heldActions=new Set(),lookTarget=new THREE.Vector3();
   const inputLatch=createInputLatch(),focusPoint=new THREE.Vector3(),landingPoint=new THREE.Vector3();
   let lastPointerButtons=0,lastTickAt=performance.now();
+  // Depth-test sprite coordinates must use actual drawing-buffer pixels.
+  const dbSize=new THREE.Vector2();
+  function syncDrawingSize(){renderer.getDrawingBufferSize(dbSize);}
   const blitScene=new THREE.Scene(),blitCamera=new THREE.OrthographicCamera(-1,1,1,-1,.1,5);
   const composite=createDioramaComposite(worldTarget,camera);
   const blit=new THREE.Mesh(new THREE.PlaneGeometry(2,2),composite.material);
@@ -88,7 +107,7 @@ export default async function start(p0,{observe=null}={}) {
     let cached=courseCache.get(recipe);
     if(!cached) {
       const data=createRun(recipe);
-      cached={preview:data,environment:createEnvironment(world,data,{atlas,camera}),
+      cached={preview:data,environment:createEnvironment(world,data,{atlas,camera,backdrop}),
         collectibles:createCollectibles(world,data,{camera})};
       courseCache.set(recipe,cached);
     }
@@ -173,7 +192,7 @@ export default async function start(p0,{observe=null}={}) {
   });
   p0.hud(`${GAME_TITLE}. A/D or arrows: move. Hold Space/W/Up: jump; release between jumps. Touch: slide arrows + UP. Pad: stick + A. White ceramic slides. Biscuits reform in 1.8s; timber stays solid. Follow BEAN signs for your recipe; STAR/RETURN paths are optional. Space after a spill: quick retry. R retry / P pause / M mute. Esc leave / Enter chat. Free play.`);
   function updateWorld(dt,time) {
-    visualTime+=dt;
+    visualTime+=dt;syncDrawingSize();
     const active=model.screen==='game'&&model.run;
     const sample=active?model.run:preview;
     const attract=!active;
@@ -197,7 +216,7 @@ export default async function start(p0,{observe=null}={}) {
     landingPoint.set(Math.sin(next.angle)*5*SCALE,BASE+(next.y+.3)*SCALE,Math.cos(next.angle)*5*SCALE);
     hero.visible=Boolean(active);
     barista.update(sample,{character:model.selectedCharacter,time:visualTime,dt,camera,facing,landLeft,
-      width:p0.width,height:p0.height,light:environment.lightAt?.(sample.theta,sample.y)||0});
+      width:dbSize.x||p0.width,height:dbSize.y||p0.height,light:environment.lightAt?.(sample.theta,sample.y)||0});
     landLeft=Math.max(0,landLeft-dt);
     contactShadow.update(sample,hero.visible);
     environment.update(sample,time,dt,{theta:cameraTheta});collectibles.update(sample,time,{windowAngle:cameraTheta*.84});
@@ -252,9 +271,11 @@ export default async function start(p0,{observe=null}={}) {
     }
   }
   function renderFrame() {
-    const w=Math.max(1,Math.round(p0.width*qualityScale)),h=Math.max(1,Math.round(p0.height*qualityScale));
+    syncDrawingSize();
+    const w=Math.max(1,Math.round((dbSize.x||p0.width)*qualityScale)),h=Math.max(1,Math.round((dbSize.y||p0.height)*qualityScale));
     if(worldTarget.width!==w||worldTarget.height!==h)worldTarget.setSize(w,h);
-    composite.update(focusPoint,landingPoint);
+    composite.setLook({bloom:HD2D.bloom&&qualityScale>=.62,grade:HD2D.grade,aa:HD2D.aa});
+    composite.update(focusPoint,landingPoint,dbSize);
     renderer.autoClear=true;renderer.setRenderTarget(worldTarget);renderer.render(scene,camera);
     renderer.setRenderTarget(null);renderer.render(blitScene,blitCamera);
     renderer.autoClear=false;renderer.render(actorScene,camera);
@@ -290,10 +311,11 @@ export default async function start(p0,{observe=null}={}) {
     }
     model.noticeLeft=Math.max(0,model.noticeLeft-safe);
     updateWorld(safe,time);
-    if(dt>.065)slowFrames++;else slowFrames=Math.max(0,slowFrames-1);
-    steadyFrames=dt<.030?steadyFrames+1:0;
-    if(steadyFrames>120 && qualityScale<.90){qualityScale=Math.min(.90,qualityScale+.05);steadyFrames=0;}
-    if(slowFrames>4&&qualityScale>.5){qualityScale=Math.max(.5,qualityScale*.8);slowFrames=0;}
+    // Mobile-first adaptive world resolution: step down fast, recover conservatively.
+    if(dt>.036)slowFrames++;else slowFrames=Math.max(0,slowFrames-1);
+    steadyFrames=dt<.0215?steadyFrames+1:0;
+    if(steadyFrames>150 && qualityScale<HD2D.maxScale){qualityScale=Math.min(HD2D.maxScale,qualityScale+.05);steadyFrames=0;}
+    if(slowFrames>6&&qualityScale>HD2D.minScale){qualityScale=Math.max(HD2D.minScale,qualityScale*.86);slowFrames=0;}
     lastUI+=safe;
     if(uiDirty||lastUI>1/15||model.screen!==lastScreenDraw) {
       ui.draw(model);lastUI=0;uiDirty=false;lastScreenDraw=model.screen;
@@ -324,6 +346,7 @@ export default async function start(p0,{observe=null}={}) {
   p0.loading(.97,'ready to brew');
   if(environment.foregroundScene)await renderer.compileAsync(environment.foregroundScene,camera);
   renderFrame();
+  p0.log('HD2D: resolution',JSON.stringify({pixelRatio:renderer.getPixelRatio(),buffer:[dbSize.x,dbSize.y],css:[p0.width,p0.height],scale:qualityScale}));
   // Allow the final loading status to reach the shell before start returns.
   await new Promise(resolve=>setTimeout(resolve,150));
   p0.loading(1,'ready to brew');await new Promise(resolve=>setTimeout(resolve,0));lastTickAt=performance.now();p0.loop(tick);
@@ -333,7 +356,7 @@ export default async function start(p0,{observe=null}={}) {
     clearTouch();heldActions.clear();
     p0.sound.stopAll();
     for(const cached of courseCache.values()){cached.environment.dispose();cached.collectibles.dispose();}
-    atlas.dispose();atlasBitmap.close();
+    atlas.dispose();atlasBitmap.close();backdropFar?.close?.();backdropMid?.close?.();
     barista.dispose();contactShadow.dispose();
     worldTarget.dispose();blit.geometry.dispose();composite.dispose();ui.dispose();
   });

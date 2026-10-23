@@ -102,8 +102,8 @@ export function createBarista(assets, depthTexture) {
 export function createContactShadow(world) {
   const canvas=new OffscreenCanvas(64,64),ctx=canvas.getContext('2d');
   const gradient=ctx.createRadialGradient(32,32,2,32,32,31);
-  gradient.addColorStop(0,'rgba(35,22,12,0.7)');
-  gradient.addColorStop(.4,'rgba(35,22,12,0.36)');gradient.addColorStop(1,'rgba(35,22,12,0)');
+  gradient.addColorStop(0,'rgba(10,5,2,0.92)');
+  gradient.addColorStop(.4,'rgba(10,5,2,0.55)');gradient.addColorStop(1,'rgba(10,5,2,0)');
   ctx.fillStyle=gradient;ctx.fillRect(0,0,64,64);
   const texture=new THREE.CanvasTexture(canvas);texture.generateMipmaps=false;
   const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false,
@@ -119,6 +119,6 @@ export function createContactShadow(world) {
     if(!shadow.visible)return;
     shadow.position.set(Math.sin(run.theta)*5,floor.y+.018,Math.cos(run.theta)*5);
     shadow.scale.set(.90+gap*.17,.62+gap*.13,1);
-    material.opacity=Math.max(.08,.72-gap*.18);
+    material.opacity=Math.max(.12,.95-gap*.18);
   },dispose(){world.remove(shadow);shadow.geometry.dispose();material.dispose();texture.dispose();}};
 }

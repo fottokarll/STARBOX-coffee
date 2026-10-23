@@ -340,6 +340,15 @@ function cafeBackdropTexture(blur = 0) {
   return texture;
 }
 
+// Optional painted panorama, tileable in the same cylindrical world.
+function bitmapBackdropTexture(bitmap) {
+  const texture=new THREE.Texture(bitmap);
+  texture.colorSpace=THREE.SRGBColorSpace;
+  texture.wrapS=THREE.RepeatWrapping;texture.wrapT=THREE.RepeatWrapping;
+  texture.minFilter=THREE.LinearFilter;texture.magFilter=THREE.LinearFilter;
+  texture.generateMipmaps=false;texture.needsUpdate=true;
+  return texture;
+}
 function leafGeometry() {
   const positions = [0, 0, 0.035, -0.15, 0.22, 0, -0.11, 0.47, 0, 0, 0.66, 0, 0.14, 0.44, 0, 0.16, 0.20, 0];
   const uv = [0.5, 0, 0.02, 0.30, 0.15, 0.72, 0.5, 1, 0.88, 0.70, 0.98, 0.30];
@@ -376,17 +385,17 @@ export function createEnvironment(world, courseData, assets = {}) {
   const lanternMaterial = createCafeMaterial(atlas,{luminous:true});
   const glassMaterial = new THREE.MeshBasicMaterial({color: 0xe9e6d7, transparent: true, opacity: 0.035,
     side: THREE.BackSide, depthWrite: false});
-  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xfff1d9, transparent: true, opacity: 0.10,
+  const glintMaterial = new THREE.MeshBasicMaterial({color: 0xfff1d9, transparent: true, opacity: 0.05,
     side: THREE.DoubleSide, depthWrite: false});
   const foamMaterial = createCafeMaterial(null);
   foamMaterial.color.set(0xc99955);
   const coffeeMaterial = createCoffeeMaterial();
   const coffeeVolumeMaterial = createCoffeeMaterial({volume:true});
   const glow = glowTexture();
-  const glowMaterial = new THREE.MeshBasicMaterial({map: glow, color: 0xffae46, transparent: true,
-    opacity: 0.39, depthWrite: false, depthTest: true, side: THREE.DoubleSide});
+  const glowMaterial = new THREE.MeshBasicMaterial({map: glow, color: 0xffa23c, transparent: true,
+    opacity: 0.50, depthWrite: false, depthTest: true, side: THREE.DoubleSide, blending: THREE.AdditiveBlending});
   const steamMaterial = new THREE.MeshBasicMaterial({map: glow, color: 0xe8e0c8, transparent: true,
-    opacity: 0.065, depthWrite: false, side: THREE.DoubleSide});
+    opacity: 0.11, depthWrite: false, side: THREE.DoubleSide});
   const ghostMaterial=createCafeMaterial(atlas);ghostMaterial.transparent=true;ghostMaterial.opacity=.27;ghostMaterial.depthWrite=false;
   ghostMaterial.color.set(0xe8d8a8);
   const bubbleMaterial=createCafeMaterial(null);bubbleMaterial.color.set(0xc58c45);
@@ -700,8 +709,9 @@ export function createEnvironment(world, courseData, assets = {}) {
   addTube(staticParts,[-2.2,top+3.45,-1.1],[-2.2,top+2.83,-1.1],0.17,TILE.green);
   const streamGeometry=prepared(new THREE.CylinderGeometry(0.12,0.17,1,8),identity,TILE.coffee);
   const stream=mesh(streamGeometry,coffeeVolumeMaterial,'Continuous coffee pour');stream.position.set(-2.2,top/2,-1.1);
-  const backgroundTexture=cafeBackdropTexture(0);
-  backgroundTexture.repeat.set(4,(top+7.05)/12);
+  const customFar=assets.backdrop?.far||null,customMid=assets.backdrop?.mid||null;
+  const backgroundTexture=customFar?bitmapBackdropTexture(customFar):cafeBackdropTexture(0);
+  backgroundTexture.repeat.set(customFar?3:4,(top+7.05)/12);
   const backgroundMaterial=new THREE.MeshBasicMaterial({map:backgroundTexture,
     side:THREE.BackSide,fog:false,depthWrite:true,toneMapped:false});
   disposable.add(backgroundTexture);disposable.add(backgroundMaterial);
@@ -713,13 +723,15 @@ export function createEnvironment(world, courseData, assets = {}) {
   background.renderOrder=-30;
   // Distinct distant layers retain only a small fraction of the camera orbit.
   // Their continuous presentation angle is updated below; the counter stays fixed.
-  const middleTexture=cafeBackdropTexture(0);disposable.add(middleTexture);
-  middleTexture.repeat.set(2,(top+8)/11);
-  const middleMaterial=new THREE.MeshBasicMaterial({map:middleTexture,color:0xe6c997,
+  const middleTexture=customMid?bitmapBackdropTexture(customMid):cafeBackdropTexture(0);disposable.add(middleTexture);
+  middleTexture.repeat.set(customMid?1:2,(top+8)/(customMid?16.5:11));
+  const middleMaterial=new THREE.MeshBasicMaterial(customMid?{map:middleTexture,
+    side:THREE.BackSide,transparent:true,opacity:1,depthWrite:false,fog:false,toneMapped:false}:{map:middleTexture,color:0xe6c997,
     side:THREE.BackSide,transparent:true,opacity:.035,depthWrite:false,fog:false});disposable.add(middleMaterial);
-  const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+7.2,36,1,true,0,Math.PI*1.15);
+  const middleGeometry=new THREE.CylinderGeometry(10.5,10.5,top+7.2,customMid?64:36,1,true,0,customMid?Math.PI*2:Math.PI*1.15);
   middleGeometry.translate(0,(top+.6)/2,0);
   const middle=mesh(middleGeometry,middleMaterial,'Quiet middle-distance café parallax');
+  middle.renderOrder=-25;
   const room=new THREE.Group();room.name='Cafe service counters, windows and pendants';root.add(room);
   mesh(combine(roomParts),roomMaterial,'Batched cafe furniture',room);
   mesh(combine(roomLights),lanternMaterial,'Warm cafe windows and pendant light',room);
@@ -763,6 +775,12 @@ export function createEnvironment(world, courseData, assets = {}) {
   leafMesh.instanceMatrix.needsUpdate=true;
   const planeGeometry=new THREE.PlaneGeometry(1,1);
   const halos=instances(planeGeometry,glowMaterial,lanterns.length,'Soft lantern halos');
+  // Lightweight room-fixed motes, rendered in one instanced draw call.
+  const MOTES=110,MOTE_SPAN=44;
+  const moteMaterial=new THREE.MeshBasicMaterial({map:glow,color:0xffd697,transparent:true,opacity:.62,
+    blending:THREE.AdditiveBlending,depthWrite:false,fog:false,side:THREE.DoubleSide});disposable.add(moteMaterial);
+  const motes=instances(planeGeometry,moteMaterial,MOTES,'Warm floating dust motes');
+  const fract=v=>v-Math.floor(v);
 
   // Dense geometry is reserved for the gameplay silhouettes, not the liquid effects.
   const surfaceGeometry=liquidSurface(5.94);
@@ -840,7 +858,7 @@ export function createEnvironment(world, courseData, assets = {}) {
     if(assets.camera)billboard.copy(assets.camera.quaternion);
     for(let i=0;i<lanterns.length;i++) {
       holder.position.copy(lanterns[i]);holder.quaternion.copy(billboard);
-      holder.scale.setScalar(1.44+Math.sin(time*1.4+i)*0.06);holder.updateMatrix();halos.setMatrixAt(i,holder.matrix);
+      holder.scale.setScalar(2.3+Math.sin(time*1.4+i)*0.10);holder.updateMatrix();halos.setMatrixAt(i,holder.matrix);
     }
     halos.instanceMatrix.needsUpdate=true;
     for(let i=0;i<26;i++) {
@@ -883,6 +901,17 @@ export function createEnvironment(world, courseData, assets = {}) {
         holder.scale.set(size*.58,size*1.5,1);holder.updateMatrix();condensation.setMatrixAt(i,holder.matrix);
       }
       condensation.instanceMatrix.needsUpdate=true;
+      for(let i=0;i<MOTES;i++) {
+        const h1=fract(Math.sin(i*12.9898)*43758.5453),h2=fract(Math.sin(i*78.233)*12345.6789),h3=fract(Math.sin(i*39.425)*9871.331);
+        const baseY=h3*MOTE_SPAN,k=Math.round((viewY-baseY)/MOTE_SPAN);
+        const y=baseY+k*MOTE_SPAN+Math.sin(time*.3+i)*.4,dy=Math.abs(y-viewY);
+        const fade=Math.max(0,Math.min(1,(22-dy)/6));
+        const angle=i/MOTES*TAU+h1*.6+time*.012*(h1-.5),radius=8.5+h2*11;
+        const size=(.22+h3*.45)*fade*(.8+.2*Math.sin(time*1.3+i));
+        holder.position.set(Math.sin(angle)*radius,y,Math.cos(angle)*radius);
+        holder.quaternion.copy(billboard);holder.scale.set(size,size,1);holder.updateMatrix();motes.setMatrixAt(i,holder.matrix);
+      }
+      motes.instanceMatrix.needsUpdate=true;
     }
     const active=run?.platforms?new Map(run.platforms.map(p=>[p.id,p])):lookup;
     for(let i=0;i<biscuits.length;i++) {
