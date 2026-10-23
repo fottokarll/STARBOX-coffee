@@ -13,6 +13,29 @@ the executing environment or ignored `.env`, never in GitHub.
 
 See [2.4 release verification](verification/2.4/README.md) for tests, before/after screenshots, performance, publication and deployed checks. Earlier [2.3 release verification](verification/2.3/README.md), [overhaul verification](verification/overhaul/README.md), [2.2 verification](verification/2.2/README.md), [2.1 polish](verification/polish/README.md) and [V2](verification/v2/README.md) evidence is retained.
 
+## 2.4.1 — tested, publication blocked
+
+The upper Espresso obstruction is fixed by keeping the camera below the real
+oak roof beams. Small-screen results have a single BREW AGAIN and modal input
+blocking; progress/order and timer stay at the top of the playable viewport.
+Milo uses the supplied higher-resolution direction, with 16 registered poses
+and a 153px body. Gameplay rules, routes, coffee speed and scoring are unchanged.
+
+The dedicated blue-clothed [private Developer Tester](tools/developer/README.md)
+supports coffee modes, unlimited exploration, flight, checkpoints, section
+restart and object inspection. Its code and assets are excluded from the
+public package; score, reward and save writes are disabled in practice.
+
+All 59 tests, full Espresso/Latte browser runs, native touch/UI checks and
+official technical validation passed. **Project 0 rejected publication** of
+submission **10192**, citing the game name and green/white star-on-cup branding
+as an imitation of Starbucks. Live lot 696 therefore remains **2.4**,
+experience **1bc707880dd2e3c0**. The preserved title/art direction was not changed
+to work around that review. See [2.4.1 evidence](verification/2.4.1/README.md),
+[asset inventory](docs/ASSET-INVENTORY.md) and
+[tested package](artifacts/starbox-coffee-2.4.1.zip).
+Rollback source: `checkpoint-2.4-before-2.4.1`.
+
 ## Release 2.4
 
 - Large raised chocolate LEFT/RIGHT keys and an up-arrow JUMP support expanded hit targets, sliding steering and independent fingers. After a spill, JUMP becomes QUICK RETRY; SPACE and R also restart. Retries have a 0.35-second ready pulse and require fresh jump/steering input. The normal first-start countdown remains three seconds.

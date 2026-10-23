@@ -8,6 +8,11 @@ submission 9637) is recoverable at checkpoint-2.3-before-2.4. Published 2.2 (exp
 submission 9459) is recoverable at checkpoint-2.2-before-overhaul. The recoverable
 2.1 tag is checkpoint-2.1-before-2.2. Read README.md and ACCESS.md first.
 
+The 2.4.1 camera/UI fixes and private developer tester are implemented and tested,
+but are **not published**: Project 0 rejected submission 10192 for IP/branding.
+See verification/2.4.1. Do not confuse this branch's source with the live 2.4
+deployment. `checkpoint-2.4-before-2.4.1` preserves that deployed source.
+
 Keep the current course length, switchbacks, permanent biscuit bypasses and
 regeneration, two recipes/baristas, rewards, atmosphere and compact HUD. Work
 incrementally. Do not redesign the exterior unless the user asks.
@@ -37,6 +42,14 @@ and blank origins keep their identities. Preserve the retry input latch, expande
 hit targets and reference counts. The SDK consumes focus loss by clearing its
 input state; observe that reset without treating one finger's release as a global
 release. See verification/2.4 for native touch, retry, focus-loss and maze checks.
+
+Camera overhead limits share the actual café roof dimensions in
+experience/camera-layout.js. Preserve clearance beneath solid beams; Espresso's
+shorter room previously let the portrait camera cross its ceiling near 97%.
+Developer Tester code/art belongs only under tools/developer and in a separate
+local staging directory. Never add its privileged controls to the public
+experience without a documented, trusted platform authorization mechanism.
+Developer sessions must never send scores, wins, rewards, saves or progression.
 
 ## Permanent AI model selection policy
 

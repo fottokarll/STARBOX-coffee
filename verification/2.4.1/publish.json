@@ -1,0 +1,22 @@
+{
+  "status": 422,
+  "response": {
+    "ok": false,
+    "status": "rejected",
+    "reasons": [
+      "The submission uses the name 'STARBOX COFFEE' and a visual design (green and white color scheme, star-in-circle logo on cups) that is a clear imitation of the Starbucks brand, violating the intellectual property rule regarding real brands."
+    ],
+    "categories": [
+      "ip"
+    ],
+    "submission": 10192,
+    "check": "https://project0.city/api/agent/submissions/10192",
+    "warnings": [],
+    "stats": {
+      "files": 46,
+      "bytes": 5374071,
+      "sourceBytes": 164785,
+      "bundleBytes": 176338
+    }
+  }
+}

@@ -1,0 +1,641 @@
+{
+  "passed": true,
+  "method": "Actual official DevKit main.js, native Chromium touch and ordinary keys. No game-state mutation.",
+  "checks": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "passed": true,
+      "hud": {
+        "x": 10,
+        "y": 61,
+        "w": 300,
+        "h": 82
+      },
+      "timer": {
+        "x": 85,
+        "y": 151,
+        "w": 150,
+        "h": 36
+      },
+      "receipt": {
+        "x": 16,
+        "y": 112,
+        "w": 288,
+        "h": 400,
+        "short": true,
+        "dense": false,
+        "restart": {
+          "x": 40,
+          "y": 457,
+          "w": 136.79999999999998,
+          "h": 38
+        },
+        "order": {
+          "x": 188.79999999999998,
+          "y": 457,
+          "w": 91.20000000000002,
+          "h": 38
+        },
+        "exit": null
+      },
+      "checks": [
+        "top-anchored HUD and timer",
+        "pause blocks underlying mute target",
+        "failure shows receipt with sole BREW AGAIN retry",
+        "former giant retry area inactive",
+        "native BREW AGAIN restarts"
+      ],
+      "failure": {
+        "recipe": "espresso",
+        "time": 5.675000000000072,
+        "success": false,
+        "perfect": false,
+        "quality": "SPILLED COFFEE",
+        "collected": {
+          "bean": 0,
+          "milk": 0
+        },
+        "required": {
+          "bean": 6,
+          "milk": 0
+        },
+        "bonusStars": 0,
+        "bonusScore": 0,
+        "progress": 0,
+        "bestHeight": 0,
+        "top": 35.38000000000001,
+        "score": 0
+      },
+      "errors": [],
+      "networkFailures": [
+        {
+          "url": "http://localhost:5500/main.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/ui.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/rules.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/barista.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/characters.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/baristas.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "passed": true,
+      "hud": {
+        "x": 10,
+        "y": 61,
+        "w": 370,
+        "h": 82
+      },
+      "timer": {
+        "x": 120,
+        "y": 151,
+        "w": 150,
+        "h": 36
+      },
+      "receipt": {
+        "x": 16,
+        "y": 167,
+        "w": 358,
+        "h": 510,
+        "short": false,
+        "dense": false,
+        "restart": {
+          "x": 40,
+          "y": 544,
+          "w": 310,
+          "h": 46
+        },
+        "order": {
+          "x": 40,
+          "y": 601,
+          "w": 187.74,
+          "h": 35
+        },
+        "exit": {
+          "x": 239.74,
+          "y": 601,
+          "w": 110.26,
+          "h": 35
+        }
+      },
+      "checks": [
+        "top-anchored HUD and timer",
+        "pause blocks underlying mute target",
+        "failure shows receipt with sole BREW AGAIN retry",
+        "former giant retry area inactive",
+        "native BREW AGAIN restarts"
+      ],
+      "failure": {
+        "recipe": "espresso",
+        "time": 5.675000000000072,
+        "success": false,
+        "perfect": false,
+        "quality": "SPILLED COFFEE",
+        "collected": {
+          "bean": 0,
+          "milk": 0
+        },
+        "required": {
+          "bean": 6,
+          "milk": 0
+        },
+        "bonusStars": 0,
+        "bonusScore": 0,
+        "progress": 0,
+        "bestHeight": 0,
+        "top": 35.38000000000001,
+        "score": 0
+      },
+      "errors": [],
+      "networkFailures": [
+        {
+          "url": "http://localhost:5500/rules.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/camera-layout.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/collision.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/baristas.webp",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 412,
+        "height": 915
+      },
+      "passed": true,
+      "hud": {
+        "x": 10,
+        "y": 61,
+        "w": 392,
+        "h": 82
+      },
+      "timer": {
+        "x": 131,
+        "y": 151,
+        "w": 150,
+        "h": 36
+      },
+      "receipt": {
+        "x": 16,
+        "y": 202.5,
+        "w": 380,
+        "h": 510,
+        "short": false,
+        "dense": false,
+        "restart": {
+          "x": 40,
+          "y": 579.5,
+          "w": 332,
+          "h": 46
+        },
+        "order": {
+          "x": 40,
+          "y": 636.5,
+          "w": 201.6,
+          "h": 35
+        },
+        "exit": {
+          "x": 253.6,
+          "y": 636.5,
+          "w": 118.4,
+          "h": 35
+        }
+      },
+      "checks": [
+        "top-anchored HUD and timer",
+        "pause blocks underlying mute target",
+        "failure shows receipt with sole BREW AGAIN retry",
+        "former giant retry area inactive",
+        "native BREW AGAIN restarts"
+      ],
+      "failure": {
+        "recipe": "espresso",
+        "time": 5.675000000000072,
+        "success": false,
+        "perfect": false,
+        "quality": "SPILLED COFFEE",
+        "collected": {
+          "bean": 0,
+          "milk": 0
+        },
+        "required": {
+          "bean": 6,
+          "milk": 0
+        },
+        "bonusStars": 0,
+        "bonusScore": 0,
+        "progress": 0,
+        "bestHeight": 0,
+        "top": 35.38000000000001,
+        "score": 0
+      },
+      "errors": [],
+      "networkFailures": [
+        {
+          "url": "http://localhost:5500/main.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/rules.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/barista.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/ui.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/collision.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/cafe-materials.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/characters.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "passed": true,
+      "hud": {
+        "x": 42,
+        "y": 56,
+        "w": 760,
+        "h": 64
+      },
+      "timer": {
+        "x": 351,
+        "y": 128,
+        "w": 142,
+        "h": 32
+      },
+      "receipt": {
+        "x": 62,
+        "y": 60,
+        "w": 720,
+        "h": 310,
+        "short": true,
+        "dense": false,
+        "restart": {
+          "x": 86,
+          "y": 315,
+          "w": 396,
+          "h": 38
+        },
+        "order": {
+          "x": 494,
+          "y": 315,
+          "w": 264,
+          "h": 38
+        },
+        "exit": null
+      },
+      "checks": [
+        "top-anchored HUD and timer",
+        "pause blocks underlying mute target",
+        "failure shows receipt with sole BREW AGAIN retry",
+        "former giant retry area inactive",
+        "native BREW AGAIN restarts"
+      ],
+      "failure": {
+        "recipe": "espresso",
+        "time": 5.675000000000072,
+        "success": false,
+        "perfect": false,
+        "quality": "SPILLED COFFEE",
+        "collected": {
+          "bean": 0,
+          "milk": 0
+        },
+        "required": {
+          "bean": 6,
+          "milk": 0
+        },
+        "bonusStars": 0,
+        "bonusScore": 0,
+        "progress": 0,
+        "bestHeight": 0,
+        "top": 35.38000000000001,
+        "score": 0
+      },
+      "errors": [],
+      "networkFailures": [
+        {
+          "url": "http://localhost:5500/rules.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/ui.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/barista.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/environment.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/ui-layout.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/collision.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/characters.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 568,
+        "height": 320
+      },
+      "passed": true,
+      "hud": {
+        "x": 10,
+        "y": 56,
+        "w": 548,
+        "h": 54
+      },
+      "timer": {
+        "x": 213,
+        "y": 118,
+        "w": 142,
+        "h": 32
+      },
+      "receipt": {
+        "x": 16,
+        "y": 60,
+        "w": 536,
+        "h": 240,
+        "short": true,
+        "dense": true,
+        "restart": {
+          "x": 40,
+          "y": 256,
+          "w": 285.59999999999997,
+          "h": 32
+        },
+        "order": {
+          "x": 337.59999999999997,
+          "y": 256,
+          "w": 190.40000000000003,
+          "h": 32
+        },
+        "exit": null
+      },
+      "checks": [
+        "top-anchored HUD and timer",
+        "pause blocks underlying mute target",
+        "failure shows receipt with sole BREW AGAIN retry",
+        "former giant retry area inactive",
+        "native BREW AGAIN restarts"
+      ],
+      "failure": {
+        "recipe": "espresso",
+        "time": 5.675000000000072,
+        "success": false,
+        "perfect": false,
+        "quality": "SPILLED COFFEE",
+        "collected": {
+          "bean": 0,
+          "milk": 0
+        },
+        "required": {
+          "bean": 6,
+          "milk": 0
+        },
+        "bonusStars": 0,
+        "bonusScore": 0,
+        "progress": 0,
+        "bestHeight": 0,
+        "top": 35.38000000000001,
+        "score": 0
+      },
+      "errors": [],
+      "networkFailures": [
+        {
+          "url": "http://localhost:5500/rules.js",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/characters.json",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/lettering.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-espresso.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/polish/milo.webp",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cafe-atlas.png",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/card-latte.jpg",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:5500/assets/v2/cover-v2.jpg",
+          "error": "net::ERR_ABORTED"
+        }
+      ]
+    }
+  ],
+  "screens": [
+    "verification/2.4.1/ui-320x568-hud-top.png",
+    "verification/2.4.1/ui-320x568-pause.png",
+    "verification/2.4.1/ui-320x568-failure-single-retry.png",
+    "verification/2.4.1/ui-320x568-brew-again-restarted.png",
+    "verification/2.4.1/ui-390x844-hud-top.png",
+    "verification/2.4.1/ui-390x844-pause.png",
+    "verification/2.4.1/ui-390x844-failure-single-retry.png",
+    "verification/2.4.1/ui-390x844-brew-again-restarted.png",
+    "verification/2.4.1/ui-412x915-hud-top.png",
+    "verification/2.4.1/ui-412x915-pause.png",
+    "verification/2.4.1/ui-412x915-failure-single-retry.png",
+    "verification/2.4.1/ui-412x915-brew-again-restarted.png",
+    "verification/2.4.1/ui-844x390-hud-top.png",
+    "verification/2.4.1/ui-844x390-pause.png",
+    "verification/2.4.1/ui-844x390-failure-single-retry.png",
+    "verification/2.4.1/ui-844x390-brew-again-restarted.png",
+    "verification/2.4.1/ui-568x320-hud-top.png",
+    "verification/2.4.1/ui-568x320-pause.png",
+    "verification/2.4.1/ui-568x320-failure-single-retry.png",
+    "verification/2.4.1/ui-568x320-brew-again-restarted.png"
+  ]
+}

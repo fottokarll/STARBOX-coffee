@@ -1,5 +1,7 @@
-STARBOX COFFEE — focused polish
+STARBOX COFFEE — sprite update 2.4.1
 
-Milo16-pose explorer sheet: original OpenAI image-generated art developed from the supplied sprite direction and the existing Milo sheet. Brown tousled hair, green hood/cloak, tan coffee-tool apron and original small gold star emblem. Source preserved unmodified at tools/art-source/milo-polish-original.png. Technical alpha-component frame extraction, nearest resizing and lossless WebP encoding only; pipeline tools/prepare_milo_polish.py. No repainted/composited artwork. Mira remains the original V2 character.
+Milo's 16-pose explorer sheet was prepared with built-in OpenAI image generation from the owner's supplied 2026-10-23 character reference. Brown tousled hair, green hood/cloak, tan coffee-tool apron, boots and coffee mug are retained. Transparent source and exact prompts are preserved at tools/art-source/2.4.1/. Technical alpha-component frame extraction, foot registration, nearest resampling and pixel-exact lossless WebP encoding use tools/prepare_characters_241.py. Native body resolution increases from 76 to 153 pixels while physical height remains 1.62 logical metres. Mira remains the original V2 character. Earlier Milo source remains recoverable in Git and tools/art-source/milo-polish-original.png.
+
+The separate blue-clothed STARBOX DEV TESTER atlas is local development tooling under tools/developer/assets/, excluded from the public experience and release ZIP.
 
 Platform geometry, depth-aware sprite shader, procedural condensation/glow/contact shadows, liquid animation and icon geometry are original code authored for this build. Existing licensed DejaVu raster lettering remains in use.

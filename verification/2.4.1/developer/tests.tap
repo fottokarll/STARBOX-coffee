@@ -1,0 +1,379 @@
+
+> starbox-coffee@2.4.1 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: the old Espresso portrait view crosses its real solid oak ceiling near the finish
+ok 1 - the old Espresso portrait view crosses its real solid oak ceiling near the finish
+  ---
+  duration_ms: 38.125379
+  type: 'test'
+  ...
+# Subtest: final views remain below the actual overhead geometry through upper jumps in every viewport and direction
+ok 2 - final views remain below the actual overhead geometry through upper jumps in every viewport and direction
+  ---
+  duration_ms: 872.253721
+  type: 'test'
+  ...
+# Subtest: lower-course framing, orbit distance and portrait look-ahead remain unchanged
+ok 3 - lower-course framing, orbit distance and portrait look-ahead remain unchanged
+  ---
+  duration_ms: 9.64087
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 240 FPS
+ok 4 - solid tops, sides and undersides at 240 FPS
+  ---
+  duration_ms: 63.792416
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 240 FPS
+ok 5 - both outer top corners stay supported without jitter or sinking at 240 FPS
+  ---
+  duration_ms: 27.426258
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 120 FPS
+ok 6 - solid tops, sides and undersides at 120 FPS
+  ---
+  duration_ms: 18.7156
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 120 FPS
+ok 7 - both outer top corners stay supported without jitter or sinking at 120 FPS
+  ---
+  duration_ms: 7.079357
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 60 FPS
+ok 8 - solid tops, sides and undersides at 60 FPS
+  ---
+  duration_ms: 10.526937
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 60 FPS
+ok 9 - both outer top corners stay supported without jitter or sinking at 60 FPS
+  ---
+  duration_ms: 11.924851
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 30 FPS
+ok 10 - solid tops, sides and undersides at 30 FPS
+  ---
+  duration_ms: 23.832323
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 30 FPS
+ok 11 - both outer top corners stay supported without jitter or sinking at 30 FPS
+  ---
+  duration_ms: 5.197031
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 15 FPS
+ok 12 - solid tops, sides and undersides at 15 FPS
+  ---
+  duration_ms: 17.412595
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 15 FPS
+ok 13 - both outer top corners stay supported without jitter or sinking at 15 FPS
+  ---
+  duration_ms: 12.663917
+  type: 'test'
+  ...
+# Subtest: solid tops, sides and undersides at 10 FPS
+ok 14 - solid tops, sides and undersides at 10 FPS
+  ---
+  duration_ms: 14.735366
+  type: 'test'
+  ...
+# Subtest: both outer top corners stay supported without jitter or sinking at 10 FPS
+ok 15 - both outer top corners stay supported without jitter or sinking at 10 FPS
+  ---
+  duration_ms: 8.853666
+  type: 'test'
+  ...
+# Subtest: glancing corners preserve tangential motion on both sides and at the angular seam
+ok 16 - glancing corners preserve tangential motion on both sides and at the angular seam
+  ---
+  duration_ms: 1.151083
+  type: 'test'
+  ...
+# Subtest: continuous collision cannot tunnel through thin slabs or across the angular seam
+ok 17 - continuous collision cannot tunnel through thin slabs or across the angular seam
+  ---
+  duration_ms: 0.650673
+  type: 'test'
+  ...
+# Subtest: every authored pad has body headroom and slabs do not intersect
+ok 18 - every authored pad has body headroom and slabs do not intersect
+  ---
+  duration_ms: 46.859365
+  type: 'test'
+  ...
+# Subtest: reforming biscuits wait until the player body clears their slab
+ok 19 - reforming biscuits wait until the player body clears their slab
+  ---
+  duration_ms: 9.934957
+  type: 'test'
+  ...
+# Subtest: solid contacts preserve coyote jumps and a press buffered before landing
+ok 20 - solid contacts preserve coyote jumps and a press buffered before landing
+  ---
+  duration_ms: 8.458696
+  type: 'test'
+  ...
+# Subtest: private SDK refuses every reward/persistence route and hides saved progression
+ok 21 - private SDK refuses every reward/persistence route and hides saved progression
+  ---
+  duration_ms: 11.230366
+  type: 'test'
+  ...
+# Subtest: authored sections include both recipes, all bypasses, bonus pockets and finish
+ok 22 - authored sections include both recipes, all bypasses, bonus pockets and finish
+  ---
+  duration_ms: 11.770697
+  type: 'test'
+  ...
+# Subtest: coffee freezes, disappears below the floor and resumes from the held level
+ok 23 - coffee freezes, disappears below the floor and resumes from the held level
+  ---
+  duration_ms: 1.219054
+  type: 'test'
+  ...
+# Subtest: staged tester cannot finish, fail, score or save; public source and package stay clean
+ok 24 - staged tester cannot finish, fail, score or save; public source and package stay clean
+  ---
+  duration_ms: 2653.762824
+  type: 'test'
+  ...
+# Subtest: a held retry key and held steering cannot carry into a fresh round
+ok 25 - a held retry key and held steering cannot carry into a fresh round
+  ---
+  duration_ms: 3.321648
+  type: 'test'
+  ...
+# Subtest: controller retry and interrupted inputs also require release before jump
+ok 26 - controller retry and interrupted inputs also require release before jump
+  ---
+  duration_ms: 0.799839
+  type: 'test'
+  ...
+# Subtest: a required bean makes the opposite-side timber choice meaningful without blocking the direct route
+ok 27 - a required bean makes the opposite-side timber choice meaningful without blocking the direct route
+  ---
+  duration_ms: 689.490886
+  type: 'test'
+  ...
+# Subtest: optional pockets have a visible reward, a permanent return and a more demanding Latte gap
+ok 28 - optional pockets have a visible reward, a permanent return and a more demanding Latte gap
+  ---
+  duration_ms: 722.991268
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 240 FPS
+ok 29 - espresso complete permanent route remains usable at 240 FPS
+  ---
+  duration_ms: 210.756856
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 120 FPS
+ok 30 - espresso complete permanent route remains usable at 120 FPS
+  ---
+  duration_ms: 168.514689
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 60 FPS
+ok 31 - espresso complete permanent route remains usable at 60 FPS
+  ---
+  duration_ms: 73.153564
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 30 FPS
+ok 32 - espresso complete permanent route remains usable at 30 FPS
+  ---
+  duration_ms: 105.783497
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 15 FPS
+ok 33 - espresso complete permanent route remains usable at 15 FPS
+  ---
+  duration_ms: 95.358659
+  type: 'test'
+  ...
+# Subtest: espresso complete permanent route remains usable at 10 FPS
+ok 34 - espresso complete permanent route remains usable at 10 FPS
+  ---
+  duration_ms: 154.175527
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 240 FPS
+ok 35 - latte complete permanent route remains usable at 240 FPS
+  ---
+  duration_ms: 88.501916
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 120 FPS
+ok 36 - latte complete permanent route remains usable at 120 FPS
+  ---
+  duration_ms: 123.732338
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 60 FPS
+ok 37 - latte complete permanent route remains usable at 60 FPS
+  ---
+  duration_ms: 167.244682
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 30 FPS
+ok 38 - latte complete permanent route remains usable at 30 FPS
+  ---
+  duration_ms: 115.856563
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 15 FPS
+ok 39 - latte complete permanent route remains usable at 15 FPS
+  ---
+  duration_ms: 114.216759
+  type: 'test'
+  ...
+# Subtest: latte complete permanent route remains usable at 10 FPS
+ok 40 - latte complete permanent route remains usable at 10 FPS
+  ---
+  duration_ms: 174.531714
+  type: 'test'
+  ...
+# Subtest: ceramic retains momentum and has a substantial stopping distance
+ok 41 - ceramic retains momentum and has a substantial stopping distance
+  ---
+  duration_ms: 36.260221
+  type: 'test'
+  ...
+# Subtest: air control stays responsive after leaving a slippery surface
+ok 42 - air control stays responsive after leaving a slippery surface
+  ---
+  duration_ms: 7.546292
+  type: 'test'
+  ...
+# Subtest: courses have distinct geometry, achievable vertical steps and longer routes
+ok 43 - courses have distinct geometry, achievable vertical steps and longer routes
+  ---
+  duration_ms: 2.065323
+  type: 'test'
+  ...
+# Subtest: every main landing and every ingredient terrace is traversed with ordinary inputs
+ok 44 - every main landing and every ingredient terrace is traversed with ordinary inputs
+  ---
+  duration_ms: 1634.848787
+  type: 'test'
+  ...
+# Subtest: independent coffee grace and speeds are exact and failure reports best progress
+ok 45 - independent coffee grace and speeds are exact and failure reports best progress
+  ---
+  duration_ms: 38.23212
+  type: 'test'
+  ...
+# Subtest: coffee allows measured recovery while Latte punishes repeated hesitation
+ok 46 - coffee allows measured recovery while Latte punishes repeated hesitation
+  ---
+  duration_ms: 829.185334
+  type: 'test'
+  ...
+# Subtest: release over another button releases the originating action, preserving jump
+ok 47 - release over another button releases the originating action, preserving jump
+  ---
+  duration_ms: 16.904156
+  type: 'test'
+  ...
+# Subtest: off-button jump release preserves steering; blank contacts cannot cancel it
+ok 48 - off-button jump release preserves steering; blank contacts cannot cancel it
+  ---
+  duration_ms: 3.302523
+  type: 'test'
+  ...
+# Subtest: crossing fingers retain their actions and duplicate contacts use reference counts
+ok 49 - crossing fingers retain their actions and duplicate contacts use reference counts
+  ---
+  duration_ms: 0.65291
+  type: 'test'
+  ...
+# Subtest: mouse release ignores release coordinates; clearing a screen releases every held action
+ok 50 - mouse release ignores release coordinates; clearing a screen releases every held action
+  ---
+  duration_ms: 6.249828
+  type: 'test'
+  ...
+# Subtest: steering contact slides both ways while a second thumb holds jump
+ok 51 - steering contact slides both ways while a second thumb holds jump
+  ---
+  duration_ms: 3.311647
+  type: 'test'
+  ...
+# Subtest: jump and blank origins keep identity when crossing steering contacts
+ok 52 - jump and blank origins keep identity when crossing steering contacts
+  ---
+  duration_ms: 5.945434
+  type: 'test'
+  ...
+# Subtest: sliding duplicate steering contacts updates counts without releasing the other contact
+ok 53 - sliding duplicate steering contacts updates counts without releasing the other contact
+  ---
+  duration_ms: 0.725058
+  type: 'test'
+  ...
+# Subtest: menu actions may synchronously clear contacts before a new round
+ok 54 - menu actions may synchronously clear contacts before a new round
+  ---
+  duration_ms: 0.607713
+  type: 'test'
+  ...
+# Subtest: personal records keep the highest climb and fastest legitimate finish per recipe
+ok 55 - personal records keep the highest climb and fastest legitimate finish per recipe
+  ---
+  duration_ms: 8.338033
+  type: 'test'
+  ...
+# espresso results 24.82 31 { bean: 6, milk: 0 } PERFECT COFFEE
+# latte results 30.18 39 { bean: 8, milk: 5 } PERFECT COFFEE
+# full route fps 240 PERFECT COFFEE 29.22
+# full route fps 120 PERFECT COFFEE 29.81
+# full route fps 60 PERFECT COFFEE 30.18
+# full route fps 30 PERFECT COFFEE 31.07
+# full route fps 15 PERFECT COFFEE 32.83
+# full route fps 10 PERFECT COFFEE 34.87
+# incomplete GREAT COFFEE { bean: 5, milk: 5 } 30.67
+# weak WEAK COFFEE { bean: 3, milk: 0 }
+# Preview rules passed: distinct courses, recipes, recovery, permanent timber routes and input fairness.
+# Subtest: tests/rules.test.mjs
+ok 9 - tests/rules.test.mjs
+  ---
+  duration_ms: 3244.505717
+  type: 'test'
+  ...
+# Subtest: primary HUD is above timer and targets stay clear of Project 0 toolbar and each other
+ok 57 - primary HUD is above timer and targets stay clear of Project 0 toolbar and each other
+  ---
+  duration_ms: 4.322611
+  type: 'test'
+  ...
+# Subtest: portrait two-thumb targets have safe edges, expanded bounds, and no overlapping actions
+ok 58 - portrait two-thumb targets have safe edges, expanded bounds, and no overlapping actions
+  ---
+  duration_ms: 4.757631
+  type: 'test'
+  ...
+# Subtest: results receipt and its sole retry fit portrait and landscape without gameplay-control reservation
+ok 59 - results receipt and its sole retry fit portrait and landscape without gameplay-control reservation
+  ---
+  duration_ms: 9.761289
+  type: 'test'
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7082.557956

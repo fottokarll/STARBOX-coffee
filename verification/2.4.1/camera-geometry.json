@@ -1,0 +1,126 @@
+[
+  {
+    "recipe": "espresso",
+    "viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        740
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        640,
+        360
+      ],
+      [
+        960,
+        640
+      ],
+      [
+        720,
+        900
+      ]
+    ],
+    "angles": 36,
+    "directions": 3,
+    "progress": [
+      0.85,
+      0.9,
+      0.95,
+      0.97,
+      0.99,
+      1
+    ],
+    "maximumPlayerY": 36.14777777777778,
+    "roofTriangles": 228,
+    "roofBounds": {
+      "min": [
+        -5.279999999999999,
+        10.219600219726562,
+        -5.279999999999999
+      ],
+      "max": [
+        5.279999999999999,
+        10.296400146484375,
+        5.279999999999999
+      ]
+    },
+    "minimumCameraClearance": 0.07680021972656093,
+    "nearPlaneCorners": 21168,
+    "viewCorridorRays": 79380,
+    "originalBlockedRaysAt97Percent": 324,
+    "correctedBlockedRays": 0
+  },
+  {
+    "recipe": "latte",
+    "viewports": [
+      [
+        390,
+        844
+      ],
+      [
+        320,
+        740
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        640,
+        360
+      ],
+      [
+        960,
+        640
+      ],
+      [
+        720,
+        900
+      ]
+    ],
+    "angles": 36,
+    "directions": 3,
+    "progress": [
+      0.85,
+      0.9,
+      0.95,
+      0.97,
+      0.99,
+      1
+    ],
+    "maximumPlayerY": 43.28777777777776,
+    "roofTriangles": 228,
+    "roofBounds": {
+      "min": [
+        -5.279999999999999,
+        11.904400329589842,
+        -5.279999999999999
+      ],
+      "max": [
+        5.279999999999999,
+        11.981200256347655,
+        5.279999999999999
+      ]
+    },
+    "minimumCameraClearance": 0.09640032958984257,
+    "nearPlaneCorners": 21168,
+    "viewCorridorRays": 79380,
+    "originalBlockedRaysAt97Percent": 0,
+    "correctedBlockedRays": 0
+  }
+]

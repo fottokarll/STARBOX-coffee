@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {headerLayout,touchLayout} from '../experience/ui-layout.js';
+import {headerLayout,touchLayout,resultsLayout,PLAYABLE_TOP} from '../experience/ui-layout.js';
 const overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
-const viewports=[[320,568],[390,844],[500,600],[640,360],[960,640],[844,390],[320,260],[2560,1440]];
+const viewports=[[320,568],[320,844],[390,844],[412,915],[360,450],[390,500],[568,320],[500,600],[640,360],[960,640],[844,390],[320,260],[2560,1440]];
 test('primary HUD is above timer and targets stay clear of Project 0 toolbar and each other',()=>{
   for(const [w,h]of viewports)for(const game of[true,false]) {
     const l=headerLayout(w,h,game),boxes=[l.hud,l.timer,l.mute,l.pause].filter(Boolean);
     for(const b of boxes){assert.ok(b.y>=54);assert.ok(b.x>=0&&b.x+b.w<=w&&b.y+b.h<=h);}
     for(const a of boxes)for(const b of boxes)if(a!==b)assert.equal(overlap(a,b),false,`${w}x${h} overlap`);
-    if(game){assert.ok(l.hud.y+l.hud.h<l.timer.y);assert.ok(l.pause.w>=38&&l.pause.h>=38);}
+    if(game){assert.ok(l.hud.y>=PLAYABLE_TOP&&l.hud.y<=PLAYABLE_TOP+7,'HUD stays at playable top');assert.equal(l.timer.y,l.hud.y+l.hud.h+8,'timer sits directly below progress');assert.ok(l.hud.y+l.hud.h<l.timer.y);assert.ok(l.pause.w>=38&&l.pause.h>=38);}
   }
 });
 test('portrait two-thumb targets have safe edges, expanded bounds, and no overlapping actions',()=>{
@@ -22,5 +22,18 @@ test('portrait two-thumb targets have safe edges, expanded bounds, and no overla
     const header=headerLayout(w,h,true);
     for(const box of [header.timer,header.mute,header.pause,header.hud])for(const hit of hits)
       assert.equal(overlap(box,hit),false,`${w}x${h} HUD clear of thumb targets`);
+  }
+});
+
+test('results receipt and its sole retry fit portrait and landscape without gameplay-control reservation',()=>{
+  for(const [w,h]of viewports) {
+    const l=resultsLayout(w,h),actions=[l.restart,l.order,l.exit].filter(Boolean);
+    assert.ok(l.y>=PLAYABLE_TOP&&l.x>=0&&l.x+l.w<=w&&l.y+l.h<=h-12,`${w}x${h} receipt fits`);
+    for(const b of actions) {
+      assert.ok(b.x>=l.x&&b.y>=l.y&&b.x+b.w<=l.x+l.w&&b.y+b.h<=l.y+l.h,`${w}x${h} action stays in receipt`);
+      assert.ok(b.h>=32,'retry remains easy to tap');
+    }
+    for(const a of actions)for(const b of actions)if(a!==b)assert.equal(overlap(a,b),false,`${w}x${h} separate receipt actions`);
+    if(l.short)assert.ok(l.y+(l.dense?61+30+12+15:94+45+16+18)<l.restart.y,'stats remain above retry');
   }
 });

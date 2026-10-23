@@ -1,0 +1,51 @@
+{
+  "release": "2.4.1",
+  "packageSHA256": "59bf3c2a9fde76ff2d8397d42731004adce1a7bdc67b9441c3295071e1023e8b",
+  "sourceAndZIPMatch": true,
+  "files": 46,
+  "privateDeveloperFilesExcluded": true,
+  "credentialPatternMatches": 0,
+  "publicGameplayAndRewards": {
+    "rules.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "8f1a47bf1342d571587dfbf11b25207dd7efc56f89286b211850c37d083bbc61"
+    },
+    "collision.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "c8164aeb824467d2301745884d95d6be80243b35fac22632fd522ee400ffa1cf"
+    },
+    "pointer-controls.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "5962649e017be55539c8170e1e3c88c03c08bf64de5df4462018e4a96b3e80f4"
+    },
+    "input-latch.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "da5950ac9994d54f253412ada1fb4b4ba5064ed686d04873de9204f9dc87a495"
+    },
+    "records.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "7866aca8072ed1761e86adb4d7d3ff3bbc691822cacfcea7b93343661f14f78d"
+    },
+    "rewards.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "1b898cfdf852b223f917c9bc82cc9aab9a3813be54fbcd1ca47ab68181ebca09"
+    },
+    "barista.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "db6a80070975078d94af83703f7ec61dc2f2c549d3217ef5570bf0be03668152"
+    },
+    "collectibles.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "42b1fa41ea7dcfe718fc939bf3c66e38d4baf81007279a17922a1a53a9a7205e"
+    },
+    "cafe-materials.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "a9a0dea3520af9c1a4133e53ebf40753b775c4416f61ee9bb02d0c19aca2a427"
+    },
+    "diorama.js": {
+      "unchangedFromPublished24": true,
+      "sha256": "b42b5965f2d35462b7b4315f84cd51696562c1bdca487de2cdf608f86fcd00f9"
+    }
+  },
+  "scoreRewardAndRecordCodeUnchanged": true
+}

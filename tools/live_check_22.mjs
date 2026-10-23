@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 
 const expected=process.argv[2];if(!expected)throw new Error('Pass the published experience version');
 const reportDirectory=process.argv[3]||'verification/2.2';
+const expectedRelease=process.argv[4]||null;
 await fs.mkdir(reportDirectory,{recursive:true});
 const proxyServer=process.env.HTTPS_PROXY||process.env.HTTP_PROXY;
 const proxy=proxyServer?{server:proxyServer,bypass:'localhost,127.0.0.1'}:undefined;
@@ -51,6 +52,7 @@ try {
   }
   assert.ok(entered,'city onboarding completed and Play clicked');
   await waitLog('Coffee Rising: screen title',0,120000);
+  const releaseLog=expectedRelease?await waitLog(`STARBOX COFFEE ${expectedRelease} ready:`):null;
   const shell=page.frames().find(f=>f.url().includes('/sandbox/shell.html?lot=696'));
   assert.ok(shell,'actual city sandbox, rather than DevKit');
   assert.equal(new URL(shell.url()).searchParams.get('v'),expected);
@@ -68,7 +70,7 @@ try {
   await page.keyboard.press('KeyP');
   await waitLog('Coffee Rising: screen pause',start);
   await page.screenshot({path:`${reportDirectory}/live-gameplay.png`});
-  report={passed:true,version:expected,sandbox:shell.url(),guest:true,jump,landing,errors,failures,logs,
+  report={passed:true,version:expected,release:expectedRelease,releaseLog,sandbox:shell.url(),guest:true,jump,landing,errors,failures,logs,
     note:'Live guest entry, title, coffee/character selection, keyboard jump/landing and pause. Full Perfect victories were separately verified in official DevKit.'};
 } catch(error) {
   await page.screenshot({path:`${reportDirectory}/live-error.png`}).catch(()=>{});

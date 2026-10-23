@@ -1,11 +1,11 @@
 {
   "image": "assets/polish/milo.webp",
   "imageSize": [
-    512,
-    512
+    1024,
+    1024
   ],
-  "gameplayAtlasSize": 512,
-  "nominalBodyHeight": 76,
+  "gameplayAtlasSize": 1024,
+  "nominalBodyHeight": 153,
   "animations": {
     "idle": {
       "frames": [
@@ -62,314 +62,313 @@
   "characters": {
     "boy": {
       "name": "Milo",
-      "description": "The original star-cup explorer",
       "frames": [
         {
           "pose": "idle0",
           "rect": [
             0,
             0,
-            128,
-            128
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            54,
-            12,
-            276,
-            322
+            83,
+            31,
+            271,
+            351
           ]
         },
         {
           "pose": "idle1",
           "rect": [
-            128,
+            256,
             0,
-            128,
-            128
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            368,
-            12,
-            589,
-            322
+            382,
+            39,
+            574,
+            351
           ]
         },
         {
           "pose": "idle2",
           "rect": [
-            256,
+            512,
             0,
-            128,
-            128
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            684,
-            12,
-            900,
-            322
+            672,
+            36,
+            867,
+            351
           ]
         },
         {
           "pose": "idle3",
           "rect": [
-            384,
+            768,
             0,
-            128,
-            128
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            1005,
-            12,
-            1218,
-            322
+            980,
+            39,
+            1169,
+            351
           ]
         },
         {
           "pose": "run0",
           "rect": [
             0,
-            128,
-            128,
-            128
+            256,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            33,
-            331,
-            301,
-            625
+            61,
+            372,
+            299,
+            659
           ]
         },
         {
           "pose": "run1",
           "rect": [
-            128,
-            128,
-            128,
-            128
+            256,
+            256,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            343,
-            330,
-            612,
-            628
+            366,
+            372,
+            604,
+            652
           ]
         },
         {
           "pose": "run2",
           "rect": [
+            512,
             256,
-            128,
-            128,
-            128
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            666,
-            340,
-            929,
-            628
+            659,
+            372,
+            897,
+            652
           ]
         },
         {
           "pose": "run3",
           "rect": [
-            384,
-            128,
-            128,
-            128
+            768,
+            256,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            973,
-            331,
-            1241,
-            621
+            959,
+            375,
+            1190,
+            649
           ]
         },
         {
           "pose": "run4",
           "rect": [
             0,
+            512,
             256,
-            128,
-            128
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            13,
-            642,
-            272,
-            933
+            50,
+            676,
+            291,
+            947
           ]
         },
         {
           "pose": "run5",
           "rect": [
-            128,
             256,
-            128,
-            128
+            512,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            342,
-            644,
-            605,
-            926
+            357,
+            680,
+            601,
+            949
           ]
         },
         {
           "pose": "jump",
           "rect": [
+            512,
+            512,
             256,
-            256,
-            128,
-            128
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            657,
-            632,
-            923,
-            939
+            677,
+            667,
+            887,
+            938
           ]
         },
         {
           "pose": "apex",
           "rect": [
-            384,
+            768,
+            512,
             256,
-            128,
-            128
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            974,
-            628,
-            1245,
-            894
+            966,
+            661,
+            1220,
+            941
           ]
         },
         {
           "pose": "fall",
           "rect": [
             0,
-            384,
-            128,
-            128
+            768,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            23,
-            934,
-            319,
-            1220
+            64,
+            956,
+            294,
+            1225
           ]
         },
         {
           "pose": "land0",
           "rect": [
-            128,
-            384,
-            128,
-            128
+            256,
+            768,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            358,
-            975,
-            632,
-            1219
+            363,
+            1001,
+            586,
+            1228
           ]
         },
         {
           "pose": "land1",
           "rect": [
+            512,
+            768,
             256,
-            384,
-            128,
-            128
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            671,
-            950,
-            903,
-            1233
+            690,
+            956,
+            859,
+            1229
           ]
         },
         {
           "pose": "victory",
           "rect": [
-            384,
-            384,
-            128,
-            128
+            768,
+            768,
+            256,
+            256
           ],
           "anchor": [
             0.5,
-            0.875
+            0.8984375
           ],
           "sourceRect": [
-            996,
-            930,
-            1234,
-            1235
+            987,
+            951,
+            1190,
+            1232
           ]
         }
       ]
     }
   },
-  "credits": "Original OpenAI-generated Milo explorer animation art; technical nearest frame extraction only. Source in tools/art-source/milo-polish-original.png."
+  "credits": "OpenAI image generation from the owner-supplied 2026-10-23 reference; technical frame registration and nearest resampling only. Source and prompts preserved outside runtime."
 }

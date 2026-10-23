@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {headerLayout, touchLayout} from './ui-layout.js';
+import {headerLayout, touchLayout, resultsLayout} from './ui-layout.js';
 import {RECIPES} from './rules.js';
 export const GAME_TITLE = 'STARBOX COFFEE';
 
@@ -463,7 +463,7 @@ export async function createUI(p0) {
     text(status,b+dangerW/2,y+(h<70?28:32),phone?22:26,danger?'#FFC29B':C.cream,'center','display',0,dangerW-18);
     meter(b+12,y+h-12,dangerW-24,grace?0:1-gap/10,alarm,5);
   }
-  function controlKey(id, box, retry=false) {
+  function controlKey(id, box) {
     const {x,y,w,h}=box,down=Boolean(pressed[id]),sink=down?5:0,radius=Math.min(24,w*.24);
     // A raised chocolate key: dark underside, warm bevel and cream inlay.
     ctx.save();ctx.shadowColor='rgba(0,0,0,.38)';ctx.shadowBlur=10;ctx.shadowOffsetY=4;
@@ -473,12 +473,7 @@ export async function createUI(p0) {
     roundRect(x,y+sink,w,h-2,radius);ctx.fillStyle=face;ctx.fill();ctx.strokeStyle=down?'#F4D3A0':'#C39669';ctx.lineWidth=down?2.5:1.5;ctx.stroke();
     roundRect(x+4,y+4+sink,w-8,h-10,radius-3);ctx.strokeStyle='rgba(255,225,181,.16)';ctx.lineWidth=1;ctx.stroke();
     ctx.save();ctx.translate(x+w/2,y+h/2+sink-2);
-    if(retry) {
-      ctx.strokeStyle=C.cream;ctx.lineWidth=3;ctx.lineCap='round';
-      ctx.beginPath();ctx.arc(0,-8,13,-.7,Math.PI*1.65);ctx.stroke();
-      ctx.beginPath();ctx.moveTo(9,-23);ctx.lineTo(8,-11);ctx.lineTo(19,-13);ctx.stroke();
-      label('QUICK RETRY',0,18,w<105?8:9,C.cream,'center',w-12);
-    } else {
+    {
       const s=Math.min(w,h)*(id==='jump'?.30:.26);
       ctx.beginPath();
       if(id==='jump') {
@@ -496,11 +491,10 @@ export async function createUI(p0) {
     }
     ctx.restore();buttons.push({id,...box.hit});
   }
-  function touchControls(model, retry=false) {
+  function touchControls(model) {
     const l=touchLayout(W,H);
-    if(!retry){controlKey('left',l.left);controlKey('right',l.right);}
-    controlKey(retry?'restart':'jump',l.jump,retry);
-    if(W>700&&!retry)label('A / D MOVE   ·   HOLD SPACE JUMP   ·   R RETRY',W/2,H-28,9,C.muted,'center');
+    controlKey('left',l.left);controlKey('right',l.right);controlKey('jump',l.jump);
+    if(W>700)label('A / D MOVE   ·   HOLD SPACE JUMP   ·   R RETRY',W/2,H-28,9,C.muted,'center');
   }
   function countdown(r) {
     const cy = Math.min(H * 0.49, H - 160);
@@ -535,28 +529,25 @@ export async function createUI(p0) {
   function resultsScreen(model) {
     const r=model.run,result=r?.result;if(!result)return;
     menuBackdrop();
-    const failed=!result.success,sideRetry=failed&&H<500&&W>H,short=H<500||(failed&&H<740),
-      w=Math.min(W-32-(sideRetry?touchLayout(W,H).jump.w+24:0),short?720:530),x=sideRetry?16:(W-w)/2;
-    const retryReserve=failed&&!sideRetry?touchLayout(W,H).jump.h+42:0;
-    const h=short?Math.min(H-82-retryReserve,400):Math.min(510,H-112-retryReserve),y=short?64:Math.max(78,(H-h-retryReserve)/2);
+    const l=resultsLayout(W,H),{x,y,w,h,short,dense}=l;
     panel(x,y,w,h,'rgba(16,48,36,.98)','rgba(200,170,115,.7)',18);
     ctx.strokeStyle='rgba(200,170,115,.18)';roundRect(x+6,y+6,w-12,h-12,13);ctx.stroke();
     const heading=result.success?(result.perfect?'Perfect Coffee':'Beautifully brewed'):'One more brew?';
-    text(heading,x+24,y+25,short?28:36,C.cream,'left','display',0,w-48);
+    text(heading,x+24,y+(dense?12:25),dense?22:short?28:36,C.cream,'left','display',0,w-48);
     const progress=Math.round(result.progress*100),taken=result.collected.bean+result.collected.milk,total=result.required.bean+result.required.milk;
-    text(result.success?'You reached the golden rim.':`Reached ${progress}% of the cup. Keep the next jump in sight.`,x+24,y+(short?61:77),short?12:14,C.muted,'left','body',0,w-48);
+    text(result.success?'You reached the golden rim.':`Reached ${progress}% of the cup. Keep the next jump in sight.`,x+24,y+(dense?41:short?61:77),dense?10:short?12:14,C.muted,'left','body',0,w-48);
     const best=model.bests?.[r.recipe];
     const rows=[['timer','TIME',formatTime(result.time)],['climb','HIGHEST CLIMB',`${progress}%  ·  ${result.bestHeight.toFixed(1)}m`],
       ['collect','COLLECTED',`${taken} / ${total}`],['best','BEST CLIMB',`${Math.round((best?.progress||result.progress)*100)}%`]];
     if(short) {
       rows.forEach(([ico,labelText,value],i)=>{
-        const cx=x+24+(i%2)*(w/2),cy=y+94+Math.floor(i/2)*45;
+        const cx=x+24+(i%2)*(w/2),cy=y+(dense?61:94)+Math.floor(i/2)*(dense?30:45);
         symbol(ico,cx+10,cy+10,18);label(labelText,cx+30,cy,8,C.gold);
-        text(value,cx+30,cy+16,18,C.cream,'left','bold',0,w/2-70);
+        text(value,cx+30,cy+(dense?12:16),dense?15:18,C.cream,'left','bold',0,w/2-70);
       });
-      const bw=(w-60)*.60;
-      button('restart','BREW AGAIN',x+24,y+h-55,bw,38,true);
-      button('order','CHANGE ORDER',x+36+bw,y+h-55,w-bw-60,38,false,{fontSize:11});
+      const retry=l.restart,order=l.order;
+      button('restart','BREW AGAIN',retry.x,retry.y,retry.w,retry.h,true);
+      button('order','CHANGE ORDER',order.x,order.y,order.w,order.h,false,{fontSize:11});
     } else {
       meter(x+24,y+106,w-48,result.progress,C.gold,4);
       rows.forEach(([ico,labelText,value],i)=>{
@@ -566,12 +557,12 @@ export async function createUI(p0) {
         if(i===2 && h>=470)text(`${result.collected.bean}/${result.required.bean} beans${result.required.milk?' · '+result.collected.milk+'/'+result.required.milk+' milk':''}`,x+59,cy+24,10,C.muted,'left','body',0,w*.53);
         if(i<3)line(x+24,cy+33,x+w-24,cy+33,'rgba(200,170,115,.15)');
       });
-      const by=y+h-133;
+      const by=l.restart.y;
       if(result.success)text(`SCORE  ${result.score.toLocaleString('en-US')}`,x+w/2,by-30,12,C.gold,'center','mono');
       else if(best?.time)text(`Best finish  ${formatTime(best.time)}`,x+w/2,by-30,12,C.gold,'center','mono');
-      button('restart','BREW AGAIN',x+24,by,w-48,46,true);
-      button('order','CHANGE ORDER',x+24,by+57,(w-60)*.63,35,false,{fontSize:11});
-      button('exit','LEAVE CAFE',x+36+(w-60)*.63,by+57,(w-60)*.37,35,false,{fontSize:10});
+      button('restart','BREW AGAIN',l.restart.x,l.restart.y,l.restart.w,l.restart.h,true);
+      button('order','CHANGE ORDER',l.order.x,l.order.y,l.order.w,l.order.h,false,{fontSize:11});
+      button('exit','LEAVE CAFE',l.exit.x,l.exit.y,l.exit.w,l.exit.h,false,{fontSize:10});
       if(W>930 && result.perfect)rewardCard(x+w+18,y+130,130,182,r.recipe);
     }
   }
@@ -591,7 +582,7 @@ export async function createUI(p0) {
     const r = model.run;
     if (model.screen === 'game' && r) {
       if (r.state === 'results') {
-        resultsScreen(model); header(model, false); if(!r.result?.success)touchControls(model,true); texture.needsUpdate = true; return;
+        resultsScreen(model); header(model, false); texture.needsUpdate = true; return;
       }
       header(model, true); hud(model);
       if (r.state === 'countdown') countdown(r);
@@ -605,7 +596,11 @@ export async function createUI(p0) {
           text(model.notice, W / 2, ny + 9, 12, C.gold, 'center', 'bold', 0, nw - 20);
         }
       }
-      if (r.state === 'paused') pauseScreen();
+      if (r.state === 'paused') {
+        // The dimmed HUD remains visible, but only modal buttons receive taps.
+        buttons = [];
+        pauseScreen();
+      }
     } else {
       menuBackdrop();
       if (model.screen === 'order') orderScreen(model);

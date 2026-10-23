@@ -1,0 +1,374 @@
+{
+  "image": "assets/polish/milo.webp",
+  "imageSize": [
+    1024,
+    1024
+  ],
+  "gameplayAtlasSize": 1024,
+  "nominalBodyHeight": 145,
+  "animations": {
+    "idle": {
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fps": 2
+    },
+    "run": {
+      "frames": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fps": 12
+    },
+    "jump": {
+      "frames": [
+        10
+      ],
+      "fps": 1
+    },
+    "apex": {
+      "frames": [
+        11
+      ],
+      "fps": 1
+    },
+    "fall": {
+      "frames": [
+        12
+      ],
+      "fps": 1
+    },
+    "land": {
+      "frames": [
+        13,
+        14
+      ],
+      "fps": 11
+    },
+    "victory": {
+      "frames": [
+        15
+      ],
+      "fps": 1
+    }
+  },
+  "characters": {
+    "boy": {
+      "name": "STARBOX DEV TESTER",
+      "frames": [
+        {
+          "pose": "idle0",
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            89,
+            40,
+            247,
+            339
+          ]
+        },
+        {
+          "pose": "idle1",
+          "rect": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            391,
+            42,
+            550,
+            339
+          ]
+        },
+        {
+          "pose": "idle2",
+          "rect": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            690,
+            42,
+            857,
+            339
+          ]
+        },
+        {
+          "pose": "idle3",
+          "rect": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            1005,
+            43,
+            1174,
+            339
+          ]
+        },
+        {
+          "pose": "run0",
+          "rect": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            71,
+            370,
+            262,
+            645
+          ]
+        },
+        {
+          "pose": "run1",
+          "rect": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            363,
+            372,
+            555,
+            644
+          ]
+        },
+        {
+          "pose": "run2",
+          "rect": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            672,
+            371,
+            855,
+            644
+          ]
+        },
+        {
+          "pose": "run3",
+          "rect": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            988,
+            373,
+            1168,
+            645
+          ]
+        },
+        {
+          "pose": "run4",
+          "rect": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            61,
+            689,
+            283,
+            944
+          ]
+        },
+        {
+          "pose": "run5",
+          "rect": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            320,
+            697,
+            560,
+            941
+          ]
+        },
+        {
+          "pose": "jump",
+          "rect": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            669,
+            666,
+            872,
+            941
+          ]
+        },
+        {
+          "pose": "apex",
+          "rect": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            964,
+            676,
+            1199,
+            938
+          ]
+        },
+        {
+          "pose": "fall",
+          "rect": [
+            0,
+            768,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            55,
+            986,
+            334,
+            1208
+          ]
+        },
+        {
+          "pose": "land0",
+          "rect": [
+            256,
+            768,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            380,
+            1019,
+            588,
+            1235
+          ]
+        },
+        {
+          "pose": "land1",
+          "rect": [
+            512,
+            768,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            705,
+            960,
+            858,
+            1236
+          ]
+        },
+        {
+          "pose": "victory",
+          "rect": [
+            768,
+            768,
+            256,
+            256
+          ],
+          "anchor": [
+            0.5,
+            0.8984375
+          ],
+          "sourceRect": [
+            980,
+            962,
+            1189,
+            1235
+          ]
+        }
+      ]
+    }
+  },
+  "credits": "OpenAI image generation from the owner-supplied 2026-10-23 reference; technical frame registration and nearest resampling only. Source and prompts preserved outside runtime."
+}

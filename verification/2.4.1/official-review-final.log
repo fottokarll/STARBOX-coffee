@@ -1,0 +1,91 @@
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[devkit] started "STARBOX COFFEE" in 3.7 s (25 files, 2.7 MB); 1 player; first frame 14 ms; 10 fps
+[lot 0 experience] Coffee Rising: course {"recipe":"latte","top":42.399999999999984,"platforms":47,"scale":0.24,"base":0.85,"finish":39,"switchbacks":5}
+[lot 0 experience] Coffee Rising: screen title
+[lot 0 experience] Coffee Rising: screen order
+[devkit] started "STARBOX COFFEE" in 2.4 s (25 files, 2.7 MB); 1 player; first frame 9 ms; 12 fps
+[lot 0 experience] Coffee Rising: screen character
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte boy 1
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":true,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.4000000000000004,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7749999999999997,"theta":-0.005902777777777778,"y":1.7809722222222195,"vTheta":-0.2833333333333333,"vY":0.7666666666666581,"grounded":false,"onPlatform":-1,"move":-1,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":0,"elapsed":1.2416666666666647,"theta":-0.521354166666667,"y":0,"vTheta":-0.050000000000000364,"vY":0}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.5333333333333303,"theta":-0.521354166666667,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":2.1583333333333283,"theta":-0.521354166666667,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.2999999999999945,"theta":-0.521354166666667,"y":1.0162499999999992,"vTheta":0,"vY":5.499999999999993,"grounded":false,"onPlatform":-1,"move":0,"jump":true,"coffeeY":-2.360000000000007}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.058333333333325,"theta":-1.0446875000000009,"y":-0.5431944444444525,"vTheta":0.2916666666666661,"vY":-9.083333333333352,"grounded":false,"onPlatform":-1,"move":1,"jump":false,"coffeeY":-1.3893333333333437}
+[lot 0 experience] Coffee Rising: result {"recipe":"latte","time":3.133333333333325,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":8,"milk":5},"bonusStars":0,"bonusScore":0,"progress":0.04213836477987416,"bestHeight":1.786666666666664,"top":42.399999999999984,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte boy 2
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.366666666666667,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7749999999999997,"theta":-0.021249999999999995,"y":1.7840277777777749,"vTheta":-0.5666666666666665,"vY":-0.2333333333333419,"grounded":false,"onPlatform":-1,"move":-1,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":0,"elapsed":1.2083333333333315,"theta":-0.4955208333333334,"y":0,"vTheta":0,"vY":0}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.5416666666666636,"theta":-0.4955208333333334,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":2.116666666666662,"theta":-0.4955208333333334,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.2999999999999945,"theta":-0.4955208333333334,"y":1.2266666666666655,"vTheta":0,"vY":4.749999999999991,"grounded":false,"onPlatform":-1,"move":0,"jump":true,"coffeeY":-2.360000000000007}
+[lot 0 experience] Coffee Rising: pose {"elapsed":3.0666666666666584,"theta":-1.0290625000000007,"y":-1.0236111111111201,"vTheta":0.5749999999999993,"vY":-9.983333333333354,"grounded":false,"onPlatform":-1,"move":1,"jump":false,"coffeeY":-1.3786666666666771}
+[lot 0 experience] Coffee Rising: result {"recipe":"latte","time":3.0916666666666583,"success":false,"perfect":false,"quality":"SPILLED COFFEE","collected":{"bean":0,"milk":0},"required":{"bean":8,"milk":5},"bonusStars":0,"bonusScore":0,"progress":0.04213836477987416,"bestHeight":1.786666666666664,"top":42.399999999999984,"score":0}
+[lot 0 experience] Coffee Rising: screen game
+[lot 0 experience] Coffee Rising: round started latte boy 3
+[lot 0 experience] Coffee Rising: screen countdown
+[lot 0 experience] Coffee Rising: GO
+[lot 0 experience] Coffee Rising: pose {"elapsed":0,"theta":0,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: jump {"type":"jump","elapsed":0.33333333333333354,"theta":0,"y":0,"vTheta":0,"vY":8.2}
+[lot 0 experience] Coffee Rising: pose {"elapsed":0.7583333333333331,"theta":-0.032465277777777767,"y":1.776388888888886,"vTheta":-0.7083333333333331,"vY":-0.5333333333333419,"grounded":false,"onPlatform":-1,"move":-1,"jump":false,"coffeeY":-3}
+[lot 0 experience] Coffee Rising: land {"type":"land","platform":0,"elapsed":1.1749999999999983,"theta":-0.521354166666667,"y":0,"vTheta":-0.050000000000000364,"vY":0}
+[lot 0 experience] Coffee Rising: pose {"elapsed":1.524999999999997,"theta":-0.521354166666667,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-3}
+[devkit] review run: ran 14 s at 57.9 fps (worst frame 47 ms, first 9 ms)
+[lot 0 experience] Coffee Rising: pose {"elapsed":2.291666666666661,"theta":-0.521354166666667,"y":0,"vTheta":0,"vY":0,"grounded":true,"onPlatform":0,"move":0,"jump":false,"coffeeY":-2.370666666666674}
+{
+  "reportPath": "verification/2.4.1/official-review-final-review.json",
+  "status": "started",
+  "summary": {
+    "started": true,
+    "crash": null,
+    "seconds": 16.8,
+    "frames": 813,
+    "fps": 57.9,
+    "firstFrame": 8.5,
+    "worstFrame": 47,
+    "slowFrames": 0,
+    "errors": [],
+    "logs": [
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: course {\"recipe\":\"latte\",\"top\":42.399999999999984,\"platforms\":47,\"scale\":0.24,\"base\":0.85,\"finish\":39,\"switchbacks\":5}",
+      "STARBOX COFFEE 2.4.1 ready: Milo + Mira / recovering biscuits / safe routes / free entry",
+      "Coffee Rising: screen title",
+      "Coffee Rising: screen order",
+      "Coffee Rising: screen character",
+      "Coffee Rising: screen game",
+      "Coffee Rising: round started latte boy 1",
+      "Coffee Rising: screen countdown",
+      "Coffee Rising: GO",
+      "Coffee Rising: pose {\"elapsed\":0,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":true,\"coffeeY\":-3}",
+      "Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":0.4000000000000004,\"theta\":0,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+      "Coffee Rising: pose {\"elapsed\":0.7749999999999997,\"theta\":-0.005902777777777778,\"y\":1.7809722222222195,\"vTheta\":-0.2833333333333333,\"vY\":0.7666666666666581,\"grounded\":false,\"onPlatform\":-1,\"move\":-1,\"jump\":false,\"coffeeY\":-3}",
+      "Coffee Rising: land {\"type\":\"land\",\"platform\":0,\"elapsed\":1.2416666666666647,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":-0.050000000000000364,\"vY\":0}",
+      "Coffee Rising: pose {\"elapsed\":1.5333333333333303,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":0,\"grounded\":true,\"onPlatform\":0,\"move\":0,\"jump\":false,\"coffeeY\":-3}",
+      "Coffee Rising: jump {\"type\":\"jump\",\"elapsed\":2.1583333333333283,\"theta\":-0.521354166666667,\"y\":0,\"vTheta\":0,\"vY\":8.2}",
+      "Coffee Rising: pose {\"elapsed\":2.2999999999999945,\"theta\":-0.521354166666667,\"y\":1.0162499999999992,\"vTheta\":0,\"vY\":5.499999999999993,\"grounded\":false,\"onPlatform\":-1,\"move\":0,\"jump\":true,\"coffeeY\":-2.360000000000007}",
+      "Coffee Rising: pose {\"elapsed\":3.058333333333325,\"theta\":-1.0446875000000009,\"y\":-0.5431944444444525,\"vTheta\":0.2916666666666661,\"vY\":-9.083333333333352,\"grounded\":false,\"onPlatform\":-1,\"move\":1,\"jump\":false,\"coffeeY\":-1.3893333333333437}"
+    ],
+    "violations": [],
+    "hud": [
+      "STARBOX COFFEE. A/D or arrows: move. Hold Space/W/Up: jump; release between jumps. Touch: slide arrows + UP. Pad: stick + A. White ceramic slides. Biscuits reform in 1.8s; timber stays solid. Follow BEAN signs for your recipe; STAR/RETURN paths are optional. Space after a spill: quick retry. R retry / P pause / M mute. Esc leave / Enter chat. Free play."
+    ],
+    "sent": {
+      "messages": 0,
+      "sets": 0,
+      "inputs": 0
+    }
+  }
+}

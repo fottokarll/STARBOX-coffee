@@ -1,0 +1,73 @@
+{
+  "confirmedLiveRelease": "2.4",
+  "version": "1bc707880dd2e3c0",
+  "sourceMatchesRollbackCheckpoint": true,
+  "checks": [
+    {
+      "path": "experience.json",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "barista.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "cafe-materials.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "collectibles.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "collision.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "diorama.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "environment.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "input-latch.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "main.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "pointer-controls.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "preview.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "records.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "rewards.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "rules.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "ui-layout.js",
+      "matchesPublished24Checkpoint": true
+    },
+    {
+      "path": "ui.js",
+      "matchesPublished24Checkpoint": true
+    }
+  ],
+  "rejectedCandidate": "2.4.1",
+  "rejectedSubmission": 10192
+}

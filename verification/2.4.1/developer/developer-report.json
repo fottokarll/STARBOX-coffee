@@ -1,0 +1,365 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "local tester boots with frozen coffee, private state and zero attempted side effects",
+      "passed": true,
+      "initial": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 0.842,
+        "theta": 0,
+        "y": 0,
+        "climbPercent": 0,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 0,
+        "coffeeMode": "frozen",
+        "coffeeY": -3,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 0,
+        "checkpoint": 0,
+        "flight": false,
+        "blocked": [],
+        "serial": 3
+      }
+    },
+    {
+      "name": "keyboard coffee disable, resume and freeze",
+      "passed": true,
+      "rising": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 1.5,
+        "theta": 0,
+        "y": 0,
+        "climbPercent": 0,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 0,
+        "coffeeMode": "rising",
+        "coffeeY": -2.968,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 0,
+        "checkpoint": 0,
+        "flight": false,
+        "blocked": [],
+        "serial": 6
+      },
+      "risen": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 2.883,
+        "theta": 0,
+        "y": 0,
+        "climbPercent": 0,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 0,
+        "coffeeMode": "rising",
+        "coffeeY": -1.197,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 0,
+        "checkpoint": 0,
+        "flight": false,
+        "blocked": [],
+        "serial": 8
+      },
+      "frozen": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 2.983,
+        "theta": 0,
+        "y": 0,
+        "climbPercent": 0,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 0,
+        "coffeeMode": "frozen",
+        "coffeeY": -1.155,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 0,
+        "checkpoint": 0,
+        "flight": false,
+        "blocked": [],
+        "serial": 9
+      }
+    },
+    {
+      "name": "checkpoint navigation, unrestricted flight and section restart",
+      "passed": true,
+      "section": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 4.075,
+        "theta": 4.32,
+        "y": 5.68,
+        "climbPercent": 13.396,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 5,
+        "coffeeMode": "frozen",
+        "coffeeY": -1.155,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 1,
+        "checkpoint": 5,
+        "flight": false,
+        "blocked": [],
+        "serial": 14
+      },
+      "flown": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 5.167,
+        "theta": 4.32,
+        "y": 11.732,
+        "climbPercent": 27.67,
+        "velocity": [
+          0,
+          6
+        ],
+        "platform": -1,
+        "coffeeMode": "frozen",
+        "coffeeY": -1.155,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 1,
+        "checkpoint": 5,
+        "flight": true,
+        "blocked": [],
+        "serial": 16
+      },
+      "restarted": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 5.346,
+        "theta": 4.32,
+        "y": 5.68,
+        "climbPercent": 13.396,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 5,
+        "coffeeMode": "frozen",
+        "coffeeY": -1.155,
+        "beans": [
+          0,
+          8
+        ],
+        "milk": [
+          0,
+          5
+        ],
+        "stars": 1,
+        "checkpoint": 5,
+        "flight": false,
+        "blocked": [],
+        "serial": 17
+      }
+    },
+    {
+      "name": "espresso finish remains unlimited and unrewarded",
+      "passed": true,
+      "state": {
+        "private": true,
+        "recipe": "espresso",
+        "state": "play",
+        "elapsed": 1.708,
+        "theta": -2.84,
+        "y": 35.38,
+        "climbPercent": 100,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 31,
+        "coffeeMode": "frozen",
+        "coffeeY": -3,
+        "beans": [
+          2,
+          6
+        ],
+        "milk": [
+          0,
+          0
+        ],
+        "stars": 3,
+        "checkpoint": 31,
+        "flight": false,
+        "blocked": [],
+        "serial": 35
+      }
+    },
+    {
+      "name": "latte finish remains unlimited and unrewarded",
+      "passed": true,
+      "state": {
+        "private": true,
+        "recipe": "latte",
+        "state": "play",
+        "elapsed": 2.175,
+        "theta": -5.68,
+        "y": 42.4,
+        "climbPercent": 100,
+        "velocity": [
+          0,
+          0
+        ],
+        "platform": 39,
+        "coffeeMode": "frozen",
+        "coffeeY": -3,
+        "beans": [
+          1,
+          8
+        ],
+        "milk": [
+          1,
+          5
+        ],
+        "stars": 5,
+        "checkpoint": 39,
+        "flight": false,
+        "blocked": [],
+        "serial": 57
+      }
+    },
+    {
+      "name": "native trusted touch operates private coffee control through official SDK",
+      "passed": true,
+      "audit": [
+        {
+          "trusted": true,
+          "x": 100,
+          "y": 258
+        }
+      ]
+    }
+  ],
+  "screens": [
+    "verification/2.4.1/developer/developer-phone-private-tester.png",
+    "verification/2.4.1/developer/developer-phone-espresso-finish-unlimited.png",
+    "verification/2.4.1/developer/developer-phone-latte-finish-unlimited.png",
+    "verification/2.4.1/developer/developer-phone-panel-hidden-private-ribbon.png"
+  ],
+  "status": "started",
+  "errors": [],
+  "networkFailures": [
+    {
+      "url": "http://localhost:5502/developer-rules.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/collectibles.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/collision.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/rules.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/lettering.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/characters.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/polish/milo.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/lettering.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/card-espresso.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/baristas.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/card-latte.jpg",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/polish/milo.webp",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/cafe-atlas.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://localhost:5502/assets/v2/cover-v2.jpg",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "summary": "started \"STARBOX COFFEE\" in 4.0 s (29 files, 2.7 MB); 1 player; first frame 10 ms; 40 fps",
+  "limitation": "Private checkpoint/flight verification is not an ordinary gameplay playthrough. No public owner gating was added because the SDK has no documented trusted owner check."
+}

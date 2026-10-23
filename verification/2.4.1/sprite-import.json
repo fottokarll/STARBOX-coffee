@@ -1,0 +1,30 @@
+[
+  {
+    "asset": "experience/assets/polish/milo.webp",
+    "frames": 16,
+    "atlas": [
+      1024,
+      1024
+    ],
+    "nominalBodyHeight": 153,
+    "previousMiloBodyPixels": 76,
+    "minimumTransparentPadding": 26,
+    "losslessRoundTrip": true,
+    "registeredFeet": true,
+    "sha256": "3288eacf53ab3aecf966a8173d02b84a20b761c8af8290c9331f32e5e5b57e1a"
+  },
+  {
+    "asset": "tools/developer/assets/milo.webp",
+    "frames": 16,
+    "atlas": [
+      1024,
+      1024
+    ],
+    "nominalBodyHeight": 145,
+    "previousMiloBodyPixels": null,
+    "minimumTransparentPadding": 26,
+    "losslessRoundTrip": true,
+    "registeredFeet": true,
+    "sha256": "d84e4aadb528fd9d463be435cef6666ca45110507513be63835bf0ab18cfafe5"
+  }
+]

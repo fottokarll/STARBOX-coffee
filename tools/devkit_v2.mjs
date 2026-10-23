@@ -89,6 +89,7 @@ export async function openRuntime(options={}) {
   });
   const context=await browser.newContext({
     permissions:['local-network-access'],viewport:{width:1440,height:1120},
+    ...(options.recordVideoDirectory?{recordVideo:{dir:options.recordVideoDirectory,size:{width:1440,height:1120}}}:{}),
   });
   // API transport verifies TLS using the managed Node CA and session proxy.
   // This avoids changing the user's Chromium NSS database outside the workspace.
@@ -144,7 +145,7 @@ export async function openRuntime(options={}) {
       // phone=1 unconditionally adds the devkit's own city stick even when the
       // manifest says stick:false. An explicit phone-sized viewport plus native
       // CDP touch tests the game's intended touch controls without that overlay.
-      players:'1',slow:'1',size:view==='phone'?'390x844':view==='desktop'?'960x640':'640x360',
+      players:'1',slow:'1',size:options.size||(view==='phone'?'390x844':view==='desktop'?'960x640':'640x360'),
     }).toString();
     await page.goto(url.href,{waitUntil:'domcontentloaded',timeout:60000});
     await page.waitForFunction(()=>Boolean(window.devkit),{timeout:30000});

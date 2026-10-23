@@ -9,8 +9,10 @@ import {CARD_IDS} from './rewards.js';
 import {createPointerControls} from './pointer-controls.js';
 import {createInputLatch} from './input-latch.js';
 import {createDioramaComposite} from './diorama.js';
+import {cameraFrame} from './camera-layout.js';
 
 const SCALE=.24,BASE=.85;
+export const RELEASE_VERSION='2.4.1';
 
 export default async function start(p0,{observe=null}={}) {
   p0.loading(.03,'opening the lantern cafe');
@@ -181,16 +183,13 @@ export default async function start(p0,{observe=null}={}) {
     cameraTheta+=(theta-cameraTheta)*(1-Math.exp(-dt*8));
     cameraY+=(y-cameraY)*(1-Math.exp(-dt*11));
     if(attract&&dt===0){cameraTheta=theta;cameraY=y;}
-    const phone=p0.width/p0.height<.8;
-    const fov=phone?70:54;
-    if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix();}
-    const radius=attract?17:phone?18.6:13.5;
-    const cameraHeight=Math.min((12-BASE)/SCALE-.8,attract?cameraY+7.1:Math.max(3.25,cameraY+(phone?5.8:4.6)));
-    camera.position.set(Math.sin(cameraTheta)*radius*SCALE,BASE+cameraHeight*SCALE,Math.cos(cameraTheta)*radius*SCALE);
     if(active&&sample.onPlatform>=0)pathDirection=sample.platforms[sample.onPlatform].direction||1;
     cameraDirection+=(pathDirection-cameraDirection)*(1-Math.exp(-dt*6));
-    const lookAngle=cameraTheta+cameraDirection*(phone?.23:.07);
-    lookTarget.set(Math.sin(lookAngle)*2.65*SCALE,BASE+(cameraY+1.22)*SCALE,Math.cos(lookAngle)*2.65*SCALE);
+    const frame=cameraFrame({top:sample.top,theta:cameraTheta,y:cameraY,direction:cameraDirection,
+      attract,width:p0.width,height:p0.height});
+    if(camera.fov!==frame.fov){camera.fov=frame.fov;camera.updateProjectionMatrix();}
+    camera.position.set(frame.position.x*SCALE,BASE+frame.position.y*SCALE,frame.position.z*SCALE);
+    lookTarget.set(frame.target.x*SCALE,BASE+frame.target.y*SCALE,frame.target.z*SCALE);
     camera.lookAt(lookTarget);
     focusPoint.set(Math.sin(theta)*5*SCALE,BASE+(y+.8)*SCALE,Math.cos(theta)*5*SCALE);
     const path=sample.perfectPath,index=path.indexOf(sample.onPlatform);
@@ -328,7 +327,7 @@ export default async function start(p0,{observe=null}={}) {
   // Allow the final loading status to reach the shell before start returns.
   await new Promise(resolve=>setTimeout(resolve,150));
   p0.loading(1,'ready to brew');await new Promise(resolve=>setTimeout(resolve,0));lastTickAt=performance.now();p0.loop(tick);
-  p0.log(`${GAME_TITLE} ready: Milo + Mira / recovering biscuits / safe routes / free entry`);
+  p0.log(`${GAME_TITLE} ${RELEASE_VERSION} ready: Milo + Mira / recovering biscuits / safe routes / free entry`);
   p0.log('Coffee Rising: screen title');
   p0.on('end',()=>{
     clearTouch();heldActions.clear();

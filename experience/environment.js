@@ -2,6 +2,7 @@ import {platformThickness} from './collision.js';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import {createCafeMaterial,createCoffeeMaterial} from './cafe-materials.js';
+import {CAFE_ROOF} from './camera-layout.js';
 
 // All surfaces and furniture are original, deliberately small café geometry.
 // Gameplay colliders remain in rules.js; every landing surface uses those angles.
@@ -499,10 +500,10 @@ export function createEnvironment(world, courseData, assets = {}) {
   }
   // An oak ceiling and quiet beams close the room above the finish; the upper
   // camera sees cafe architecture rather than an empty band beyond the windows.
-  addCylinder(roomParts,0,top+3.94,0,22,22,.08,TILE.wood,0x96734b,48);
-  roomParts.push(prepared(new THREE.CylinderGeometry(21.8,21.8,.75,48,1,true),
-    transform(0,top+3.53,0),TILE.green,0x84947b));
-  for(const z of [-12,0,12])addBox(roomParts,0,top+3.78,z,36,.24,.35,TILE.wood,0x745535);
+  addCylinder(roomParts,0,top+CAFE_ROOF.ceilingY,0,22,22,CAFE_ROOF.ceilingThickness,TILE.wood,0x96734b,48);
+  roomParts.push(prepared(new THREE.CylinderGeometry(21.8,21.8,CAFE_ROOF.corniceHeight,48,1,true),
+    transform(0,top+CAFE_ROOF.corniceY,0),TILE.green,0x84947b));
+  for(const z of [-12,0,12])addBox(roomParts,0,top+CAFE_ROOF.beamY,z,36,CAFE_ROOF.beamThickness,.35,TILE.wood,0x745535);
   // Long warm pendants and tapered shades; no realtime light/shadow pass is needed.
   for(let i=0;i<6;i++) {
     const a=i*TAU/6+.35,r=19,x=Math.sin(a)*r,z=Math.cos(a)*r;
